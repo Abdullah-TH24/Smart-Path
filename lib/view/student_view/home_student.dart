@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/controller/localization/localization_controller.dart';
+import 'package:smartpath/main.dart';
 
 // ignore: must_be_immutable
 class HomeStudent extends StatelessWidget {
@@ -16,6 +17,8 @@ class HomeStudent extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
+                prefs!.remove('introduction_state');
+                prefs!.remove('login_state');
                 locale.changeLanguage('ar');
               },
               child: const Text('Arabic'),
