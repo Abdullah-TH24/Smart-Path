@@ -38,9 +38,8 @@ class SplashScreen extends StatelessWidget {
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 125),
-                  child: const SpinKitWave(
+                  child: const SpinKitFadingGrid(
                     color: Colors.indigo, // TODO color
-                    itemCount: 5,
                     size: 30,
                   ),
                 ),

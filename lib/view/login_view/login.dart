@@ -72,6 +72,7 @@ class Login extends StatelessWidget {
             Form(
               key: login,
               child: ListView(
+                physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 children: [
                   Text(
@@ -122,7 +123,7 @@ class Login extends StatelessWidget {
             ),
             // Sign In button
             Padding(
-              padding: const EdgeInsets.only(top: 75),
+              padding: const EdgeInsets.only(top: 50),
               child: ButtonComponent(
                 onPressed: () {
                   prefs!.setString('login_state', 'true');
