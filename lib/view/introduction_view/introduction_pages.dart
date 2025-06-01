@@ -39,7 +39,7 @@ class IntroductionPages extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: AppStyles.styleBold22(
                     context,
-                    color: const Color(0xff303030),
+                    color: const Color(0xff303030), // TODO color
                   ),
                 ),
                 Text(
@@ -47,7 +47,7 @@ class IntroductionPages extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: AppStyles.styleRegular16(
                     context,
-                    color: const Color(0xff9E95A2),
+                    color: const Color(0xff9E95A2), // TODO color
                   ),
                 ),
               ],
@@ -72,6 +72,7 @@ class IntroductionPages extends StatelessWidget {
                         locale.initailLang == Get.deviceLocale
                     ? LucideIcons.chevronLeft
                     : LucideIcons.chevronRight,
+                color: Colors.indigo, // TODO color
               ),
             ),
             SmoothPageIndicator(
@@ -102,6 +103,7 @@ class IntroductionPages extends StatelessWidget {
                         locale.initailLang == Get.deviceLocale
                     ? LucideIcons.chevronRight
                     : LucideIcons.chevronLeft,
+                color: Colors.indigo, // TODO color
               ),
             ),
           ],

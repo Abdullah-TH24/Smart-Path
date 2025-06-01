@@ -1,11 +1,10 @@
 import 'package:get/get.dart';
-import 'package:smartpath/core/utils/general_utils/app_texts.dart';
 
 class ArabicEnglishLocal implements Translations {
   @override
   Map<String, Map<String, String>> get keys => {
     "en": {
-      'app_name': AppTexts.appNameEn,
+      'app_name': "Smart Path",
       // For introduction_pages
       'introduction_title': 'Welcome to Smart Path!',
       'introduction_content_0': 'You are in the right place',
@@ -26,9 +25,10 @@ class ArabicEnglishLocal implements Translations {
       'reset_desc': 'Please enter your password',
       'password_reset': 'Password',
       'password_confirm_reset': 'Confirm password',
+      'password_valid': 'Passwords are different',
     }, // TODO here will put English translation
     "ar": {
-      'app_name': AppTexts.appNameAr,
+      'app_name': "المسار الذكي",
       // For introduction_pages
       'introduction_title': 'مرحباً بكم في المسار الذكي!',
       'introduction_content_0': 'أنت في المكان المناسب',
@@ -49,6 +49,7 @@ class ArabicEnglishLocal implements Translations {
       'reset_desc': 'الرجاء إدخال كلمة المرور الخاصة بك',
       'password_reset': 'كلمة المرور',
       'password_confirm_reset': 'تأكيد كلمة المرور',
+      'password_valid': 'كلمات المرور مختلفة',
     }, // TODO here will put Arabic translation
   };
 }

@@ -33,6 +33,7 @@ class ResetPassword extends StatelessWidget {
                     locale.initailLang == Get.deviceLocale
                 ? LucideIcons.chevronLeft
                 : LucideIcons.chevronRight,
+            color: Colors.indigo, // TODO color
           ),
         ),
       ),
@@ -46,9 +47,9 @@ class ResetPassword extends StatelessWidget {
               children: [
                 Image.asset(
                   Assets.pngLogo,
-                  height: 62.06, // 62.06
-                  width: 52.01, // 52.01
-                  color: Colors.indigo,
+                  height: 62.06,
+                  width: 52.01,
+                  color: Colors.indigo, // TODO color
                   colorBlendMode: BlendMode.srcIn,
                 ),
                 Padding(
@@ -66,7 +67,7 @@ class ResetPassword extends StatelessWidget {
                 'reset_tite'.tr,
                 style: AppStyles.styleBold22(
                   context,
-                  color: const Color(0xff303030),
+                  color: const Color(0xff303030), // TODO color
                 ),
               ),
             ),
@@ -76,7 +77,7 @@ class ResetPassword extends StatelessWidget {
                 'reset_desc'.tr,
                 style: AppStyles.styleRegular16(
                   context,
-                  color: const Color(0xff9E95A2),
+                  color: const Color(0xff9E95A2), // TODO color
                 ),
               ),
             ),
@@ -91,7 +92,7 @@ class ResetPassword extends StatelessWidget {
                     'password_reset'.tr,
                     style: AppStyles.styleRegular16(
                       context,
-                      color: Colors.indigo,
+                      color: Colors.indigo, // TODO color
                     ),
                   ),
                   GetBuilder<HideShowPasswordController>(
@@ -108,7 +109,10 @@ class ResetPassword extends StatelessWidget {
                         },
                         validator:
                             (value) => verifyPassword(value, value!.length),
-                        icon: Icon(controller.icon),
+                        icon: Icon(
+                          controller.icon,
+                          color: Colors.indigo, // TODO color
+                        ),
                         obscureText: controller.obscureText,
                       );
                     },
@@ -116,7 +120,10 @@ class ResetPassword extends StatelessWidget {
                   const SizedBox(height: 25),
                   Text(
                     'password_confirm_reset'.tr,
-                    style: AppStyles.styleBold16(context, color: Colors.indigo),
+                    style: AppStyles.styleRegular16(
+                      context,
+                      color: Colors.indigo, // TODO color
+                    ),
                   ),
                   GetBuilder<HideShowPasswordController>(
                     init: HideShowPasswordController(),
@@ -132,7 +139,10 @@ class ResetPassword extends StatelessWidget {
                         },
                         validator:
                             (value) => verfiySamePassword(value, password.text),
-                        icon: Icon(controller.iconConfirm),
+                        icon: Icon(
+                          controller.iconConfirm,
+                          color: Colors.indigo, // TODO color
+                        ),
                         obscureText: controller.obscureTextConfirm,
                       );
                     },

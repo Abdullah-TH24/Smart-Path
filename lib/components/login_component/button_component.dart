@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smartpath/core/utils/general_utils/app_styles.dart';
 
 class ButtonComponent extends StatelessWidget {
   final void Function()? onPressed;
@@ -18,11 +19,14 @@ class ButtonComponent extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.circular(10),
         ),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.indigo, // TODO
       ),
       child: Text(
         data,
-        style: const TextStyle(color: Color(0xffFFFFFF), fontSize: 22),
+        style: AppStyles.styleRegular22(
+          context,
+          color: const Color(0xffFFFFFF), // TODO color
+        ),
       ),
     );
   }

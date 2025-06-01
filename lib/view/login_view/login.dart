@@ -39,7 +39,7 @@ class Login extends StatelessWidget {
                   colorBlendMode: BlendMode.srcIn,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 10), //
+                  padding: const EdgeInsets.only(top: 10),
                   child: Text(
                     'app_name'.tr, // TODO color
                     style: const TextStyle(fontSize: 12),
@@ -53,7 +53,7 @@ class Login extends StatelessWidget {
                 'sign_in'.tr,
                 style: AppStyles.styleBold22(
                   context,
-                  color: const Color(0xff303030),
+                  color: const Color(0xff303030), // TODO color
                 ),
               ),
             ),
@@ -63,8 +63,8 @@ class Login extends StatelessWidget {
                 'sign_in_desc'.tr,
                 style: AppStyles.styleRegular16(
                   context,
-                  color: const Color(0xff9E95A2),
-                ), // TODO color
+                  color: const Color(0xff9E95A2), // TODO color
+                ),
               ),
             ),
             const SizedBox(height: 44),
@@ -78,8 +78,8 @@ class Login extends StatelessWidget {
                     'email'.tr,
                     style: AppStyles.styleRegular16(
                       context,
-                      color: Colors.indigo,
-                    ), // TODO color
+                      color: Colors.indigo, // TODO color
+                    ),
                   ),
                   TextFormField(
                     controller: email,
@@ -92,8 +92,8 @@ class Login extends StatelessWidget {
                     'password'.tr,
                     style: AppStyles.styleRegular16(
                       context,
-                      color: Colors.indigo,
-                    ), // TODO color
+                      color: Colors.indigo, // TODO color
+                    ),
                   ),
                   GetBuilder<HideShowPasswordController>(
                     init: HideShowPasswordController(),
@@ -109,7 +109,10 @@ class Login extends StatelessWidget {
                         },
                         validator:
                             (value) => verifyPassword(value, value!.length),
-                        icon: Icon(controller.icon),
+                        icon: Icon(
+                          controller.icon,
+                          color: Colors.indigo, // TODO color
+                        ),
                         obscureText: controller.obscureText,
                       );
                     },
@@ -145,8 +148,8 @@ class Login extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: AppStyles.styleRegular16(
                     context,
-                    color: Colors.indigo,
-                  ), // TODO color
+                    color: Colors.indigo, // TODO color
+                  ),
                 ),
               ),
             ),

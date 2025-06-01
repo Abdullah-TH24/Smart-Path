@@ -10,6 +10,7 @@ class LoginMiddleware extends GetMiddleware {
   @override
   RouteSettings? redirect(String? route) {
     if (prefs!.getString('login_state') == 'true') {
+      // TODO here will replace -true- keyword with user token
       return const RouteSettings(name: AppRoutes.homeStudentRoute);
     }
     return null;

@@ -23,7 +23,7 @@ class PasswordFieldComponent extends StatelessWidget {
         suffixIcon: IconButton(onPressed: onPressed, icon: icon),
       ),
       obscureText: obscureText,
-      style: const TextStyle(color: Colors.indigo),
+      style: const TextStyle(color: Colors.indigo), // TODO color
       keyboardType: TextInputType.visiblePassword,
       validator: validator,
     );
