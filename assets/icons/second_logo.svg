@@ -1,0 +1,19 @@
+<svg width="250" height="250" viewBox="0 0 250 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- القبعة التعليمية -->
+  <polygon points="105,65 125,55 145,65 125,75" fill="indigo"></polygon>
+  <line x1="125" y1="75" x2="125" y2="90" stroke="indigo" stroke-width="2"></line>
+  <circle cx="125" cy="90" r="2" fill="indigo"></circle>
+
+  <!-- النص "smart path" -->
+  <text x="50%" y="130" text-anchor="middle" font-family="Georgia, serif" font-size="28" font-weight="bold" fill="url(#grad1)">
+    smart path
+  </text>
+
+  <!-- تدرج لوني بنفسجي -->
+  <defs>
+    <linearGradient id="grad1" x1="0" y1="0" x2="250" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4B0082"></stop>
+      <stop offset="100%" stop-color="#9D7CD8"></stop>
+    </linearGradient>
+  </defs>
+</svg>

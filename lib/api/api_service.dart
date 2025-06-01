@@ -9,7 +9,7 @@ class Api {
     // dynamic token = await TokenManage().getToken();
     // print(token);
 
-    http.Response response = await http.get(Uri.parse(url));
+    final http.Response response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
       // print(jsonDecode(response.body));
       return jsonDecode(response.body);
