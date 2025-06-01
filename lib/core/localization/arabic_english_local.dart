@@ -26,6 +26,7 @@ class ArabicEnglishLocal implements Translations {
       'password_reset': 'Password',
       'password_confirm_reset': 'Confirm password',
       'password_valid': 'Passwords are different',
+      // TODO add english text here
     }, // TODO here will put English translation
     "ar": {
       'app_name': "المسار الذكي",
@@ -50,6 +51,7 @@ class ArabicEnglishLocal implements Translations {
       'password_reset': 'كلمة المرور',
       'password_confirm_reset': 'تأكيد كلمة المرور',
       'password_valid': 'كلمات المرور مختلفة',
+      // TODO add arabic text here
     }, // TODO here will put Arabic translation
   };
 }
