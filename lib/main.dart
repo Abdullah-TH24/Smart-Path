@@ -8,6 +8,7 @@ import 'package:smartpath/core/localization/arabic_english_local.dart';
 import 'package:smartpath/core/middleware/introduction_middleware.dart';
 import 'package:smartpath/core/middleware/login_middleware.dart';
 import 'package:smartpath/core/utils/general_utils/app_routes.dart';
+import 'package:smartpath/core/utils/general_utils/themes.dart';
 import 'package:smartpath/view/introduction_view/introduction_pages.dart';
 import 'package:smartpath/view/login_view/login.dart';
 import 'package:smartpath/view/login_view/reset_password.dart';
@@ -69,7 +70,7 @@ class MyApp extends StatelessWidget {
       ],
       debugShowCheckedModeBanner: false,
       title: 'Smart Path',
-      theme: ThemeData(fontFamily: 'Montserrat-Regular'),
+      theme: Themes().dark,
     );
   }
 }

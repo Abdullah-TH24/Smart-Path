@@ -15,21 +15,33 @@ class HomeStudent extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-              onPressed: () {
-                prefs!.remove('introduction_state');
-                prefs!.remove('login_state');
-                locale.changeLanguage('ar');
-              },
-              child: const Text('Arabic'),
+            const SizedBox(width: 64),
+            Expanded(
+              child: FilledButton(
+                onPressed: () {
+                  prefs!.remove('introduction_state');
+                  prefs!.remove('login_state');
+                  locale.changeLanguage('ar');
+                },
+                child: const Text(
+                  'عربي',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
             ),
             const SizedBox(width: 15),
-            ElevatedButton(
-              onPressed: () {
-                locale.changeLanguage('en');
-              },
-              child: const Text('English'),
+            Expanded(
+              child: FilledButton(
+                onPressed: () {
+                  locale.changeLanguage('en');
+                },
+                child: const Text(
+                  'English',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
             ),
+            const SizedBox(width: 64),
           ],
         ),
       ),

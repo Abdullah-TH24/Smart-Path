@@ -31,17 +31,11 @@ class Login extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(
-                  Assets.pngLogo,
-                  height: 62.06,
-                  width: 52.01,
-                  color: Colors.indigo, // TODO color
-                  colorBlendMode: BlendMode.srcIn,
-                ),
+                Image.asset(Assets.pngLogo, height: 62.06, width: 52.01),
                 Padding(
                   padding: const EdgeInsets.only(top: 10),
                   child: Text(
-                    'app_name'.tr, // TODO color
+                    'app_name'.tr,
                     style: const TextStyle(fontSize: 12),
                   ),
                 ),
@@ -49,23 +43,11 @@ class Login extends StatelessWidget {
             ),
             Container(
               padding: const EdgeInsets.only(top: 44.43),
-              child: Text(
-                'sign_in'.tr,
-                style: AppStyles.styleBold22(
-                  context,
-                  color: const Color(0xff303030), // TODO color
-                ),
-              ),
+              child: Text('sign_in'.tr, style: AppStyles.styleBold22()),
             ),
             Container(
               padding: const EdgeInsets.only(top: 10),
-              child: Text(
-                'sign_in_desc'.tr,
-                style: AppStyles.styleRegular16(
-                  context,
-                  color: const Color(0xff9E95A2), // TODO color
-                ),
-              ),
+              child: Text('sign_in_desc'.tr, style: AppStyles.styleRegular16()),
             ),
             const SizedBox(height: 44),
             // Form
@@ -77,23 +59,21 @@ class Login extends StatelessWidget {
                 children: [
                   Text(
                     'email'.tr,
-                    style: AppStyles.styleRegular16(
-                      context,
-                      color: Colors.indigo, // TODO color
+                    style: AppStyles.styleRegular16().copyWith(
+                      color: Colors.indigo[400],
                     ),
                   ),
                   TextFormField(
                     controller: email,
                     validator: (value) => verifyEmail(value, value!.length),
-                    style: const TextStyle(color: Colors.indigo), // TODO color
+                    style: const TextStyle(color: Colors.indigo),
                     keyboardType: TextInputType.emailAddress,
                   ),
                   const SizedBox(height: 25),
                   Text(
                     'password'.tr,
-                    style: AppStyles.styleRegular16(
-                      context,
-                      color: Colors.indigo, // TODO color
+                    style: AppStyles.styleRegular16().copyWith(
+                      color: Colors.indigo[400],
                     ),
                   ),
                   GetBuilder<HideShowPasswordController>(
@@ -110,10 +90,7 @@ class Login extends StatelessWidget {
                         },
                         validator:
                             (value) => verifyPassword(value, value!.length),
-                        icon: Icon(
-                          controller.icon,
-                          color: Colors.indigo, // TODO color
-                        ),
+                        icon: Icon(controller.icon, color: Colors.indigo[400]),
                         obscureText: controller.obscureText,
                       );
                     },
@@ -147,9 +124,8 @@ class Login extends StatelessWidget {
                 child: Text(
                   'forgot_password'.tr,
                   textAlign: TextAlign.center,
-                  style: AppStyles.styleRegular16(
-                    context,
-                    color: Colors.indigo, // TODO color
+                  style: AppStyles.styleRegular16().copyWith(
+                    color: Colors.indigo[500],
                   ),
                 ),
               ),

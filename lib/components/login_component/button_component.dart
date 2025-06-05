@@ -19,14 +19,10 @@ class ButtonComponent extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.circular(10),
         ),
-        backgroundColor: Colors.indigo, // TODO
       ),
       child: Text(
         data,
-        style: AppStyles.styleRegular22(
-          context,
-          color: const Color(0xffFFFFFF), // TODO color
-        ),
+        style: AppStyles.styleRegular22().copyWith(color: Colors.white),
       ),
     );
   }

@@ -9,7 +9,7 @@ class ArabicEnglishLocal implements Translations {
       'introduction_title': 'Welcome to Smart Path!',
       'introduction_content_0': 'You are in the right place',
       'introduction_content_1': 'Be with us on the amazing path',
-      'introduction_content_2': 'This app will make anything very easy to use',
+      'introduction_content_2': 'anything very easy to use',
       // For login
       'sign_in': 'Sign In',
       'sign_in_desc': 'Hi there! Nice to see you again',
@@ -26,6 +26,7 @@ class ArabicEnglishLocal implements Translations {
       'password_reset': 'Password',
       'password_confirm_reset': 'Confirm password',
       'password_valid': 'Passwords are different',
+
       // TODO Add English texts here
     },
     "ar": {
@@ -34,7 +35,7 @@ class ArabicEnglishLocal implements Translations {
       'introduction_title': 'مرحباً بكم في المسار الذكي!',
       'introduction_content_0': 'أنت في المكان المناسب',
       'introduction_content_1': 'كن معنا في الطريق المذهل',
-      'introduction_content_2': 'سيجعل هذا التطبيق أي شيء سهل الاستخدام للغاية',
+      'introduction_content_2': 'هنا أي شيء سهل الاستخدام للغاية',
       // For login
       'sign_in': 'تسجيل الدخول',
       'sign_in_desc': 'مرحباً! سررت برؤيتك مجدداً',

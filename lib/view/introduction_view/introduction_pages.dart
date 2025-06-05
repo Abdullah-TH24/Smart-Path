@@ -20,33 +20,28 @@ class IntroductionPages extends StatelessWidget {
       body: PageView.builder(
         controller: controller,
         itemBuilder:
-            (context, index) => Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              // physics: const NeverScrollableScrollPhysics(),
-              children: [
-                SizedBox(height: Get.height / 6),
-                Image.asset(
-                  Assets.pngLogo,
-                  color: Colors.indigo, // TODO color
-                  width: 151.84,
-                  height: 172.4,
-                ),
-                SizedBox(height: Get.height / 5),
-                Text(
-                  'introduction_title'.tr,
-                  style: AppStyles.styleBold22(
-                    context,
-                    color: const Color(0xff303030), // TODO color
+            (context, index) => Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 32),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                // physics: const NeverScrollableScrollPhysics(),
+                children: [
+                  SizedBox(height: Get.height / 6),
+                  Image.asset(
+                    Assets.pngLogo,
+                    color: Colors.indigo,
+                    width: 151.84,
+                    height: 172.4,
                   ),
-                ),
-                Text(
-                  'introduction_content_$index'.tr,
-                  style: AppStyles.styleRegular16(
-                    context,
-                    color: const Color(0xff9E95A2), // TODO color
+                  SizedBox(height: Get.height / 5),
+                  Text('introduction_title'.tr, style: AppStyles.styleBold22()),
+                  const SizedBox(height: 12),
+                  Text(
+                    'introduction_content_$index'.tr,
+                    style: AppStyles.styleRegular16().copyWith(),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
         itemCount: 3,
       ),

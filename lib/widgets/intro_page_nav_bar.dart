@@ -38,7 +38,7 @@ class IntroPageNavBar extends StatelessWidget {
                       locale.initailLang == Get.deviceLocale
                   ? LucideIcons.chevronLeft
                   : LucideIcons.chevronRight,
-              color: Colors.indigo, // TODO color
+              color: Colors.indigo,
             ),
           ),
           SmoothPageIndicator(
@@ -48,8 +48,8 @@ class IntroPageNavBar extends StatelessWidget {
               dotHeight: 12.5,
               dotWidth: 12.5,
               paintStyle: PaintingStyle.fill,
-              dotColor: Colors.black38, // TODO color
-              activeDotColor: Colors.indigo, // TODO color
+              dotColor: Colors.black38,
+              activeDotColor: Colors.indigo,
               type: SwapType.yRotation,
             ),
           ),
@@ -69,7 +69,7 @@ class IntroPageNavBar extends StatelessWidget {
                       locale.initailLang == Get.deviceLocale
                   ? LucideIcons.chevronRight
                   : LucideIcons.chevronLeft,
-              color: Colors.indigo, // TODO color
+              color: Colors.indigo,
             ),
           ),
         ],

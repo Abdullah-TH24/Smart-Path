@@ -20,26 +20,17 @@ class SplashScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(height: Get.height / 4 - 50),
-                Image.asset(
-                  Assets.pngLogo,
-                  width: 151.84,
-                  height: 172.4,
-                  color: Colors.indigo, // TODO color
-                  colorBlendMode: BlendMode.srcIn,
-                ),
+                Image.asset(Assets.pngLogo, width: 151.84, height: 172.4),
                 const SizedBox(height: 25),
                 Text(
                   'app_name'.tr,
-                  style: AppStyles.styleBold24(
-                    context,
-                    color: const Color(0xff303030), // TODO color
-                  ),
+                  style: AppStyles.styleBold24(),
                   textAlign: TextAlign.center,
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 125),
                   child: const SpinKitFadingGrid(
-                    color: Colors.indigo, // TODO color
+                    color: Colors.indigo,
                     size: 30,
                   ),
                 ),
