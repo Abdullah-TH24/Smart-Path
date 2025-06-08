@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/controller/localization/localization_controller.dart';
+import 'package:smartpath/utils/general_utils/app_routes.dart';
 import 'package:smartpath/main.dart';
 
 // ignore: must_be_immutable
-class HomeStudent extends StatelessWidget {
-  HomeStudent({super.key});
+class LangOptionPage extends StatelessWidget {
+  LangOptionPage({super.key});
   LocalizationController locale = Get.find();
 
   @override
@@ -33,6 +34,7 @@ class HomeStudent extends StatelessWidget {
             Expanded(
               child: FilledButton(
                 onPressed: () {
+                  Get.offAllNamed(AppRoutes.studentHomePageRoute);
                   locale.changeLanguage('en');
                 },
                 child: const Text(

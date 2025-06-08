@@ -6,9 +6,9 @@ import 'package:smartpath/components/login_component/password_field_component.da
 import 'package:smartpath/controller/login_controller/hide_show_password_controller.dart';
 import 'package:smartpath/controller/login_controller/verify_email_controller.dart';
 import 'package:smartpath/controller/login_controller/verify_password_controller.dart';
-import 'package:smartpath/core/utils/general_utils/app_assets.dart';
-import 'package:smartpath/core/utils/general_utils/app_routes.dart';
-import 'package:smartpath/core/utils/general_utils/app_styles.dart';
+import 'package:smartpath/utils/general_utils/app_assets.dart';
+import 'package:smartpath/utils/general_utils/app_routes.dart';
+import 'package:smartpath/utils/general_utils/app_styles.dart';
 import 'package:smartpath/main.dart';
 
 // ignore: must_be_immutable
@@ -27,7 +27,7 @@ class Login extends StatelessWidget {
         padding: const EdgeInsets.all(24),
         child: ListView(
           children: [
-            const SizedBox(height: 84),
+            const SizedBox(height: 48),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -104,7 +104,7 @@ class Login extends StatelessWidget {
               child: ButtonComponent(
                 onPressed: () {
                   prefs!.setString('login_state', 'true');
-                  Get.offAllNamed(AppRoutes.homeStudentRoute);
+                  Get.offAllNamed(AppRoutes.languagesRoute);
                 },
                 data: 'sign_in'.tr,
               ),

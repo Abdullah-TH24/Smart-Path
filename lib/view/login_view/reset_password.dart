@@ -7,8 +7,8 @@ import 'package:smartpath/controller/localization/localization_controller.dart';
 import 'package:smartpath/controller/login_controller/hide_show_password_controller.dart';
 import 'package:smartpath/controller/login_controller/verify_password_controller.dart';
 import 'package:smartpath/controller/login_controller/verify_same_password.dart';
-import 'package:smartpath/core/utils/general_utils/app_assets.dart';
-import 'package:smartpath/core/utils/general_utils/app_styles.dart';
+import 'package:smartpath/utils/general_utils/app_assets.dart';
+import 'package:smartpath/utils/general_utils/app_styles.dart';
 
 // ignore: must_be_immutable
 class ResetPassword extends StatelessWidget {

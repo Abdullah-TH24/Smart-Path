@@ -27,7 +27,31 @@ class ArabicEnglishLocal implements Translations {
       'password_confirm_reset': 'Confirm password',
       'password_valid': 'Passwords are different',
 
-      // TODO Add English texts here
+      // NavBar
+      'Home': 'Home',
+      'Portfolio': 'Portfolio',
+      'Profile': 'Profile',
+      'Input': 'Input',
+      //Home page student
+      'app_bar_home_stu_title': 'Student Portfolio',
+      'search_bar_home_hint': 'Looking for...',
+      'grid_item_name_0': 'Class',
+      'grid_item_name_1': 'Achievment',
+      'grid_item_name_2': 'Article',
+      'grid_item_name_3': 'Calendar',
+      'grid_item_name_4': 'Data Master',
+      'grid_item_name_5': 'Teacher',
+      'grid_item_name_6': 'Portfolio',
+      'grid_item_name_7': 'Student',
+      'grid_item_name_8': 'Performance',
+      'grid_item_name_9': 'Project',
+      'grid_item_name_10': 'Idea',
+      'grid_item_name_11': 'Subjects',
+      'footer_card_title_home': 'Student Portfolio',
+      'footer_card_desc_home':
+          'Easily create and share \n your own awesome portfolio',
+
+      //
     },
     "ar": {
       'app_name': "المسار الذكي",
@@ -52,7 +76,28 @@ class ArabicEnglishLocal implements Translations {
       'password_reset': 'كلمة المرور',
       'password_confirm_reset': 'تأكيد كلمة المرور',
       'password_valid': 'كلمات المرور مختلفة',
-      // TODO Add Arabic texts here
+      // NavBar
+      'Home': 'الرئيسية',
+      'Portfolio': 'ملف الإنجازات',
+      'Profile': 'الملف الشخصي',
+      'Input': 'إدخال',
+      //Home page student
+      'app_bar_home_stu_title': 'ملف الطالب',
+      'search_bar_home_hint': '...ابحث عن',
+      'grid_item_name_0': 'الفصل الدراسي',
+      'grid_item_name_1': 'الإنجازات',
+      'grid_item_name_2': 'المقالات',
+      'grid_item_name_3': 'التقويم',
+      'grid_item_name_4': 'البيانات الرئيسية',
+      'grid_item_name_5': 'المعلم',
+      'grid_item_name_6': 'الملف الشخصي',
+      'grid_item_name_7': 'الطالب',
+      'grid_item_name_8': 'الأداء',
+      'grid_item_name_9': 'المشاريع',
+      'grid_item_name_10': 'الأفكار',
+      'grid_item_name_11': 'المواد الدراسية',
+      'footer_card_title_home': 'ملف الطالب',
+      'footer_card_desc_home': 'أنشئ وشارك ملفك الرائع \n بكل سهولة',
     },
   };
 }
