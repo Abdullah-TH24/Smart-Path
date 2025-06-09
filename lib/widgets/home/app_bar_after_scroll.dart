@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get_utils/get_utils.dart';
+import 'package:lucide_icons/lucide_icons.dart';
 import 'package:smartpath/utils/general_utils/app_assets.dart';
 import 'package:smartpath/utils/general_utils/app_styles.dart';
 
@@ -23,9 +24,9 @@ class AppBarAfterScroll extends StatelessWidget {
         ],
       ),
       actions: const [
-        Icon(Icons.notifications),
+        Icon(LucideIcons.bell),
         Gap(12),
-        Icon(Icons.search),
+        Icon(LucideIcons.search),
         Gap(12),
       ],
       actionsIconTheme: IconThemeData(color: Colors.indigo[50]),

@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 abstract class AppStyles {
   //Regular
 
+  static TextStyle styleRegular12() {
+    return const TextStyle(fontSize: 12);
+  }
+
   static TextStyle styleRegular14() {
     return const TextStyle(fontSize: 14);
   }

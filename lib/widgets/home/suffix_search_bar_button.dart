@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons/lucide_icons.dart';
 
 class SuffixSearchBarButton extends StatelessWidget {
   const SuffixSearchBarButton({super.key});
@@ -15,7 +16,7 @@ class SuffixSearchBarButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         child: const Center(
-          child: Icon(Icons.search, color: Colors.white, size: 16),
+          child: Icon(LucideIcons.search, color: Colors.white, size: 14),
         ),
       ),
     );

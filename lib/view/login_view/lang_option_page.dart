@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/controller/localization/localization_controller.dart';
+import 'package:smartpath/utils/general_utils/app_assets.dart';
 import 'package:smartpath/utils/general_utils/app_routes.dart';
 import 'package:smartpath/main.dart';
 
@@ -34,6 +35,10 @@ class LangOptionPage extends StatelessWidget {
             Expanded(
               child: FilledButton(
                 onPressed: () {
+                  precacheImage(
+                    const AssetImage(Assets.gredientBackground),
+                    context,
+                  );
                   Get.offAllNamed(AppRoutes.studentHomePageRoute);
                   locale.changeLanguage('en');
                 },

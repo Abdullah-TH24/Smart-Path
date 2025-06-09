@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smartpath/utils/general_utils/app_assets.dart';
-import 'package:smartpath/view/student_view/app_bar_after_scroll.dart';
-import 'package:smartpath/view/student_view/app_bar_welcome_row.dart';
-import 'package:smartpath/view/student_view/custom_search_bar.dart';
+import 'package:smartpath/widgets/home/app_bar_after_scroll.dart';
+import 'package:smartpath/widgets/home/app_bar_welcome_row.dart';
+import 'package:smartpath/widgets/home/custom_search_bar.dart';
 
 class MyCustomAppBarDelegate extends SliverPersistentHeaderDelegate {
   final double expandedHeight;

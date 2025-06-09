@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:smartpath/components/login_component/button_component.dart';
-import 'package:smartpath/components/login_component/password_field_component.dart';
+import 'package:smartpath/widgets/login/button_component.dart';
+import 'package:smartpath/widgets/login/password_field_component.dart';
 import 'package:smartpath/controller/login_controller/hide_show_password_controller.dart';
 import 'package:smartpath/controller/login_controller/verify_email_controller.dart';
 import 'package:smartpath/controller/login_controller/verify_password_controller.dart';

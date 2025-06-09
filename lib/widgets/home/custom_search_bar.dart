@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/utils/general_utils/app_styles.dart';
-import 'package:smartpath/view/student_view/suffix_search_bar_button.dart';
+import 'package:smartpath/widgets/home/suffix_search_bar_button.dart';
 
 class CustomSearchBar extends StatelessWidget {
   const CustomSearchBar({super.key});
