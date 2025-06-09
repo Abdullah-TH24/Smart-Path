@@ -88,7 +88,13 @@ class StudentGridViewHome extends StatelessWidget {
               children: [
                 SvgPicture.asset(gItems[index].image, width: 28),
                 const Gap(16),
-                Text(gItems[index].title, style: AppStyles.styleRegular12()),
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    gItems[index].title,
+                    style: AppStyles.styleRegular12(),
+                  ),
+                ),
               ],
             ),
           );

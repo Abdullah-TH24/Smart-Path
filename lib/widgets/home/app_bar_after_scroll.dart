@@ -24,9 +24,9 @@ class AppBarAfterScroll extends StatelessWidget {
         ],
       ),
       actions: const [
-        Icon(LucideIcons.bell),
+        Icon(LucideIcons.bell, size: 20),
         Gap(12),
-        Icon(LucideIcons.search),
+        Icon(LucideIcons.search, size: 20),
         Gap(12),
       ],
       actionsIconTheme: IconThemeData(color: Colors.indigo[50]),

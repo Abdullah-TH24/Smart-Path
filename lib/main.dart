@@ -15,6 +15,7 @@ import 'package:smartpath/view/login_view/reset_password.dart';
 import 'package:smartpath/view/splash_view/splash_screen.dart';
 import 'package:smartpath/view/login_view/lang_option_page.dart';
 import 'package:smartpath/view/student_view/student_home_page.dart';
+import 'package:smartpath/view/student_view/student_main_page.dart';
 
 SharedPreferences? prefs;
 
@@ -58,8 +59,12 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(name: AppRoutes.languagesRoute, page: () => LangOptionPage()),
         GetPage(
+          name: AppRoutes.studentMainPageRoute,
+          page: () => const StudentMainPage(),
+        ),
+        GetPage(
           name: AppRoutes.studentHomePageRoute,
-          page: () => StudentHomePage(),
+          page: () => const StudentHomePage(),
         ),
       ],
       debugShowCheckedModeBanner: false,

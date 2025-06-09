@@ -10,5 +10,6 @@ class AppRoutes {
   static const String resetPasswordRoute = '/reset_password';
 
   static const String languagesRoute = '/lang_option_page.dart';
+  static const String studentMainPageRoute = '/student_main_page.dart';
   static const String studentHomePageRoute = '/student_home_page.dart';
 }

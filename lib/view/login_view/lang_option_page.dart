@@ -39,7 +39,7 @@ class LangOptionPage extends StatelessWidget {
                     const AssetImage(Assets.gredientBackground),
                     context,
                   );
-                  Get.offAllNamed(AppRoutes.studentHomePageRoute);
+                  Get.offAllNamed(AppRoutes.studentMainPageRoute);
                   locale.changeLanguage('en');
                 },
                 child: const Text(

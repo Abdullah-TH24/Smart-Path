@@ -4,7 +4,7 @@ abstract class AppStyles {
   //Regular
 
   static TextStyle styleRegular12() {
-    return const TextStyle(fontSize: 12);
+    return const TextStyle(fontSize: 12, fontWeight: FontWeight.w500);
   }
 
   static TextStyle styleRegular14() {

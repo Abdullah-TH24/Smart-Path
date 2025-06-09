@@ -44,6 +44,7 @@ dependencies:
   google_fonts: ^6.2.1
   flutter_bloc: ^9.1.1
   gap: ^3.0.1
+  salomon_bottom_bar: ^3.3.2
 
 dev_dependencies:
   flutter_test:
