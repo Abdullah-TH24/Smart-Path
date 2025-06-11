@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/instance_manager.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:smartpath/utils/general_utils/app_assets.dart';
 import 'package:smartpath/view/student_view/student_data_page.dart';
@@ -29,11 +30,9 @@ class _StudentMainPageState extends State<StudentMainPage> {
     return Scaffold(
       bottomNavigationBar: SalomonBottomBar(
         curve: Curves.decelerate,
-
-        selectedColorOpacity: .3,
+        selectedColorOpacity: .25,
         itemShape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.circular(18),
-          // side: BorderSide(color: Color(0xff818cf8), ),
         ),
         currentIndex: pageIndex,
         onTap: (p) => setState(() => pageIndex = p),

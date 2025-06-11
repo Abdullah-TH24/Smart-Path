@@ -78,24 +78,31 @@ class StudentGridViewHome extends StatelessWidget {
       sliver: SliverGrid.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 4,
+          childAspectRatio: 2.77 / 3,
         ),
         itemCount: 12,
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: gItems[index].onTap,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SvgPicture.asset(gItems[index].image, width: 28),
-                const Gap(16),
-                FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: Text(
-                    gItems[index].title,
-                    style: AppStyles.styleRegular12(),
-                  ),
+            child: Card(
+              color: const Color.fromARGB(255, 200, 204, 233),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(gItems[index].image, width: 28),
+                    const Gap(16),
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        gItems[index].title,
+                        style: AppStyles.styleRegular12(),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           );
         },
