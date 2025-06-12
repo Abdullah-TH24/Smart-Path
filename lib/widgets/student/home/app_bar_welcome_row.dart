@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:smartpath/utils/general_utils/app_styles.dart';
+import 'package:smartpath/core/utils/general_utils/app_styles.dart';
 
 class AppBarWelcomeRow extends StatelessWidget {
   const AppBarWelcomeRow({super.key});
@@ -16,7 +16,7 @@ class AppBarWelcomeRow extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Hi,',
+                'Hi',
                 style: AppStyles.styleRegular16().copyWith(color: Colors.white),
               ),
               Text(

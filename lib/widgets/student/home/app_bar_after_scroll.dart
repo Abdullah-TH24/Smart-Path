@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:get/get_utils/get_utils.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:smartpath/utils/general_utils/app_assets.dart';
-import 'package:smartpath/utils/general_utils/app_styles.dart';
+import 'package:smartpath/core/utils/general_utils/app_assets.dart';
+import 'package:smartpath/core/utils/general_utils/app_styles.dart';
 
 class AppBarAfterScroll extends StatelessWidget {
   const AppBarAfterScroll({super.key});
@@ -15,7 +15,7 @@ class AppBarAfterScroll extends StatelessWidget {
       elevation: 0,
       title: Row(
         children: [
-          const Image(image: AssetImage(Assets.pngLogo), width: 30),
+          const Image(image: AssetImage(AppAssets.pngLogo), width: 30),
           const Gap(12),
           Text(
             'app_bar_home_stu_title'.tr,
@@ -23,11 +23,15 @@ class AppBarAfterScroll extends StatelessWidget {
           ),
         ],
       ),
-      actions: const [
-        Icon(LucideIcons.bell, size: 20),
-        Gap(12),
-        Icon(LucideIcons.search, size: 20),
-        Gap(12),
+      actions: [
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(LucideIcons.bell, size: 20),
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(LucideIcons.search, size: 20),
+        ),
       ],
       actionsIconTheme: IconThemeData(color: Colors.indigo[50]),
     );

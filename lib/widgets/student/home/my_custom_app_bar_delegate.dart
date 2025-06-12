@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:smartpath/utils/general_utils/app_assets.dart';
-import 'package:smartpath/widgets/home/app_bar_after_scroll.dart';
-import 'package:smartpath/widgets/home/app_bar_welcome_row.dart';
-import 'package:smartpath/widgets/home/custom_search_bar.dart';
+import 'package:smartpath/core/utils/general_utils/app_assets.dart';
+import 'package:smartpath/widgets/student/home/app_bar_after_scroll.dart';
+import 'package:smartpath/widgets/student/home/app_bar_welcome_row.dart';
+import 'package:smartpath/widgets/student/home/custom_search_bar.dart';
 
 class MyCustomAppBarDelegate extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
@@ -14,10 +14,10 @@ class MyCustomAppBarDelegate extends SliverPersistentHeaderDelegate {
   });
 
   @override
-  double get maxExtent => expandedHeight;
+  double get minExtent => collapsedHeight;
 
   @override
-  double get minExtent => collapsedHeight;
+  double get maxExtent => expandedHeight;
 
   @override
   Widget build(
@@ -27,7 +27,6 @@ class MyCustomAppBarDelegate extends SliverPersistentHeaderDelegate {
   ) {
     final double contentOpacity =
         (1.0 - (shrinkOffset / (maxExtent - minExtent))).clamp(0.0, 1.0);
-
     return Stack(
       clipBehavior: Clip.none,
       fit: StackFit.expand,
@@ -37,12 +36,13 @@ class MyCustomAppBarDelegate extends SliverPersistentHeaderDelegate {
         Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(Assets.gredientBackground),
+              image: AssetImage(AppAssets.gredientBackground),
               fit: BoxFit.cover,
             ),
           ),
         ),
-
+        // Logo with tille and actions
+        const AppBarAfterScroll(),
         // --- Layer 2: The Content That Fades Away ---
         // This is the content from your old `flexibleSpace.child`
         Positioned(
@@ -54,27 +54,19 @@ class MyCustomAppBarDelegate extends SliverPersistentHeaderDelegate {
             ),
           ),
         ),
-
-        const AppBarAfterScroll(),
-        //
-        Positioned(
-          bottom: -20,
+        // --- Layer 1: Search bar widget ---
+        const Positioned(
+          bottom: -22.5,
           right: 24,
           left: 24,
-          child: IntrinsicWidth(
-            child: Opacity(
-              opacity: contentOpacity,
-              child: const CustomSearchBar(),
-            ),
-          ),
+          child: CustomSearchBar(),
         ),
       ],
     );
   }
 
   @override
-  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
-    // Rebuild whenever the properties change
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
     return expandedHeight != oldDelegate.maxExtent ||
         collapsedHeight != oldDelegate.minExtent;
   }

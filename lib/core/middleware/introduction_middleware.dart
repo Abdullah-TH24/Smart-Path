@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:smartpath/utils/general_utils/app_routes.dart';
+import 'package:smartpath/core/utils/general_utils/app_routes.dart';
 import 'package:smartpath/main.dart';
 
 class IntroductionMiddleware extends GetMiddleware {

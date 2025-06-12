@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:smartpath/controller/splash_controller/navigate_to_next_page.dart';
-import 'package:smartpath/utils/general_utils/app_assets.dart';
+import 'package:smartpath/core/utils/general_utils/app_assets.dart';
 import 'package:get/get.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:smartpath/utils/general_utils/app_styles.dart';
+import 'package:smartpath/core/utils/general_utils/app_styles.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -20,20 +21,15 @@ class SplashScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(height: Get.height / 4 - 50),
-                Image.asset(Assets.pngLogo, width: 151.84, height: 172.4),
-                const SizedBox(height: 25),
+                Image.asset(AppAssets.pngLogo, width: 151.84, height: 172.4),
+                const Gap(25),
                 Text(
                   'app_name'.tr,
                   style: AppStyles.styleBold24(),
                   textAlign: TextAlign.center,
                 ),
-                Container(
-                  margin: const EdgeInsets.only(top: 125),
-                  child: const SpinKitFadingGrid(
-                    color: Colors.indigo,
-                    size: 30,
-                  ),
-                ),
+                const Gap(125),
+                const SpinKitFadingGrid(color: Colors.indigo, size: 30),
               ],
             );
           },

@@ -1,0 +1,43 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:smartpath/core/models/student_model/home/grid_item_model.dart';
+import 'package:smartpath/core/utils/general_utils/app_styles.dart';
+
+class StudentGridViewHome extends StatelessWidget {
+  final List<GridItemModel> gridItems;
+  const StudentGridViewHome({super.key, required this.gridItems});
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverPadding(
+      padding: const EdgeInsetsGeometry.symmetric(vertical: 48, horizontal: 12),
+      sliver: SliverGrid.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 4,
+          childAspectRatio: 2.77 / 3,
+        ),
+        itemBuilder:
+            (context, index) => GestureDetector(
+              onTap: gridItems[index].onTap,
+              child: Card(
+                color: const Color.fromARGB(255, 200, 204, 233),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    SvgPicture.asset(gridItems[index].assetName, width: 28),
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        gridItems[index].title,
+                        style: AppStyles.styleRegular12(),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+        itemCount: gridItems.length,
+      ),
+    );
+  }
+}

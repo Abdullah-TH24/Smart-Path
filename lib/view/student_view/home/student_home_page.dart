@@ -1,8 +1,7 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
-import 'package:smartpath/view/student_view/student_grid_view_home.dart';
-import 'package:smartpath/widgets/home/my_custom_app_bar_delegate.dart';
+import 'package:smartpath/core/utils/student_utils/student_home_page_utils.dart';
+import 'package:smartpath/widgets/student/home/my_custom_app_bar_delegate.dart';
+import 'package:smartpath/widgets/student/home/student_grid_view_home.dart';
 
 class StudentHomePage extends StatelessWidget {
   const StudentHomePage({super.key});
@@ -11,6 +10,7 @@ class StudentHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
+        // <AppBar>
         SliverPersistentHeader(
           pinned: true,
           floating: true,
@@ -19,8 +19,8 @@ class StudentHomePage extends StatelessWidget {
             collapsedHeight: 80,
           ),
         ),
-
-        const StudentGridViewHome(),
+        // Content
+        StudentGridViewHome(gridItems: gridItems),
       ],
     );
   }

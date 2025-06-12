@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
 class StudentDataPage extends StatelessWidget {
@@ -7,6 +5,6 @@ class StudentDataPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Placeholder(child: Text('Data'));
+    return Scaffold(appBar: AppBar(title: Text('Data')));
   }
 }

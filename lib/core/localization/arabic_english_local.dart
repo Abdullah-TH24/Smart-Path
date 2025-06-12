@@ -24,14 +24,13 @@ class ArabicEnglishLocal implements Translations {
       'reset_tite': 'Reset Password',
       'reset_desc': 'Please enter your password',
       'password_reset': 'Password',
-      'password_confirm_reset': 'Confirm password',
+      'password_confirm_reset': 'Confirm Password',
       'password_valid': 'Passwords are different',
-
       // NavBar
-      'Home': 'Home',
-      'Portfolio': 'Portfolio',
-      'Profile': 'Profile',
-      'Input': 'Input',
+      'home': 'Home',
+      'portfolio': 'Portfolio',
+      'input': 'Input',
+      'profile': 'Profile',
       //Home page student
       'app_bar_home_stu_title': 'Student Portfolio',
       'search_bar_home_hint': 'Looking for...',
@@ -47,11 +46,14 @@ class ArabicEnglishLocal implements Translations {
       'grid_item_name_9': 'Project',
       'grid_item_name_10': 'Idea',
       'grid_item_name_11': 'Subjects',
-      'footer_card_title_home': 'Student Portfolio',
-      'footer_card_desc_home':
-          'Easily create and share \n your own awesome portfolio',
-
-      //
+      // Profile
+      'edit_profile': 'Edit Profile',
+      'change_password': 'Change Password',
+      'about': 'About',
+      'help': 'Help',
+      'contact': 'Contact',
+      'sign_out': 'Sign Out',
+      'title_page': 'Your Profile',
     },
     "ar": {
       'app_name': "المسار الذكي",
@@ -77,10 +79,10 @@ class ArabicEnglishLocal implements Translations {
       'password_confirm_reset': 'تأكيد كلمة المرور',
       'password_valid': 'كلمات المرور مختلفة',
       // NavBar
-      'Home': 'الرئيسية',
-      'Portfolio': 'ملف الإنجازات',
-      'Profile': 'الملف الشخصي',
-      'Input': 'إدخال',
+      'home': 'الرئيسية',
+      'portfolio': 'الإنجازات',
+      'input': 'إدخال',
+      'profile': 'الملف الشخصي',
       //Home page student
       'app_bar_home_stu_title': 'ملف الطالب',
       'search_bar_home_hint': '...ابحث عن',
@@ -96,8 +98,23 @@ class ArabicEnglishLocal implements Translations {
       'grid_item_name_9': 'المشاريع',
       'grid_item_name_10': 'الأفكار',
       'grid_item_name_11': 'المواد الدراسية',
-      'footer_card_title_home': 'ملف الطالب',
-      'footer_card_desc_home': 'أنشئ وشارك ملفك الرائع \n بكل سهولة',
+      // Profile
+      'edit_profile': 'تعديل الملف الشخصي',
+      'change_password': 'تغيير كلمة المرور',
+      'about': 'عن',
+      'help': 'يساعد',
+      'contact': 'اتصال',
+      'sign_out': 'تسجيل الخروج',
+      'title_page': 'ملفك الشخصي',
     },
   };
 }
+
+
+
+//       'footer_card_title_home': 'Student Portfolio',
+//       'footer_card_desc_home':
+//           'Easily create and share \n your own awesome portfolio',
+
+//       'footer_card_title_home': 'ملف الطالب',
+//       'footer_card_desc_home': 'أنشئ وشارك ملفك الرائع \n بكل سهولة',

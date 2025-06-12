@@ -10,7 +10,6 @@ class SuffixSearchBarButton extends StatelessWidget {
       child: Container(
         width: 28,
         height: 28,
-
         decoration: BoxDecoration(
           color: const Color.fromARGB(255, 37, 61, 194),
           borderRadius: BorderRadius.circular(10),

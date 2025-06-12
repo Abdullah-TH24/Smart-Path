@@ -1,11 +1,10 @@
-class ProfileTileItemModel {
+class ListTileItemModel {
+  final String assetName;
   final String title;
-  final String image;
   final void Function()? onTap;
-
-  ProfileTileItemModel({
+  ListTileItemModel({
+    required this.assetName,
     required this.title,
-    required this.image,
     required this.onTap,
   });
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Themes {
-  ThemeData light = ThemeData.light().copyWith(
+  ThemeData light = ThemeData(
     scaffoldBackgroundColor: Colors.indigo[50],
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(backgroundColor: Colors.indigo),
@@ -14,7 +14,7 @@ class Themes {
     textTheme: GoogleFonts.montserratTextTheme(),
   );
 
-  ThemeData dark = ThemeData.dark().copyWith(
+  ThemeData dark = ThemeData(
     scaffoldBackgroundColor: const Color(0xff0f0b3e),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(backgroundColor: const Color(0xff6e33f7)),

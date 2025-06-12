@@ -1,9 +1,7 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:smartpath/utils/general_utils/app_styles.dart';
+import 'package:smartpath/core/utils/general_utils/app_styles.dart';
 
 class ProfileNamePhotoRow extends StatelessWidget {
   const ProfileNamePhotoRow({super.key});

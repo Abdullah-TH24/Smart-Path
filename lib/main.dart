@@ -7,14 +7,12 @@ import 'package:smartpath/controller/localization/localization_controller.dart';
 import 'package:smartpath/core/localization/arabic_english_local.dart';
 import 'package:smartpath/core/middleware/introduction_middleware.dart';
 import 'package:smartpath/core/middleware/login_middleware.dart';
-import 'package:smartpath/utils/general_utils/app_routes.dart';
-import 'package:smartpath/utils/general_utils/themes.dart';
+import 'package:smartpath/core/utils/general_utils/app_routes.dart';
+import 'package:smartpath/core/utils/general_utils/themes.dart';
 import 'package:smartpath/view/introduction_view/introduction_pages.dart';
 import 'package:smartpath/view/login_view/login.dart';
 import 'package:smartpath/view/login_view/reset_password.dart';
 import 'package:smartpath/view/splash_view/splash_screen.dart';
-import 'package:smartpath/view/login_view/lang_option_page.dart';
-import 'package:smartpath/view/student_view/student_home_page.dart';
 import 'package:smartpath/view/student_view/student_main_page.dart';
 
 SharedPreferences? prefs;
@@ -27,13 +25,12 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
-
   LocalizationController locale = Get.put(LocalizationController());
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialRoute: 'splash_screen',
+      initialRoute: AppRoutes.splashScreenRoute,
       locale: locale.initailLang,
       translations: ArabicEnglishLocal(),
       defaultTransition: Transition.cupertinoDialog,
@@ -57,14 +54,9 @@ class MyApp extends StatelessWidget {
           name: AppRoutes.resetPasswordRoute,
           page: () => ResetPassword(),
         ),
-        GetPage(name: AppRoutes.languagesRoute, page: () => LangOptionPage()),
         GetPage(
           name: AppRoutes.studentMainPageRoute,
           page: () => const StudentMainPage(),
-        ),
-        GetPage(
-          name: AppRoutes.studentHomePageRoute,
-          page: () => const StudentHomePage(),
         ),
       ],
       debugShowCheckedModeBanner: false,

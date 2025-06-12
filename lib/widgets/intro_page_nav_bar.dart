@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:smartpath/controller/localization/localization_controller.dart';
-import 'package:smartpath/utils/general_utils/app_routes.dart';
+import 'package:smartpath/core/utils/general_utils/app_routes.dart';
 import 'package:smartpath/main.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -26,6 +26,7 @@ class IntroPageNavBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          // Icon [<] in english language
           IconButton(
             onPressed: () {
               controller.previousPage(
@@ -41,6 +42,7 @@ class IntroPageNavBar extends StatelessWidget {
               color: Colors.indigo,
             ),
           ),
+          // Three dots with animation
           SmoothPageIndicator(
             controller: controller,
             count: 3,
@@ -53,6 +55,7 @@ class IntroPageNavBar extends StatelessWidget {
               type: SwapType.yRotation,
             ),
           ),
+          // Icon [>] in english language
           IconButton(
             onPressed: () {
               if (controller.page == 2.0) {

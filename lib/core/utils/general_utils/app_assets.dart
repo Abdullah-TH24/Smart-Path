@@ -1,5 +1,5 @@
-class Assets {
-  Assets._();
+class AppAssets {
+  AppAssets._();
 
   // SVG
   static const String iconHomeInactive = "assets/icons/home_inactive.svg";
