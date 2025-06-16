@@ -21,7 +21,11 @@ class StudentProfilePage extends StatelessWidget {
             expandedHeight: 80,
             flexibleSpace: FlexibleSpaceBar(
               background: const UpperWaves(),
-              titlePadding: const EdgeInsets.only(left: 16, bottom: 8),
+              titlePadding: const EdgeInsets.only(
+                left: 16,
+                bottom: 8,
+                right: 16,
+              ),
               title: Text(
                 'title_page'.tr,
                 style: AppStyles.styleMedium14().copyWith(
@@ -35,7 +39,7 @@ class StudentProfilePage extends StatelessWidget {
             child: Column(
               children: [
                 const Gap(12),
-                const ProfileNamePhotoRow(),
+                ProfileNamePhotoRow(),
                 const Gap(32),
                 ...items.map((e) => ProfileListTileItem(item: e)),
               ],

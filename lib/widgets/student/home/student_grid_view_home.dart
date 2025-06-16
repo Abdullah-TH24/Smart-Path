@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:smartpath/core/models/student_model/home/grid_item_model.dart';
+import 'package:smartpath/models/student_model/home/grid_item_model.dart';
 import 'package:smartpath/core/utils/general_utils/app_styles.dart';
 
 class StudentGridViewHome extends StatelessWidget {
@@ -13,14 +13,14 @@ class StudentGridViewHome extends StatelessWidget {
       padding: const EdgeInsetsGeometry.symmetric(vertical: 48, horizontal: 12),
       sliver: SliverGrid.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 4,
-          childAspectRatio: 2.77 / 3,
+          crossAxisCount: 3,
+          childAspectRatio: 2.77 / 2.5,
         ),
         itemBuilder:
             (context, index) => GestureDetector(
               onTap: gridItems[index].onTap,
               child: Card(
-                color: const Color.fromARGB(255, 200, 204, 233),
+                color: const Color.fromARGB(200, 200, 204, 233),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -36,7 +36,7 @@ class StudentGridViewHome extends StatelessWidget {
                 ),
               ),
             ),
-        itemCount: gridItems.length,
+        itemCount: gridItems.length - 3,
       ),
     );
   }

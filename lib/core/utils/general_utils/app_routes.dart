@@ -14,4 +14,8 @@ class AppRoutes {
 
   /* Student Pages */
   static const String studentMainPageRoute = '/student_main_page';
+
+  static const String studentProfileInfo = '/profile_info';
+
+  static const String studentCalendar = '/calendar';
 }

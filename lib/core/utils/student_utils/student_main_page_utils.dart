@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
-import 'package:smartpath/core/models/student_model/bottom_bar_item_model.dart';
+import 'package:smartpath/models/student_model/bottom_bar_item_model.dart';
 import 'package:smartpath/core/utils/general_utils/app_assets.dart';
 import 'package:smartpath/view/student_view/data/student_data_page.dart';
 import 'package:smartpath/view/student_view/home/student_home_page.dart';

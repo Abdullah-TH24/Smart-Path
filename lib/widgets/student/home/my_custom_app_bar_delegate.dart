@@ -25,6 +25,7 @@ class MyCustomAppBarDelegate extends SliverPersistentHeaderDelegate {
     double shrinkOffset,
     bool overlapsContent,
   ) {
+    final double width = MediaQuery.sizeOf(context).width;
     final double contentOpacity =
         (1.0 - (shrinkOffset / (maxExtent - minExtent))).clamp(0.0, 1.0);
     return Stack(
@@ -42,11 +43,12 @@ class MyCustomAppBarDelegate extends SliverPersistentHeaderDelegate {
           ),
         ),
         // Logo with tille and actions
-        const AppBarAfterScroll(),
+        AppBarAfterScroll(),
         // --- Layer 2: The Content That Fades Away ---
         // This is the content from your old `flexibleSpace.child`
         Positioned(
           bottom: 35,
+          width: width,
           child: IntrinsicWidth(
             child: Opacity(
               opacity: contentOpacity,

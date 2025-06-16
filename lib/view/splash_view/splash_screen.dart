@@ -21,7 +21,13 @@ class SplashScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(height: Get.height / 4 - 50),
-                Image.asset(AppAssets.pngLogo, width: 151.84, height: 172.4),
+                Image.asset(
+                  AppAssets.pngLogo,
+                  width: 151.84,
+                  height: 172.4,
+                  colorBlendMode: BlendMode.srcIn,
+                  color: Colors.indigo,
+                ),
                 const Gap(25),
                 Text(
                   'app_name'.tr,

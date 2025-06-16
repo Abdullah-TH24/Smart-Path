@@ -62,5 +62,10 @@ class AppAssets {
 
   // PNG
   static const String pngLogo = "assets/images/logo.png";
+
   static const String gredientBackground = "assets/images/grediant_image.png";
+
+  static const String events1 = "assets/images/events-1.png";
+
+  static const String noData = "assets/images/no-data.png";
 }

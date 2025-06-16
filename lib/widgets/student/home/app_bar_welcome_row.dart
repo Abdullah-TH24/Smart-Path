@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:smartpath/core/utils/general_utils/app_styles.dart';
 
 class AppBarWelcomeRow extends StatelessWidget {
@@ -7,7 +6,7 @@ class AppBarWelcomeRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -19,14 +18,20 @@ class AppBarWelcomeRow extends StatelessWidget {
                 'Hi',
                 style: AppStyles.styleRegular16().copyWith(color: Colors.white),
               ),
+              // TODO here to put student name from shared preference after link login page
               Text(
-                'Mohamad Serafi',
+                'Abdullah Hamid',
                 style: AppStyles.styleMedium20().copyWith(color: Colors.white),
               ),
             ],
           ),
-          const Gap(120),
-          const Icon(Icons.image, color: Colors.white),
+          Container(
+            alignment: Alignment.centerRight,
+            child: IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.image, color: Colors.white),
+            ),
+          ),
         ],
       ),
     );

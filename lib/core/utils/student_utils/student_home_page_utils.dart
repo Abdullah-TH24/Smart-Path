@@ -1,40 +1,58 @@
-import 'package:get/get_utils/src/extensions/internacionalization.dart';
-import 'package:smartpath/core/models/student_model/home/grid_item_model.dart';
+import 'package:get/get.dart';
+import 'package:smartpath/controller/localization/localization_controller.dart';
+import 'package:smartpath/core/utils/general_utils/app_routes.dart';
+import 'package:smartpath/models/student_model/home/grid_item_model.dart';
 import 'package:smartpath/core/utils/general_utils/app_assets.dart';
+import 'package:smartpath/view/student_view/home/calendar/calendar.dart';
+
+LocalizationController locale = Get.find();
 
 final List<GridItemModel> gridItems = [
   GridItemModel(
     assetName: AppAssets.iconClass,
     title: 'grid_item_name_0'.tr,
-    onTap: () {},
+    onTap: () {
+      locale.changeLanguage('ar');
+      print('AR');
+    },
   ),
   GridItemModel(
-    assetName: AppAssets.iconAchievment,
+    assetName: AppAssets.iconBook,
     title: 'grid_item_name_1'.tr,
-    onTap: () {},
+    onTap: () {
+      locale.changeLanguage('en');
+      print('EN');
+    },
   ),
   GridItemModel(
-    assetName: AppAssets.iconArticle,
+    assetName: AppAssets.iconCase,
     title: 'grid_item_name_2'.tr,
     onTap: () {},
   ),
   GridItemModel(
     assetName: AppAssets.iconCalendar,
+    title: 'grid_item_name_3'.tr,
+    onTap: () {
+      Get.toNamed(AppRoutes.studentCalendar);
+    },
+  ),
+  GridItemModel(
+    assetName: AppAssets.iconQuiz,
     title: 'grid_item_name_4'.tr,
     onTap: () {},
   ),
   GridItemModel(
-    assetName: AppAssets.iconQuiz,
+    assetName: AppAssets.iconTeacher,
     title: 'grid_item_name_5'.tr,
     onTap: () {},
   ),
   GridItemModel(
-    assetName: AppAssets.iconTeacher,
+    assetName: AppAssets.iconStats,
     title: 'grid_item_name_6'.tr,
     onTap: () {},
   ),
   GridItemModel(
-    assetName: AppAssets.iconFolder,
+    assetName: AppAssets.iconAchievment,
     title: 'grid_item_name_7'.tr,
     onTap: () {},
   ),
@@ -43,7 +61,6 @@ final List<GridItemModel> gridItems = [
     title: 'grid_item_name_8'.tr,
     onTap: () {},
   ),
-  GridItemModel(assetName: AppAssets.iconStats, title: 'Stats', onTap: () {}),
   GridItemModel(
     assetName: AppAssets.iconCase,
     title: 'grid_item_name_9'.tr,
