@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:smartpath/widgets/login/button_component.dart';
+import 'package:smartpath/controller/login_controller/login_controller.dart';
+import 'package:smartpath/widgets/login/login_button.dart';
 import 'package:smartpath/widgets/login/login_form_widget.dart';
 import 'package:smartpath/widgets/login/logo_with_title_component.dart';
 import 'package:smartpath/controller/login_controller/hide_show_password_controller.dart';
 import 'package:smartpath/core/utils/general_utils/app_routes.dart';
 import 'package:smartpath/core/utils/general_utils/app_styles.dart';
-import 'package:smartpath/main.dart';
 import 'package:smartpath/widgets/login/title_with_desc_component.dart';
 
 // ignore: must_be_immutable
@@ -21,6 +21,7 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final LoginController loginController = Get.put(LoginController());
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(24),
@@ -36,18 +37,17 @@ class Login extends StatelessWidget {
             LoginForm(login: login, email: email, password: password),
             const Gap(50),
             // <Sign In> button
-            ButtonComponent(
-              onPressed: () {
-                prefs!.setString('login_state', 'true');
-                Get.offAllNamed(AppRoutes.studentMainPageRoute);
-              },
-              data: 'sign_in'.tr,
+            LoginButton(
+              loginController: loginController,
+              login: login,
+              email: email,
+              password: password,
             ),
             const Gap(48),
             // <Forget Password> button
             InkWell(
               onTap: () {
-                Get.toNamed(AppRoutes.resetPasswordRoute);
+                Get.toNamed(AppRoutes.requestResetPassword);
                 controller.hidePassword();
               },
               splashColor: Colors.transparent,

@@ -7,7 +7,6 @@ import 'package:lucide_icons/lucide_icons.dart';
 import 'package:smartpath/controller/localization/localization_controller.dart';
 import 'package:smartpath/models/student_model/profile/list_tile_item_model.dart';
 import 'package:smartpath/core/utils/general_utils/app_styles.dart';
-import 'package:smartpath/core/utils/general_utils/themes.dart';
 
 class ProfileListTileItem extends StatelessWidget {
   final ListTileItemModel item;

@@ -7,7 +7,6 @@ import 'package:lucide_icons/lucide_icons.dart';
 import 'package:smartpath/controller/localization/localization_controller.dart';
 import 'package:smartpath/core/utils/general_utils/app_routes.dart';
 import 'package:smartpath/core/utils/general_utils/app_styles.dart';
-import 'package:smartpath/view/student_view/profile/profile_info.dart';
 
 class ProfileNamePhotoRow extends StatelessWidget {
   ProfileNamePhotoRow({super.key});

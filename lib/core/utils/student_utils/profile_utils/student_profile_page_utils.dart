@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:smartpath/core/utils/student_utils/student_main_page_utils.dart';
 import 'package:smartpath/models/student_model/profile/list_tile_item_model.dart';
 import 'package:smartpath/core/utils/general_utils/app_assets.dart';
 import 'package:smartpath/core/utils/general_utils/app_routes.dart';
@@ -34,8 +35,9 @@ final List<ListTileItemModel> items = [
     title: "sign_out".tr,
     assetName: AppAssets.iconSignout,
     onTap: () {
-      prefs!.setString('login_state', 'false');
+      prefs!.remove('token');
       Get.offAllNamed(AppRoutes.loginRoute);
+      pageIndex = 0;
     },
   ),
 ];

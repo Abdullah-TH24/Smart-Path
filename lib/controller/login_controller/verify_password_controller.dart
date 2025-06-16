@@ -1,6 +1,6 @@
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
-String? verifyPassword(String? value, int length) {
+dynamic verifyPassword(String? value, int length) {
   if (length == 0) {
     return 'password_valid_empty'.tr;
   } else if (!RegExp(
@@ -8,5 +8,5 @@ String? verifyPassword(String? value, int length) {
   ).hasMatch(value!)) {
     return 'password_valid_weak'.tr;
   }
-  return '';
+  return null;
 }

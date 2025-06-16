@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:smartpath/core/utils/general_utils/app_styles.dart';
 
 class ButtonComponent extends StatelessWidget {
   final void Function()? onPressed;
-  final String data;
+  final Widget? child;
   const ButtonComponent({
     super.key,
     required this.onPressed,
-    required this.data,
+    required this.child,
   });
 
   @override
@@ -20,10 +19,7 @@ class ButtonComponent extends StatelessWidget {
           borderRadius: BorderRadiusGeometry.circular(10),
         ),
       ),
-      child: Text(
-        data,
-        style: AppStyles.styleRegular22().copyWith(color: Colors.white),
-      ),
+      child: child,
     );
   }
 }

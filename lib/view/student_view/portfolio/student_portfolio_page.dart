@@ -5,6 +5,6 @@ class StudentPortfolioPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text('Portfolio')));
+    return Scaffold(appBar: AppBar(title: const Text('Portfolio')));
   }
 }

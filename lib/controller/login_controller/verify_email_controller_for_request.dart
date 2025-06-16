@@ -1,6 +1,6 @@
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
-dynamic verifyEmail(String? value, int length) {
+dynamic verifyEmailForRequest(String? value, int length) {
   if (length == 0) {
     return 'email-valid_empty'.tr;
   } else if (!RegExp(

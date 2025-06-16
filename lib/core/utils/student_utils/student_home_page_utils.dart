@@ -3,7 +3,6 @@ import 'package:smartpath/controller/localization/localization_controller.dart';
 import 'package:smartpath/core/utils/general_utils/app_routes.dart';
 import 'package:smartpath/models/student_model/home/grid_item_model.dart';
 import 'package:smartpath/core/utils/general_utils/app_assets.dart';
-import 'package:smartpath/view/student_view/home/calendar/calendar.dart';
 
 LocalizationController locale = Get.find();
 
@@ -13,7 +12,6 @@ final List<GridItemModel> gridItems = [
     title: 'grid_item_name_0'.tr,
     onTap: () {
       locale.changeLanguage('ar');
-      print('AR');
     },
   ),
   GridItemModel(
@@ -21,7 +19,6 @@ final List<GridItemModel> gridItems = [
     title: 'grid_item_name_1'.tr,
     onTap: () {
       locale.changeLanguage('en');
-      print('EN');
     },
   ),
   GridItemModel(

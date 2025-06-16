@@ -10,7 +10,9 @@ import 'package:smartpath/core/middleware/login_middleware.dart';
 import 'package:smartpath/core/utils/general_utils/app_routes.dart';
 import 'package:smartpath/core/utils/general_utils/themes.dart';
 import 'package:smartpath/view/introduction_view/introduction_pages.dart';
+import 'package:smartpath/view/login_view/enter_verification_code.dart';
 import 'package:smartpath/view/login_view/login.dart';
+import 'package:smartpath/view/login_view/request_reset_password.dart';
 import 'package:smartpath/view/login_view/reset_password.dart';
 import 'package:smartpath/view/splash_view/splash_screen.dart';
 import 'package:smartpath/view/student_view/home/calendar/calendar.dart';
@@ -52,6 +54,14 @@ class MyApp extends StatelessWidget {
           name: AppRoutes.loginRoute,
           page: () => Login(),
           middlewares: [LoginMiddleware()],
+        ),
+        GetPage(
+          name: AppRoutes.requestResetPassword,
+          page: () => RequestResetPassword(),
+        ),
+        GetPage(
+          name: AppRoutes.enterVerificationCode,
+          page: () => EnterVerificationCode(),
         ),
         GetPage(
           name: AppRoutes.resetPasswordRoute,

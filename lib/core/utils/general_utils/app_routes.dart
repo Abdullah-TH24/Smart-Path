@@ -8,6 +8,10 @@ class AppRoutes {
 
   static const String loginRoute = '/login';
 
+  static const String requestResetPassword = '/request_reset_password';
+
+  static const String enterVerificationCode = '/enter_verification_code';
+
   static const String resetPasswordRoute = '/reset_password';
 
   static const String languagesRoute = '/lang_option_page.dart';

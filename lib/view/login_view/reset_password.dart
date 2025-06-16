@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
+import 'package:smartpath/core/utils/general_utils/app_styles.dart';
 import 'package:smartpath/widgets/login/button_component.dart';
 import 'package:smartpath/widgets/login/logo_with_title_component.dart';
 import 'package:smartpath/controller/localization/localization_controller.dart';
@@ -53,7 +54,13 @@ class ResetPassword extends StatelessWidget {
             ),
             const Gap(75),
             // <Reset Password> button
-            ButtonComponent(onPressed: () {}, data: 'reset_tite'.tr),
+            ButtonComponent(
+              onPressed: () {},
+              child: Text(
+                'reset_tite'.tr,
+                style: AppStyles.styleRegular22().copyWith(color: Colors.white),
+              ),
+            ),
             // TODO enable the button and add a dialog
           ],
         ),
