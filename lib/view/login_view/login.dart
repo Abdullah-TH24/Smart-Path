@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:smartpath/controller/localization/localization_controller.dart';
 import 'package:smartpath/controller/login_controller/login_controller.dart';
-import 'package:smartpath/widgets/login/login_button.dart';
+import 'package:smartpath/core/utils/general_utils/app_routes.dart';
+import 'package:smartpath/widgets/login/login_button_widget.dart';
 import 'package:smartpath/widgets/login/login_form_widget.dart';
 import 'package:smartpath/widgets/login/logo_with_title_component.dart';
 import 'package:smartpath/controller/login_controller/hide_show_password_controller.dart';
-import 'package:smartpath/core/utils/general_utils/app_routes.dart';
 import 'package:smartpath/core/utils/general_utils/app_styles.dart';
 import 'package:smartpath/widgets/login/title_with_desc_component.dart';
 
@@ -18,6 +19,7 @@ class Login extends StatelessWidget {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   HideShowPasswordController controller = Get.put(HideShowPasswordController());
+  LocalizationController locale = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +44,7 @@ class Login extends StatelessWidget {
               login: login,
               email: email,
               password: password,
+              locale: locale,
             ),
             const Gap(48),
             // <Forget Password> button

@@ -1,6 +1,6 @@
 // ignore_for_file: must_be_immutable, use_build_context_synchronously
-
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
@@ -24,15 +24,18 @@ class RequestResetPassword extends StatelessWidget {
       RequestResetPasswordController(),
     );
     return Scaffold(
-      extendBody: true,
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
         leading: IconButton(
           onPressed: () {
             Get.back();
           },
           icon: Icon(
-            locale.initailLang == const Locale('en') ||
-                    locale.initailLang == Get.deviceLocale
+            (Get.locale?.languageCode ?? 'en') == 'en'
                 ? LucideIcons.chevronLeft
                 : LucideIcons.chevronRight,
             color: Colors.indigo,
@@ -46,19 +49,19 @@ class RequestResetPassword extends StatelessWidget {
             const Gap(25),
             // Logo with title app
             const LogoWithTitle(),
-            const Gap(35),
+            const Gap(25),
             // Email with description
-            const TitleWithDesc(
-              title: 'E-mail Required',
-              desc: 'Please enter your email below',
+            TitleWithDesc(
+              title: 'request_email_title'.tr,
+              desc: 'request_email_desc'.tr,
             ),
-            const Gap(75),
+            const Gap(65),
             // Form <E-mail>
             RequestForm(
               requestResetPassword: requestResetPassword,
               email: email,
             ),
-            const Gap(110),
+            const Gap(90),
             // <Send> Button
             RequestButton(
               requestResetPassword: requestResetPassword,

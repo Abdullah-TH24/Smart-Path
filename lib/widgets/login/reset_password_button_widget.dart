@@ -3,35 +3,41 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
-import 'package:smartpath/controller/login_controller/request_reset_password_controller.dart';
+import 'package:smartpath/controller/login_controller/reset_password_controller.dart';
 import 'package:smartpath/core/utils/general_utils/app_routes.dart';
 import 'package:smartpath/core/utils/general_utils/app_styles.dart';
 import 'package:smartpath/widgets/login/button_component.dart';
 
-class RequestButton extends StatelessWidget {
-  const RequestButton({
+class ResetPasswordButton extends StatelessWidget {
+  const ResetPasswordButton({
     super.key,
-    required this.requestResetPassword,
-    required this.requestRPController,
+    required this.resetPassword,
+    required this.resetPasswordController,
     required this.email,
+    required this.password,
   });
 
-  final GlobalKey<FormState> requestResetPassword;
-  final RequestResetPasswordController requestRPController;
-  final TextEditingController email;
+  final GlobalKey<FormState> resetPassword;
+  final ResetPasswordController resetPasswordController;
+  final String email;
+  final TextEditingController password;
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<RequestResetPasswordController>(
+    return GetBuilder<ResetPasswordController>(
+      init: ResetPasswordController(),
       builder: (controller) {
         return ButtonComponent(
           onPressed:
               (controller.isLoading)
                   ? null
                   : () async {
-                    if (requestResetPassword.currentState!.validate()) {
-                      await requestRPController.sendEmail(email.text.trim());
-                      if (requestRPController.errorMessage != null) {
+                    if (resetPassword.currentState!.validate()) {
+                      await resetPasswordController.resetPassword(
+                        email,
+                        password.text.trim(),
+                      );
+                      if (resetPasswordController.errorMessage != null) {
                         await showDialog(
                           context: context,
                           builder:
@@ -41,24 +47,15 @@ class RequestButton extends StatelessWidget {
                                   textAlign: TextAlign.center,
                                 ),
                                 content: Text(
-                                  '${requestRPController.errorMessage}',
+                                  '${resetPasswordController.errorMessage}',
                                   textAlign: TextAlign.center,
                                 ),
                               ),
                         );
                       }
-                      if (requestRPController.otpResponse != null) {
-                        if (requestRPController.otpResponse?.status == 200) {
-                          Get.toNamed(
-                            AppRoutes.enterVerificationCode,
-                            arguments: {
-                              'email': email.text.trim(),
-                              'verificationCode':
-                                  requestRPController
-                                      .otpResponse
-                                      ?.verificationCode,
-                            },
-                          );
+                      if (resetPasswordController.resetResponse != null) {
+                        if (resetPasswordController.resetResponse!.status) {
+                          Get.offAllNamed(AppRoutes.loginRoute);
                         } else {
                           await showDialog(
                             context: context,
@@ -69,7 +66,7 @@ class RequestButton extends StatelessWidget {
                                     textAlign: TextAlign.center,
                                   ),
                                   content: Text(
-                                    '${requestRPController.otpResponse?.message}',
+                                    '${resetPasswordController.resetResponse?.message}',
                                     textAlign: TextAlign.center,
                                   ),
                                 ),
@@ -82,7 +79,7 @@ class RequestButton extends StatelessWidget {
               (controller.isLoading)
                   ? SpinKitFadingGrid(color: Colors.indigo[900], size: 30)
                   : Text(
-                    'send'.tr,
+                    'reset_tite'.tr,
                     style: AppStyles.styleRegular22().copyWith(
                       color: Colors.white,
                     ),

@@ -1,11 +1,14 @@
+// ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:smartpath/core/utils/general_utils/app_styles.dart';
-import 'package:smartpath/widgets/login/button_component.dart';
+import 'package:smartpath/controller/login_controller/reset_password_controller.dart';
+import 'package:smartpath/core/utils/general_utils/app_routes.dart';
 import 'package:smartpath/widgets/login/logo_with_title_component.dart';
 import 'package:smartpath/controller/localization/localization_controller.dart';
+import 'package:smartpath/widgets/login/reset_password_button_widget.dart';
 import 'package:smartpath/widgets/login/reset_password_form_widget.dart';
 import 'package:smartpath/widgets/login/title_with_desc_component.dart';
 
@@ -17,19 +20,26 @@ class ResetPassword extends StatelessWidget {
   TextEditingController password = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
   LocalizationController locale = Get.find();
+  final String email = Get.arguments;
 
   @override
   Widget build(BuildContext context) {
+    final ResetPasswordController resetPasswordController = Get.put(
+      ResetPasswordController(),
+    );
     return Scaffold(
-      extendBody: true,
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        surfaceTintColor: Colors.transparent,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
         leading: IconButton(
           onPressed: () {
-            Get.back();
+            Get.offAllNamed(AppRoutes.loginRoute);
           },
           icon: Icon(
-            locale.initailLang == const Locale('en') ||
-                    locale.initailLang == Get.deviceLocale
+            (Get.locale?.languageCode ?? 'en') == 'en'
                 ? LucideIcons.chevronLeft
                 : LucideIcons.chevronRight,
             color: Colors.indigo,
@@ -54,14 +64,12 @@ class ResetPassword extends StatelessWidget {
             ),
             const Gap(75),
             // <Reset Password> button
-            ButtonComponent(
-              onPressed: () {},
-              child: Text(
-                'reset_tite'.tr,
-                style: AppStyles.styleRegular22().copyWith(color: Colors.white),
-              ),
+            ResetPasswordButton(
+              resetPassword: resetPassword,
+              resetPasswordController: resetPasswordController,
+              email: email,
+              password: password,
             ),
-            // TODO enable the button and add a dialog
           ],
         ),
       ),

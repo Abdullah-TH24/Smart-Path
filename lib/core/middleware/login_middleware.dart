@@ -10,7 +10,12 @@ class LoginMiddleware extends GetMiddleware {
   @override
   RouteSettings? redirect(String? route) {
     if (prefs!.getString('token') != null) {
-      return const RouteSettings(name: AppRoutes.studentMainPageRoute);
+      if (prefs!.getString('role') == 'student') {
+        return const RouteSettings(name: AppRoutes.studentMainPageRoute);
+      } else if (prefs!.getString('role') == 'student') {
+        // return const RouteSettings(name: AppRoutes.parentMainPageRoute);
+        // TODO add parent main page to routes then uncomment the previous line
+      }
     }
     return null;
   }

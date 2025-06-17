@@ -7,6 +7,11 @@ abstract class AppLinks {
   // Auth links
   static final String login = '$_mainLink/api/login';
 
+  static final String confirmForgetPasswordOtp =
+      '$_mainLink/api/confirmForgetPasswordOtp';
+
   static final String sendForgetPasswordOtp =
       '$_mainLink/api/sendForgetPasswordOtp';
+
+  static final String resetPassword = '$_mainLink/api/resetPassword';
 }

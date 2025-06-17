@@ -14,7 +14,7 @@ class TitleWithDesc extends StatelessWidget {
       children: [
         const Gap(44.43),
         // Title Page
-        Text(title, style: AppStyles.styleBold22()),
+        Text(title, style: AppStyles.styleBold22().copyWith()),
         const Gap(10),
         // Description page
         Text(desc, style: AppStyles.styleRegular16()),

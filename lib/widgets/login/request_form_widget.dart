@@ -17,8 +17,9 @@ class RequestForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Form(
       key: requestResetPassword,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: ListView(
+        physics: const NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
         children: [
           // <E-mail> word
           Text(

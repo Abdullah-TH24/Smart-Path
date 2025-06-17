@@ -20,6 +20,17 @@ class ArabicEnglishLocal implements Translations {
       'password_valid_empty': 'Password cannot be empty',
       'password_valid_weak': 'Password is too weak',
       'forgot_password': 'Forgot Password',
+      'error': 'Error',
+      'error_message': 'Failed to connect to server',
+      // For request password
+      'request_email_title': 'E-mail Required',
+      'request_email_desc': 'Please enter your email below',
+      'send': 'Send',
+      // For enter verification vode
+      'verification_code': 'Verification Code',
+      'verification_code_desc': 'Please type the verification code sent\nto ',
+      // For otp
+      'error_in_code': 'Please check the verification code',
       // For reset password
       'reset_tite': 'Reset Password',
       'reset_desc': 'Please enter your password',
@@ -81,6 +92,17 @@ class ArabicEnglishLocal implements Translations {
       'password_valid_empty': 'لا يمكن أن تكون كلمة المرور فارغة',
       'password_valid_weak': 'كلمة المرور ضعيفة جدًا',
       'forgot_password': 'هل نسيت كلمة السر',
+      'error': 'خطأ',
+      'error_message': 'فشل في الاتصال بالخادم',
+      // For request password
+      'request_email_title': 'البريد الإلكتروني مطلوب',
+      'request_email_desc': 'الرجاء إدخال بريدك الإلكتروني أدناه',
+      'send': 'إرسال',
+      // For enter verification vode
+      'verification_code': 'رمز التحقق',
+      'verification_code_desc': 'الرجاء كتابة رمز التحقق المرسل إلى ',
+      // For otp
+      'error_in_code': 'الرجاء التأكد من رمز التحقق',
       // For reset password
       'reset_tite': 'إعادة تعيين كلمة المرور',
       'reset_desc': 'الرجاء إدخال كلمة المرور الخاصة بك',
@@ -127,12 +149,3 @@ class ArabicEnglishLocal implements Translations {
     },
   };
 }
-
-
-
-//       'footer_card_title_home': 'Student Portfolio',
-//       'footer_card_desc_home':
-//           'Easily create and share \n your own awesome portfolio',
-
-//       'footer_card_title_home': 'ملف الطالب',
-//       'footer_card_desc_home': 'أنشئ وشارك ملفك الرائع \n بكل سهولة',

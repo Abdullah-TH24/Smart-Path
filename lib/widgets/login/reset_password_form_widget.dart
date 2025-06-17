@@ -63,7 +63,7 @@ class ResetPasswordForm extends StatelessWidget {
                     controller.hidePasswordConfirm();
                   }
                 },
-                validator: (value) => verfiySamePassword(value, password.text),
+                validator: (value) => verfiySamePassword(password.text, value),
                 icon: Icon(controller.iconConfirm, color: Colors.indigo),
                 obscureText: controller.obscureTextConfirm,
               );

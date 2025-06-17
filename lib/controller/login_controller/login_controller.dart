@@ -17,11 +17,9 @@ class LoginController extends GetxController {
       final result = await _authService.login(email, password);
       if (result != null) {
         loginResponse = result;
-      } else {
-        errorMessage = result?.message ?? 'An error occurred while logging in';
       }
     } catch (e) {
-      errorMessage = 'Failed to connect to server';
+      errorMessage = 'error_message'.tr;
     }
     isLoading = false;
     update();

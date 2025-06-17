@@ -1,19 +1,24 @@
 // ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:smartpath/controller/localization/localization_controller.dart';
-import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:smartpath/controller/login_controller/send_otp_code_controller.dart';
+import 'package:smartpath/core/utils/general_utils/app_styles.dart';
+import 'package:smartpath/widgets/login/my_otp_widget.dart';
 
 class EnterVerificationCode extends StatelessWidget {
   EnterVerificationCode({super.key});
 
+  final String email = Get.arguments['email'];
   LocalizationController locale = Get.find();
 
   @override
   Widget build(BuildContext context) {
+    final SendOtpCodeController sendOtpCodeController = Get.put(
+      SendOtpCodeController(),
+    );
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -21,8 +26,7 @@ class EnterVerificationCode extends StatelessWidget {
             Get.back();
           },
           icon: Icon(
-            locale.initailLang == const Locale('en') ||
-                    locale.initailLang == Get.deviceLocale
+            (Get.locale?.languageCode ?? 'en') == 'en'
                 ? LucideIcons.chevronLeft
                 : LucideIcons.chevronRight,
             color: Colors.indigo,
@@ -31,33 +35,29 @@ class EnterVerificationCode extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(24),
-        child: ListView(
-          children: [
-            const Gap(50),
-            OtpTextField(
-              numberOfFields: 5,
-              borderColor: const Color(0xFF512DA8),
-              //set to true to show as box or false to show as dash
-              showFieldAsBox: true,
-              enabledBorderColor: Colors.indigo,
-              //runs when a code is typed in
-              onCodeChanged: (String code) {
-                //handle validation or checks here
-              },
-              //runs when every textfield is filled
-              onSubmit: (String verificationCode) {
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      title: const Text("Verification Code"),
-                      content: Text('Code entered is $verificationCode'),
-                    );
-                  },
-                );
-              }, // end onSubmit
-            ),
-          ],
+        child: Center(
+          child: ListView(
+            shrinkWrap: true,
+            children: [
+              Text(
+                'verification_code'.tr,
+                style: AppStyles.styleBold24(),
+                textAlign: TextAlign.center,
+              ),
+              const Gap(10),
+              Text(
+                '${'verification_code_desc'.tr}$email',
+                style: AppStyles.styleRegular14(),
+                textAlign: TextAlign.center,
+              ),
+              const Gap(75),
+              MyOtpWidget(
+                email: email,
+                sendOtpCodeController: sendOtpCodeController,
+              ),
+              const Gap(50),
+            ],
+          ),
         ),
       ),
     );
