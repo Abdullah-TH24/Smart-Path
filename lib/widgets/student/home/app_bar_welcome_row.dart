@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:smartpath/core/utils/general_utils/app_styles.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
+import 'package:smartpath/core/utils/app_styles.dart';
 
 class AppBarWelcomeRow extends StatelessWidget {
-  const AppBarWelcomeRow({super.key});
+  final String studentName;
+  const AppBarWelcomeRow({super.key, required this.studentName});
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +17,12 @@ class AppBarWelcomeRow extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Hi',
+                'hi'.tr,
                 style: AppStyles.styleRegular16().copyWith(color: Colors.white),
               ),
               // TODO here to put student name from shared preference after link login page
               Text(
-                'Abdullah Hamid',
+                studentName,
                 style: AppStyles.styleMedium20().copyWith(color: Colors.white),
               ),
             ],

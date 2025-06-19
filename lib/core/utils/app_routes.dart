@@ -22,4 +22,6 @@ class AppRoutes {
   static const String studentProfileInfo = '/profile_info';
 
   static const String studentCalendar = '/calendar';
+
+  static const String studentGrades = '/grades';
 }

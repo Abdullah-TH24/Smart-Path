@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:smartpath/controller/localization/localization_controller.dart';
-import 'package:smartpath/core/utils/general_utils/app_routes.dart';
+import 'package:smartpath/core/utils/app_routes.dart';
 import 'package:smartpath/main.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

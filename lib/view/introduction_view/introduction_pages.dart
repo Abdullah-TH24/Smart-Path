@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/controller/localization/localization_controller.dart';
-import 'package:smartpath/core/utils/general_utils/app_assets.dart';
-import 'package:smartpath/core/utils/general_utils/app_styles.dart';
+import 'package:smartpath/core/utils/app_assets.dart';
+import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/widgets/intro_page_nav_bar.dart';
 
 class IntroductionPages extends StatelessWidget {

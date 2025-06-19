@@ -14,4 +14,7 @@ abstract class AppLinks {
       '$_mainLink/api/sendForgetPasswordOtp';
 
   static final String resetPassword = '$_mainLink/api/resetPassword';
+
+  // Home links
+  static final String homepage = '$_mainLink/api/getInfo';
 }

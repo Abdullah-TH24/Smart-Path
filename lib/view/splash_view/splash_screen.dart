@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:smartpath/controller/splash_controller/navigate_to_next_page.dart';
-import 'package:smartpath/core/utils/general_utils/app_assets.dart';
+import 'package:smartpath/core/utils/app_assets.dart';
 import 'package:get/get.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:smartpath/core/utils/general_utils/app_styles.dart';
+import 'package:smartpath/core/utils/app_styles.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});

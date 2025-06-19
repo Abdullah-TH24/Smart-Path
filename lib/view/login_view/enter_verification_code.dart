@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:smartpath/controller/localization/localization_controller.dart';
 import 'package:smartpath/controller/login_controller/send_otp_code_controller.dart';
-import 'package:smartpath/core/utils/general_utils/app_styles.dart';
+import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/widgets/login/my_otp_widget.dart';
 
 class EnterVerificationCode extends StatelessWidget {

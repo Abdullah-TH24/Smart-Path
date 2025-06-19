@@ -47,6 +47,7 @@ dependencies:
   salomon_bottom_bar: ^3.3.2
   calendar_date_picker2: ^2.0.1
   flutter_otp_text_field: ^1.5.1+1
+  step_progress_indicator: ^1.0.2
 
 dev_dependencies:
   flutter_test:

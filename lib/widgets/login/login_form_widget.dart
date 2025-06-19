@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:smartpath/controller/login_controller/hide_show_password_controller.dart';
 import 'package:smartpath/controller/login_controller/verify_email_controller.dart';
 import 'package:smartpath/controller/login_controller/verify_password_controller.dart';
-import 'package:smartpath/core/utils/general_utils/app_styles.dart';
+import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/widgets/login/password_field_component.dart';
 
 class LoginForm extends StatelessWidget {

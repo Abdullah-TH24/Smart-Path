@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/controller/localization/localization_controller.dart';
-import 'package:smartpath/core/utils/general_utils/app_assets.dart';
-import 'package:smartpath/core/utils/general_utils/app_styles.dart';
+import 'package:smartpath/core/utils/app_assets.dart';
+import 'package:smartpath/core/utils/app_styles.dart';
 
 class WelcomeItem extends StatelessWidget {
   WelcomeItem({super.key});
@@ -24,13 +24,11 @@ class WelcomeItem extends StatelessWidget {
           gradient: LinearGradient(
             colors: [Colors.indigo[600]!, Colors.indigo[300]!],
             begin:
-                locale.initailLang == const Locale('en') ||
-                        locale.initailLang == Get.deviceLocale
+                (Get.locale?.languageCode ?? 'en') == 'en'
                     ? Alignment.centerLeft
                     : Alignment.centerRight,
             end:
-                locale.initailLang == const Locale('en') ||
-                        locale.initailLang == Get.deviceLocale
+                (Get.locale?.languageCode ?? 'en') == 'en'
                     ? Alignment.centerRight
                     : Alignment.centerLeft,
           ),

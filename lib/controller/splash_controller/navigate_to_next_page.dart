@@ -1,5 +1,5 @@
 import 'package:get/route_manager.dart';
-import 'package:smartpath/core/utils/general_utils/app_routes.dart';
+import 'package:smartpath/core/utils/app_routes.dart';
 
 bool hasNavigated = false;
 

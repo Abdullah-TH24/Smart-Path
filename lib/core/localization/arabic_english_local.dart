@@ -29,6 +29,9 @@ class ArabicEnglishLocal implements Translations {
       // For enter verification vode
       'verification_code': 'Verification Code',
       'verification_code_desc': 'Please type the verification code sent\nto ',
+      'limit_empty': 'you have reached your attempts limit, request a new otp',
+      'You have': 'You have',
+      'attempts': 'attempts',
       // For otp
       'error_in_code': 'Please check the verification code',
       // For reset password
@@ -42,8 +45,9 @@ class ArabicEnglishLocal implements Translations {
       'portfolio': 'Portfolio',
       'input': 'Input',
       'profile': 'Profile',
-      //Home page student
+      // Home page student
       'app_bar_home_stu_title': 'Student Portfolio',
+      'hi': 'Hi',
       'search_bar_home_hint': 'Looking for...',
       'welcome-content': 'Easily create and share\nyour own awesome portfolio',
       'grid_item_name_0': 'Class',
@@ -58,6 +62,8 @@ class ArabicEnglishLocal implements Translations {
       'grid_item_name_9': 'Project',
       'grid_item_name_10': 'Idea',
       'grid_item_name_11': 'Subjects',
+      // For Calendar
+      'calendar_title_page': 'Calendar',
       // Profile
       'edit_profile': 'Edit Profile',
       'change_password': 'Change Password',
@@ -101,6 +107,9 @@ class ArabicEnglishLocal implements Translations {
       // For enter verification vode
       'verification_code': 'رمز التحقق',
       'verification_code_desc': 'الرجاء كتابة رمز التحقق المرسل إلى ',
+      'limit_empty': 'لقد وصلت إلى الحد الأقصى للمحاولات، اطلب رمز تحقق جديد',
+      'You have': 'لديك',
+      'attempts': 'محاولات',
       // For otp
       'error_in_code': 'الرجاء التأكد من رمز التحقق',
       // For reset password
@@ -116,6 +125,7 @@ class ArabicEnglishLocal implements Translations {
       'profile': 'الملف الشخصي',
       //Home page student
       'app_bar_home_stu_title': 'ملف الطالب',
+      'hi': 'مرحباً',
       'search_bar_home_hint': 'ابحث عن',
       'welcome-content': 'قم بإنشاء ومشاركة\nمحفظتك الرائعة بسهولة',
       'grid_item_name_0': 'الفصل الدراسي',
@@ -130,6 +140,8 @@ class ArabicEnglishLocal implements Translations {
       'grid_item_name_9': 'المشاريع',
       'grid_item_name_10': 'الأفكار',
       'grid_item_name_11': 'المواد الدراسية',
+      // For Calendar
+      'calendar_title_page': 'التقويم',
       // Profile
       'edit_profile': 'تعديل الملف الشخصي',
       'change_password': 'تغيير كلمة المرور',

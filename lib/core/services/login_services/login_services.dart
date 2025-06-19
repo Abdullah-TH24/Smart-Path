@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
 import 'package:smartpath/core/localization/api_translate.dart';
-import 'package:smartpath/core/utils/general_utils/app_links.dart';
+import 'package:smartpath/core/utils/app_links.dart';
 import 'package:smartpath/main.dart';
 import 'package:smartpath/models/login_model/reset_password_model.dart';
 import 'package:smartpath/models/login_model/send_forget_password_model.dart';
@@ -40,6 +40,7 @@ class AuthService {
     );
     final data = json.decode(response.body);
     final translatedMessage = ApiMessageTranslator.translate(data['message']);
+    log('${data['data']['verificationCode']}');
     if (response.statusCode == 200) {
       return SendForgetPasswordModel(
         status: data['status'],

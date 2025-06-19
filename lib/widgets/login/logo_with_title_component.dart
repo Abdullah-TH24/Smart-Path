@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
-import 'package:smartpath/core/utils/general_utils/app_assets.dart';
+import 'package:smartpath/core/utils/app_assets.dart';
 
 class LogoWithTitle extends StatelessWidget {
   const LogoWithTitle({super.key});

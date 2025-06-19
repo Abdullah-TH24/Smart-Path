@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/controller/login_controller/reset_password_controller.dart';
-import 'package:smartpath/core/utils/general_utils/app_routes.dart';
-import 'package:smartpath/core/utils/general_utils/app_styles.dart';
+import 'package:smartpath/core/utils/app_routes.dart';
+import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/widgets/login/button_component.dart';
 
 class ResetPasswordButton extends StatelessWidget {

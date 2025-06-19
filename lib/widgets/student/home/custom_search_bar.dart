@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
-import 'package:smartpath/core/utils/general_utils/app_styles.dart';
+import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/widgets/student/home/suffix_search_bar_button.dart';
 
 class CustomSearchBar extends StatelessWidget {

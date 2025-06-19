@@ -3,12 +3,12 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/controller/localization/localization_controller.dart';
 import 'package:smartpath/controller/login_controller/login_controller.dart';
-import 'package:smartpath/core/utils/general_utils/app_routes.dart';
+import 'package:smartpath/core/utils/app_routes.dart';
 import 'package:smartpath/widgets/login/login_button_widget.dart';
 import 'package:smartpath/widgets/login/login_form_widget.dart';
 import 'package:smartpath/widgets/login/logo_with_title_component.dart';
 import 'package:smartpath/controller/login_controller/hide_show_password_controller.dart';
-import 'package:smartpath/core/utils/general_utils/app_styles.dart';
+import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/widgets/login/title_with_desc_component.dart';
 
 // ignore: must_be_immutable

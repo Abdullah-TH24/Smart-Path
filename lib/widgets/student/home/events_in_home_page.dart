@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:smartpath/core/utils/general_utils/app_assets.dart';
-import 'package:smartpath/core/utils/general_utils/app_styles.dart';
-import 'package:smartpath/core/utils/student_utils/student_home_page_utils.dart';
+import 'package:smartpath/core/utils/app_assets.dart';
+import 'package:smartpath/core/utils/app_styles.dart';
 
 class EventsInHomePage extends StatelessWidget {
   const EventsInHomePage({super.key});
@@ -37,8 +36,7 @@ class EventsInHomePage extends StatelessWidget {
                     height: 150,
                     width: 275,
                     margin:
-                        locale.initailLang == const Locale('en') ||
-                                locale.initailLang == Get.deviceLocale
+                        (Get.locale?.languageCode ?? 'en') == 'en'
                             ? EdgeInsets.only(right: (index != 3) ? 16 : 0)
                             : EdgeInsets.only(left: (index != 3) ? 16 : 0),
                     decoration: BoxDecoration(

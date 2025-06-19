@@ -5,8 +5,8 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/controller/localization/localization_controller.dart';
 import 'package:smartpath/controller/login_controller/login_controller.dart';
-import 'package:smartpath/core/utils/general_utils/app_routes.dart';
-import 'package:smartpath/core/utils/general_utils/app_styles.dart';
+import 'package:smartpath/core/utils/app_routes.dart';
+import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/widgets/login/button_component.dart';
 
 class LoginButton extends StatelessWidget {
@@ -34,6 +34,7 @@ class LoginButton extends StatelessWidget {
               (controller.isLoading)
                   ? null
                   : () async {
+                    // Get.offAllNamed(AppRoutes.studentMainPageRoute);
                     if (login.currentState!.validate()) {
                       await loginController.login(
                         email.text.trim(),

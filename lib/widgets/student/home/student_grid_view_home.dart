@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smartpath/models/student_model/home/grid_item_model.dart';
-import 'package:smartpath/core/utils/general_utils/app_styles.dart';
+import 'package:smartpath/core/utils/app_styles.dart';
 
 class StudentGridViewHome extends StatelessWidget {
   final List<GridItemModel> gridItems;
@@ -25,8 +25,8 @@ class StudentGridViewHome extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     SvgPicture.asset(gridItems[index].assetName, width: 28),
-                    FittedBox(
-                      fit: BoxFit.scaleDown,
+                    Container(
+                      alignment: Alignment.bottomCenter,
                       child: Text(
                         gridItems[index].title,
                         style: AppStyles.styleRegular12(),

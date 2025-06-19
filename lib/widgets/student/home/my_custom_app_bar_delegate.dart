@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smartpath/core/utils/general_utils/app_assets.dart';
+import 'package:smartpath/core/utils/app_assets.dart';
 import 'package:smartpath/widgets/student/home/app_bar_after_scroll.dart';
 import 'package:smartpath/widgets/student/home/app_bar_welcome_row.dart';
 import 'package:smartpath/widgets/student/home/custom_search_bar.dart';
@@ -7,10 +7,12 @@ import 'package:smartpath/widgets/student/home/custom_search_bar.dart';
 class MyCustomAppBarDelegate extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
   final double collapsedHeight;
+  final String studentName;
 
   MyCustomAppBarDelegate({
     required this.expandedHeight,
     required this.collapsedHeight,
+    required this.studentName,
   });
 
   @override
@@ -52,7 +54,7 @@ class MyCustomAppBarDelegate extends SliverPersistentHeaderDelegate {
           child: IntrinsicWidth(
             child: Opacity(
               opacity: contentOpacity,
-              child: const AppBarWelcomeRow(),
+              child: AppBarWelcomeRow(studentName: studentName),
             ),
           ),
         ),

@@ -5,7 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:smartpath/controller/login_controller/reset_password_controller.dart';
-import 'package:smartpath/core/utils/general_utils/app_routes.dart';
+import 'package:smartpath/core/utils/app_routes.dart';
 import 'package:smartpath/widgets/login/logo_with_title_component.dart';
 import 'package:smartpath/controller/localization/localization_controller.dart';
 import 'package:smartpath/widgets/login/reset_password_button_widget.dart';

@@ -5,11 +5,13 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:smartpath/controller/localization/localization_controller.dart';
-import 'package:smartpath/core/utils/general_utils/app_routes.dart';
-import 'package:smartpath/core/utils/general_utils/app_styles.dart';
+import 'package:smartpath/core/utils/app_routes.dart';
+import 'package:smartpath/core/utils/app_styles.dart';
+import 'package:smartpath/models/student_model/student_info_model.dart';
 
 class ProfileNamePhotoRow extends StatelessWidget {
-  ProfileNamePhotoRow({super.key});
+  final StudentInfo studentInfo;
+  ProfileNamePhotoRow({super.key, required this.studentInfo});
 
   LocalizationController locale = Get.find();
 
@@ -17,7 +19,7 @@ class ProfileNamePhotoRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.toNamed(AppRoutes.studentProfileInfo);
+        Get.toNamed(AppRoutes.studentProfileInfo, arguments: studentInfo);
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -32,7 +34,7 @@ class ProfileNamePhotoRow extends StatelessWidget {
                 children: [
                   Text('Hi ,', style: AppStyles.styleRegular16().copyWith()),
                   Text(
-                    'Abdullah Hamid',
+                    '${studentInfo.name} ${studentInfo.lastName}',
                     style: AppStyles.styleMedium20().copyWith(),
                   ),
                 ],
@@ -42,8 +44,7 @@ class ProfileNamePhotoRow extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Icon(
-              locale.initailLang == const Locale('en') ||
-                      locale.initailLang == Get.deviceLocale
+              (Get.locale?.languageCode ?? 'en') == 'en'
                   ? LucideIcons.chevronRight
                   : LucideIcons.chevronLeft,
               color: const Color(0xffA0A0A0),
