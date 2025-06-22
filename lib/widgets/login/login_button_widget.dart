@@ -34,7 +34,6 @@ class LoginButton extends StatelessWidget {
               (controller.isLoading)
                   ? null
                   : () async {
-                    // Get.offAllNamed(AppRoutes.studentMainPageRoute);
                     if (login.currentState!.validate()) {
                       await loginController.login(
                         email.text.trim(),

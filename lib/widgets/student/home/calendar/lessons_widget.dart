@@ -1,11 +1,12 @@
+// ignore_for_file: dead_code
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:smartpath/core/utils/app_assets.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
 
 class Lessons extends StatelessWidget {
-  final bool isHoliday;
-  const Lessons({super.key, required this.isHoliday});
+  const Lessons({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +14,8 @@ class Lessons extends StatelessWidget {
       child: ListView(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
-        children: List.generate((isHoliday) ? 1 : 7, (index) {
-          if (isHoliday) return Image.asset(AppAssets.noData);
+        children: List.generate(7, (index) {
+          if (false) return Image.asset(AppAssets.noData);
           return Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(

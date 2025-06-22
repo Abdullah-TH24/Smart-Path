@@ -23,5 +23,7 @@ class AppRoutes {
 
   static const String studentCalendar = '/calendar';
 
+  static const String studentFilterPage = '/filter_page';
+
   static const String studentGrades = '/grades';
 }

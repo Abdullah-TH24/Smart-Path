@@ -16,6 +16,7 @@ import 'package:smartpath/view/login_view/request_reset_password.dart';
 import 'package:smartpath/view/login_view/reset_password.dart';
 import 'package:smartpath/view/splash_view/splash_screen.dart';
 import 'package:smartpath/view/student_view/home/calendar/calendar.dart';
+import 'package:smartpath/view/student_view/home/grades/filter_page.dart';
 import 'package:smartpath/view/student_view/home/grades/grades.dart';
 import 'package:smartpath/view/student_view/profile/profile_info.dart';
 import 'package:smartpath/view/student_view/student_main_page.dart';
@@ -74,6 +75,7 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(name: AppRoutes.studentProfileInfo, page: () => ProfileInfo()),
         GetPage(name: AppRoutes.studentCalendar, page: () => Calendar()),
+        GetPage(name: AppRoutes.studentFilterPage, page: () => FilterPage()),
         GetPage(name: AppRoutes.studentGrades, page: () => const Grades()),
       ],
       debugShowCheckedModeBanner: false,

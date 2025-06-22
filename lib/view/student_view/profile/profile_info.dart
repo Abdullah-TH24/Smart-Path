@@ -15,24 +15,46 @@ class ProfileInfo extends StatelessWidget {
 
   final StudentInfo studentInfo = Get.arguments;
   LocalizationController locale = Get.find();
-  final List<ProfileInfoModel> info = [
-    // TODO put info the get from login api and store it in shared preference
-    ProfileInfoModel(title: 'class'.tr, content: '10 / 8'),
-    ProfileInfoModel(title: 'status'.tr, content: 'Active'),
-    ProfileInfoModel(title: 'school'.tr, content: 'Al saada'),
-    ProfileInfoModel(title: 'rate'.tr, content: '0 %'),
-    ProfileInfoModel(title: 'email'.tr, content: 'example@gmail.com'),
-    ProfileInfoModel(title: 'phone'.tr, content: '+963 981 793 954'),
-    ProfileInfoModel(title: 'address'.tr, content: 'Damascus Bet sahem'),
-  ];
 
   @override
   Widget build(BuildContext context) {
+    final List<ProfileInfoModel> info = [
+      ProfileInfoModel(
+        title: 'email'.tr,
+        content: '${studentInfo.email}',
+        icon: LucideIcons.mail,
+      ),
+      ProfileInfoModel(
+        title: 'phone'.tr,
+        content: '${studentInfo.phoneNumber}',
+        icon: LucideIcons.phone,
+      ),
+      ProfileInfoModel(
+        title: 'class'.tr,
+        content: '${studentInfo.className}',
+        icon: LucideIcons.school2,
+      ),
+      ProfileInfoModel(
+        title: 'status'.tr,
+        content: studentInfo.expelled == 0 ? 'Active' : 'Expelled',
+        icon: LucideIcons.shieldCheck,
+      ),
+      ProfileInfoModel(
+        title: 'school'.tr,
+        content: '${studentInfo.schoolGraduatedFrom}',
+        icon: LucideIcons.school,
+      ),
+      ProfileInfoModel(
+        title: 'rate'.tr,
+        content: '${studentInfo.gpa} %',
+        icon: LucideIcons.lineChart,
+      ),
+    ];
     return Scaffold(
       body: CustomScrollView(
         slivers: [
           // Curve AppBar
-          CalendarAppBarComponent(data: 'profile-info-title'.tr),
+          CalendarAppBarComponent(data: 'profile_info_title'.tr),
           SliverToBoxAdapter(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -43,7 +65,7 @@ class ProfileInfo extends StatelessWidget {
                   '${studentInfo.name} ${studentInfo.lastName}',
                   style: AppStyles.styleBold24(),
                 ),
-                Cards(info: info, studentInfo: studentInfo),
+                Cards(info: info),
               ],
             ),
           ),

@@ -27,7 +27,7 @@ class _StudentMainPageState extends State<StudentMainPage> {
       const StudentHomePage(),
       const StudentPortfolioPage(),
       const StudentDataPage(),
-      const StudentProfilePage(),
+      StudentProfilePage(),
     ];
     // Items of bottom bar
     final List<BottomBarItemModel> items = [

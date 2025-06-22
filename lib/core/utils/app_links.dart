@@ -1,6 +1,6 @@
 abstract class AppLinks {
   // should be edit
-  static final String _ip = '192.168.137.108';
+  static final String _ip = '192.168.68.169';
 
   static final String _mainLink = 'http://$_ip:8000';
 

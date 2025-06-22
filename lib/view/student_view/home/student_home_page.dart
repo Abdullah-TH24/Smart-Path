@@ -15,6 +15,7 @@ class StudentHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final HomePageController controller = Get.put(HomePageController());
     final LocalizationController locale = Get.find();
     final List<GridItemModel> gridItems = [
       GridItemModel(
@@ -57,7 +58,12 @@ class StudentHomePage extends StatelessWidget {
         assetName: AppAssets.iconStats,
         title: 'grid_item_name_6'.tr,
         onTap: () {
-          Get.toNamed(AppRoutes.studentGrades);
+          // Get.toNamed(AppRoutes.studentGrades);
+          Get.toNamed(
+            AppRoutes.studentFilterPage,
+            arguments:
+                '${controller.studentInfo?.name} ${controller.studentInfo?.middleName![0]}${controller.studentInfo?.lastName![0]}',
+          );
         },
       ),
       GridItemModel(
@@ -87,12 +93,13 @@ class StudentHomePage extends StatelessWidget {
       ),
     ];
     return GetBuilder<HomePageController>(
-      init: HomePageController(),
       builder: (homePageController) {
         return (homePageController.isLoading)
             ? const Center(
               child: CircularProgressIndicator(color: Colors.indigo),
             )
+            : (homePageController.errorMessage != null)
+            ? Center(child: Image.asset(AppAssets.noInternet))
             : CustomScrollView(
               slivers: [
                 // <AppBar>
@@ -103,7 +110,7 @@ class StudentHomePage extends StatelessWidget {
                     expandedHeight: 180,
                     collapsedHeight: 110,
                     studentName:
-                        "${homePageController.studentInfo!.name!} ${homePageController.studentInfo!.middleName![0].toUpperCase()}${homePageController.studentInfo!.lastName![0].toUpperCase()}",
+                        "${homePageController.studentInfo?.name!} ${homePageController.studentInfo?.middleName![0].toUpperCase()}${homePageController.studentInfo?.lastName![0].toUpperCase()}",
                   ),
                 ),
                 // Content

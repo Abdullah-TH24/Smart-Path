@@ -5,7 +5,10 @@ class Themes {
   static ThemeData light = ThemeData(
     scaffoldBackgroundColor: Colors.indigo[50],
     elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(backgroundColor: Colors.indigo),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.indigo,
+        foregroundColor: Colors.indigo[50],
+      ),
     ),
     appBarTheme: AppBarTheme(backgroundColor: Colors.indigo[50], elevation: 0),
     filledButtonTheme: FilledButtonThemeData(

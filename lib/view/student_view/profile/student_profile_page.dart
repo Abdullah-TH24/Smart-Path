@@ -1,6 +1,9 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:smartpath/controller/localization/localization_controller.dart';
 import 'package:smartpath/controller/student_controller/home/home_page_controller.dart';
 import 'package:smartpath/core/utils/app_assets.dart';
 import 'package:smartpath/core/utils/app_routes.dart';
@@ -13,15 +16,24 @@ import 'package:smartpath/widgets/student/profile/profile_list_tile_item.dart';
 import 'package:smartpath/widgets/student/profile/upper_waves.dart';
 
 class StudentProfilePage extends StatelessWidget {
-  const StudentProfilePage({super.key});
+  StudentProfilePage({super.key});
+
+  HomePageController controller = Get.put(HomePageController());
+  LocalizationController locale = Get.find();
 
   @override
   Widget build(BuildContext context) {
     final List<ListTileItemModel> items = [
       ListTileItemModel(
-        title: "edit_profile".tr,
+        title: "profile_info_title".tr,
         assetName: AppAssets.iconEditProfile,
-        onTap: () {},
+        onTap: () {
+          locale.changeLanguage('ar');
+          Get.toNamed(
+            AppRoutes.studentProfileInfo,
+            arguments: controller.studentInfo,
+          );
+        },
       ),
       ListTileItemModel(
         title: "change_password".tr,
@@ -60,6 +72,8 @@ class StudentProfilePage extends StatelessWidget {
             ? const Center(
               child: CircularProgressIndicator(color: Colors.indigo),
             )
+            : (controller.errorMessage != null)
+            ? Center(child: Image.asset(AppAssets.noInternet))
             : Scaffold(
               body: CustomScrollView(
                 slivers: [
@@ -88,7 +102,8 @@ class StudentProfilePage extends StatelessWidget {
                       children: [
                         const Gap(12),
                         ProfileNamePhotoRow(
-                          studentInfo: controller.studentInfo!,
+                          studentName:
+                              '${controller.studentInfo?.name} ${controller.studentInfo?.lastName}',
                         ),
                         const Gap(32),
                         ...items.map((e) => ProfileListTileItem(item: e)),

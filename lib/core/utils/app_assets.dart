@@ -68,4 +68,6 @@ class AppAssets {
   static const String events1 = "assets/images/events-1.png";
 
   static const String noData = "assets/images/no-data.png";
+
+  static const String noInternet = "assets/images/noInternet.png";
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/widgets/student/home/calendar/calendar_app_bar_widget.dart';
 import 'package:smartpath/widgets/student/home/grades/animated_linear_mark_indicator_widget.dart';
@@ -14,15 +15,15 @@ class Grades extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           // Curve AppBar
-          const CalendarAppBarComponent(data: 'Grades'),
+          CalendarAppBarComponent(data: 'grid_item_name_6'.tr),
           // Progress
-          const SliverToBoxAdapter(child: AnimatedStudentMarkCircle(mark: 75)),
+          const SliverToBoxAdapter(child: AnimatedStudentMarkCircle(mark: 60)),
           // Title
           SliverToBoxAdapter(
             child: Container(
               margin: const EdgeInsets.only(top: 10, bottom: 25),
               child: Text(
-                'Average',
+                'average'.tr,
                 textAlign: TextAlign.center,
                 style: AppStyles.styleBold22().copyWith(color: Colors.indigo),
               ),
