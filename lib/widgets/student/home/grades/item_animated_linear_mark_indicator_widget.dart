@@ -20,7 +20,7 @@ class ItemAnimatedLinearMarkIndicator extends StatelessWidget {
         animation: _animation,
         builder: (context, child) {
           final int currentMark = _animation.value.round();
-          Color progressColor =
+          final Color progressColor =
               (widget.color != null)
                   ? widget.color!
                   : (currentMark < 40)
