@@ -3,7 +3,7 @@ import 'package:smartpath/core/services/login_services/login_services.dart';
 import 'package:smartpath/models/login_model/user_model.dart';
 
 class LoginController extends GetxController {
-  final AuthService _authService = AuthService();
+  final AuthService _authService = AuthService(); //test
 
   UserModel? loginResponse;
   bool isLoading = false;
