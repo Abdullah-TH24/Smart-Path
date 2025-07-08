@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:smartpath/controller/localization/localization_controller.dart';
 import 'package:smartpath/controller/student_controller/home/home_page_controller.dart';
 import 'package:smartpath/core/utils/app_assets.dart';
 import 'package:smartpath/core/utils/app_routes.dart';
@@ -16,20 +15,17 @@ class StudentHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final HomePageController controller = Get.put(HomePageController());
-    final LocalizationController locale = Get.find();
-    final List<GridItemModel> gridItems = [
+    final gridItems = <GridItemModel>[
       GridItemModel(
         assetName: AppAssets.iconClass,
         title: 'grid_item_name_0'.tr,
-        onTap: () {
-          locale.changeLanguage('ar');
-        },
+        onTap: () {},
       ),
       GridItemModel(
         assetName: AppAssets.iconBook,
         title: 'grid_item_name_1'.tr,
         onTap: () {
-          locale.changeLanguage('en');
+          Get.toNamed(AppRoutes.studentCourses);
         },
       ),
       GridItemModel(
@@ -62,7 +58,7 @@ class StudentHomePage extends StatelessWidget {
           Get.toNamed(
             AppRoutes.studentFilterPage,
             arguments:
-                '${controller.studentInfo?.name} ${controller.studentInfo?.middleName![0]}${controller.studentInfo?.lastName![0]}',
+                '${controller.studentInfo?.name![0].toUpperCase()}${controller.studentInfo?.name!.substring(1)} ${controller.studentInfo?.middleName![0]}${controller.studentInfo?.lastName![0]}',
           );
         },
       ),
@@ -74,7 +70,9 @@ class StudentHomePage extends StatelessWidget {
       GridItemModel(
         assetName: AppAssets.iconStudent,
         title: 'grid_item_name_8'.tr,
-        onTap: () {},
+        onTap: () {
+          Get.toNamed(AppRoutes.studentExams);
+        },
       ),
       GridItemModel(
         assetName: AppAssets.iconCase,
@@ -110,7 +108,7 @@ class StudentHomePage extends StatelessWidget {
                     expandedHeight: 180,
                     collapsedHeight: 110,
                     studentName:
-                        "${homePageController.studentInfo?.name!} ${homePageController.studentInfo?.middleName![0].toUpperCase()}${homePageController.studentInfo?.lastName![0].toUpperCase()}",
+                        "${homePageController.studentInfo?.name![0].toUpperCase()}${homePageController.studentInfo?.name!.substring(1)} ${homePageController.studentInfo?.middleName![0].toUpperCase()}${homePageController.studentInfo?.lastName![0].toUpperCase()}",
                   ),
                 ),
                 // Content

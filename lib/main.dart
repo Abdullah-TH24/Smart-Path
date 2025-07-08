@@ -11,7 +11,7 @@ import 'package:smartpath/core/middleware/introduction_middleware.dart';
 import 'package:smartpath/core/middleware/login_middleware.dart';
 import 'package:smartpath/core/utils/app_routes.dart';
 import 'package:smartpath/core/utils/themes.dart';
-import 'package:smartpath/firebase_options.dart';
+// import 'package:smartpath/firebase_options.dart';
 import 'package:smartpath/view/introduction_view/introduction_pages.dart';
 import 'package:smartpath/view/login_view/enter_verification_code.dart';
 import 'package:smartpath/view/login_view/login.dart';
@@ -19,6 +19,8 @@ import 'package:smartpath/view/login_view/request_reset_password.dart';
 import 'package:smartpath/view/login_view/reset_password.dart';
 import 'package:smartpath/view/splash_view/splash_screen.dart';
 import 'package:smartpath/view/student_view/home/calendar/calendar.dart';
+import 'package:smartpath/view/student_view/home/courses/courses.dart';
+import 'package:smartpath/view/student_view/home/exams/exams.dart';
 import 'package:smartpath/view/student_view/home/grades/filter_page.dart';
 import 'package:smartpath/view/student_view/home/grades/grades.dart';
 import 'package:smartpath/view/student_view/profile/profile_info.dart';
@@ -28,7 +30,7 @@ SharedPreferences? prefs;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   String? messaging = await FirebaseMessaging.instance.getToken();
   print("token $messaging");
   prefs = await SharedPreferences.getInstance();
@@ -83,6 +85,8 @@ class MyApp extends StatelessWidget {
         GetPage(name: AppRoutes.studentCalendar, page: () => Calendar()),
         GetPage(name: AppRoutes.studentFilterPage, page: () => FilterPage()),
         GetPage(name: AppRoutes.studentGrades, page: () => const Grades()),
+        GetPage(name: AppRoutes.studentExams, page: () => const Exams()),
+        GetPage(name: AppRoutes.studentCourses, page: () => const Courses()),
       ],
       debugShowCheckedModeBanner: false,
       title: 'Smart Path',

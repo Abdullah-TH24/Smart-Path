@@ -5,20 +5,19 @@ import 'package:smartpath/models/login_model/user_model.dart';
 class LoginController extends GetxController {
   final AuthService _authService = AuthService(); //test
 
-  UserModel? loginResponse;
+  UserModel? response;
   bool isLoading = false;
   String? errorMessage;
 
   Future<void> login(String email, String password) async {
     isLoading = true;
     errorMessage = null;
+    response = null;
     update();
-    try {
-      final result = await _authService.login(email, password);
-      if (result != null) {
-        loginResponse = result;
-      }
-    } catch (e) {
+    final result = await _authService.login(email, password);
+    if (result != null) {
+      response = result;
+    } else {
       errorMessage = 'error_message'.tr;
     }
     isLoading = false;

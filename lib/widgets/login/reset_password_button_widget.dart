@@ -37,39 +37,20 @@ class ResetPasswordButton extends StatelessWidget {
                         email,
                         password.text.trim(),
                       );
-                      if (resetPasswordController.errorMessage != null) {
-                        await showDialog(
-                          context: context,
-                          builder:
-                              (context) => AlertDialog(
-                                title: Text(
-                                  'error'.tr,
-                                  textAlign: TextAlign.center,
-                                ),
-                                content: Text(
-                                  '${resetPasswordController.errorMessage}',
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
+                      if (controller.errorMessage != null) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text('${controller.errorMessage}')),
                         );
+                        return;
                       }
-                      if (resetPasswordController.resetResponse != null) {
-                        if (resetPasswordController.resetResponse!.status) {
+                      if (controller.response != null) {
+                        if (controller.response!.status) {
                           Get.offAllNamed(AppRoutes.loginRoute);
                         } else {
-                          await showDialog(
-                            context: context,
-                            builder:
-                                (context) => AlertDialog(
-                                  title: Text(
-                                    'error'.tr,
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  content: Text(
-                                    '${resetPasswordController.resetResponse?.message}',
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('${controller.response?.message}'),
+                            ),
                           );
                         }
                       }

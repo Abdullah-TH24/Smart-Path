@@ -21,7 +21,8 @@ class ArabicEnglishLocal implements Translations {
       'password_valid_weak': 'Password is too weak',
       'forgot_password': 'Forgot Password',
       'error': 'Error',
-      'error_message': 'Failed to connect to server',
+      'error_message':
+          'Please check your internet connection and try again later',
       // For request password
       'request_email_title': 'E-mail Required',
       'request_email_desc': 'Please enter your email below',
@@ -115,7 +116,8 @@ class ArabicEnglishLocal implements Translations {
       'password_valid_weak': 'كلمة المرور ضعيفة جدًا',
       'forgot_password': 'هل نسيت كلمة السر',
       'error': 'خطأ',
-      'error_message': 'فشل في الاتصال بالخادم',
+      'error_message':
+          'يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى لاحقًا',
       // For request password
       'request_email_title': 'البريد الإلكتروني مطلوب',
       'request_email_desc': 'الرجاء إدخال بريدك الإلكتروني أدناه',

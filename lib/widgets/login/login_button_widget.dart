@@ -39,45 +39,26 @@ class LoginButton extends StatelessWidget {
                         email.text.trim(),
                         password.text.trim(),
                       );
-                      if (loginController.errorMessage != null) {
-                        await showDialog(
-                          context: context,
-                          builder:
-                              (context) => AlertDialog(
-                                title: Text(
-                                  'error'.tr,
-                                  textAlign: TextAlign.center,
-                                ),
-                                content: Text(
-                                  '${loginController.errorMessage}',
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
+                      if (controller.errorMessage != null) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('${loginController.errorMessage}'),
+                          ),
                         );
+                        return;
                       }
-                      if (loginController.loginResponse != null) {
-                        if (loginController.loginResponse?.status == true) {
-                          if (loginController.loginResponse?.role ==
-                              'student') {
+                      if (controller.response != null) {
+                        if (controller.response?.status == true) {
+                          if (controller.response?.role == 'student') {
                             Get.offAllNamed(AppRoutes.studentMainPageRoute);
-                          } else if (loginController.loginResponse?.role ==
-                              'parent') {
+                          } else if (controller.response?.role == 'parent') {
                             // TODO put your navigator here
                           }
                         } else {
-                          await showDialog(
-                            context: context,
-                            builder:
-                                (context) => AlertDialog(
-                                  title: Text(
-                                    'error'.tr,
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  content: Text(
-                                    '${loginController.loginResponse?.message}',
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('${controller.response?.message}'),
+                            ),
                           );
                         }
                       }

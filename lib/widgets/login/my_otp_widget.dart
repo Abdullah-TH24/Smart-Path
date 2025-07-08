@@ -24,7 +24,7 @@ class MyOtpWidget extends StatefulWidget {
 
 class _MyOtpWidgetState extends State<MyOtpWidget> {
   bool isValidCode = false;
-  bool isInvalidValidCode = false;
+  bool isInvalidCode = false;
   Attempts attempts = Get.put(Attempts());
 
   @override
@@ -45,13 +45,13 @@ class _MyOtpWidgetState extends State<MyOtpWidget> {
           enabledBorderColor:
               isValidCode
                   ? Colors.indigo
-                  : isInvalidValidCode
+                  : isInvalidCode
                   ? Colors.red[900]!
                   : Colors.transparent,
           focusedBorderColor: Colors.indigo[300]!,
           onCodeChanged: (value) {
             isValidCode = false;
-            isInvalidValidCode = false;
+            isInvalidCode = false;
             setState(() {});
           },
           onSubmit: (String verificationCode) async {
@@ -60,20 +60,15 @@ class _MyOtpWidgetState extends State<MyOtpWidget> {
               verificationCode,
             );
             if (widget.sendOtpCodeController.errorMessage != null) {
-              await showDialog(
-                context: context,
-                builder:
-                    (context) => AlertDialog(
-                      title: Text('error'.tr, textAlign: TextAlign.center),
-                      content: Text(
-                        '${widget.sendOtpCodeController.errorMessage}',
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('${widget.sendOtpCodeController.errorMessage}'),
+                ),
               );
+              return;
             }
-            if (widget.sendOtpCodeController.otpResponse != null) {
-              if (widget.sendOtpCodeController.otpResponse!) {
+            if (widget.sendOtpCodeController.response != null) {
+              if (widget.sendOtpCodeController.response!) {
                 isValidCode = true;
                 setState(() {});
                 await Future.delayed(const Duration(seconds: 2));
@@ -82,36 +77,19 @@ class _MyOtpWidgetState extends State<MyOtpWidget> {
                   arguments: widget.email,
                 );
               } else {
-                isInvalidValidCode = true;
+                isInvalidCode = true;
                 attempts.decrement();
                 if (attempts.attempts == 0) {
-                  await showDialog(
-                    context: context,
-                    builder:
-                        (context) => AlertDialog(
-                          title: Text('error'.tr, textAlign: TextAlign.center),
-                          content: Text(
-                            'limit_empty'.tr,
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                  );
-                  Get.close(1);
+                  ScaffoldMessenger.of(
+                    context,
+                  ).showSnackBar(SnackBar(content: Text('limit_empty'.tr)));
                   Get.offNamed(AppRoutes.requestResetPassword);
                   return;
                 }
                 setState(() {});
-                await showDialog(
-                  context: context,
-                  builder:
-                      (context) => AlertDialog(
-                        title: Text('error'.tr, textAlign: TextAlign.center),
-                        content: Text(
-                          'error_in_code'.tr,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                );
+                ScaffoldMessenger.of(
+                  context,
+                ).showSnackBar(SnackBar(content: Text('error_in_code'.tr)));
               }
             }
           },

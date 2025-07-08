@@ -30,50 +30,26 @@ class RequestButton extends StatelessWidget {
                   ? null
                   : () async {
                     if (requestResetPassword.currentState!.validate()) {
-                      await requestRPController.sendEmail(email.text.trim());
-                      if (requestRPController.errorMessage != null) {
-                        await showDialog(
-                          context: context,
-                          builder:
-                              (context) => AlertDialog(
-                                title: Text(
-                                  'error'.tr,
-                                  textAlign: TextAlign.center,
-                                ),
-                                content: Text(
-                                  '${requestRPController.errorMessage}',
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
+                      await controller.sendEmail(email.text.trim());
+                      if (controller.errorMessage != null) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text('${controller.errorMessage}')),
                         );
+                        return;
                       }
-                      if (requestRPController.otpResponse != null) {
-                        if (requestRPController.otpResponse?.status == 200) {
+                      if (controller.response != null) {
+                        if (requestRPController.response?.status == 200) {
                           Get.toNamed(
                             AppRoutes.enterVerificationCode,
-                            arguments: {
-                              'email': email.text.trim(),
-                              'verificationCode':
-                                  requestRPController
-                                      .otpResponse
-                                      ?.verificationCode,
-                            },
+                            arguments: {'email': email.text.trim()},
                           );
                         } else {
-                          await showDialog(
-                            context: context,
-                            builder:
-                                (context) => AlertDialog(
-                                  title: Text(
-                                    'error'.tr,
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  content: Text(
-                                    '${requestRPController.otpResponse?.message}',
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('${controller.response?.message}'),
+                            ),
                           );
+                          return;
                         }
                       }
                     }

@@ -1,9 +1,10 @@
-// ignore_for_file: must_be_immutable
+// ignore_for_file: must_be_immutable, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/controller/localization/localization_controller.dart';
+import 'package:smartpath/controller/login_controller/logout_controller.dart';
 import 'package:smartpath/controller/student_controller/home/home_page_controller.dart';
 import 'package:smartpath/core/utils/app_assets.dart';
 import 'package:smartpath/core/utils/app_routes.dart';
@@ -19,11 +20,12 @@ class StudentProfilePage extends StatelessWidget {
   StudentProfilePage({super.key});
 
   HomePageController controller = Get.put(HomePageController());
+  LogoutController authController = Get.put(LogoutController());
   LocalizationController locale = Get.find();
 
   @override
   Widget build(BuildContext context) {
-    final List<ListTileItemModel> items = [
+    final items = <ListTileItemModel>[
       ListTileItemModel(
         title: "profile_info_title".tr,
         assetName: AppAssets.iconEditProfile,
@@ -58,10 +60,21 @@ class StudentProfilePage extends StatelessWidget {
       ListTileItemModel(
         title: "sign_out".tr,
         assetName: AppAssets.iconSignout,
-        onTap: () {
-          prefs!.remove('token');
-          Get.offAllNamed(AppRoutes.loginRoute);
-          pageIndex = 0;
+        onTap: () async {
+          await authController.logout();
+          if (authController.errorMessage != null) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(authController.errorMessage!)),
+            );
+            return;
+          }
+          if (authController.response != null) {
+            if (authController.response!) {
+              prefs!.remove('token');
+              Get.offAllNamed(AppRoutes.loginRoute);
+              pageIndex = 0;
+            }
+          }
         },
       ),
     ];

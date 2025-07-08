@@ -1,10 +1,12 @@
 class SendForgetPasswordModel {
   final dynamic status;
   final String message;
-  final int verificationCode;
-  SendForgetPasswordModel({
-    required this.status,
-    required this.message,
-    required this.verificationCode,
-  });
+  SendForgetPasswordModel({required this.status, required this.message});
+
+  static SendForgetPasswordModel fromJson(Map map) {
+    return SendForgetPasswordModel(
+      status: map['status'],
+      message: map['message'],
+    );
+  }
 }

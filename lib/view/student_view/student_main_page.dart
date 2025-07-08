@@ -23,14 +23,14 @@ class _StudentMainPageState extends State<StudentMainPage> {
   @override
   Widget build(BuildContext context) {
     // Initial page at <home>
-    final List<StatelessWidget> pages = [
+    final pages = <StatelessWidget>[
       const StudentHomePage(),
       const StudentPortfolioPage(),
       const StudentDataPage(),
       StudentProfilePage(),
     ];
     // Items of bottom bar
-    final List<BottomBarItemModel> items = [
+    final items = <BottomBarItemModel>[
       BottomBarItemModel(
         icon: SvgPicture.asset(
           AppAssets.iconHomeInactive,
