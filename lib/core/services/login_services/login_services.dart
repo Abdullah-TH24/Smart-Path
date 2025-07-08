@@ -20,17 +20,17 @@ class AuthService {
       if (response.statusCode == 200) {
         prefs!.setString('token', data['token']);
         prefs!.setString('role', data['data']['user']['role']);
-        return UserModel(
-          status: data['status'],
-          message: translatedMessage,
-          role: data['data']['user']['role'],
-        );
+        return UserModel.fromJson({
+          'status': data['status'],
+          'message': translatedMessage,
+          'role': data['data']['user']['role'],
+        });
       } else {
-        return UserModel(
-          status: data['status'],
-          message: translatedMessage,
-          role: '',
-        );
+        return UserModel.fromJson({
+          'status': data['status'],
+          'message': translatedMessage,
+          'role': '',
+        });
       }
     } catch (e) {
       return null;

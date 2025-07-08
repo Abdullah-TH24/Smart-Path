@@ -1,4 +1,5 @@
 // ignore_for_file: must_be_immutable
+// TODO just remove the comments
 // import 'package:firebase_core/firebase_core.dart';
 // import 'package:firebase_messaging/firebase_messaging.dart';
 // import 'package:smartpath/firebase_options.dart'
@@ -30,6 +31,7 @@ SharedPreferences? prefs;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // TODO just remove the comments and inside android/app/build.gradle from line 4
   // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   // String? messaging = await FirebaseMessaging.instance.getToken();
   // print("token $messaging");
