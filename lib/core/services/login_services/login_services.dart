@@ -91,15 +91,15 @@ class AuthService {
       final data = json.decode(response.body);
       final translatedMessage = ApiMessageTranslator.translate(data['message']);
       if (response.statusCode == 200) {
-        return ResetPasswordModel(
-          status: data['status'],
-          message: translatedMessage,
-        );
+        return ResetPasswordModel.fromJson({
+          'status': data['status'],
+          'message': translatedMessage,
+        });
       } else {
-        return ResetPasswordModel(
-          status: data['status'],
-          message: translatedMessage,
-        );
+        return ResetPasswordModel.fromJson({
+          'status': data['status'],
+          'message': translatedMessage,
+        });
       }
     } catch (e) {
       return null;

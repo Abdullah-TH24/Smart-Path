@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:lucide_icons/lucide_icons.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/widgets/student/home/calendar/calendar_app_bar_widget.dart';
 

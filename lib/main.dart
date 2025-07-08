@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
+// import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_messaging/firebase_messaging.dart';
+// import 'package:smartpath/firebase_options.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -11,7 +12,6 @@ import 'package:smartpath/core/middleware/introduction_middleware.dart';
 import 'package:smartpath/core/middleware/login_middleware.dart';
 import 'package:smartpath/core/utils/app_routes.dart';
 import 'package:smartpath/core/utils/themes.dart';
-// import 'package:smartpath/firebase_options.dart';
 import 'package:smartpath/view/introduction_view/introduction_pages.dart';
 import 'package:smartpath/view/login_view/enter_verification_code.dart';
 import 'package:smartpath/view/login_view/login.dart';
@@ -31,8 +31,8 @@ SharedPreferences? prefs;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  String? messaging = await FirebaseMessaging.instance.getToken();
-  print("token $messaging");
+  // String? messaging = await FirebaseMessaging.instance.getToken();
+  // print("token $messaging");
   prefs = await SharedPreferences.getInstance();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(MyApp());
