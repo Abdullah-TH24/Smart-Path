@@ -20,6 +20,7 @@ import 'package:smartpath/view/login_view/request_reset_password.dart';
 import 'package:smartpath/view/login_view/reset_password.dart';
 import 'package:smartpath/view/splash_view/splash_screen.dart';
 import 'package:smartpath/view/student_view/home/calendar/calendar.dart';
+import 'package:smartpath/view/student_view/home/class/class_view.dart';
 import 'package:smartpath/view/student_view/home/courses/courses.dart';
 import 'package:smartpath/view/student_view/home/exams/exams.dart';
 import 'package:smartpath/view/student_view/home/grades/filter_page.dart';
@@ -84,6 +85,7 @@ class MyApp extends StatelessWidget {
           page: () => const StudentMainPage(),
         ),
         GetPage(name: AppRoutes.studentProfileInfo, page: () => ProfileInfo()),
+        GetPage(name: AppRoutes.studentClass, page: () => const ClassView()),
         GetPage(name: AppRoutes.studentCalendar, page: () => Calendar()),
         GetPage(name: AppRoutes.studentFilterPage, page: () => FilterPage()),
         GetPage(name: AppRoutes.studentGrades, page: () => const Grades()),
