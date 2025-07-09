@@ -21,18 +21,20 @@ class DaysWidget extends StatelessWidget {
               ) {
                 return ElevatedButton.styleFrom(
                   shadowColor:
-                      (controller.index == index) ? null : Colors.transparent,
+                      (controller.dayIndex == index)
+                          ? null
+                          : Colors.transparent,
                   backgroundColor:
-                      (controller.index == index)
+                      (controller.dayIndex == index)
                           ? Colors.indigo
                           : Colors.transparent,
-                  elevation: (controller.index == index) ? null : 0,
+                  elevation: (controller.dayIndex == index) ? null : 0,
                   side:
-                      (controller.index == index)
+                      (controller.dayIndex == index)
                           ? null
                           : const BorderSide(color: Colors.indigo),
                   foregroundColor:
-                      (controller.index == index)
+                      (controller.dayIndex == index)
                           ? Colors.indigo[50]
                           : Colors.indigo,
                 );

@@ -19,7 +19,9 @@ class StudentHomePage extends StatelessWidget {
       GridItemModel(
         assetName: AppAssets.iconClass,
         title: 'grid_item_name_0'.tr,
-        onTap: () {},
+        onTap: () {
+          Get.toNamed(AppRoutes.studentClass);
+        },
       ),
       GridItemModel(
         assetName: AppAssets.iconBook,
@@ -38,6 +40,13 @@ class StudentHomePage extends StatelessWidget {
         title: 'grid_item_name_3'.tr,
         onTap: () {
           Get.toNamed(AppRoutes.studentCalendar);
+        },
+      ),
+      GridItemModel(
+        assetName: AppAssets.iconStudent,
+        title: 'grid_item_name_8'.tr,
+        onTap: () {
+          Get.toNamed(AppRoutes.studentExams);
         },
       ),
       GridItemModel(
@@ -66,13 +75,6 @@ class StudentHomePage extends StatelessWidget {
         assetName: AppAssets.iconAchievment,
         title: 'grid_item_name_7'.tr,
         onTap: () {},
-      ),
-      GridItemModel(
-        assetName: AppAssets.iconStudent,
-        title: 'grid_item_name_8'.tr,
-        onTap: () {
-          Get.toNamed(AppRoutes.studentExams);
-        },
       ),
       GridItemModel(
         assetName: AppAssets.iconCase,

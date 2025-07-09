@@ -30,6 +30,7 @@ class StudentGridViewHome extends StatelessWidget {
                       child: Text(
                         gridItems[index].title,
                         style: AppStyles.styleRegular12(),
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ],

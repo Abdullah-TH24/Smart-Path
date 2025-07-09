@@ -19,4 +19,7 @@ abstract class AppLinks {
 
   // Home links
   static final String homepage = '$_mainLink/api/getInfo';
+
+  static final String weeklySchedule =
+      '$_mainLink/api/getStudentWeeklySchedule';
 }
