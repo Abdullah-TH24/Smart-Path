@@ -3,14 +3,17 @@ import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/widgets/student/home/grades/animated_linear_mark_indicator_widget.dart';
 
 class ItemAnimatedLinearMarkIndicator extends StatelessWidget {
+  final AnimatedLinearMarkIndicator widget;
+  final Animation<double> _animation;
+  final int minMark;
+  final int maxMark;
   const ItemAnimatedLinearMarkIndicator({
     super.key,
     required this.widget,
     required Animation<double> animation,
+    required this.minMark,
+    required this.maxMark,
   }) : _animation = animation;
-
-  final AnimatedLinearMarkIndicator widget;
-  final Animation<double> _animation;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +26,7 @@ class ItemAnimatedLinearMarkIndicator extends StatelessWidget {
           final Color progressColor =
               (widget.color != null)
                   ? widget.color!
-                  : (currentMark < 40)
+                  : (currentMark < minMark)
                   ? Colors.red[900]!
                   : Colors.indigo;
           return Column(
@@ -56,7 +59,7 @@ class ItemAnimatedLinearMarkIndicator extends StatelessWidget {
                 child: Stack(
                   children: [
                     FractionallySizedBox(
-                      widthFactor: currentMark / 100,
+                      widthFactor: currentMark / maxMark,
                       child: Container(
                         decoration: BoxDecoration(
                           gradient: LinearGradient(

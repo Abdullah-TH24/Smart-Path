@@ -10,7 +10,7 @@ class FilterPage extends StatelessWidget {
   GlobalKey<FormState> filter = GlobalKey<FormState>();
   TextEditingController year = TextEditingController();
   TextEditingController type = TextEditingController();
-  final String studentName = Get.arguments;
+  final Map values = Get.arguments;
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +21,9 @@ class FilterPage extends StatelessWidget {
           CalendarAppBarComponent(data: 'filter_page_title'.tr),
           // Content Page
           ContentFilterPage(
+            years: values['years'],
             filter: filter,
-            studentName: studentName,
+            studentName: values['name'],
             year: year,
             type: type,
           ),

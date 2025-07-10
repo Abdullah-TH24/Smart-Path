@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/controller/student_controller/home/calendar/mark_button_contoller.dart';
 import 'package:smartpath/controller/student_controller/home/calendar/schedule_controller.dart';
+import 'package:smartpath/core/localization/subjects_translate.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/widgets/student/home/calendar/number_of_lesson_widget.dart';
 
@@ -34,7 +35,8 @@ class Lessons extends StatelessWidget {
               children: [
                 // Subject
                 Positioned.fill(
-                  left: 50,
+                  left: (Get.locale?.languageCode ?? 'en') == 'en' ? 50 : 0,
+                  right: (Get.locale?.languageCode ?? 'en') == 'en' ? 0 : 50,
                   child: Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 50,
@@ -113,7 +115,11 @@ class Lessons extends StatelessWidget {
                                   }
                                 }
                                 return Text(
-                                  '${controller.schedule![indexes[index + 1]].subject}',
+                                  ApiSubjectTranslator.translate(
+                                    controller
+                                        .schedule![indexes[index + 1]]
+                                        .subject!,
+                                  ),
                                   style: AppStyles.styleBold22().copyWith(
                                     fontSize: 20,
                                   ),

@@ -18,8 +18,10 @@ abstract class AppLinks {
   static final String logout = '$_mainLink/api/logout';
 
   // Home links
-  static final String homepage = '$_mainLink/api/getInfo';
+  static final String homepage = '$_mainLink/api/getUserInfo';
 
   static final String weeklySchedule =
       '$_mainLink/api/getStudentWeeklySchedule';
+
+  static final String grades = '$_mainLink/api/studentGetResult';
 }

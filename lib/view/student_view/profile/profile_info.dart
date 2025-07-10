@@ -13,7 +13,7 @@ import 'package:smartpath/widgets/student/profile/card_info.dart';
 class ProfileInfo extends StatelessWidget {
   ProfileInfo({super.key});
 
-  final StudentInfo studentInfo = Get.arguments;
+  final StudentModel studentInfo = Get.arguments;
   LocalizationController locale = Get.find();
 
   @override
@@ -26,27 +26,27 @@ class ProfileInfo extends StatelessWidget {
       ),
       ProfileInfoModel(
         title: 'phone'.tr,
-        content: '${studentInfo.phoneNumber}',
+        content: '${studentInfo.phone}',
         icon: LucideIcons.phone,
       ),
       ProfileInfoModel(
         title: 'class'.tr,
-        content: '${studentInfo.className}',
+        content: '${studentInfo.profileData!.className}',
         icon: LucideIcons.school2,
       ),
-      ProfileInfoModel(
-        title: 'status'.tr,
-        content: studentInfo.expelled == 0 ? 'Active' : 'Expelled',
-        icon: LucideIcons.shieldCheck,
-      ),
+      // ProfileInfoModel(
+      //   title: 'status'.tr,
+      //   content: studentInfo.profileData. == 0 ? 'Active' : 'Expelled',
+      //   icon: LucideIcons.shieldCheck,
+      // ),
       ProfileInfoModel(
         title: 'school'.tr,
-        content: '${studentInfo.schoolGraduatedFrom}',
+        content: '${studentInfo.profileData!.shoolGraduatedFrom}',
         icon: LucideIcons.school,
       ),
       ProfileInfoModel(
         title: 'rate'.tr,
-        content: '${studentInfo.gpa} %',
+        content: '${studentInfo.profileData!.gpa} %',
         icon: LucideIcons.lineChart,
       ),
     ];
@@ -62,7 +62,7 @@ class ProfileInfo extends StatelessWidget {
                 const CircleAvatar(radius: 50, child: Icon(LucideIcons.camera)),
                 const Gap(25),
                 Text(
-                  '${studentInfo.name} ${studentInfo.lastName}',
+                  '${studentInfo.fullName!.split(' ')[0][0].toUpperCase()}${studentInfo.fullName!.split(' ')[0].substring(1)} ${studentInfo.fullName!.split(' ')[1][0].toUpperCase()}${studentInfo.fullName!.split(' ')[1].substring(1)}',
                   style: AppStyles.styleBold24(),
                 ),
                 Cards(info: info),
