@@ -1,12 +1,12 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'package:http/http.dart' as http;
 import 'package:smartpath/core/utils/app_links.dart';
+import 'package:smartpath/models/student_model/home/grades_model.dart';
 import 'package:smartpath/models/student_model/home/weekly_schedule_model.dart';
 import 'package:smartpath/models/student_model/student_info_model.dart';
 
 class HomeServices {
-  Future? getInfo(String token) async {
+  Future<StudentModel?> getInfo(String token) async {
     try {
       final http.Response response = await http.get(
         Uri.parse(AppLinks.homepage),
@@ -17,26 +17,8 @@ class HomeServices {
         },
       );
       if (response.statusCode == 200) {
-        final responseBody = json.decode(response.body);
-        final Map<String, dynamic> responseMap = {
-          "name": responseBody['user']['name'],
-          "middleName": responseBody['user']['middleName'],
-          "lastName": responseBody['user']['lastName'],
-          "phoneNumber": responseBody['user']['phoneNumber'],
-          "email": responseBody['user']['email'],
-          "role": responseBody['user']['role'],
-          "className": responseBody['roleData'][1]['className'],
-          "schoolGraduatedFrom":
-              responseBody['roleData'][0]['schoolGraduatedFrom'],
-          "photo": responseBody['roleData'][0]['photo'],
-          "Gpa": responseBody['roleData'][0]['Gpa'],
-          "expelled": responseBody['roleData'][0]['expelled'],
-          "justification": responseBody['roleData'][0]['justification'],
-        };
-        log('$responseMap');
-        return StudentInfo.fromJson(responseMap);
+        return StudentModel.fromJson(json.decode(response.body)['data']);
       } else {
-        log('response: $response');
         return null;
       }
     } catch (e) {
@@ -64,6 +46,37 @@ class HomeServices {
         return sessions;
       } else {
         return null;
+      }
+    } catch (e) {
+      return null;
+    }
+  }
+
+  Future<List<GradesModel>?> getGrades(
+    String token,
+    int year,
+    String semester,
+    String type,
+  ) async {
+    try {
+      final http.Response response = await http.post(
+        Uri.parse(AppLinks.grades),
+        body: json.encode({"semester": semester, "type": type, "year": year}),
+        headers: {
+          'Authorization': 'Bearer $token',
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+      );
+      if (response.statusCode == 200) {
+        final List<GradesModel> grades = [];
+        final List data = json.decode(response.body)['imported_count'];
+        for (var i = 0; i < data.length; i++) {
+          grades.add(GradesModel.fromJson(data[i]));
+        }
+        return grades;
+      } else {
+        return [];
       }
     } catch (e) {
       return null;

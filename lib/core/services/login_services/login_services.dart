@@ -17,6 +17,7 @@ class AuthService {
       );
       final data = json.decode(response.body);
       final translatedMessage = ApiMessageTranslator.translate(data['message']);
+      log('${response.statusCode}');
       if (response.statusCode == 200) {
         prefs!.setString('token', data['token']);
         prefs!.setString('role', data['data']['user']['role']);

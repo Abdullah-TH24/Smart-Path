@@ -30,7 +30,7 @@ class StudentProfilePage extends StatelessWidget {
         title: "profile_info_title".tr,
         assetName: AppAssets.iconEditProfile,
         onTap: () {
-          locale.changeLanguage('ar');
+          locale.changeLanguage('en');
           Get.toNamed(
             AppRoutes.studentProfileInfo,
             arguments: controller.studentInfo,
@@ -116,7 +116,7 @@ class StudentProfilePage extends StatelessWidget {
                         const Gap(12),
                         ProfileNamePhotoRow(
                           studentName:
-                              '${controller.studentInfo?.name} ${controller.studentInfo?.lastName}',
+                              '${controller.studentInfo!.fullName!.split(' ')[0][0].toUpperCase()}${controller.studentInfo!.fullName!.split(' ')[0].substring(1)} ${controller.studentInfo!.fullName!.split(' ')[1][0].toUpperCase()}${controller.studentInfo!.fullName!.split(' ')[1].substring(1)}',
                         ),
                         const Gap(32),
                         ...items.map((e) => ProfileListTileItem(item: e)),

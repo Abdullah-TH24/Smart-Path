@@ -48,7 +48,7 @@ class WelcomeItem extends StatelessWidget {
                 ),
                 const Gap(5),
                 Text(
-                  'app_bar_home_stu_title'.tr,
+                  'app_name'.tr,
                   style: AppStyles.styleMedium14().copyWith(
                     color: Colors.indigo[50],
                     fontWeight: FontWeight.w600,

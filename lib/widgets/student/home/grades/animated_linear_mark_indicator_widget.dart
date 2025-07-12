@@ -3,6 +3,8 @@ import 'package:smartpath/widgets/student/home/grades/item_animated_linear_mark_
 
 class AnimatedLinearMarkIndicator extends StatefulWidget {
   final int mark;
+  final int minMark;
+  final int maxMark;
   final Duration duration;
   final Color? color;
   final String? label;
@@ -12,6 +14,8 @@ class AnimatedLinearMarkIndicator extends StatefulWidget {
     this.duration = const Duration(seconds: 2),
     this.color,
     required this.label,
+    required this.minMark,
+    required this.maxMark,
   });
 
   @override
@@ -48,6 +52,8 @@ class _AnimatedLinearMarkIndicatorState
     return ItemAnimatedLinearMarkIndicator(
       widget: widget,
       animation: _animation,
+      maxMark: widget.maxMark,
+      minMark: widget.minMark,
     );
   }
 }

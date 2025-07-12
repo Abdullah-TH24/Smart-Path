@@ -66,8 +66,12 @@ class StudentHomePage extends StatelessWidget {
           // Get.toNamed(AppRoutes.studentGrades);
           Get.toNamed(
             AppRoutes.studentFilterPage,
-            arguments:
-                '${controller.studentInfo?.name![0].toUpperCase()}${controller.studentInfo?.name!.substring(1)} ${controller.studentInfo?.middleName![0]}${controller.studentInfo?.lastName![0]}',
+            arguments: {
+              'name':
+                  "${controller.studentInfo!.fullName!.split(' ')[0][0].toUpperCase()}${controller.studentInfo!.fullName!.split(' ')[0].substring(1)} ${controller.studentInfo!.fullName!.split(' ')[1][0]}${controller.studentInfo!.fullName!.split(' ')[2][0]}",
+              'years':
+                  controller.studentInfo!.profileData!.numberOfAttendanceYears,
+            },
           );
         },
       ),
@@ -110,7 +114,7 @@ class StudentHomePage extends StatelessWidget {
                     expandedHeight: 180,
                     collapsedHeight: 110,
                     studentName:
-                        "${homePageController.studentInfo?.name![0].toUpperCase()}${homePageController.studentInfo?.name!.substring(1)} ${homePageController.studentInfo?.middleName![0].toUpperCase()}${homePageController.studentInfo?.lastName![0].toUpperCase()}",
+                        "${controller.studentInfo!.fullName?.split(' ')[0][0].toUpperCase()}${controller.studentInfo!.fullName!.split(' ')[0].substring(1)} ${controller.studentInfo!.fullName!.split(' ')[1][0].toUpperCase()}${controller.studentInfo!.fullName!.split(' ')[2][0].toUpperCase()}",
                   ),
                 ),
                 // Content

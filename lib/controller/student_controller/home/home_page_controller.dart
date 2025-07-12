@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:get/get.dart';
 import 'package:smartpath/core/services/student_services/home_services.dart';
 import 'package:smartpath/main.dart';
@@ -14,22 +12,19 @@ class HomePageController extends GetxController {
     super.onInit();
   }
 
-  StudentInfo? studentInfo;
+  StudentModel? studentInfo;
   bool isLoading = false;
   String? errorMessage;
 
   Future<void> getInfo(String token) async {
     isLoading = true;
     errorMessage = null;
+    studentInfo = null;
     update();
-    try {
-      final result = await _homeService.getInfo(token);
-      if (result != null) {
-        studentInfo = result;
-      } else {
-        log('$result');
-      }
-    } catch (e) {
+    final result = await _homeService.getInfo(token);
+    if (result != null) {
+      studentInfo = result;
+    } else {
       errorMessage = 'error_message'.tr;
     }
     isLoading = false;

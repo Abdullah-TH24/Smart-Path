@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:get/get.dart';
 
 class ApiMessageTranslator {
@@ -23,6 +25,7 @@ class ApiMessageTranslator {
   };
 
   static String translate(String message) {
+    log('${Get.locale?.languageCode}');
     return messages[message]?[Get.locale?.languageCode ?? 'en'] ?? message;
   }
 }

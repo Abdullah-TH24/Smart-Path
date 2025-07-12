@@ -6,11 +6,13 @@ class DropFieldComponent extends StatelessWidget {
   final TextEditingController controller;
   final List<DropdownMenuEntry<String>> dropdownMenuEntries;
   final String title;
+  final double menuHeight;
   const DropFieldComponent({
     super.key,
     required this.controller,
     required this.dropdownMenuEntries,
     required this.title,
+    required this.menuHeight,
   });
 
   @override
@@ -33,6 +35,7 @@ class DropFieldComponent extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   DropdownMenu<String>(
+                    menuHeight: menuHeight,
                     controller: controller,
                     width: MediaQuery.sizeOf(context).width - 40,
                     inputDecorationTheme: const InputDecorationTheme(

@@ -1,61 +1,40 @@
-class StudentInfo {
-  String? name;
-  String? middleName;
-  String? lastName;
-  String? phoneNumber;
-  String? email;
-  String? role;
-  String? className;
-  String? schoolGraduatedFrom;
-  String? photo;
-  String? gpa;
-  int? expelled;
-  String? justification;
+import 'package:smartpath/models/student_model/profile_data_model.dart';
 
-  StudentInfo({
-    this.name,
-    this.middleName,
-    this.lastName,
-    this.phoneNumber,
+class StudentModel {
+  String? fullName;
+  String? email;
+  String? phone;
+  String? role;
+  ProfileData? profileData;
+
+  StudentModel({
+    this.fullName,
     this.email,
+    this.phone,
     this.role,
-    this.className,
-    this.schoolGraduatedFrom,
-    this.photo,
-    this.gpa,
-    this.expelled,
-    this.justification,
+    this.profileData,
   });
 
-  StudentInfo.fromJson(Map<String, dynamic> json) {
-    name = json['name'];
-    middleName = json['middleName'];
-    lastName = json['lastName'];
-    phoneNumber = json['phoneNumber'];
+  StudentModel.fromJson(Map<String, dynamic> json) {
+    fullName = json['full_name'];
     email = json['email'];
+    phone = json['phone'];
     role = json['role'];
-    className = json['className'];
-    schoolGraduatedFrom = json['schoolGraduatedFrom'];
-    photo = json['photo'];
-    gpa = json['Gpa'];
-    expelled = json['expelled'];
-    justification = json['justification'];
+    profileData =
+        json['profile_data'] != null
+            ? ProfileData.fromJson(json['profile_data'])
+            : null;
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['name'] = name;
-    data['middleName'] = middleName;
-    data['lastName'] = lastName;
-    data['phoneNumber'] = phoneNumber;
+    data['full_name'] = fullName;
     data['email'] = email;
+    data['phone'] = phone;
     data['role'] = role;
-    data['className'] = className;
-    data['schoolGraduatedFrom'] = schoolGraduatedFrom;
-    data['photo'] = photo;
-    data['Gpa'] = gpa;
-    data['expelled'] = expelled;
-    data['justification'] = justification;
+    if (profileData != null) {
+      data['profile_data'] = profileData!.toJson();
+    }
     return data;
   }
 }

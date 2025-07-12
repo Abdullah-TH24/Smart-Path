@@ -73,11 +73,11 @@ class ArabicEnglishLocal implements Translations {
       // For filter page
       'filter_page_title': 'Filter',
       'filter_desc': 'We need some information to continue',
-      'title_field_1': 'Select a year',
+      'title_field_1': 'Select the year with the semester',
       'title_field_2': 'Select the type',
       'type_0': 'Final',
-      'type_1': 'Mid',
-      'type_2': 'Quiz',
+      // 'type_1': 'Mid-Term',
+      'type_1': 'Quiz', // TODO
       'button_text': 'Next',
       'field_validation_text': 'This field cannot be empty',
       // For grades
@@ -168,11 +168,11 @@ class ArabicEnglishLocal implements Translations {
       // For filter page
       'filter_page_title': 'فلتر',
       'filter_desc': 'نحن بحاجة إلى بعض المعلومات للاستمرار',
-      'title_field_1': 'اختر سنة',
+      'title_field_1': 'حدد السنة مع الفصل الدراسي',
       'title_field_2': 'حدد النوع',
       'type_0': 'الإمتحان النهائي',
-      'type_1': 'الإمتحان النصفي',
-      'type_2': 'إختبار',
+      // 'type_1': 'الإمتحان النصفي',
+      'type_1': 'إختبار', // TODO
       'button_text': 'التالي',
       'field_validation_text': 'لا يمكن أن يكون هذا الحقل فارغًا',
       // For grades
