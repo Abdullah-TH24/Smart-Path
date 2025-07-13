@@ -15,7 +15,9 @@ class LoginController extends GetxController {
     response = null;
     update();
     final result = await _authService.login(email, password);
+
     if (result != null) {
+      print(result.role);
       response = result;
     } else {
       errorMessage = 'error_message'.tr;
