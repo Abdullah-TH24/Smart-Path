@@ -19,7 +19,7 @@ class StudentPortfolioPage extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          AppBarComponent(data: 'grid_item_name_7'.tr),
+          AppBarComponent(data: 'grid_item_name_7'.tr, enableLeading: false),
           SliverToBoxAdapter(
             child: ListView.separated(
               physics: const NeverScrollableScrollPhysics(),

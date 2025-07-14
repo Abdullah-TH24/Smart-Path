@@ -6,24 +6,32 @@ import 'package:smartpath/widgets/student/profile/upper_waves_component.dart';
 
 class AppBarComponent extends StatelessWidget {
   final String data;
-  const AppBarComponent({super.key, required this.data});
+  final bool? enableLeading;
+  const AppBarComponent({
+    super.key,
+    required this.data,
+    this.enableLeading = true,
+  });
 
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
       pinned: true,
       expandedHeight: 80,
-      leading: IconButton(
-        onPressed: () {
-          Get.back();
-        },
-        icon: Icon(
-          (Get.locale?.languageCode ?? 'en') == 'en'
-              ? LucideIcons.chevronLeft
-              : LucideIcons.chevronRight,
-          color: Colors.indigo,
-        ),
-      ),
+      leading:
+          (enableLeading!)
+              ? IconButton(
+                onPressed: () {
+                  Get.back();
+                },
+                icon: Icon(
+                  (Get.locale?.languageCode ?? 'en') == 'en'
+                      ? LucideIcons.chevronLeft
+                      : LucideIcons.chevronRight,
+                  color: Colors.indigo,
+                ),
+              )
+              : null,
       flexibleSpace: FlexibleSpaceBar(
         background: const UpperWaves(),
         centerTitle: true,
