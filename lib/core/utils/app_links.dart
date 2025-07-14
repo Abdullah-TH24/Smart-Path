@@ -1,11 +1,6 @@
 abstract class AppLinks {
-<<<<<<< HEAD
-  // should be edit
-  static final String _ip = '192.168.0.117';
-=======
   // Should be edit
   static final String _ip = '192.168.87.169';
->>>>>>> 28b1e4f (Create events, about, settings, PIN, confirmPIN, Auth with PIN or Fingerprint  and verify identity screen)
 
   static final String _mainLink = 'http://$_ip:8000';
 
