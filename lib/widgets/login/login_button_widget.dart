@@ -7,6 +7,7 @@ import 'package:smartpath/controller/localization_controller/localization_contro
 import 'package:smartpath/controller/login_controller/login_controller.dart';
 import 'package:smartpath/core/utils/app_routes.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
+import 'package:smartpath/view/teacher_view/teacher_routes.dart';
 import 'package:smartpath/widgets/login/button_component.dart';
 
 class LoginButton extends StatelessWidget {
@@ -51,8 +52,9 @@ class LoginButton extends StatelessWidget {
                         if (controller.response?.status == true) {
                           if (controller.response?.role == 'student') {
                             Get.offAllNamed(AppRoutes.studentMainPageRoute);
-                          } else if (controller.response?.role == 'parent') {
+                          } else if (controller.response?.role == 'teacher') {
                             // TODO put your navigator here
+                            Get.offAllNamed(TeacherRoutes.profile);
                           }
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
