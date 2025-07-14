@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
-import 'package:smartpath/widgets/student/exams/card_exam_widget.dart';
+import 'package:smartpath/widgets/student/home/exams/card_exam_widget.dart';
 
 class TimelineExamItem extends StatelessWidget {
   final String day;

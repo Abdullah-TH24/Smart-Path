@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:smartpath/controller/localization/localization_controller.dart';
+import 'package:smartpath/controller/localization_controller/localization_controller.dart';
 import 'package:smartpath/controller/login_controller/request_reset_password_controller.dart';
 import 'package:smartpath/widgets/login/logo_with_title_component.dart';
 import 'package:smartpath/widgets/login/request_button_widget.dart';

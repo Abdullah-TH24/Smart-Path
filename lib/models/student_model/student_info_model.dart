@@ -35,7 +35,6 @@ class StudentModel {
     if (profileData != null) {
       data['profile_data'] = profileData!.toJson();
     }
-    print(data);
     return data;
   }
 }

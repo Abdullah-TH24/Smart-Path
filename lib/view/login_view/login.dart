@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:smartpath/controller/localization/localization_controller.dart';
+import 'package:smartpath/controller/localization_controller/localization_controller.dart';
 import 'package:smartpath/controller/login_controller/login_controller.dart';
 import 'package:smartpath/core/utils/app_routes.dart';
 import 'package:smartpath/widgets/login/login_button_widget.dart';

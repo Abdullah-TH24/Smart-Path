@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
-import 'package:smartpath/controller/localization/localization_controller.dart';
+import 'package:smartpath/controller/localization_controller/localization_controller.dart';
 import 'package:smartpath/controller/login_controller/login_controller.dart';
 import 'package:smartpath/core/utils/app_routes.dart';
 import 'package:smartpath/core/utils/app_styles.dart';

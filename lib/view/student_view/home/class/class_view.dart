@@ -10,7 +10,7 @@ class ClassView extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          const CalendarAppBarComponent(data: 'Class'),
+          const AppBarComponent(data: 'Class'),
           SliverToBoxAdapter(
             child: ListView.builder(
               physics: const NeverScrollableScrollPhysics(),

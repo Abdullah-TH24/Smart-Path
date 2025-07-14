@@ -1,13 +1,13 @@
 import 'package:get/get.dart';
 
-class ApiSubjectTranslator {
+class SubjectTranslator {
   static final Map<String, Map<String, String>> subjects = {
-    'physics': {'en': 'physics', 'ar': 'الفيزياء'},
-    'chemistry': {'en': 'chemistry', 'ar': 'الكيمياء'},
-    'math': {'en': 'math', 'ar': 'الرياضيات'},
-    'computer': {'en': 'computer', 'ar': 'الحاسوب'},
-    'biology': {'en': 'biology', 'ar': 'علم الأحياء'},
-    'history': {'en': 'history', 'ar': 'تاريخ'},
+    'physics': {'en': 'Physics', 'ar': 'الفيزياء'},
+    'chemistry': {'en': 'Chemistry', 'ar': 'الكيمياء'},
+    'math': {'en': 'Math', 'ar': 'الرياضيات'},
+    'computer': {'en': 'Computer', 'ar': 'الحاسوب'},
+    'biology': {'en': 'Biology', 'ar': 'علم الأحياء'},
+    'history': {'en': 'History', 'ar': 'التاريخ'},
   };
 
   static String translate(String subject) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
 
 class CardExam extends StatelessWidget {
@@ -25,12 +26,18 @@ class CardExam extends StatelessWidget {
                 Container(
                   width: 100,
                   height: double.infinity,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Colors.indigo,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(15),
-                      bottomLeft: Radius.circular(15),
-                    ),
+                    borderRadius:
+                        (Get.locale?.languageCode ?? 'en') == 'en'
+                            ? const BorderRadius.only(
+                              topLeft: Radius.circular(15),
+                              bottomLeft: Radius.circular(15),
+                            )
+                            : const BorderRadius.only(
+                              topRight: Radius.circular(15),
+                              bottomRight: Radius.circular(15),
+                            ),
                   ),
                   child: Icon(icon, color: Colors.white, size: 30),
                 ),

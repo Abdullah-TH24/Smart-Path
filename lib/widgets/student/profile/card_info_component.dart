@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/models/student_model/profile/profile_info_model.dart';
-import 'package:smartpath/widgets/student/profile/custom_card.dart';
+import 'package:smartpath/widgets/student/profile/custom_card_comonent.dart';
 
 class Cards extends StatelessWidget {
   const Cards({super.key, required this.info});

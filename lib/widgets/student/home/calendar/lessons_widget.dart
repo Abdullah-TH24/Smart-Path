@@ -115,7 +115,7 @@ class Lessons extends StatelessWidget {
                                   }
                                 }
                                 return Text(
-                                  ApiSubjectTranslator.translate(
+                                  SubjectTranslator.translate(
                                     controller
                                         .schedule![indexes[index + 1]]
                                         .subject!,

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:smartpath/controller/localization/localization_controller.dart';
+import 'package:smartpath/controller/localization_controller/localization_controller.dart';
 import 'package:smartpath/models/student_model/profile/list_tile_item_model.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
 
@@ -20,7 +20,10 @@ class ProfileListTileItem extends StatelessWidget {
       children: [
         ListTile(
           contentPadding: const EdgeInsets.symmetric(horizontal: 18),
-          leading: SvgPicture.asset(item.assetName),
+          leading:
+              (item.icon != null)
+                  ? Icon(item.icon, color: Colors.indigo)
+                  : SvgPicture.asset(item.assetName!),
           title: Text(item.title, style: AppStyles.styleMedium14().copyWith()),
           trailing: Icon(
             (Get.locale?.languageCode ?? 'en') == 'en'

@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:smartpath/controller/localization/localization_controller.dart';
+import 'package:smartpath/controller/localization_controller/localization_controller.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/models/student_model/profile/profile_info_model.dart';
 import 'package:smartpath/models/student_model/student_info_model.dart';
 import 'package:smartpath/widgets/student/home/calendar/calendar_app_bar_widget.dart';
-import 'package:smartpath/widgets/student/profile/card_info.dart';
+import 'package:smartpath/widgets/student/profile/card_info_component.dart';
 
 class ProfileInfo extends StatelessWidget {
   ProfileInfo({super.key});
@@ -34,11 +34,6 @@ class ProfileInfo extends StatelessWidget {
         content: '${studentInfo.profileData!.className}',
         icon: LucideIcons.school2,
       ),
-      // ProfileInfoModel(
-      //   title: 'status'.tr,
-      //   content: studentInfo.profileData. == 0 ? 'Active' : 'Expelled',
-      //   icon: LucideIcons.shieldCheck,
-      // ),
       ProfileInfoModel(
         title: 'school'.tr,
         content: '${studentInfo.profileData!.shoolGraduatedFrom}',
@@ -54,7 +49,7 @@ class ProfileInfo extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           // Curve AppBar
-          CalendarAppBarComponent(data: 'profile_info_title'.tr),
+          AppBarComponent(data: 'profile_info_title'.tr),
           SliverToBoxAdapter(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -62,7 +57,7 @@ class ProfileInfo extends StatelessWidget {
                 const CircleAvatar(radius: 50, child: Icon(LucideIcons.camera)),
                 const Gap(25),
                 Text(
-                  '${studentInfo.fullName!.split(' ')[0][0].toUpperCase()}${studentInfo.fullName!.split(' ')[0].substring(1)} ${studentInfo.fullName!.split(' ')[1][0].toUpperCase()}${studentInfo.fullName!.split(' ')[1].substring(1)}',
+                  '${studentInfo.fullName!.split(' ')[0][0].toUpperCase()}${studentInfo.fullName!.split(' ')[0].substring(1)} ${studentInfo.fullName!.split(' ')[2][0].toUpperCase()}${studentInfo.fullName!.split(' ')[2].substring(1)}',
                   style: AppStyles.styleBold24(),
                 ),
                 Cards(info: info),

@@ -37,7 +37,7 @@ class StudentGridViewHome extends StatelessWidget {
                 ),
               ),
             ),
-        itemCount: gridItems.length - 3,
+        itemCount: gridItems.length - 4,
       ),
     );
   }

@@ -5,6 +5,13 @@ class ArabicEnglishLocal implements Translations {
   Map<String, Map<String, String>> get keys => {
     "en": {
       'app_name': "Smart Path",
+      // For Auth
+      'title_pin': 'Enter PIN',
+      'desc_pin': 'Please enter your 4-digit PIN to\ncontinue.',
+      'error_pin': 'PIN code is wrong',
+      'option_pin_title': 'or',
+      'option_pin_desc': 'use biometric',
+      'bio_messagge': 'Please complete authentication',
       // For introduction_pages
       'introduction_title': 'Welcome to Smart Path!',
       'introduction_content_0': 'You are in the right place',
@@ -75,11 +82,14 @@ class ArabicEnglishLocal implements Translations {
       'filter_desc': 'We need some information to continue',
       'title_field_1': 'Select the year with the semester',
       'title_field_2': 'Select the type',
+      'First': 'First',
+      'Second': 'Second',
       'type_0': 'Final',
       // 'type_1': 'Mid-Term',
       'type_1': 'Quiz', // TODO
       'button_text': 'Next',
       'field_validation_text': 'This field cannot be empty',
+      'No results at the moment': 'No results at the moment',
       // For grades
       'average': 'Average',
       // Profile
@@ -97,9 +107,32 @@ class ArabicEnglishLocal implements Translations {
       'email-info': 'E-mail',
       'phone': 'Phone',
       'address': 'Address',
+      // For settings
+      'Settings': 'Settings',
+      'lang_title': 'Choose a language',
+      'Arabic': 'Arabic',
+      'English': 'English',
+      'Lock App': 'Lock App',
+      'pin_desc': 'Please enter your PIN below',
+      'confirm_title': 'Confirm PIN Code',
+      'confirm_desc': 'Please enter your PIN again',
+      'confirm_error': 'Please enter the same code',
+      'lock_title': 'Enable App lock',
+      'fingerprint_title': 'Fingerprint',
+      'change_title': 'Change PIN',
+      'verify_title': 'Verify Identity',
+      'vPin_title': 'PIN Code',
+      'vPin_error': 'PIN is wrong',
     },
     "ar": {
       'app_name': "المسار الذكي",
+      // For Auth
+      'title_pin': 'أدخل رقم التعريف\nالشخصي',
+      'desc_pin': 'الرجاء إدخال رقم التعريف الشخصي\nالمكون من 4 أرقام للمتابعة',
+      'error_pin': 'رمز PIN خاطئ',
+      'option_pin_title': 'أو',
+      'option_pin_desc': 'استخدم بصمة الإصبع',
+      'bio_messagge': 'الرجاء إكمال المصادقة',
       // For introduction_pages
       'introduction_title': 'مرحباً بكم في المسار الذكي!',
       'introduction_content_0': 'أنت في المكان المناسب',
@@ -153,7 +186,7 @@ class ArabicEnglishLocal implements Translations {
       'grid_item_name_4': 'إختبار',
       'grid_item_name_5': 'الإشتراكات',
       'grid_item_name_6': 'الدرجات',
-      'grid_item_name_7': 'المسابقات',
+      'grid_item_name_7': 'الأحداث',
       'grid_item_name_8': 'برنامج\nالإمتحان',
       'grid_item_name_9': 'المشاريع',
       'grid_item_name_10': 'الأفكار',
@@ -170,11 +203,14 @@ class ArabicEnglishLocal implements Translations {
       'filter_desc': 'نحن بحاجة إلى بعض المعلومات للاستمرار',
       'title_field_1': 'حدد السنة مع الفصل الدراسي',
       'title_field_2': 'حدد النوع',
+      'First': 'الفصل الأول',
+      'Second': 'الفصل الثاني',
       'type_0': 'الإمتحان النهائي',
       // 'type_1': 'الإمتحان النصفي',
       'type_1': 'إختبار', // TODO
       'button_text': 'التالي',
       'field_validation_text': 'لا يمكن أن يكون هذا الحقل فارغًا',
+      'No results at the moment': 'لا توجد نتائج في الوقت الحالي',
       // For grades
       'average': 'المعدل',
       // Profile
@@ -192,6 +228,22 @@ class ArabicEnglishLocal implements Translations {
       'email-info': 'البريد الإلكتروني',
       'phone': 'الهاتف',
       'address': 'العنوان',
+      // For settings
+      'Settings': 'الإعدادات',
+      'lang_title': 'اختر لغة',
+      'Arabic': 'اللغة العربية',
+      'English': 'اللغة الإنجليزية',
+      'Lock App': 'قفل التطبيق',
+      'pin_desc': 'الرجاء إدخال رقم التعريف الشخصي الخاص بك أدناه',
+      'confirm_title': 'تأكيد رمز PIN',
+      'confirm_desc': 'الرجاء إدخال رقم التعريف الشخصي\nالخاص بك مرة أخرى',
+      'confirm_error': 'الرجاء إدخال نفس الرمز',
+      'lock_title': 'تمكين قفل التطبيق',
+      'fingerprint_title': 'بصمة',
+      'change_title': 'تغيير رقم التعريف الشخصي',
+      'verify_title': 'التحقق من الهوية',
+      'vPin_title': 'رمز التعريف الشخصي',
+      'vPin_error': 'رقم التعريف الشخصي غير صحيح',
     },
   };
 }

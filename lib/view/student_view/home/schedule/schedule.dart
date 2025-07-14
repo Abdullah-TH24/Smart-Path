@@ -2,15 +2,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:smartpath/controller/localization/localization_controller.dart';
+import 'package:smartpath/controller/localization_controller/localization_controller.dart';
 import 'package:smartpath/controller/student_controller/home/calendar/schedule_controller.dart';
 import 'package:smartpath/core/utils/app_assets.dart';
 import 'package:smartpath/widgets/student/home/calendar/calendar_app_bar_widget.dart';
 import 'package:smartpath/widgets/student/home/calendar/days_widget.dart';
 import 'package:smartpath/widgets/student/home/calendar/lessons_widget.dart';
 
-class Calendar extends StatelessWidget {
-  Calendar({super.key});
+class Schedule extends StatelessWidget {
+  Schedule({super.key});
 
   LocalizationController locale = Get.find();
   ScheduleController controller = Get.put(ScheduleController());
@@ -22,7 +22,7 @@ class Calendar extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           // Curve AppBar
-          CalendarAppBarComponent(data: 'schedule_title_page'.tr),
+          AppBarComponent(data: 'schedule_title_page'.tr),
           // Days
           const DaysWidget(),
           // Lessons

@@ -4,6 +4,8 @@ class AppRoutes {
   /* Shared Pages */
   static const String splashScreenRoute = '/splash_screen';
 
+  static const String authRoute = '/auth_view';
+
   static const String introductionPagesRoute = '/introduction_pages';
 
   static const String loginRoute = '/login';
@@ -20,6 +22,18 @@ class AppRoutes {
   static const String studentMainPageRoute = '/student_main_page';
 
   static const String studentProfileInfo = '/profile_info';
+
+  static const String studentProfileSettings = '/settings_page';
+
+  static const String studentProfileEnterPIN = '/enter_pin';
+
+  static const String studentProfileConfirmPIN = '/confirm_pin';
+
+  static const String studentProfileLockApp = '/lock_app';
+
+  static const String studentProfileVerfiyPin = '/verfiy_pin';
+
+  static const String studentProfileAbout = '/about';
 
   static const String studentClass = '/class_view';
 

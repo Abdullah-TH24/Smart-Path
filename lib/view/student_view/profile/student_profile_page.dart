@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:smartpath/controller/localization/localization_controller.dart';
+import 'package:smartpath/controller/localization_controller/localization_controller.dart';
 import 'package:smartpath/controller/login_controller/logout_controller.dart';
 import 'package:smartpath/controller/student_controller/home/home_page_controller.dart';
 import 'package:smartpath/core/utils/app_assets.dart';
@@ -12,9 +12,9 @@ import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/main.dart';
 import 'package:smartpath/models/student_model/profile/list_tile_item_model.dart';
 import 'package:smartpath/view/student_view/student_main_page.dart';
-import 'package:smartpath/widgets/student/profile/profil_name_photo_row.dart';
-import 'package:smartpath/widgets/student/profile/profile_list_tile_item.dart';
-import 'package:smartpath/widgets/student/profile/upper_waves.dart';
+import 'package:smartpath/widgets/student/profile/profil_name_photo_row_component.dart';
+import 'package:smartpath/widgets/student/profile/profile_list_tile_item_component.dart';
+import 'package:smartpath/widgets/student/profile/upper_waves_component.dart';
 
 class StudentProfilePage extends StatelessWidget {
   StudentProfilePage({super.key});
@@ -38,14 +38,19 @@ class StudentProfilePage extends StatelessWidget {
         },
       ),
       ListTileItemModel(
-        title: "change_password".tr,
+        title: "Settings".tr,
         assetName: AppAssets.iconChangePassword,
-        onTap: () {},
+        onTap: () {
+          Get.toNamed(AppRoutes.studentProfileSettings);
+        },
+        icon: Icons.settings,
       ),
       ListTileItemModel(
         title: "about".tr,
         assetName: AppAssets.iconAbout,
-        onTap: () {},
+        onTap: () {
+          Get.toNamed(AppRoutes.studentProfileAbout);
+        },
       ),
       ListTileItemModel(
         title: "help".tr,
@@ -116,7 +121,7 @@ class StudentProfilePage extends StatelessWidget {
                         const Gap(12),
                         ProfileNamePhotoRow(
                           studentName:
-                              '${controller.studentInfo!.fullName!.split(' ')[0][0].toUpperCase()}${controller.studentInfo!.fullName!.split(' ')[0].substring(1)} ${controller.studentInfo!.fullName!.split(' ')[1][0].toUpperCase()}${controller.studentInfo!.fullName!.split(' ')[1].substring(1)}',
+                              '${controller.studentInfo!.fullName!.split(' ')[0][0].toUpperCase()}${controller.studentInfo!.fullName!.split(' ')[0].substring(1)} ${controller.studentInfo!.fullName!.split(' ')[2][0].toUpperCase()}${controller.studentInfo!.fullName!.split(' ')[2].substring(1)}',
                         ),
                         const Gap(32),
                         ...items.map((e) => ProfileListTileItem(item: e)),

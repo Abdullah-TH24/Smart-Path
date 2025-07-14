@@ -27,7 +27,7 @@ class GradesController extends GetxController {
       if (result.isNotEmpty) {
         grades = result;
       } else {
-        noResultsMessages = 'There is no results right now';
+        noResultsMessages = 'No results at the moment'.tr;
       }
     } else {
       errorMessage = 'error_message'.tr;

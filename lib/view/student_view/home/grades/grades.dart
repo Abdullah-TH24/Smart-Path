@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:smartpath/core/localization/subjects_translate.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/models/student_model/home/grades_model.dart';
 import 'package:smartpath/widgets/student/home/calendar/calendar_app_bar_widget.dart';
@@ -33,7 +34,7 @@ class Grades extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           // Curve AppBar
-          CalendarAppBarComponent(data: 'grid_item_name_6'.tr),
+          AppBarComponent(data: 'grid_item_name_6'.tr),
           // Progress
           SliverToBoxAdapter(
             child: AnimatedStudentMarkCircle(
@@ -67,8 +68,10 @@ class Grades extends StatelessWidget {
                               : int.parse(grades[index].result!),
                       label:
                           (message != null)
-                              ? '${subjects[index]}'
-                              : grades[index].subjectName,
+                              ? SubjectTranslator.translate(subjects[index])
+                              : SubjectTranslator.translate(
+                                grades[index].subjectName!,
+                              ),
                       minMark: (message != null) ? 0 : grades[index].minMark!,
                       maxMark: (message != null) ? 100 : grades[index].maxMark!,
                     ),

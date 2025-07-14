@@ -18,7 +18,7 @@ class FilterPage extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           // Curve AppBar
-          CalendarAppBarComponent(data: 'filter_page_title'.tr),
+          AppBarComponent(data: 'filter_page_title'.tr),
           // Content Page
           ContentFilterPage(
             years: values['years'],

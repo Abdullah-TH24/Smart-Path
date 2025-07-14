@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
-import 'package:smartpath/widgets/student/profile/upper_waves.dart';
+import 'package:smartpath/widgets/student/profile/upper_waves_component.dart';
 
-class CalendarAppBarComponent extends StatelessWidget {
+class AppBarComponent extends StatelessWidget {
   final String data;
-  const CalendarAppBarComponent({super.key, required this.data});
+  const AppBarComponent({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {

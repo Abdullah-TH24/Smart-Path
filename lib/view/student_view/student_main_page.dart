@@ -7,7 +7,7 @@ import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:smartpath/models/student_model/bottom_bar_item_model.dart';
 import 'package:smartpath/view/student_view/data/student_data_page.dart';
 import 'package:smartpath/view/student_view/home/student_home_page.dart';
-import 'package:smartpath/view/student_view/portfolio/student_portfolio_page.dart';
+import 'package:smartpath/view/student_view/events/student_events_page.dart';
 import 'package:smartpath/view/student_view/profile/student_profile_page.dart';
 
 class StudentMainPage extends StatefulWidget {
@@ -41,11 +41,12 @@ class _StudentMainPageState extends State<StudentMainPage> {
       ),
       BottomBarItemModel(
         icon: SvgPicture.asset(
-          AppAssets.iconFolderInactive,
+          AppAssets.iconArticle,
           colorFilter: ColorFilter.mode(Colors.grey[400]!, BlendMode.srcIn),
+          width: 20,
         ),
-        title: Text('portfolio'.tr),
-        activeIcon: SvgPicture.asset(AppAssets.iconFolder, width: 25),
+        title: Text('grid_item_name_7'.tr),
+        activeIcon: SvgPicture.asset(AppAssets.iconArticle, width: 20),
       ),
       BottomBarItemModel(
         icon: SvgPicture.asset(

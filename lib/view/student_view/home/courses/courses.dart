@@ -12,7 +12,7 @@ class Courses extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          const CalendarAppBarComponent(data: 'Courses'),
+          const AppBarComponent(data: 'Courses'),
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.all(20),

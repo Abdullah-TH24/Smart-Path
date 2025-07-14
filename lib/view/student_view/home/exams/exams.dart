@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:smartpath/widgets/student/exams/time_line_exam_item_widget.dart';
+import 'package:smartpath/widgets/student/home/exams/time_line_exam_item_widget.dart';
 import 'package:smartpath/widgets/student/home/calendar/calendar_app_bar_widget.dart';
 
 class Exams extends StatelessWidget {
@@ -63,7 +63,7 @@ class Exams extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          const CalendarAppBarComponent(data: 'Exams'),
+          const AppBarComponent(data: 'Exams Schedule'),
           SliverToBoxAdapter(
             child: ListView.builder(
               shrinkWrap: true,

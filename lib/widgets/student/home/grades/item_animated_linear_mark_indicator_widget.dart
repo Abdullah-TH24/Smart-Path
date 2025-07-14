@@ -40,7 +40,7 @@ class ItemAnimatedLinearMarkIndicator extends StatelessWidget {
                   children: [
                     Text(widget.label!, style: AppStyles.styleMedium14()),
                     Text(
-                      '$currentMark%',
+                      '$currentMark/$maxMark',
                       style: AppStyles.styleMedium14().copyWith(
                         color: progressColor,
                       ),
