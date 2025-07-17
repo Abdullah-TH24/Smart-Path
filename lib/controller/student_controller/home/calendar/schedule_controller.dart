@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:get/get.dart';
 import 'package:smartpath/core/services/student_services/home_services.dart';
 import 'package:smartpath/main.dart';
@@ -26,7 +24,6 @@ class ScheduleController extends GetxController {
     final result = await _homeService.getStudentWeeklySchedule(token);
     if (result != null) {
       schedule = result;
-      log('${schedule![0].subject}');
     } else {
       errorMessage = 'error_message'.tr;
     }

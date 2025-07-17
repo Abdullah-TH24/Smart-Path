@@ -18,10 +18,15 @@ class CustomTextButton extends StatelessWidget {
       label: Text(title),
       icon: Icon(icon),
       style: TextButton.styleFrom(
+        overlayColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
         foregroundColor: Colors.black87,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.circular(12.5),
         ),
+        padding: EdgeInsets.zero,
+        minimumSize: Size.zero,
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       ),
     );
   }

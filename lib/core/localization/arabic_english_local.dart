@@ -123,6 +123,35 @@ class ArabicEnglishLocal implements Translations {
       'verify_title': 'Verify Identity',
       'vPin_title': 'PIN Code',
       'vPin_error': 'PIN is wrong',
+      // For About
+      'page_title_about': 'About',
+      'aboutApp_title': 'About The App',
+      'aboutApp_desc':
+          'The Smart Pathh is a smart platform designed to enhance communication between the school, students, and parents. It offers easy and secure access to attendance records, academic performance, class schedules, assignments, and important announcements — all in one place',
+      'aboutSc_title': 'About the School',
+      'aboutSc_desc':
+          'Al-Riyada Model School is a leading educational institution committed to academic excellence and providing a stimulating learning environment. Our goal is to combine quality education, strong values, and modern technology to serve our students and community',
+      'version': 'App Version',
+      'rights': 'Copyright',
+      'rights_desc': 'All rights reserved to Al-Riyada Model School',
+      // For Contact
+      'page_title': 'Contact',
+      'page_desc':
+          'If you have any questions or need assistance, feel free to contact us through any of the methods listed below. We are here to help!',
+      'address_title': 'Address',
+      'address_content': 'Education City, Al-Riyada Street',
+      'phone_title': 'Phone',
+      'email_title': 'Email',
+      'website_title': 'Official website',
+      'facebook_title': 'Facebook',
+      'working_title': 'Working Hours',
+      'working_day': 'Sunday - Thursday',
+      'holiday_day': 'Friday - Saturday',
+      'holiday_desc': 'Closed',
+      'button_call': 'Call Us',
+      'button_send': 'Send Email',
+      'button_visitW': 'Visit Website',
+      'button_visitF': 'Visit Facebook',
     },
     "ar": {
       'app_name': "المسار الذكي",
@@ -217,7 +246,7 @@ class ArabicEnglishLocal implements Translations {
       'change_password': 'تغيير كلمة المرور',
       'about': 'عن',
       'help': 'يساعد',
-      'contact': 'اتصال',
+      'contact': 'اتصل بنا',
       'sign_out': 'تسجيل الخروج',
       'title_page': 'ملفك الشخصي',
       'profile_info_title': "معلومات الملف الشخصي",
@@ -244,6 +273,35 @@ class ArabicEnglishLocal implements Translations {
       'verify_title': 'التحقق من الهوية',
       'vPin_title': 'رمز التعريف الشخصي',
       'vPin_error': 'رقم التعريف الشخصي غير صحيح',
+      // For About
+      'page_title_about': 'عن',
+      'aboutApp_title': 'عن التطبيق',
+      'aboutApp_desc':
+          'المسار الذكي منصة ذكية مصممة لتعزيز التواصل بين المدرسة والطلاب وأولياء الأمور. توفر وصولاً سهلاً وآمنًا إلى سجلات الحضور، والأداء الأكاديمي، وجداول الحصص، والواجبات، والإعلانات المهمة - كل ذلك في مكان واحد',
+      'aboutSc_title': 'عن المدرسة',
+      'aboutSc_desc':
+          'مدرسة الريادة النموذجية مؤسسة تعليمية رائدة ملتزمة بالتميز الأكاديمي وتوفير بيئة تعليمية محفزة. هدفنا هو الجمع بين جودة التعليم والقيم الراسخة والتكنولوجيا الحديثة لخدمة طلابنا ومجتمعنا',
+      'version': 'إصدار التطبيق',
+      'rights': 'حقوق الطبع والنشر',
+      'rights_desc': 'جميع الحقوق محفوظة لمدرسة الريادة النموذجية',
+      // For Contact
+      'page_title': 'اتصل بنا',
+      'page_desc':
+          'إذا كانت لديك أي أسئلة أو كنت بحاجة إلى مساعدة، فلا تتردد في التواصل معنا عبر أي من الطرق المذكورة أدناه. نحن هنا لمساعدتك!',
+      'address_title': 'العنوان',
+      'address_content': 'المدينة التعليمية, شارع الريادة',
+      'phone_title': 'الهاتف المحمول',
+      'email_title': 'البريد الإلكتروني',
+      'website_title': 'الموقع الرسمي',
+      'facebook_title': 'فيسبوك',
+      'working_title': 'ساعات العمل',
+      'working_day': 'الأحد - الخميس',
+      'holiday_day': 'الجمعة - السبت',
+      'holiday_desc': 'مغلق',
+      'button_call': 'اتصل بنا',
+      'button_send': 'أرسل بريداً إلكترونياً',
+      'button_visitW': 'زر الموقع',
+      'button_visitF': 'زر فيسبوك',
     },
   };
 }

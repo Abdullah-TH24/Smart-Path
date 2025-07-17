@@ -23,7 +23,6 @@ class HomePageController extends GetxController {
     update();
     final result = await _homeService.getInfo(token);
     if (result != null) {
-      print(result);
       studentInfo = result;
     } else {
       errorMessage = 'error_message'.tr;

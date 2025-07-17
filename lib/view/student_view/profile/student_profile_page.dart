@@ -60,7 +60,9 @@ class StudentProfilePage extends StatelessWidget {
       ListTileItemModel(
         title: "contact".tr,
         assetName: AppAssets.iconContact,
-        onTap: () {},
+        onTap: () {
+          Get.toNamed(AppRoutes.studentProfileContact);
+        },
       ),
       ListTileItemModel(
         title: "sign_out".tr,

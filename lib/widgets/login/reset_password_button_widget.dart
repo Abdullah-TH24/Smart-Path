@@ -32,6 +32,7 @@ class ResetPasswordButton extends StatelessWidget {
               (controller.isLoading)
                   ? null
                   : () async {
+                    FocusScope.of(context).unfocus();
                     if (resetPassword.currentState!.validate()) {
                       await resetPasswordController.resetPassword(
                         email,

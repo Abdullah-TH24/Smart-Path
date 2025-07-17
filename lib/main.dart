@@ -20,6 +20,7 @@ import 'package:smartpath/view/login_view/login.dart';
 import 'package:smartpath/view/login_view/request_reset_password.dart';
 import 'package:smartpath/view/login_view/reset_password.dart';
 import 'package:smartpath/view/splash_view/splash_screen.dart';
+import 'package:smartpath/view/student_view/events/comments_page.dart';
 import 'package:smartpath/view/student_view/home/schedule/schedule.dart';
 import 'package:smartpath/view/student_view/home/class/class_view.dart';
 import 'package:smartpath/view/student_view/home/courses/courses.dart';
@@ -27,6 +28,7 @@ import 'package:smartpath/view/student_view/home/exams/exams.dart';
 import 'package:smartpath/view/student_view/home/grades/filter_page.dart';
 import 'package:smartpath/view/student_view/home/grades/grades.dart';
 import 'package:smartpath/view/student_view/profile/about.dart';
+import 'package:smartpath/view/student_view/profile/contact.dart';
 import 'package:smartpath/view/student_view/profile/profile_info.dart';
 import 'package:smartpath/view/student_view/profile/settings/confirm_pin_code.dart';
 import 'package:smartpath/view/student_view/profile/settings/enter_pin_code.dart';
@@ -93,6 +95,10 @@ class MyApp extends StatelessWidget {
           name: AppRoutes.studentMainPageRoute,
           page: () => const StudentMainPage(),
         ),
+        GetPage(
+          name: AppRoutes.studentEventsComments,
+          page: () => CommentsPage(),
+        ),
         GetPage(name: AppRoutes.studentProfileInfo, page: () => ProfileInfo()),
         GetPage(
           name: AppRoutes.studentProfileSettings,
@@ -115,6 +121,10 @@ class MyApp extends StatelessWidget {
           page: () => VerifyPinCode(),
         ),
         GetPage(name: AppRoutes.studentProfileAbout, page: () => const About()),
+        GetPage(
+          name: AppRoutes.studentProfileContact,
+          page: () => const Contact(),
+        ),
         GetPage(name: AppRoutes.studentClass, page: () => const ClassView()),
         GetPage(name: AppRoutes.studentCalendar, page: () => Schedule()),
         GetPage(name: AppRoutes.studentFilterPage, page: () => FilterPage()),

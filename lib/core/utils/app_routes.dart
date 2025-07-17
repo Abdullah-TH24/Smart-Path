@@ -21,6 +21,8 @@ class AppRoutes {
   /* Student Pages */
   static const String studentMainPageRoute = '/student_main_page';
 
+  static const String studentEventsComments = '/comments_page';
+
   static const String studentProfileInfo = '/profile_info';
 
   static const String studentProfileSettings = '/settings_page';
@@ -34,6 +36,8 @@ class AppRoutes {
   static const String studentProfileVerfiyPin = '/verfiy_pin';
 
   static const String studentProfileAbout = '/about';
+
+  static const String studentProfileContact = '/contact';
 
   static const String studentClass = '/class_view';
 

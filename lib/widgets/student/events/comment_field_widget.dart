@@ -1,0 +1,30 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class CommentField extends StatelessWidget {
+  const CommentField({super.key, required this.comment});
+
+  final TextEditingController comment;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: Get.width - 70,
+      child: TextFormField(
+        controller: comment,
+        decoration: InputDecoration(
+          hint: const Text('Write a comment ...'),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.5)),
+          isDense: true,
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: 10,
+            horizontal: 15,
+          ),
+        ),
+        keyboardType: TextInputType.multiline,
+        minLines: 1,
+        maxLines: null,
+      ),
+    );
+  }
+}

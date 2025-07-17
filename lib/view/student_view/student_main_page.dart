@@ -25,7 +25,7 @@ class _StudentMainPageState extends State<StudentMainPage> {
     // Initial page at <home>
     final pages = <StatelessWidget>[
       const StudentHomePage(),
-      const StudentPortfolioPage(),
+      const StudentEventsPage(),
       const StudentDataPage(),
       StudentProfilePage(),
     ];
@@ -66,8 +66,10 @@ class _StudentMainPageState extends State<StudentMainPage> {
       ),
     ];
     return Scaffold(
+      extendBody: true,
       body: pages[pageIndex],
       bottomNavigationBar: SalomonBottomBar(
+        backgroundColor: Colors.indigo[50],
         curve: Curves.decelerate,
         selectedColorOpacity: .25,
         itemShape: RoundedRectangleBorder(

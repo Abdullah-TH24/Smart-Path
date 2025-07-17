@@ -1,3 +1,4 @@
+import 'package:smartpath/main.dart';
 import 'package:smartpath/models/student_model/profile_data_model.dart';
 
 class StudentModel {
@@ -5,6 +6,7 @@ class StudentModel {
   String? email;
   String? phone;
   String? role;
+  int? userId;
   ProfileData? profileData;
 
   StudentModel({
@@ -16,6 +18,8 @@ class StudentModel {
   });
 
   StudentModel.fromJson(Map<String, dynamic> json) {
+    userId = json['user_id'];
+    prefs!.setString('user_id', userId.toString());
     fullName = json['full_name'];
     email = json['email'];
     phone = json['phone'];
@@ -28,6 +32,7 @@ class StudentModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
+    data['user_id'] = userId;
     data['full_name'] = fullName;
     data['email'] = email;
     data['phone'] = phone;

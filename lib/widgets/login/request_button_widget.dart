@@ -29,6 +29,7 @@ class RequestButton extends StatelessWidget {
               (controller.isLoading)
                   ? null
                   : () async {
+                    FocusScope.of(context).unfocus();
                     if (requestResetPassword.currentState!.validate()) {
                       await controller.sendEmail(email.text.trim());
                       if (controller.errorMessage != null) {

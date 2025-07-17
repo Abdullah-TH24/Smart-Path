@@ -53,6 +53,32 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
             ),
           ),
+          // Divider
+          SliverToBoxAdapter(
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              child: const Divider(color: Colors.black54),
+            ),
+          ),
+          // Change Password
+          SliverToBoxAdapter(
+            child: Container(
+              margin: const EdgeInsets.all(10),
+              child: ListTile(
+                onTap: () {
+                  Get.toNamed(AppRoutes.requestResetPassword);
+                },
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadiusGeometry.circular(12.5),
+                ),
+                title: Text('change_password'.tr),
+                trailing: const Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.indigo,
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );

@@ -2,26 +2,36 @@ abstract class AppLinks {
   // Should be edit
   static final String _ip = '192.168.0.117';
 
-  static final String _mainLink = 'http://$_ip:8000';
+  static final String _mainLink = 'http://$_ip:8000/api';
 
-  // Auth links
-  static final String login = '$_mainLink/api/login';
+  // Auth Links
+  static final String login = '$_mainLink/login';
 
   static final String confirmForgetPasswordOtp =
-      '$_mainLink/api/confirmForgetPasswordOtp';
+      '$_mainLink/confirmForgetPasswordOtp';
 
   static final String sendForgetPasswordOtp =
-      '$_mainLink/api/sendForgetPasswordOtp';
+      '$_mainLink/sendForgetPasswordOtp';
 
-  static final String resetPassword = '$_mainLink/api/resetPassword';
+  static final String resetPassword = '$_mainLink/resetPassword';
 
-  static final String logout = '$_mainLink/api/logout';
+  static final String logout = '$_mainLink/logout';
 
-  // Home links
-  static final String homepage = '$_mainLink/api/getUserInfo';
+  // Main Home Links
+  static final String homepage = '$_mainLink/getUserInfo';
 
-  static final String weeklySchedule =
-      '$_mainLink/api/getStudentWeeklySchedule';
+  static final String events = '$_mainLink/getAllPublishedEvents';
 
-  static final String grades = '$_mainLink/api/studentGetResult';
+  static final String comments = '$_mainLink/getEventComments';
+
+  static final String addComments = '$_mainLink/addComment';
+
+  static final String deleteComments = '$_mainLink/deleteComment';
+
+  static final String editComments = '$_mainLink/editComment';
+
+  // Home Components Links
+  static final String weeklySchedule = '$_mainLink/getStudentWeeklySchedule';
+
+  static final String grades = '$_mainLink/studentGetResult';
 }

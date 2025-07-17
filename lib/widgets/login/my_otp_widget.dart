@@ -71,6 +71,7 @@ class _MyOtpWidgetState extends State<MyOtpWidget> {
               if (widget.sendOtpCodeController.response!) {
                 isValidCode = true;
                 setState(() {});
+                FocusScope.of(context).unfocus();
                 await Future.delayed(const Duration(seconds: 2));
                 Get.offAllNamed(
                   AppRoutes.resetPasswordRoute,
