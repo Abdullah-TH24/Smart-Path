@@ -21,6 +21,7 @@ import 'package:smartpath/view/login_view/request_reset_password.dart';
 import 'package:smartpath/view/login_view/reset_password.dart';
 import 'package:smartpath/view/splash_view/splash_screen.dart';
 import 'package:smartpath/view/student_view/events/comments_page.dart';
+import 'package:smartpath/view/student_view/events/reactions_info_page.dart';
 import 'package:smartpath/view/student_view/home/schedule/schedule.dart';
 import 'package:smartpath/view/student_view/home/class/class_view.dart';
 import 'package:smartpath/view/student_view/home/courses/courses.dart';
@@ -98,6 +99,10 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: AppRoutes.studentEventsComments,
           page: () => CommentsPage(),
+        ),
+        GetPage(
+          name: AppRoutes.studentEventsReactionsInfo,
+          page: () => ReactionsInfoPage(),
         ),
         GetPage(name: AppRoutes.studentProfileInfo, page: () => ProfileInfo()),
         GetPage(

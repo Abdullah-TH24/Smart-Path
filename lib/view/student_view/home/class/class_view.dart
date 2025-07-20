@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
-import 'package:smartpath/widgets/student/home/calendar/calendar_app_bar_widget.dart';
+import 'package:smartpath/widgets/student/home/calendar/app_bar_component.dart';
 
 class ClassView extends StatelessWidget {
   const ClassView({super.key});

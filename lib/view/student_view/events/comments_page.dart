@@ -1,5 +1,7 @@
 // ignore_for_file: must_be_immutable, use_build_context_synchronously
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
@@ -13,7 +15,7 @@ import 'package:smartpath/main.dart';
 import 'package:smartpath/widgets/student/events/comment_field_widget.dart';
 import 'package:smartpath/widgets/student/events/comment_widget.dart';
 import 'package:smartpath/widgets/student/events/option_widget.dart';
-import 'package:smartpath/widgets/student/home/calendar/calendar_app_bar_widget.dart';
+import 'package:smartpath/widgets/student/home/calendar/app_bar_component.dart';
 
 class CommentsPage extends StatelessWidget {
   CommentsPage({super.key});
@@ -36,6 +38,9 @@ class CommentsPage extends StatelessWidget {
             child: GetBuilder<CommentsController>(
               init: CommentsController(id: id),
               builder: (controller) {
+                if (controller.errorMessage != null) {
+                  log(controller.errorMessage.toString());
+                }
                 return controller.isLoading
                     ? Container(
                       height: Get.height - 225,

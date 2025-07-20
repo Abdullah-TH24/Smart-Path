@@ -1,4 +1,5 @@
 import 'package:smartpath/models/student_model/media_model.dart';
+import 'package:smartpath/models/student_model/reactions_model.dart';
 
 class EventsModel {
   int? id;
@@ -9,7 +10,9 @@ class EventsModel {
   String? post;
   int? isPublished;
   int? commentNumber;
-  int? reactionNumber;
+  Reactions? reactions;
+  bool? isReacted;
+  String? userReactionType;
   String? createdAt;
   String? updatedAt;
   String? role;
@@ -24,7 +27,9 @@ class EventsModel {
     this.post,
     this.isPublished,
     this.commentNumber,
-    this.reactionNumber,
+    this.reactions,
+    this.isReacted,
+    this.userReactionType,
     this.createdAt,
     this.updatedAt,
     this.role,
@@ -40,7 +45,12 @@ class EventsModel {
     post = json['post'];
     isPublished = json['is_published'];
     commentNumber = json['comment_number'];
-    reactionNumber = json['reaction_number'];
+    reactions =
+        json['reactions'] != null
+            ? Reactions.fromJson(json['reactions'])
+            : null;
+    isReacted = json['is_reacted'];
+    userReactionType = json['user_reaction_type'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     role = json['role'];
@@ -62,7 +72,11 @@ class EventsModel {
     data['post'] = post;
     data['is_published'] = isPublished;
     data['comment_number'] = commentNumber;
-    data['reaction_number'] = reactionNumber;
+    if (reactions != null) {
+      data['reactions'] = reactions!.toJson();
+    }
+    data['is_reacted'] = isReacted;
+    data['user_reaction_type'] = userReactionType;
     data['created_at'] = createdAt;
     data['updated_at'] = updatedAt;
     data['role'] = role;

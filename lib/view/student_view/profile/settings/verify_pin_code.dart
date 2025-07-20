@@ -7,7 +7,7 @@ import 'package:smartpath/controller/auth_controller/auth_controller.dart';
 import 'package:smartpath/core/utils/app_routes.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/main.dart';
-import 'package:smartpath/widgets/student/home/calendar/calendar_app_bar_widget.dart';
+import 'package:smartpath/widgets/student/home/calendar/app_bar_component.dart';
 import 'package:smartpath/widgets/student/profile/settings/fingerprint_widget.dart';
 import 'package:smartpath/widgets/student/profile/settings/pinput_component.dart';
 

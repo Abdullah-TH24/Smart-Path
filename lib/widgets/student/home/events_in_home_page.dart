@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/core/utils/app_assets.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
@@ -51,6 +52,7 @@ class EventsInHomePage extends StatelessWidget {
               ),
             ),
           ),
+          const Gap(75),
         ],
       ),
     );

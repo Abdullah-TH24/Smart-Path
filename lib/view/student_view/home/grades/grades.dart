@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:smartpath/core/localization/subjects_translate.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/models/student_model/home/grades_model.dart';
-import 'package:smartpath/widgets/student/home/calendar/calendar_app_bar_widget.dart';
+import 'package:smartpath/widgets/student/home/calendar/app_bar_component.dart';
 import 'package:smartpath/widgets/student/home/grades/animated_linear_mark_indicator_widget.dart';
 import 'package:smartpath/widgets/student/home/grades/animated_student_mark_circle_widget.dart';
 

@@ -18,21 +18,30 @@ class ProfileListTileItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ListTile(
-          contentPadding: const EdgeInsets.symmetric(horizontal: 18),
-          leading:
-              (item.icon != null)
-                  ? Icon(item.icon, color: Colors.indigo)
-                  : SvgPicture.asset(item.assetName!),
-          title: Text(item.title, style: AppStyles.styleMedium14().copyWith()),
-          trailing: Icon(
-            (Get.locale?.languageCode ?? 'en') == 'en'
-                ? LucideIcons.chevronRight
-                : LucideIcons.chevronLeft,
-            size: 22,
-            color: const Color(0xffA0A0A0),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2.5),
+          child: ListTile(
+            contentPadding: const EdgeInsets.symmetric(horizontal: 5),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadiusGeometry.circular(12.5),
+            ),
+            leading:
+                (item.icon != null)
+                    ? Icon(item.icon, color: Colors.indigo)
+                    : SvgPicture.asset(item.assetName!),
+            title: Text(
+              item.title,
+              style: AppStyles.styleMedium14().copyWith(),
+            ),
+            trailing: Icon(
+              (Get.locale?.languageCode ?? 'en') == 'en'
+                  ? LucideIcons.chevronRight
+                  : LucideIcons.chevronLeft,
+              size: 22,
+              color: const Color(0xffA0A0A0),
+            ),
+            onTap: item.onTap,
           ),
-          onTap: item.onTap,
         ),
         const Divider(indent: 30, endIndent: 30),
       ],

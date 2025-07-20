@@ -20,6 +20,9 @@ class DaysWidget extends StatelessWidget {
                 int index,
               ) {
                 return ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadiusGeometry.circular(12.5),
+                  ),
                   shadowColor:
                       (controller.dayIndex == index)
                           ? null

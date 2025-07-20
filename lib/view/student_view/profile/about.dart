@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
-import 'package:smartpath/widgets/student/home/calendar/calendar_app_bar_widget.dart';
+import 'package:smartpath/widgets/student/home/calendar/app_bar_component.dart';
 import 'package:smartpath/widgets/student/profile/logo_with_app_name_widget.dart';
 import 'package:smartpath/widgets/student/profile/text_about_widget.dart';
 

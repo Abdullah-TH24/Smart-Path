@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:smartpath/core/services/student_services/home_services.dart';
 import 'package:smartpath/main.dart';
 import 'package:smartpath/models/student_model/events_model.dart';
+import 'package:smartpath/models/student_model/reaction_data_model.dart';
 
 class EventsController extends GetxController {
   final HomeServices _homeService = HomeServices();
@@ -27,6 +28,27 @@ class EventsController extends GetxController {
     }
   }
 
+  checkReaction() {
+    reactions.clear();
+    if (events != null) {
+      for (var i = 0; i < events!.length; i++) {
+        if (events![i].isReacted! && events![i].userReactionType != null) {
+          reactions[events![i].id!] = ReactionData(
+            text: events![i].userReactionType!,
+            image:
+                'assets/images/${events![i].userReactionType!.toLowerCase()}.png',
+            color:
+                events![i].userReactionType!.toLowerCase() == 'like'
+                    ? Colors.blue[600]!
+                    : events![i].userReactionType!.toLowerCase() == 'love'
+                    ? Colors.red[600]!
+                    : Colors.yellow[900]!,
+          );
+        }
+      }
+    }
+  }
+
   Future<void> getAllPublishedEvents(String token) async {
     isLoading = true;
     errorMessage = null;
@@ -36,10 +58,62 @@ class EventsController extends GetxController {
     if (result != null) {
       events = result;
       await addPages();
+      await checkReaction();
     } else {
       errorMessage = 'error_message'.tr;
     }
     isLoading = false;
     update();
+  }
+
+  Map<int, ReactionData> reactions = {};
+
+  void setReact(
+    int postId,
+    String newReactionType,
+    String? image,
+    Color color,
+  ) {
+    final eventIndex = events?.indexWhere((e) => e.id == postId);
+    if (eventIndex == null || eventIndex == -1) return;
+
+    final event = events![eventIndex];
+    final types = event.reactions?.types ?? {};
+
+    final oldReaction = event.userReactionType?.toLowerCase();
+    final newReactionLower = newReactionType.toLowerCase();
+
+    // إزالة القديم بعد تحويله لـ lower
+    if (oldReaction != null && types.containsKey(oldReaction)) {
+      types[oldReaction] =
+          (types[oldReaction]! - 1).clamp(0, double.infinity).toInt();
+      if (types[oldReaction] == 0) types.remove(oldReaction);
+    }
+
+    if (oldReaction == newReactionLower) {
+      // إزالة الريأكشن لو ضغط على نفس التفاعل
+      event.userReactionType = null;
+      event.isReacted = false;
+      reactions.remove(postId);
+    } else {
+      types[newReactionLower] = (types[newReactionLower] ?? 0) + 1;
+      event.userReactionType =
+          newReactionLower; // تحديث userReactionType دائما بـ lowercase
+      event.isReacted = true;
+      reactions[postId] = ReactionData(
+        text: newReactionLower,
+        image: image,
+        color: color,
+      );
+    }
+
+    event.reactions!.reactionNumber = types.values.fold(0, (a, b) => a! + b);
+
+    update();
+  }
+
+  ReactionData getReaction(int postId) {
+    return reactions[postId] ??
+        ReactionData(text: 'like', image: null, color: Colors.black87);
   }
 }

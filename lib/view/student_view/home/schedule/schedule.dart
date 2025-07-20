@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:smartpath/controller/localization_controller/localization_controller.dart';
 import 'package:smartpath/controller/student_controller/home/calendar/schedule_controller.dart';
 import 'package:smartpath/core/utils/app_assets.dart';
-import 'package:smartpath/widgets/student/home/calendar/calendar_app_bar_widget.dart';
+import 'package:smartpath/widgets/student/home/calendar/app_bar_component.dart';
 import 'package:smartpath/widgets/student/home/calendar/days_widget.dart';
 import 'package:smartpath/widgets/student/home/calendar/lessons_widget.dart';
 

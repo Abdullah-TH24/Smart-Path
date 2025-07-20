@@ -7,7 +7,7 @@ import 'package:smartpath/controller/localization_controller/localization_contro
 import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/models/student_model/profile/profile_info_model.dart';
 import 'package:smartpath/models/student_model/student_info_model.dart';
-import 'package:smartpath/widgets/student/home/calendar/calendar_app_bar_widget.dart';
+import 'package:smartpath/widgets/student/home/calendar/app_bar_component.dart';
 import 'package:smartpath/widgets/student/profile/card_info_component.dart';
 
 class ProfileInfo extends StatelessWidget {

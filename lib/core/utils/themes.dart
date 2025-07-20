@@ -14,7 +14,7 @@ class Themes {
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(backgroundColor: Colors.indigo[300]),
     ),
-    textTheme: GoogleFonts.montserratTextTheme(),
+    // textTheme: GoogleFonts.montserratTextTheme(),
   );
 
   static ThemeData dark = ThemeData(
@@ -29,6 +29,6 @@ class Themes {
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(backgroundColor: Colors.indigo[500]),
     ),
-    textTheme: GoogleFonts.montserratTextTheme(Typography.whiteMountainView),
+    // textTheme: GoogleFonts.montserratTextTheme(Typography.whiteMountainView),
   );
 }

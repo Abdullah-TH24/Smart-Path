@@ -23,6 +23,8 @@ class AppRoutes {
 
   static const String studentEventsComments = '/comments_page';
 
+  static const String studentEventsReactionsInfo = '/reactions_info';
+
   static const String studentProfileInfo = '/profile_info';
 
   static const String studentProfileSettings = '/settings_page';
