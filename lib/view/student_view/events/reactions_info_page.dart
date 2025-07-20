@@ -28,7 +28,7 @@ class ReactionsInfoPage extends StatelessWidget {
               builder: (controller) {
                 return (controller.isLoading)
                     ? Container(
-                      height: Get.height - 225,
+                      height: Get.height - 175,
                       alignment: Alignment.center,
                       child: const CircularProgressIndicator(
                         color: Colors.indigo,
@@ -36,13 +36,13 @@ class ReactionsInfoPage extends StatelessWidget {
                     )
                     : (controller.errorMessage != null)
                     ? Container(
-                      height: Get.height - 250,
+                      height: Get.height - 200,
                       alignment: Alignment.center,
                       child: Image.asset(AppAssets.noInternet),
                     )
                     : (controller.allReactions!.isEmpty)
                     ? Container(
-                      height: Get.height - 225,
+                      height: Get.height - 175,
                       alignment: Alignment.center,
                       child: Image.asset(AppAssets.noData),
                     )

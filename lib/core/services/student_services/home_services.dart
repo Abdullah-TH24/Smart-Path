@@ -182,7 +182,6 @@ class HomeServices {
         headers: {'Authorization': 'Bearer $token'},
       );
       if (response.statusCode == 200) {
-        log('gooooooooooooooooooooood');
         final List data = json.decode(response.body)['message'];
         final List<AllReactionsModel> allReactions = [];
         for (var i = 0; i < data.length; i++) {
@@ -190,11 +189,9 @@ class HomeServices {
         }
         return allReactions;
       } else {
-        log('elseeeeeeeeeeeeeeee');
-        return null;
+        return [];
       }
     } catch (e) {
-      log('eeeeeeeeeeeeeeeeeeee $e');
       return null;
     }
   }

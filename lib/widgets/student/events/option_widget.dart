@@ -16,14 +16,16 @@ class OptionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
+      width: 140,
       padding: const EdgeInsets.only(left: 15),
       child: Row(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(
             timeago.format(
               DateTime.parse(controller.comments![index].createdAt.toString()),
+              locale: 'en_short',
             ),
             style: AppStyles.styleRegular12().copyWith(color: Colors.black54),
           ),

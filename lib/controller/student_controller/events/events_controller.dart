@@ -78,27 +78,20 @@ class EventsController extends GetxController {
     if (eventIndex == null || eventIndex == -1) return;
 
     final event = events![eventIndex];
-    final types = event.reactions?.types ?? {};
+
+    // نفضي كل التفاعلات ونعيد بناءها
+    final Map<String, int> types = {};
 
     final oldReaction = event.userReactionType?.toLowerCase();
     final newReactionLower = newReactionType.toLowerCase();
 
-    // إزالة القديم بعد تحويله لـ lower
-    if (oldReaction != null && types.containsKey(oldReaction)) {
-      types[oldReaction] =
-          (types[oldReaction]! - 1).clamp(0, double.infinity).toInt();
-      if (types[oldReaction] == 0) types.remove(oldReaction);
-    }
-
+    // إذا كان نفس التفاعل -> نشيله
     if (oldReaction == newReactionLower) {
-      // إزالة الريأكشن لو ضغط على نفس التفاعل
       event.userReactionType = null;
       event.isReacted = false;
       reactions.remove(postId);
     } else {
-      types[newReactionLower] = (types[newReactionLower] ?? 0) + 1;
-      event.userReactionType =
-          newReactionLower; // تحديث userReactionType دائما بـ lowercase
+      event.userReactionType = newReactionLower;
       event.isReacted = true;
       reactions[postId] = ReactionData(
         text: newReactionLower,
@@ -107,6 +100,22 @@ class EventsController extends GetxController {
       );
     }
 
+    final originalTypes = event.reactions?.types ?? {};
+
+    originalTypes.forEach((key, value) {
+      types[key.toLowerCase()] = value;
+    });
+
+    if (oldReaction != null) {
+      types[oldReaction] = (types[oldReaction] ?? 1) - 1;
+      if (types[oldReaction]! <= 0) types.remove(oldReaction);
+    }
+
+    if (event.userReactionType != null) {
+      types[newReactionLower] = (types[newReactionLower] ?? 0) + 1;
+    }
+
+    event.reactions!.types = types;
     event.reactions!.reactionNumber = types.values.fold(0, (a, b) => a! + b);
 
     update();

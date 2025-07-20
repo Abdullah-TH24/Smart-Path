@@ -105,7 +105,7 @@ class ReactionOverlay {
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 5),
-        child: Image.asset(asset, width: 35, height: 35),
+        child: Image.asset(asset, width: 35, height: 35, fit: BoxFit.cover),
       ),
     );
   }

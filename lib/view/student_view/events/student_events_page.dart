@@ -100,83 +100,97 @@ class StudentEventsPage extends StatelessWidget {
                                           },
                                         );
                                       },
-                                      child: Row(
-                                        children: [
-                                          Builder(
-                                            builder: (context) {
-                                              final types =
-                                                  controller
-                                                      .events![index]
-                                                      .reactions!
-                                                      .types;
-                                              final sortedReactions =
-                                                  types.entries.toList()..sort(
-                                                    (a, b) => b.value.compareTo(
-                                                      a.value,
-                                                    ),
-                                                  );
-                                              return SizedBox(
-                                                height: 25,
-                                                width:
-                                                    (sortedReactions.length -
-                                                            1) *
-                                                        15 +
-                                                    30,
-                                                child: Stack(
-                                                  clipBehavior: Clip.none,
-                                                  children: List.generate(
-                                                    sortedReactions.length,
-                                                    (reactionIndex) {
-                                                      final reactionType =
-                                                          sortedReactions[reactionIndex]
-                                                              .key
-                                                              .toLowerCase();
-                                                      return Positioned(
-                                                        left:
-                                                            reactionIndex * 15,
-                                                        top: 2,
-                                                        bottom: 2,
-                                                        child: CircleAvatar(
-                                                          radius: 15,
-                                                          backgroundColor:
-                                                              Colors
-                                                                  .transparent,
-                                                          child: ClipOval(
-                                                            child: Image.asset(
-                                                              reactionImages[reactionType] ??
-                                                                  reactionImages["like"]!,
-                                                              width: 20,
-                                                              height: 20,
-                                                              fit: BoxFit.cover,
+                                      child: SizedBox(
+                                        width:
+                                            controller
+                                                        .events![index]
+                                                        .reactions!
+                                                        .reactionNumber ==
+                                                    0
+                                                ? 50
+                                                : null,
+                                        child: Row(
+                                          children: [
+                                            Builder(
+                                              builder: (context) {
+                                                final types =
+                                                    controller
+                                                        .events![index]
+                                                        .reactions!
+                                                        .types;
+                                                final sortedReactions =
+                                                    types.entries.toList()
+                                                      ..sort(
+                                                        (a, b) => b.value
+                                                            .compareTo(a.value),
+                                                      );
+                                                return SizedBox(
+                                                  height: 25,
+                                                  width:
+                                                      (sortedReactions.length -
+                                                              1) *
+                                                          15 +
+                                                      30,
+                                                  child: Stack(
+                                                    clipBehavior: Clip.none,
+                                                    children: List.generate(
+                                                      sortedReactions.length,
+                                                      (reactionIndex) {
+                                                        final reactionType =
+                                                            sortedReactions[reactionIndex]
+                                                                .key
+                                                                .toLowerCase();
+                                                        return Positioned(
+                                                          left:
+                                                              reactionIndex *
+                                                              15,
+                                                          top: 2,
+                                                          bottom: 2,
+                                                          child: CircleAvatar(
+                                                            radius: 15,
+                                                            backgroundColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            child: ClipOval(
+                                                              child: Image.asset(
+                                                                reactionImages[reactionType] ??
+                                                                    reactionImages["like"]!,
+                                                                width: 20,
+                                                                height: 20,
+                                                                fit:
+                                                                    BoxFit
+                                                                        .cover,
+                                                              ),
                                                             ),
                                                           ),
-                                                        ),
-                                                      );
-                                                    },
+                                                        );
+                                                      },
+                                                    ),
                                                   ),
-                                                ),
-                                              );
-                                            },
-                                          ),
-                                          Container(
-                                            height: 25,
-                                            alignment: Alignment.center,
-                                            child: Text(
-                                              (controller
-                                                          .events![index]
-                                                          .reactions!
-                                                          .reactionNumber ==
-                                                      0)
-                                                  ? ''
-                                                  : controller
-                                                      .events![index]
-                                                      .reactions!
-                                                      .reactionNumber
-                                                      .toString(),
-                                              style: AppStyles.styleRegular12(),
+                                                );
+                                              },
                                             ),
-                                          ),
-                                        ],
+                                            Container(
+                                              height: 25,
+                                              alignment: Alignment.center,
+                                              child: Text(
+                                                (controller
+                                                            .events![index]
+                                                            .reactions!
+                                                            .reactionNumber ==
+                                                        0)
+                                                    ? ''
+                                                    : controller
+                                                        .events![index]
+                                                        .reactions!
+                                                        .reactionNumber
+                                                        .toString(),
+                                                style:
+                                                    AppStyles.styleRegular12(),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                     // <Comments, Share>
@@ -206,42 +220,59 @@ class StudentEventsPage extends StatelessWidget {
                               // <Divider>
                               const CustomDivider(),
                               // <Like, Comment and Share> Buttons
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 8.0,
-                                ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    // <Like> Button
-                                    GestureDetector(
-                                      onLongPressStart: (details) {
-                                        ReactionOverlay.showReactions(
-                                          context,
-                                          details.globalPosition,
-                                          (reactionType) async {
-                                            await addReaction.addReaction(
-                                              prefs!.getString('token')!,
-                                              reactionType,
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  // <Like> Button
+                                  GestureDetector(
+                                    onLongPressStart: (details) {
+                                      ReactionOverlay.showReactions(
+                                        context,
+                                        details.globalPosition,
+                                        (reactionType) async {
+                                          await addReaction.addReaction(
+                                            prefs!.getString('token')!,
+                                            reactionType,
+                                            controller.events![index].id!,
+                                            'event',
+                                          );
+                                          if (addReaction.addReactRes) {
+                                            controller.setReact(
                                               controller.events![index].id!,
-                                              'event',
+                                              reactionType,
+                                              'assets/images/${reactionType.toLowerCase()}.png',
+                                              reactionType == 'like'
+                                                  ? Colors.blue[600]!
+                                                  : reactionType == 'love'
+                                                  ? Colors.red[600]!
+                                                  : Colors.yellow[900]!,
                                             );
-                                            if (addReaction.addReactRes) {
-                                              controller.setReact(
-                                                controller.events![index].id!,
-                                                reactionType,
-                                                'assets/images/${reactionType.toLowerCase()}.png',
-                                                reactionType == 'like'
-                                                    ? Colors.blue[600]!
-                                                    : reactionType == 'love'
-                                                    ? Colors.red[600]!
-                                                    : Colors.yellow[900]!,
-                                              );
-                                            }
-                                          },
+                                          }
+                                        },
+                                      );
+                                    },
+                                    onTap: () async {
+                                      await addReaction.addReaction(
+                                        prefs!.getString('token')!,
+                                        'like',
+                                        controller.events![index].id!,
+                                        'event',
+                                      );
+                                      if (addReaction.addReactRes) {
+                                        controller.setReact(
+                                          controller.events![index].id!,
+                                          'like',
+                                          'assets/images/like.png',
+                                          Colors.blue[600]!,
                                         );
-                                      },
+                                      }
+                                    },
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: 5,
+                                        horizontal: 10,
+                                      ),
                                       child: Row(
                                         children: [
                                           (reaction.image != null)
@@ -256,7 +287,8 @@ class StudentEventsPage extends StatelessWidget {
                                               ),
                                           const Gap(10),
                                           Text(
-                                            reaction.text,
+                                            reaction.text[0].toUpperCase() +
+                                                reaction.text.substring(1),
                                             style: TextStyle(
                                               color: reaction.color,
                                             ),
@@ -264,26 +296,25 @@ class StudentEventsPage extends StatelessWidget {
                                         ],
                                       ),
                                     ),
-                                    // <Comments> Button
-                                    CustomTextButton(
-                                      title: 'Comment',
-                                      icon: Icons.mode_comment_outlined,
-                                      onPressed: () {
-                                        Get.toNamed(
-                                          AppRoutes.studentEventsComments,
-                                          arguments:
-                                              controller.events![index].id,
-                                        );
-                                      },
-                                    ),
-                                    // <Share> Button
-                                    CustomTextButton(
-                                      title: 'Share',
-                                      icon: LucideIcons.share2,
-                                      onPressed: () {},
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                  // <Comments> Button
+                                  CustomTextButton(
+                                    title: 'Comment',
+                                    icon: Icons.mode_comment_outlined,
+                                    onPressed: () {
+                                      Get.toNamed(
+                                        AppRoutes.studentEventsComments,
+                                        arguments: controller.events![index].id,
+                                      );
+                                    },
+                                  ),
+                                  // <Share> Button
+                                  CustomTextButton(
+                                    title: 'Share',
+                                    icon: LucideIcons.share2,
+                                    onPressed: () {},
+                                  ),
+                                ],
                               ),
                             ],
                           ),

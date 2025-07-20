@@ -29,7 +29,7 @@ class CustomTextButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.circular(12.5),
         ),
-        padding: EdgeInsets.zero,
+        padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
         minimumSize: Size.zero,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       ),
