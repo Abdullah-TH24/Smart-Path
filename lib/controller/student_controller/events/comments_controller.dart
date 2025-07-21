@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
-import 'package:smartpath/core/services/student_services/home_services.dart';
+import 'package:smartpath/core/services/student_services/events_services.dart';
 import 'package:smartpath/main.dart';
 import 'package:smartpath/models/student_model/comment_model.dart';
 
 class CommentsController extends GetxController {
-  final HomeServices _homeService = HomeServices();
+  final EventsServices _eventsServices = EventsServices();
   final int id;
   CommentsController({required this.id});
   List<bool> isExpanded = [];
@@ -28,7 +28,7 @@ class CommentsController extends GetxController {
     errorMessage = null;
     comments = null;
     update();
-    final result = await _homeService.getEventComments(token, id);
+    final result = await _eventsServices.getEventComments(token, id);
     if (result != null) {
       await initArrayIsExapanded(result.length);
       comments = result;

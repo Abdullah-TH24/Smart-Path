@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:smartpath/core/services/student_services/home_services.dart';
+import 'package:smartpath/core/services/student_services/events_services.dart';
 import 'package:smartpath/main.dart';
 import 'package:smartpath/models/student_model/events_model.dart';
 import 'package:smartpath/models/student_model/reaction_data_model.dart';
 
 class EventsController extends GetxController {
-  final HomeServices _homeService = HomeServices();
-
+  final EventsServices _eventsServices = EventsServices();
   @override
   void onInit() {
     getAllPublishedEvents(prefs!.getString('token')!);
@@ -54,7 +53,7 @@ class EventsController extends GetxController {
     errorMessage = null;
     events = null;
     update();
-    final result = await _homeService.getAllPublishedEvents(token);
+    final result = await _eventsServices.getAllPublishedEvents(token);
     if (result != null) {
       events = result;
       await addPages();

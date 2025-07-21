@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
-import 'package:smartpath/models/student_model/comment_model.dart';
+import 'package:smartpath/models/student_model/replies_model.dart';
 
 class ReplyWidget extends StatelessWidget {
   final Replies reply;

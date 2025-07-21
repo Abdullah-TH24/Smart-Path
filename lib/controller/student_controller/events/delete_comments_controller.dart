@@ -1,9 +1,8 @@
 import 'package:get/get.dart';
-import 'package:smartpath/core/services/student_services/home_services.dart';
+import 'package:smartpath/core/services/student_services/events_services.dart';
 
 class DeleteCommentsController extends GetxController {
-  final HomeServices _homeService = HomeServices();
-
+  final EventsServices _eventsServices = EventsServices();
   bool deleteCommentRes = false;
   bool isLoading = false;
   String? errorMessage;
@@ -12,7 +11,7 @@ class DeleteCommentsController extends GetxController {
     isLoading = true;
     errorMessage = null;
     update();
-    final result = await _homeService.deleteComment(token, commentId);
+    final result = await _eventsServices.deleteComment(token, commentId);
     if (result) {
       deleteCommentRes = result;
     } else {

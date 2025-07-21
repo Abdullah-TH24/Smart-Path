@@ -1,3 +1,5 @@
+import 'dart:nativewrappers/_internal/vm/lib/developer.dart';
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -39,7 +41,7 @@ class FingerprintWidget extends StatelessWidget {
                         Get.offNamed(AppRoutes.studentProfileLockApp);
                       }
                     } catch (e) {
-                      print(e.toString());
+                      log(e.toString());
                     } finally {
                       controller.stopLoading();
                     }

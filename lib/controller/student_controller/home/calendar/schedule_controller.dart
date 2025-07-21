@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
-import 'package:smartpath/core/services/student_services/home_services.dart';
+import 'package:smartpath/core/services/student_services/schedule_services.dart';
 import 'package:smartpath/main.dart';
 import 'package:smartpath/models/student_model/home/weekly_schedule_model.dart';
 
 class ScheduleController extends GetxController {
-  final HomeServices _homeService = HomeServices();
+  final ScheduleServices _scheduleServices = ScheduleServices();
 
   @override
   onInit() {
@@ -21,7 +21,7 @@ class ScheduleController extends GetxController {
     errorMessage = null;
     schedule = null;
     update();
-    final result = await _homeService.getStudentWeeklySchedule(token);
+    final result = await _scheduleServices.getStudentWeeklySchedule(token);
     if (result != null) {
       schedule = result;
     } else {

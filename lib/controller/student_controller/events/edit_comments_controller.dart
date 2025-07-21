@@ -1,9 +1,8 @@
 import 'package:get/get.dart';
-import 'package:smartpath/core/services/student_services/home_services.dart';
+import 'package:smartpath/core/services/student_services/events_services.dart';
 
 class EditCommentsController extends GetxController {
-  final HomeServices _homeService = HomeServices();
-
+  final EventsServices _eventsServices = EventsServices();
   bool editCommentRes = false;
   bool isLoading = false;
   String? errorMessage;
@@ -12,7 +11,7 @@ class EditCommentsController extends GetxController {
     isLoading = true;
     errorMessage = null;
     update();
-    final result = await _homeService.editComment(token, commentId, content);
+    final result = await _eventsServices.editComment(token, commentId, content);
     if (result) {
       editCommentRes = result;
     } else {

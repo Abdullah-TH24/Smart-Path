@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
-import 'package:smartpath/core/services/student_services/home_services.dart';
+import 'package:smartpath/core/services/student_services/events_services.dart';
 
 class AddReactionController extends GetxController {
-  final HomeServices _homeService = HomeServices();
+  final EventsServices _eventsServices = EventsServices();
 
   bool addReactRes = false;
   bool isLoading = false;
@@ -17,7 +17,7 @@ class AddReactionController extends GetxController {
     isLoading = true;
     errorMessage = null;
     update();
-    final result = await _homeService.addReaction(
+    final result = await _eventsServices.addReaction(
       token,
       reaction,
       reactableId,

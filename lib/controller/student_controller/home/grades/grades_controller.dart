@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
-import 'package:smartpath/core/services/student_services/home_services.dart';
+import 'package:smartpath/core/services/student_services/grades_services.dart';
 import 'package:smartpath/models/student_model/home/grades_model.dart';
 
 class GradesController extends GetxController {
-  final HomeServices _homeService = HomeServices();
+  final GradesServices _gradesServices = GradesServices();
   //test test
 
   List<GradesModel>? grades;
@@ -22,7 +22,7 @@ class GradesController extends GetxController {
     grades = null;
     noResultsMessages = null;
     update();
-    final result = await _homeService.getGrades(token, year, semester, type);
+    final result = await _gradesServices.getGrades(token, year, semester, type);
     if (result != null) {
       if (result.isNotEmpty) {
         grades = result;

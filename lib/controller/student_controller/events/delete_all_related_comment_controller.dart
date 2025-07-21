@@ -1,6 +1,6 @@
 import 'package:smartpath/controller/student_controller/events/delete_comments_controller.dart';
 import 'package:smartpath/main.dart';
-import 'package:smartpath/models/student_model/comment_model.dart';
+import 'package:smartpath/models/student_model/replies_model.dart';
 
 deleteAllCommentRelated(
   List<Replies> replies,

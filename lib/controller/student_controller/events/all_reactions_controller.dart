@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
-import 'package:smartpath/core/services/student_services/home_services.dart';
+import 'package:smartpath/core/services/student_services/events_services.dart';
 import 'package:smartpath/main.dart';
 import 'package:smartpath/models/student_model/all_reactions_model.dart';
 import 'package:smartpath/models/student_model/user_model.dart';
 
 class AllReactionsController extends GetxController {
-  final HomeServices _homeService = HomeServices();
+  final EventsServices _eventsServices = EventsServices();
   List<User> users = [];
   List reactionImages = [];
   int tabIndex = 0;
@@ -37,7 +37,7 @@ class AllReactionsController extends GetxController {
     errorMessage = null;
     allReactions = null;
     update();
-    final result = await _homeService.getReactions(
+    final result = await _eventsServices.getReactions(
       token,
       reactableId,
       reactableType,

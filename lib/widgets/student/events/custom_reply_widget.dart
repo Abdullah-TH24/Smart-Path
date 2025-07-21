@@ -7,7 +7,7 @@ import 'package:smartpath/controller/student_controller/events/delete_comments_c
 import 'package:smartpath/controller/student_controller/events/events_controller.dart';
 import 'package:smartpath/controller/student_controller/events/type_operation_controller.dart';
 import 'package:smartpath/main.dart';
-import 'package:smartpath/models/student_model/comment_model.dart';
+import 'package:smartpath/models/student_model/replies_model.dart';
 import 'package:smartpath/widgets/student/events/option_widget.dart';
 import 'package:smartpath/widgets/student/events/options_on_comment_widget.dart';
 import 'package:smartpath/widgets/student/events/reply_widget.dart';
