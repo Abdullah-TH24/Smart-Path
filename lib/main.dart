@@ -98,7 +98,7 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: AppRoutes.studentEventsComments,
-          page: () => CommentsPage(),
+          page: () => const CommentsPage(),
         ),
         GetPage(
           name: AppRoutes.studentEventsReactionsInfo,
