@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:get/get.dart';
 import 'package:smartpath/core/services/login_services/login_services.dart';
 import 'package:smartpath/models/login_model/user_model.dart';
@@ -17,7 +19,7 @@ class LoginController extends GetxController {
     final result = await _authService.login(email, password);
 
     if (result != null) {
-      print(result.role);
+      log(result.role);
       response = result;
     } else {
       errorMessage = 'error_message'.tr;

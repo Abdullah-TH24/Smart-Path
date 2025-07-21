@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:local_auth/local_auth.dart';
@@ -16,7 +18,7 @@ class AuthController extends GetxController {
       biometricAvailable = available;
       update();
     } catch (e) {
-      print(e.toString());
+      log(e.toString());
     }
   }
 
