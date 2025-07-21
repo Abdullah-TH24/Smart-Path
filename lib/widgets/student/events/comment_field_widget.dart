@@ -2,15 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CommentField extends StatelessWidget {
-  const CommentField({super.key, required this.comment});
+  const CommentField({
+    super.key,
+    required this.comment,
+    required this.commentFocus,
+  });
 
   final TextEditingController comment;
+  final FocusNode commentFocus;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: Get.width - 70,
       child: TextFormField(
+        focusNode: commentFocus,
         controller: comment,
         decoration: InputDecoration(
           hint: const Text('Write a comment ...'),

@@ -8,13 +8,13 @@ import 'package:smartpath/controller/student_controller/events/add_reaction_cont
 import 'package:smartpath/controller/student_controller/events/events_controller.dart';
 import 'package:smartpath/core/utils/app_assets.dart';
 import 'package:smartpath/core/utils/app_routes.dart';
-import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/main.dart';
 import 'package:smartpath/widgets/student/events/custom_divider_widget.dart';
 import 'package:smartpath/widgets/student/events/custom_text_button_widget.dart';
 import 'package:smartpath/widgets/student/events/images_post_widget.dart';
 import 'package:smartpath/widgets/student/events/post_content_widget.dart';
 import 'package:smartpath/widgets/student/events/reaction_overlay_widget.dart';
+import 'package:smartpath/widgets/student/events/reactions_widget.dart';
 import 'package:smartpath/widgets/student/events/title_post_widget.dart';
 import 'package:smartpath/widgets/student/home/calendar/app_bar_component.dart';
 
@@ -78,144 +78,10 @@ class StudentEventsPage extends StatelessWidget {
                               // <Images>
                               ImagesPost(controller: controller, index: index),
                               // Reactions
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  top: 10,
-                                  left: 10,
-                                  right: 10,
-                                ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    // <Reactions + Number>
-                                    InkWell(
-                                      onTap: () {
-                                        Get.toNamed(
-                                          AppRoutes.studentEventsReactionsInfo,
-                                          arguments: {
-                                            'reactableId':
-                                                controller.events![index].id!,
-                                            'reactableType': 'event',
-                                          },
-                                        );
-                                      },
-                                      child: SizedBox(
-                                        width:
-                                            controller
-                                                        .events![index]
-                                                        .reactions!
-                                                        .reactionNumber ==
-                                                    0
-                                                ? 50
-                                                : null,
-                                        child: Row(
-                                          children: [
-                                            Builder(
-                                              builder: (context) {
-                                                final types =
-                                                    controller
-                                                        .events![index]
-                                                        .reactions!
-                                                        .types;
-                                                final sortedReactions =
-                                                    types.entries.toList()
-                                                      ..sort(
-                                                        (a, b) => b.value
-                                                            .compareTo(a.value),
-                                                      );
-                                                return SizedBox(
-                                                  height: 25,
-                                                  width:
-                                                      (sortedReactions.length -
-                                                              1) *
-                                                          15 +
-                                                      30,
-                                                  child: Stack(
-                                                    clipBehavior: Clip.none,
-                                                    children: List.generate(
-                                                      sortedReactions.length,
-                                                      (reactionIndex) {
-                                                        final reactionType =
-                                                            sortedReactions[reactionIndex]
-                                                                .key
-                                                                .toLowerCase();
-                                                        return Positioned(
-                                                          left:
-                                                              reactionIndex *
-                                                              15,
-                                                          top: 2,
-                                                          bottom: 2,
-                                                          child: CircleAvatar(
-                                                            radius: 15,
-                                                            backgroundColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            child: ClipOval(
-                                                              child: Image.asset(
-                                                                reactionImages[reactionType] ??
-                                                                    reactionImages["like"]!,
-                                                                width: 20,
-                                                                height: 20,
-                                                                fit:
-                                                                    BoxFit
-                                                                        .cover,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        );
-                                                      },
-                                                    ),
-                                                  ),
-                                                );
-                                              },
-                                            ),
-                                            Container(
-                                              height: 25,
-                                              alignment: Alignment.center,
-                                              child: Text(
-                                                (controller
-                                                            .events![index]
-                                                            .reactions!
-                                                            .reactionNumber ==
-                                                        0)
-                                                    ? ''
-                                                    : controller
-                                                        .events![index]
-                                                        .reactions!
-                                                        .reactionNumber
-                                                        .toString(),
-                                                style:
-                                                    AppStyles.styleRegular12(),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    // <Comments, Share>
-                                    Row(
-                                      children: [
-                                        Text(
-                                          controller
-                                                      .events![index]
-                                                      .commentNumber! >
-                                                  0
-                                              ? '${controller.events![index].commentNumber} Comments'
-                                              : '',
-                                          style: AppStyles.styleRegular12()
-                                              .copyWith(color: Colors.black87),
-                                        ),
-                                        const Gap(7.5),
-                                        Text(
-                                          '25 Shares',
-                                          style: AppStyles.styleRegular12()
-                                              .copyWith(color: Colors.black87),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
+                              ReactionsWidget(
+                                reactionImages: reactionImages,
+                                controller: controller,
+                                index: index,
                               ),
                               // <Divider>
                               const CustomDivider(),
@@ -308,7 +174,7 @@ class StudentEventsPage extends StatelessWidget {
                                       );
                                     },
                                   ),
-                                  // <Share> Button
+                                  // <Share> Button ::This Only
                                   CustomTextButton(
                                     title: 'Share',
                                     icon: LucideIcons.share2,

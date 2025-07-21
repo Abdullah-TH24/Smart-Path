@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:get/get.dart';
 import 'package:smartpath/core/services/student_services/home_services.dart';
 import 'package:smartpath/main.dart';
@@ -9,6 +7,7 @@ class CommentsController extends GetxController {
   final HomeServices _homeService = HomeServices();
   final int id;
   CommentsController({required this.id});
+  List<bool> isExpanded = [];
 
   @override
   void onInit() {
@@ -20,6 +19,10 @@ class CommentsController extends GetxController {
   bool isLoading = false;
   String? errorMessage;
 
+  initArrayIsExapanded(int length) {
+    isExpanded = List.generate(length, (index) => false);
+  }
+
   Future<void> getEventComments(String token, int id) async {
     isLoading = true;
     errorMessage = null;
@@ -27,12 +30,17 @@ class CommentsController extends GetxController {
     update();
     final result = await _homeService.getEventComments(token, id);
     if (result != null) {
+      await initArrayIsExapanded(result.length);
       comments = result;
-      log(result.length.toString());
     } else {
       errorMessage = 'error_message'.tr;
     }
     isLoading = false;
+    update();
+  }
+
+  changeValueToExpanded(int index, bool value) {
+    isExpanded[index] = value;
     update();
   }
 }

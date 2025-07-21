@@ -59,8 +59,6 @@ class HomeServices {
       );
       if (response.statusCode == 200) {
         final List data = json.decode(response.body)['data'] ?? [];
-        log(response.body);
-        log(data.toString());
         if (data.isEmpty) {
           return [];
         }

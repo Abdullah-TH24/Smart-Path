@@ -1,6 +1,4 @@
-import 'package:smartpath/models/student_model/replies_model.dart';
-
-class CommentModel {
+class Replies {
   int? id;
   int? userId;
   int? parentId;
@@ -14,7 +12,7 @@ class CommentModel {
   String? createdAt;
   List<Replies>? replies;
 
-  CommentModel({
+  Replies({
     this.id,
     this.userId,
     this.parentId,
@@ -29,7 +27,7 @@ class CommentModel {
     this.replies,
   });
 
-  CommentModel.fromJson(Map<String, dynamic> json) {
+  Replies.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     userId = json['user_id'];
     parentId = json['parent_id'];

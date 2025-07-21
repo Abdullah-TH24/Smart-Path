@@ -19,21 +19,36 @@ class ButtonContactWidget extends StatelessWidget {
               onPressed: () => makePhoneCall('+966123456789'),
               icon: const Icon(Icons.phone),
               label: Text('button_call'.tr),
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.indigo),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.indigo,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadiusGeometry.circular(12.5),
+                ),
+              ),
             ),
             const Gap(10),
             ElevatedButton.icon(
               onPressed: () => sendEmail('info@alriyada.edu.sa'),
               icon: const Icon(Icons.email),
               label: Text('button_send'.tr),
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.indigo),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.indigo,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadiusGeometry.circular(12.5),
+                ),
+              ),
             ),
             const Gap(10),
             ElevatedButton.icon(
               onPressed: () => openWebsite('https://www.alriyada.edu.sa'),
               icon: const Icon(Icons.language),
               label: Text('button_visitW'.tr),
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.indigo),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.indigo,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadiusGeometry.circular(12.5),
+                ),
+              ),
             ),
             const Gap(10),
             ElevatedButton.icon(
@@ -42,7 +57,12 @@ class ButtonContactWidget extends StatelessWidget {
                       openFacebook('https://www.facebook.com/alriyada.school'),
               icon: const Icon(Icons.facebook),
               label: Text('button_visitF'.tr),
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.indigo),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.indigo,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadiusGeometry.circular(12.5),
+                ),
+              ),
             ),
             const Gap(10),
           ],

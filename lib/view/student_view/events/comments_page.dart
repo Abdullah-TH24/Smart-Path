@@ -1,7 +1,4 @@
 // ignore_for_file: must_be_immutable, use_build_context_synchronously
-
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
@@ -10,24 +7,46 @@ import 'package:smartpath/controller/student_controller/events/comments_controll
 import 'package:smartpath/controller/student_controller/events/delete_comments_controller.dart';
 import 'package:smartpath/controller/student_controller/events/edit_comments_controller.dart';
 import 'package:smartpath/controller/student_controller/events/events_controller.dart';
+import 'package:smartpath/controller/student_controller/events/type_operation_controller.dart';
 import 'package:smartpath/core/utils/app_assets.dart';
 import 'package:smartpath/main.dart';
-import 'package:smartpath/widgets/student/events/comment_field_widget.dart';
 import 'package:smartpath/widgets/student/events/comment_widget.dart';
+import 'package:smartpath/widgets/student/events/custom_input_with_button_widget.dart';
+import 'package:smartpath/widgets/student/events/custom_reply_widget.dart';
 import 'package:smartpath/widgets/student/events/option_widget.dart';
+import 'package:smartpath/widgets/student/events/options_on_comment_widget.dart';
 import 'package:smartpath/widgets/student/home/calendar/app_bar_component.dart';
 
-class CommentsPage extends StatelessWidget {
-  CommentsPage({super.key});
+class CommentsPage extends StatefulWidget {
+  const CommentsPage({super.key});
+
+  @override
+  State<CommentsPage> createState() => _CommentsPageState();
+}
+
+class _CommentsPageState extends State<CommentsPage> {
   int id = Get.arguments;
+
   AddCommentsController addComment = Get.put(AddCommentsController());
-  final commentsController = Get.put(CommentsController(id: Get.arguments));
+
+  final CommentsController commentsController = Get.put(
+    CommentsController(id: Get.arguments),
+  );
+
   EventsController events = Get.find();
+
   TextEditingController comment = TextEditingController();
+
+  FocusNode commentFocus = FocusNode();
+
   DeleteCommentsController deleteComment = Get.put(DeleteCommentsController());
+
   EditCommentsController editComment = Get.put(EditCommentsController());
-  bool edit = false;
-  int commentId = 0;
+
+  TypeOperation typeOperation = Get.put(TypeOperation());
+
+  bool isExpanded = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,9 +57,6 @@ class CommentsPage extends StatelessWidget {
             child: GetBuilder<CommentsController>(
               init: CommentsController(id: id),
               builder: (controller) {
-                if (controller.errorMessage != null) {
-                  log(controller.errorMessage.toString());
-                }
                 return controller.isLoading
                     ? Container(
                       height: Get.height - 225,
@@ -106,7 +122,7 @@ class CommentsPage extends StatelessWidget {
                                             borderRadius: BorderRadius.circular(
                                               12.5,
                                             ),
-                                            onDoubleTap: () async {
+                                            onLongPress: () async {
                                               final List indexes = [];
                                               for (
                                                 var i = 0;
@@ -129,72 +145,57 @@ class CommentsPage extends StatelessWidget {
                                               if (indexes.contains(
                                                 controller.comments![index].id,
                                               )) {
-                                                await deleteComment
-                                                    .deleteComment(
-                                                      prefs!.getString(
-                                                        'token',
-                                                      )!,
-                                                      controller
-                                                          .comments![index]
-                                                          .id!,
+                                                await typeOperation.reDeclare();
+                                                await showModalBottomSheet(
+                                                  shape: const RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadiusGeometry.only(
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                12.5,
+                                                              ),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                12.5,
+                                                              ),
+                                                        ),
+                                                  ),
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return OptionsOnCommentWidget(
+                                                      commentFocus:
+                                                          commentFocus,
+                                                      typeOperation:
+                                                          typeOperation,
+                                                      comment: comment,
+                                                      deleteComment:
+                                                          deleteComment,
+                                                      id: id,
+                                                      events: events,
+                                                      index: index,
+                                                      controller: controller,
+                                                      commentId:
+                                                          controller
+                                                              .comments![index]
+                                                              .id!,
+                                                      content:
+                                                          controller
+                                                              .comments![index]
+                                                              .content!,
                                                     );
-                                                if (deleteComment
-                                                    .deleteCommentRes) {
-                                                  commentsController
-                                                      .getEventComments(
-                                                        prefs!.getString(
-                                                          'token',
-                                                        )!,
-                                                        id,
-                                                      );
-                                                  events.getAllPublishedEvents(
-                                                    prefs!.getString('token')!,
-                                                  );
-                                                } else {
-                                                  ScaffoldMessenger.of(
+                                                  },
+                                                );
+                                                if (typeOperation.editComment ||
+                                                    typeOperation.editReply ||
+                                                    typeOperation.addReply) {
+                                                  FocusScope.of(
                                                     context,
-                                                  ).showSnackBar(
-                                                    const SnackBar(
-                                                      content: Text(
-                                                        'Please check your internet connection and try again',
-                                                      ),
-                                                    ),
-                                                  );
+                                                  ).requestFocus(commentFocus);
+                                                } else {
+                                                  FocusScope.of(
+                                                    context,
+                                                  ).unfocus();
                                                 }
-                                              }
-                                            },
-                                            onTap: () async {
-                                              final List indexes = [];
-                                              for (
-                                                var i = 0;
-                                                i < controller.comments!.length;
-                                                i++
-                                              ) {
-                                                if (controller
-                                                        .comments![i]
-                                                        .userId ==
-                                                    int.parse(
-                                                      prefs!.getString(
-                                                        'user_id',
-                                                      )!,
-                                                    )) {
-                                                  indexes.add(
-                                                    controller.comments![i].id,
-                                                  );
-                                                }
-                                              }
-                                              if (indexes.contains(
-                                                controller.comments![index].id,
-                                              )) {
-                                                edit = true;
-                                                commentId =
-                                                    controller
-                                                        .comments![index]
-                                                        .id!;
-                                                comment.text =
-                                                    controller
-                                                        .comments![index]
-                                                        .content!;
                                               }
                                             },
                                             child: CommentWidget(
@@ -205,9 +206,64 @@ class CommentsPage extends StatelessWidget {
                                         ),
                                         // Options
                                         OptionWidget(
-                                          controller: controller,
+                                          width: 140,
                                           index: index,
+                                          parentId:
+                                              controller.comments![index].id,
+                                          commentFocus: commentFocus,
+                                          controller: controller,
                                         ),
+                                        // Read more
+                                        if (!controller.isExpanded[index] &&
+                                            controller
+                                                    .comments![index]
+                                                    .replies !=
+                                                null &&
+                                            controller
+                                                .comments![index]
+                                                .replies!
+                                                .isNotEmpty)
+                                          TextButton(
+                                            onPressed: () {
+                                              setState(() {
+                                                controller
+                                                    .changeValueToExpanded(
+                                                      index,
+                                                      true,
+                                                    );
+                                              });
+                                            },
+                                            child: Text(
+                                              'Read more (${controller.comments![index].replies!.length} replies)',
+                                              style: const TextStyle(
+                                                color: Colors.indigo,
+                                              ),
+                                            ),
+                                          ),
+                                        // Nested Replies
+                                        if (controller
+                                                    .comments![index]
+                                                    .replies !=
+                                                null &&
+                                            controller
+                                                .comments![index]
+                                                .replies!
+                                                .isNotEmpty &&
+                                            controller.isExpanded[index])
+                                          CustomReply(
+                                            index: index,
+                                            replies:
+                                                controller
+                                                    .comments![index]
+                                                    .replies!,
+                                            controller: controller,
+                                            comment: comment,
+                                            commentFocus: commentFocus,
+                                            deleteComment: deleteComment,
+                                            events: events,
+                                            id: id,
+                                            typeOperation: typeOperation,
+                                          ),
                                       ],
                                     ),
                                   ),
@@ -239,97 +295,21 @@ class CommentsPage extends StatelessWidget {
           ),
         ],
       ),
-      bottomSheet: Container(
-        padding: const EdgeInsets.all(10),
-        width: Get.width,
-        decoration: BoxDecoration(
-          color: Colors.indigo[50],
-          boxShadow: const [
-            BoxShadow(
-              offset: Offset(0, 0),
-              color: Colors.black54,
-              blurRadius: 2,
-            ),
-          ],
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            // Field
-            CommentField(comment: comment),
-            // Button
-            Container(
-              height: 40,
-              width: 40,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.indigo[100],
-              ),
-              child: IconButton(
-                onPressed: () async {
-                  if (edit) {
-                    if (comment.text.isNotEmpty) {
-                      FocusScope.of(context).unfocus();
-                      await editComment.editComment(
-                        prefs!.getString('token')!,
-                        commentId,
-                        comment.text.trim(),
-                      );
-                      comment.clear();
-                      if (editComment.editCommentRes) {
-                        commentsController.getEventComments(
-                          prefs!.getString('token')!,
-                          id,
-                        );
-                        events.getAllPublishedEvents(
-                          prefs!.getString('token')!,
-                        );
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text(
-                              'Please check your internet connection and try again',
-                            ),
-                          ),
-                        );
-                      }
-                    }
-                  } else if (!edit) {
-                    if (comment.text.isNotEmpty) {
-                      FocusScope.of(context).unfocus();
-                      await addComment.addComment(
-                        prefs!.getString('token')!,
-                        id,
-                        comment.text.trim(),
-                        null,
-                      );
-                      comment.clear();
-                      if (addComment.addCommentRes) {
-                        commentsController.getEventComments(
-                          prefs!.getString('token')!,
-                          id,
-                        );
-                        events.getAllPublishedEvents(
-                          prefs!.getString('token')!,
-                        );
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text(
-                              'Please check your internet connection and try again',
-                            ),
-                          ),
-                        );
-                      }
-                    }
-                  }
-                  edit = false;
-                },
-                icon: const Icon(Icons.send, color: Colors.black, size: 25),
-              ),
-            ),
-          ],
-        ),
+      // Field With Button <Send>
+      bottomSheet: GetBuilder<TypeOperation>(
+        builder: (typeOperation) {
+          return CustomInputWithButton(
+            comment: comment,
+            commentFocus: commentFocus,
+            addComment: addComment,
+            editComment: editComment,
+            typeOperation: typeOperation,
+            events: events,
+            commentsController: commentsController,
+            id: id,
+            commentId: typeOperation.commentId,
+          );
+        },
       ),
     );
   }
