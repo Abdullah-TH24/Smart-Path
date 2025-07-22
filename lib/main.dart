@@ -38,6 +38,7 @@ import 'package:smartpath/view/student_view/profile/settings/settings_page.dart'
 import 'package:smartpath/view/student_view/profile/settings/verify_pin_code.dart';
 import 'package:smartpath/view/student_view/student_main_page.dart';
 import 'package:smartpath/view/teacher_view/teacher_routes.dart';
+import 'package:smartpath/view/librarian_view/librarian_routes.dart';
 
 SharedPreferences? prefs;
 
@@ -137,6 +138,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: AppRoutes.studentExams, page: () => const Exams()),
         GetPage(name: AppRoutes.studentCourses, page: () => const Courses()),
         ...TeacherRoutes.routes,
+        ...LibrarianRoutes.routes,
       ],
       debugShowCheckedModeBanner: false,
       title: 'Smart Path',
