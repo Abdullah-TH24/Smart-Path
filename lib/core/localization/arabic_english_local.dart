@@ -153,7 +153,7 @@ class ArabicEnglishLocal implements Translations {
       'button_visitW': 'Visit Website',
       'button_visitF': 'Visit Facebook',
       //librarian
-      'borrow_manage': 'Borrow management',
+      'borrow_manage': 'Manage borrow',
     },
     "ar": {
       'app_name': "المسار الذكي",

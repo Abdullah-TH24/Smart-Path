@@ -59,13 +59,6 @@ class AppAssets {
   static const String iconInputEnabled = "assets/icons/input_enabled.svg";
 
   static const String secondLogo = "assets/icons/second_logo.svg";
-  static const String iconAddBook = "assets/icons/icon_add_book.svg";
-  static const String iconBorrowedBooks =
-      "assets/icons/icon_borrowed_books.svg";
-  static const String iconAvailableBooks =
-      "assets/icons/icon_available_books.svg";
-
-  static const String addBookSvg = "assets/icons/add_book.svg";
 
   //librarian
   static const String addBook =
@@ -88,6 +81,9 @@ class AppAssets {
   static const String pngLogo = "assets/images/logo.png";
 
   static const String gredientBackground = "assets/images/grediant_image.png";
+
+  static const String gredientBrownBackground =
+      "assets/images/brown_grediant.png";
 
   static const String events1 = "assets/images/events-1.png";
 

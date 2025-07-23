@@ -8,11 +8,15 @@ class MyCustomAppBarDelegate extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
   final double collapsedHeight;
   final String studentName;
+  String? imagePath;
+  Color? searchButton;
 
   MyCustomAppBarDelegate({
     required this.expandedHeight,
     required this.collapsedHeight,
     required this.studentName,
+    this.imagePath,
+    this.searchButton,
   });
 
   @override
@@ -37,9 +41,9 @@ class MyCustomAppBarDelegate extends SliverPersistentHeaderDelegate {
         // --- Layer 1: The Persistent Background Image ---
         // This is the content from your old `flexibleSpace.background`
         Container(
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(AppAssets.gredientBackground),
+              image: AssetImage(imagePath ?? AppAssets.gredientBackground),
               fit: BoxFit.cover,
             ),
           ),
@@ -59,11 +63,11 @@ class MyCustomAppBarDelegate extends SliverPersistentHeaderDelegate {
           ),
         ),
         // --- Layer 1: Search bar widget ---
-        const Positioned(
+        Positioned(
           bottom: -22.5,
           right: 24,
           left: 24,
-          child: CustomSearchBar(),
+          child: CustomSearchBar(buttonColor: searchButton),
         ),
       ],
     );

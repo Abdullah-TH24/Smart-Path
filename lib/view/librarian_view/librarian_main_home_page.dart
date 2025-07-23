@@ -24,7 +24,7 @@ class _LibrarianMainHomePageState extends State<LibrarianMainHomePage> {
   Widget build(BuildContext context) {
     // Initial page at <home>
     final pages = [
-      LibrarianHomePage(),
+      const LibrarianHomePage(),
       const LibrarianBorrowedBooksManagmentPage(),
       const LibrarianAddBookPage(),
       const LibrarianComplaintPage(),
@@ -68,27 +68,24 @@ class _LibrarianMainHomePageState extends State<LibrarianMainHomePage> {
     return Scaffold(
       extendBody: true,
       body: pages[pageIndex],
-      bottomNavigationBar: FittedBox(
-        fit: BoxFit.scaleDown,
-        child: SalomonBottomBar(
-          itemPadding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
-          backgroundColor: Colors.indigo[50],
-          curve: Curves.decelerate,
-          selectedItemColor: Colors.brown,
-          selectedColorOpacity: .25,
-          itemShape: RoundedRectangleBorder(
-            borderRadius: BorderRadiusGeometry.circular(18),
-          ),
-          currentIndex: pageIndex,
-          onTap: (page) => setState(() => pageIndex = page),
-          items: List.generate(
-            pages.length,
-            // <Icon, title and activeIcon> * 4
-            (index) => SalomonBottomBarItem(
-              icon: items[index].icon,
-              title: items[index].title,
-              activeIcon: items[index].activeIcon,
-            ),
+      bottomNavigationBar: SalomonBottomBar(
+        itemPadding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+        backgroundColor: Colors.indigo[50],
+        curve: Curves.decelerate,
+        selectedItemColor: Colors.brown,
+        selectedColorOpacity: .25,
+        itemShape: RoundedRectangleBorder(
+          borderRadius: BorderRadiusGeometry.circular(18),
+        ),
+        currentIndex: pageIndex,
+        onTap: (page) => setState(() => pageIndex = page),
+        items: List.generate(
+          pages.length,
+          // <Icon, title and activeIcon> * 4
+          (index) => SalomonBottomBarItem(
+            icon: items[index].icon,
+            title: items[index].title,
+            activeIcon: items[index].activeIcon,
           ),
         ),
       ),

@@ -16,7 +16,8 @@ class LoginMiddleware extends GetMiddleware {
     if (prefs!.getString('token') != null) {
       log(prefs!.getString('role')!);
       if (prefs!.getString('role') == 'student') {
-        return const RouteSettings(name: LibrarianRoutes.mainHome);
+        // return const RouteSettings(name: LibrarianRoutes.mainHome);
+        return const RouteSettings(name: AppRoutes.studentMainPageRoute);
       } else if (prefs!.getString('role') == 'teacher') {
         return const RouteSettings(name: TeacherRoutes.students);
         // return const RouteSettings(name: AppRoutes.parentMainPageRoute);
