@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable, use_build_context_synchronously
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:smartpath/controller/student_controller/events/add_comments_controller.dart';
@@ -52,7 +53,7 @@ class _CommentsPageState extends State<CommentsPage> {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          const AppBarComponent(data: 'Comments'),
+          AppBarComponent(data: 'comment_title_page'.tr),
           SliverToBoxAdapter(
             child: GetBuilder<CommentsController>(
               init: CommentsController(id: id),
@@ -61,9 +62,7 @@ class _CommentsPageState extends State<CommentsPage> {
                     ? Container(
                       height: Get.height - 225,
                       alignment: Alignment.center,
-                      child: const CircularProgressIndicator(
-                        color: Colors.indigo,
-                      ),
+                      child: const SpinKitSpinningLines(color: Colors.indigo),
                     )
                     : (controller.errorMessage != null)
                     ? Container(
@@ -93,9 +92,18 @@ class _CommentsPageState extends State<CommentsPage> {
                                 children: [
                                   // Content
                                   Container(
-                                    padding: const EdgeInsets.only(
+                                    padding: EdgeInsets.only(
                                       top: 25,
-                                      left: 20,
+                                      right:
+                                          (Get.locale?.languageCode ?? 'en') ==
+                                                  'en'
+                                              ? 0
+                                              : 20,
+                                      left:
+                                          (Get.locale?.languageCode ?? 'en') ==
+                                                  'en'
+                                              ? 20
+                                              : 0,
                                     ),
                                     child: Column(
                                       crossAxisAlignment:
@@ -106,9 +114,19 @@ class _CommentsPageState extends State<CommentsPage> {
                                           margin: const EdgeInsets.symmetric(
                                             horizontal: 10,
                                           ),
-                                          padding: const EdgeInsets.only(
-                                            left: 20,
-                                            right: 10,
+                                          padding: EdgeInsets.only(
+                                            left:
+                                                (Get.locale?.languageCode ??
+                                                            'en') ==
+                                                        'en'
+                                                    ? 20
+                                                    : 10,
+                                            right:
+                                                (Get.locale?.languageCode ??
+                                                            'en') ==
+                                                        'en'
+                                                    ? 10
+                                                    : 20,
                                             top: 10,
                                             bottom: 10,
                                           ),
@@ -212,6 +230,10 @@ class _CommentsPageState extends State<CommentsPage> {
                                               controller.comments![index].id,
                                           commentFocus: commentFocus,
                                           controller: controller,
+                                          formattedString:
+                                              controller
+                                                  .comments![index]
+                                                  .createdAt!,
                                         ),
                                         // Read more
                                         if (!controller.isExpanded[index] &&
@@ -234,7 +256,17 @@ class _CommentsPageState extends State<CommentsPage> {
                                               });
                                             },
                                             child: Text(
-                                              'Read more (${controller.comments![index].replies!.length} replies)',
+                                              (Get.locale?.languageCode ??
+                                                          'en') ==
+                                                      'en'
+                                                  ? '${'read_button'.tr} (${controller.comments![index].replies!.length} ${'one_replies'.tr})'
+                                                  : '${'read_button'.tr} (${controller.comments![index].replies!.length == 1
+                                                      ? 'one_replies'.tr
+                                                      : controller.comments![index].replies!.length == 2
+                                                      ? 'two_replies'.tr
+                                                      : controller.comments![index].replies!.length > 2
+                                                      ? '${controller.comments![index].replies!.length} ' + 'many_replies'.tr
+                                                      : ''})',
                                               style: const TextStyle(
                                                 color: Colors.indigo,
                                               ),

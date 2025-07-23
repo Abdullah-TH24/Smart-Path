@@ -8,7 +8,7 @@ import 'package:smartpath/models/login_model/reset_password_model.dart';
 import 'package:smartpath/models/login_model/send_forget_password_model.dart';
 import 'package:smartpath/models/login_model/user_model.dart';
 
-class AuthService {
+class LoginServices {
   Future<UserModel?> login(String email, String password) async {
     try {
       final response = await http.post(

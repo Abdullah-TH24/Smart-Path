@@ -1,4 +1,4 @@
-// ignore_for_file: must_be_immutable
+// ignore_for_file: must_be_immutable, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -30,18 +30,33 @@ class VerifyPinCode extends StatelessWidget {
                   Text('vPin_title'.tr, style: AppStyles.styleBold24()),
                   const Gap(10),
                   Text('pin_desc'.tr, style: AppStyles.styleRegular14()),
-                  const Gap(75),
-                  PinputComponent(
-                    pin: pin,
-                    onCompleted: (value) {
-                      if (prefs!.getString('pin_code') == pin.text) {
-                        Get.offNamed(AppRoutes.studentProfileLockApp);
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('vPin_error'.tr)),
-                        );
-                      }
-                      pin.clear();
+                  const Gap(60),
+                  GetBuilder<AuthController>(
+                    init: AuthController(),
+                    builder: (controller) {
+                      return PinputComponent(
+                        pin: pin,
+                        onCompleted: (value) async {
+                          await controller.checkPinCode(
+                            prefs!.getString('token')!,
+                            value,
+                          );
+                          if (controller.resCheck != null) {
+                            if (controller.resCheck!) {
+                              Get.offNamed(AppRoutes.studentProfileLockApp);
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text('vPin_error'.tr)),
+                              );
+                            }
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text(controller.errorMessage!)),
+                            );
+                          }
+                          pin.clear();
+                        },
+                      );
                     },
                   ),
                 ],
@@ -50,12 +65,13 @@ class VerifyPinCode extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar:
+      bottomSheet:
           (prefs!.getBool('biometric') ?? false)
               ? GetBuilder<AuthController>(
                 init: AuthController(),
                 builder: (controller) {
-                  return SizedBox(
+                  return Container(
+                    color: Colors.indigo[50],
                     height: 150,
                     child: FingerprintWidget(controller: controller),
                   );

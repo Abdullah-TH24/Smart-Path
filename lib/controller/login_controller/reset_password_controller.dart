@@ -3,7 +3,7 @@ import 'package:smartpath/core/services/login_services/login_services.dart';
 import 'package:smartpath/models/login_model/reset_password_model.dart';
 
 class ResetPasswordController extends GetxController {
-  final AuthService _authService = AuthService();
+  final LoginServices _authService = LoginServices();
 
   ResetPasswordModel? response;
   bool isLoading = false;

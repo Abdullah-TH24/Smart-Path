@@ -129,7 +129,12 @@ class Lessons extends StatelessWidget {
                           },
                         ),
                         const Gap(10),
-                        Text(times[index + 1]!),
+                        Text(
+                          times[index + 1]!,
+                          style: AppStyles.styleBold24().copyWith(
+                            color: Colors.indigo[50],
+                          ),
+                        ),
                       ],
                     ),
                   ),

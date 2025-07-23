@@ -11,6 +11,7 @@ import 'package:smartpath/models/student_model/replies_model.dart';
 import 'package:smartpath/widgets/student/events/option_widget.dart';
 import 'package:smartpath/widgets/student/events/options_on_comment_widget.dart';
 import 'package:smartpath/widgets/student/events/reply_widget.dart';
+import 'package:get/get.dart';
 
 class CustomReply extends StatefulWidget {
   final int index;
@@ -64,7 +65,11 @@ class _CustomReplyState extends State<CustomReply> {
           child: Stack(
             children: [
               Container(
-                padding: const EdgeInsets.only(top: 25, left: 25),
+                padding: EdgeInsets.only(
+                  top: 25,
+                  left: (Get.locale?.languageCode ?? 'en') == 'en' ? 25 : 0,
+                  right: (Get.locale?.languageCode ?? 'en') == 'en' ? 0 : 25,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -127,6 +132,7 @@ class _CustomReplyState extends State<CustomReply> {
                       parentId: reply.id,
                       commentFocus: widget.commentFocus,
                       controller: widget.controller,
+                      formattedString: reply.createdAt!,
                     ),
                     // ::Done
                     if (!isExpanded[index] &&
@@ -139,7 +145,15 @@ class _CustomReplyState extends State<CustomReply> {
                           });
                         },
                         child: Text(
-                          'Read more (${reply.replies!.length} replies)',
+                          (Get.locale?.languageCode ?? 'en') == 'en'
+                              ? '${'read_button'.tr} (${reply.replies!.length} ${'one_replies'.tr})'
+                              : '${'read_button'.tr} (${reply.replies!.length == 1
+                                  ? 'one_replies'.tr
+                                  : reply.replies!.length == 2
+                                  ? 'two_replies'.tr
+                                  : reply.replies!.length > 2
+                                  ? '${reply.replies!.length} ${'many_replies'.tr}'
+                                  : ''})',
                           style: const TextStyle(color: Colors.indigo),
                         ),
                       ),

@@ -153,7 +153,7 @@ class ArabicEnglishLocal implements Translations {
       'button_visitW': 'Visit Website',
       'button_visitF': 'Visit Facebook',
       //librarian
-      'borrow_manage': 'Manage borrow',
+      'borrow_manage': 'Borrow management',
     },
     "ar": {
       'app_name': "المسار الذكي",
@@ -306,6 +306,36 @@ class ArabicEnglishLocal implements Translations {
       'button_visitF': 'زر فيسبوك',
       //librarian
       'borrow_manage': 'ادارة الاستعارة',
+      // For Events
+      'one_comment': 'تعليق واحد',
+      'two_comment': 'تعليقان',
+      'many_comment': 'تعليقات',
+      'comment_button': 'تعليق',
+      'one_share': 'مشاركة واحدة',
+      'two_share': 'مشاركتان',
+      'many_share': 'مشاركات',
+      'share_button': 'مشاركة',
+      'Like': 'أعجبني',
+      'Love': 'أحببته',
+      'Wow': 'واو',
+      'Angry': 'أغضبني',
+      'Haha': 'هاها',
+      'Sad': 'أحزنني',
+      // For ReactionInfo
+      'all_button': 'الجميع',
+      // For Comment Page
+      'comment_title_page': 'التعليقات',
+      'edit_button': 'تعديل التعليق',
+      'report_button': 'الإبلاغ عن التعليق',
+      'delete_button': 'حذف التعليق',
+      'comment_error': 'يرجى التحقق من اتصالك بالإنترنت والمحاولة لاحقاً',
+      'like_button': 'أعجبني',
+      'reply_button': 'رد',
+      'read_button': 'اقرأ المزيد',
+      'one_replies': 'رد واحد',
+      'two_replies': 'ردان',
+      'many_replies': 'ردود',
+      'field_title': 'أكتب تعليق...',
     },
   };
 }

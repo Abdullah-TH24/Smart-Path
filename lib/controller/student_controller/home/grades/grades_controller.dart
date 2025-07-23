@@ -4,7 +4,6 @@ import 'package:smartpath/models/student_model/home/grades_model.dart';
 
 class GradesController extends GetxController {
   final GradesServices _gradesServices = GradesServices();
-  //test test
 
   List<GradesModel>? grades;
   bool isLoading = false;

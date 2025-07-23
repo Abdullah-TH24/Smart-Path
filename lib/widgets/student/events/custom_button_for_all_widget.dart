@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:smartpath/controller/student_controller/events/all_reactions_controller.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
 
@@ -29,7 +30,7 @@ class CustomButtonForAll extends StatelessWidget {
         ),
         child: Center(
           child: Text(
-            'All',
+            'all_button'.tr,
             style: AppStyles.styleRegular16().copyWith(
               color:
                   controller.tabIndex == 0 ? Colors.indigo[50] : Colors.black,

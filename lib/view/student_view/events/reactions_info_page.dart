@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/controller/student_controller/events/all_reactions_controller.dart';
 import 'package:smartpath/core/utils/app_assets.dart';
@@ -30,9 +31,7 @@ class ReactionsInfoPage extends StatelessWidget {
                     ? Container(
                       height: Get.height - 175,
                       alignment: Alignment.center,
-                      child: const CircularProgressIndicator(
-                        color: Colors.indigo,
-                      ),
+                      child: const SpinKitSpinningLines(color: Colors.indigo),
                     )
                     : (controller.errorMessage != null)
                     ? Container(

@@ -16,6 +16,7 @@ class OptionWidget extends StatelessWidget {
   final int? parentId;
   final FocusNode commentFocus;
   final CommentsController controller;
+  final String formattedString;
   OptionWidget({
     super.key,
     required this.index,
@@ -23,6 +24,7 @@ class OptionWidget extends StatelessWidget {
     this.parentId,
     required this.commentFocus,
     required this.controller,
+    required this.formattedString,
   });
 
   TypeOperation typeOperation = Get.put(TypeOperation());
@@ -37,17 +39,17 @@ class OptionWidget extends StatelessWidget {
         children: [
           // Time ::Done
           Text(
-            timeago.format(
-              DateTime.parse(controller.comments![index].createdAt.toString()),
-              locale: 'en_short',
-            ),
+            timeago.format(DateTime.parse(formattedString), locale: 'en_short'),
             style: AppStyles.styleRegular12().copyWith(color: Colors.black54),
           ),
           const Gap(10),
-          CustomTextButtonCommentPage(title: 'Like', onPressed: () {}),
+          CustomTextButtonCommentPage(
+            title: 'like_button'.tr,
+            onPressed: () {},
+          ),
           const Gap(10),
           CustomTextButtonCommentPage(
-            title: 'Reply',
+            title: 'reply_button'.tr,
             onPressed: () async {
               FocusScope.of(context).requestFocus(commentFocus);
               prefs!.setInt('parent_id', parentId!);

@@ -1,8 +1,10 @@
-// ignore_for_file: must_be_immutable
+// ignore_for_file: must_be_immutable, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:smartpath/controller/auth_controller/create_or_update_pin_code_controller.dart';
 import 'package:smartpath/core/utils/app_routes.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/main.dart';
@@ -19,36 +21,60 @@ class ConfirmPinCode extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          const AppBarComponent(data: 'Lock App'),
+          AppBarComponent(data: 'Lock App'.tr),
           SliverToBoxAdapter(
-            child: Container(
-              padding: const EdgeInsets.only(top: 75),
-              child: Column(
-                children: [
-                  Text('confirm_title'.tr, style: AppStyles.styleBold24()),
-                  const Gap(10),
-                  Text(
-                    'confirm_desc'.tr,
-                    style: AppStyles.styleRegular14(),
-                    textAlign: TextAlign.center,
+            child: GetBuilder<CreateOrUpdatePinCode>(
+              init: CreateOrUpdatePinCode(),
+              builder: (controller) {
+                return Container(
+                  padding: const EdgeInsets.only(top: 75),
+                  child: Column(
+                    children: [
+                      Text('confirm_title'.tr, style: AppStyles.styleBold24()),
+                      const Gap(10),
+                      Text(
+                        'confirm_desc'.tr,
+                        style: AppStyles.styleRegular14(),
+                        textAlign: TextAlign.center,
+                      ),
+                      const Gap(75),
+                      PinputComponent(
+                        pin: pin,
+                        onCompleted: (value) async {
+                          if (pin.text == pinCode) {
+                            await controller.createOrUpdatePinCode(
+                              prefs!.getString('token')!,
+                              pin.text,
+                              pinCode,
+                            );
+                            if (controller.resCreateOrUpdate != null) {
+                              if (controller.resCreateOrUpdate!) {
+                                prefs!.setString('pin_code', pinCode);
+                                Get.close(2);
+                                Get.toNamed(AppRoutes.studentProfileLockApp);
+                              }
+                            } else if (controller.errorMessage != null) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(controller.errorMessage!),
+                                ),
+                              );
+                            }
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text('confirm_error'.tr)),
+                            );
+                          }
+                        },
+                      ),
+                      const Gap(175),
+                      (controller.isLoading)
+                          ? const SpinKitSpinningLines(color: Colors.indigo)
+                          : Container(),
+                    ],
                   ),
-                  const Gap(75),
-                  PinputComponent(
-                    pin: pin,
-                    onCompleted: (value) {
-                      if (pin.text == pinCode) {
-                        prefs!.setString('pin_code', pin.text);
-                        Get.close(2);
-                        Get.toNamed(AppRoutes.studentProfileLockApp);
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('confirm_error'.tr)),
-                        );
-                      }
-                    },
-                  ),
-                ],
-              ),
+                );
+              },
             ),
           ),
         ],

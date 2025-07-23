@@ -27,7 +27,7 @@ class _SettingsPageState extends State<SettingsPage> {
           SliverToBoxAdapter(
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
-              child: const Divider(color: Colors.black54),
+              child: const Divider(color: Color(0xffA0A0A0)),
             ),
           ),
           // Enable Biometric Auth
@@ -36,7 +36,7 @@ class _SettingsPageState extends State<SettingsPage> {
               margin: const EdgeInsets.all(10),
               child: ListTile(
                 onTap: () {
-                  if (prefs!.getString('pin_code') != null) {
+                  if (prefs!.getBool('lock_screen') != null) {
                     Get.toNamed(AppRoutes.studentProfileVerfiyPin);
                   } else {
                     Get.toNamed(AppRoutes.studentProfileEnterPIN);
@@ -48,7 +48,8 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: Text('Lock App'.tr),
                 trailing: const Icon(
                   Icons.arrow_forward_ios,
-                  color: Colors.indigo,
+                  color: Color(0xffA0A0A0),
+                  size: 22,
                 ),
               ),
             ),
@@ -57,7 +58,7 @@ class _SettingsPageState extends State<SettingsPage> {
           SliverToBoxAdapter(
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
-              child: const Divider(color: Colors.black54),
+              child: const Divider(color: Color(0xffA0A0A0)),
             ),
           ),
           // Change Password
@@ -74,7 +75,8 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: Text('change_password'.tr),
                 trailing: const Icon(
                   Icons.arrow_forward_ios,
-                  color: Colors.indigo,
+                  color: Color(0xffA0A0A0),
+                  size: 22,
                 ),
               ),
             ),

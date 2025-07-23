@@ -43,7 +43,10 @@ class ProfileListTileItem extends StatelessWidget {
             onTap: item.onTap,
           ),
         ),
-        const Divider(indent: 30, endIndent: 30),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          child: Divider(color: Color(0xffA0A0A0)),
+        ),
       ],
     );
   }

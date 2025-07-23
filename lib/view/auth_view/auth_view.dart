@@ -43,10 +43,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   textAlign: TextAlign.center,
                 ),
                 const Gap(25),
-                PinputWidget(
-                  controller: controller.controller,
-                  pin: controller.pin,
-                ),
+                PinputWidget(controller: controller.controller),
                 const Spacer(),
                 if (controller.biometricAvailable)
                   if (prefs!.getBool('biometric') ?? false)

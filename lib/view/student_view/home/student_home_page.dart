@@ -1,6 +1,7 @@
 // ignore_for_file: unused_local_variable
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/controller/student_controller/events/events_controller.dart';
 import 'package:smartpath/controller/student_controller/home/home_page_controller.dart';
@@ -103,9 +104,7 @@ class StudentHomePage extends StatelessWidget {
     return GetBuilder<HomePageController>(
       builder: (homePageController) {
         return (homePageController.isLoading)
-            ? const Center(
-              child: CircularProgressIndicator(color: Colors.indigo),
-            )
+            ? const Center(child: SpinKitSpinningLines(color: Colors.indigo))
             : (homePageController.errorMessage != null)
             ? Center(child: Image.asset(AppAssets.noInternet))
             : CustomScrollView(

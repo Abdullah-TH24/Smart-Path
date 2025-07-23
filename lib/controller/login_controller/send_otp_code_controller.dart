@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:smartpath/core/services/login_services/login_services.dart';
 
 class SendOtpCodeController extends GetxController {
-  final AuthService _authService = AuthService();
+  final LoginServices _authService = LoginServices();
 
   bool? response;
   bool isLoading = false;
