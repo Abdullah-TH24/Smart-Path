@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/core/utils/app_routes.dart';
 import 'package:smartpath/main.dart';
-import 'package:smartpath/view/librarian_view/librarian_routes.dart';
+import 'package:smartpath/view/librarian_view/utils/librarian_routes.dart';
 import 'package:smartpath/view/teacher_view/teacher_routes.dart';
 
 class LoginMiddleware extends GetMiddleware {
@@ -22,7 +22,7 @@ class LoginMiddleware extends GetMiddleware {
         return const RouteSettings(name: TeacherRoutes.students);
         // return const RouteSettings(name: AppRoutes.parentMainPageRoute);
         // TODO add parent main page to routes then uncomment the previous line
-      } else if (prefs!.getString('role') == 'librarian') {
+      } else if (prefs!.getString('role') == 'supervisor') {
         return const RouteSettings(name: LibrarianRoutes.mainHome);
       }
     }

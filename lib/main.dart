@@ -38,7 +38,7 @@ import 'package:smartpath/view/student_view/profile/settings/settings_page.dart'
 import 'package:smartpath/view/student_view/profile/settings/verify_pin_code.dart';
 import 'package:smartpath/view/student_view/student_main_page.dart';
 import 'package:smartpath/view/teacher_view/teacher_routes.dart';
-import 'package:smartpath/view/librarian_view/librarian_routes.dart';
+import 'package:smartpath/view/librarian_view/utils/librarian_routes.dart';
 
 SharedPreferences? prefs;
 

@@ -1,15 +1,39 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, prefer_final_locals
 
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:smartpath/main.dart';
 
 class Api {
-  Future<dynamic> get({required String url}) async {
-    // dynamic token = await TokenManage().getToken();
+  Future<dynamic> get({required String url, bool? withToken}) async {
+    dynamic token = prefs!.getString('token');
     // print(token);
-
-    final http.Response response = await http.get(Uri.parse(url));
+    if (withToken == true) {
+      // print(token);
+      final http.Response response = await http.get(
+        Uri.parse(url),
+        headers: {
+          'Authorization': 'Bearer $token',
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+      );
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        // print(jsonDecode(response.body));
+        return jsonDecode(response.body);
+      } else {
+        // print(jsonDecode(response.body));
+        throw Exception('Failed to load data : ${response.statusCode}');
+      }
+    }
+    final http.Response response = await http.get(
+      Uri.parse(url),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+    );
     if (response.statusCode == 200) {
       // print(jsonDecode(response.body));
       return jsonDecode(response.body);

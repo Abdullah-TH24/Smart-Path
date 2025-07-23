@@ -154,6 +154,11 @@ class ArabicEnglishLocal implements Translations {
       'button_visitF': 'Visit Facebook',
       //librarian
       'borrow_manage': 'Borrow management',
+      'lib_grid_1': 'Books',
+      'lib_grid_2': 'available books',
+      'lib_grid_3': 'Borrow request',
+      'lib_grid_4': 'Accepted request',
+      'lib_grid_5': 'Rejected request',
     },
     "ar": {
       'app_name': "المسار الذكي",
@@ -304,8 +309,7 @@ class ArabicEnglishLocal implements Translations {
       'button_send': 'أرسل بريداً إلكترونياً',
       'button_visitW': 'زر الموقع',
       'button_visitF': 'زر فيسبوك',
-      //librarian
-      'borrow_manage': 'ادارة الاستعارة',
+
       // For Events
       'one_comment': 'تعليق واحد',
       'two_comment': 'تعليقان',
@@ -336,6 +340,14 @@ class ArabicEnglishLocal implements Translations {
       'two_replies': 'ردان',
       'many_replies': 'ردود',
       'field_title': 'أكتب تعليق...',
+
+      //librarian
+      'borrow_manage': 'ادارة الاستعارة',
+      'lib_grid_1': 'الكتب',
+      'lib_grid_2': 'الكتب المتاحة',
+      'lib_grid_3': 'طلب استعارة',
+      'lib_grid_4': 'الطلبات المقبولة',
+      'lib_grid_5': 'الطلبات المرفوضة',
     },
   };
 }

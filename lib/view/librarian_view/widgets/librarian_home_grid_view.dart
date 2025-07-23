@@ -14,7 +14,6 @@ class LibrarianHomeGridView extends StatelessWidget {
       sliver: SliverGrid.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
-          childAspectRatio: 2.77 / 2.5,
         ),
         itemBuilder:
             (context, index) => GestureDetector(
@@ -27,6 +26,7 @@ class LibrarianHomeGridView extends StatelessWidget {
                     SvgPicture.asset(gridItems[index].assetName, width: 28),
                     Container(
                       alignment: Alignment.bottomCenter,
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Text(
                         gridItems[index].title,
                         style: AppStyles.styleRegular12(),

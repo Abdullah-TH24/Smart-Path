@@ -25,7 +25,6 @@ class _LibrarianMainHomePageState extends State<LibrarianMainHomePage> {
     // Initial page at <home>
     final pages = [
       const LibrarianHomePage(),
-      const LibrarianBorrowedBooksManagmentPage(),
       const LibrarianAddBookPage(),
       const LibrarianComplaintPage(),
     ];
@@ -39,15 +38,7 @@ class _LibrarianMainHomePageState extends State<LibrarianMainHomePage> {
         title: Text('home'.tr),
         activeIcon: SvgPicture.asset(AppAssets.libHome),
       ),
-      BottomBarItemModel(
-        icon: SvgPicture.asset(
-          AppAssets.iconArticle,
-          colorFilter: ColorFilter.mode(Colors.grey[400]!, BlendMode.srcIn),
-          width: 20,
-        ),
-        title: Text('borrow_manage'.tr),
-        activeIcon: SvgPicture.asset(AppAssets.borrowManage, width: 30),
-      ),
+
       BottomBarItemModel(
         icon: SvgPicture.asset(
           AppAssets.iconInputInactive,
