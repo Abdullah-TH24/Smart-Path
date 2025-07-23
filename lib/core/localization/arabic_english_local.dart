@@ -159,6 +159,7 @@ class ArabicEnglishLocal implements Translations {
       'lib_grid_3': 'Borrow request',
       'lib_grid_4': 'Accepted request',
       'lib_grid_5': 'Rejected request',
+      'books': 'Books',
     },
     "ar": {
       'app_name': "المسار الذكي",
@@ -348,6 +349,7 @@ class ArabicEnglishLocal implements Translations {
       'lib_grid_3': 'طلب استعارة',
       'lib_grid_4': 'الطلبات المقبولة',
       'lib_grid_5': 'الطلبات المرفوضة',
+      'books': 'الكتب',
     },
   };
 }

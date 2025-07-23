@@ -100,7 +100,7 @@ class StudentProfilePage extends StatelessWidget {
                     pinned: true,
                     expandedHeight: 80,
                     flexibleSpace: FlexibleSpaceBar(
-                      background: const UpperWaves(),
+                      background: UpperWaves(),
                       titlePadding: const EdgeInsets.only(
                         left: 16,
                         bottom: 8,

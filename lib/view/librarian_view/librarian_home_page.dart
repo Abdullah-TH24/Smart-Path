@@ -10,6 +10,7 @@ import 'package:smartpath/core/utils/app_assets.dart';
 import 'package:smartpath/core/utils/app_routes.dart';
 import 'package:smartpath/main.dart';
 import 'package:smartpath/models/student_model/home/grid_item_model.dart';
+import 'package:smartpath/view/librarian_view/utils/librarian_routes.dart';
 import 'package:smartpath/view/librarian_view/widgets/librarian_home_grid_view.dart';
 import 'package:smartpath/widgets/student/home/events_in_home_page.dart';
 import 'package:smartpath/widgets/student/home/my_custom_app_bar_delegate.dart';
@@ -25,6 +26,7 @@ class LibrarianHomePage extends StatelessWidget {
       onTap: () {
         // dynamic data = await GetBooksService().fetchBooks();
         // log(data[1].serialNumber + " " + data[0].serialNumber);
+        Get.toNamed(LibrarianRoutes.books);
       },
     ),
     GridItemModel(

@@ -33,7 +33,7 @@ class AppBarComponent extends StatelessWidget {
               )
               : null,
       flexibleSpace: FlexibleSpaceBar(
-        background: const UpperWaves(),
+        background: UpperWaves(),
         centerTitle: true,
         title: Text(
           data,

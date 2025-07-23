@@ -26,7 +26,7 @@ class LibrarianRoutes {
       name: borrowedBooksManagement,
       page: () => const LibrarianBorrowedBooksManagmentPage(),
     ),
-    GetPage(name: home, page: () => LibrarianHomePage()),
+    GetPage(name: home, page: () => const LibrarianHomePage()),
     GetPage(name: mainHome, page: () => const LibrarianMainHomePage()),
   ];
 }

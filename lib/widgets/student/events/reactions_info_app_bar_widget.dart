@@ -23,7 +23,7 @@ class ReactionsInfoAppBar extends StatelessWidget {
           color: Colors.indigo,
         ),
       ),
-      flexibleSpace: const FlexibleSpaceBar(background: UpperWaves()),
+      flexibleSpace: FlexibleSpaceBar(background: UpperWaves()),
     );
   }
 }

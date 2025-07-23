@@ -46,7 +46,7 @@ class LockAppAppBarWidget extends StatelessWidget {
         },
       ),
       flexibleSpace: FlexibleSpaceBar(
-        background: const UpperWaves(),
+        background: UpperWaves(),
         centerTitle: true,
         title: Text(
           'Lock App'.tr,
