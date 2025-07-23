@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/controller/localization_controller/localization_controller.dart';
 import 'package:smartpath/controller/student_controller/home/calendar/schedule_controller.dart';
@@ -33,7 +34,7 @@ class Schedule extends StatelessWidget {
                   child: SizedBox(
                     height: Get.height - 120,
                     child: const Center(
-                      child: CircularProgressIndicator(color: Colors.indigo),
+                      child: SpinKitSpinningLines(color: Colors.indigo),
                     ),
                   ),
                 );

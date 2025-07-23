@@ -18,7 +18,11 @@ class ProfileNamePhotoRow extends StatelessWidget {
     return Row(
       children: [
         const Gap(16),
-        const CircleAvatar(radius: 40, child: Icon(LucideIcons.camera)),
+        CircleAvatar(
+          radius: 40,
+          backgroundColor: Colors.indigo[100],
+          child: const Icon(LucideIcons.camera),
+        ),
         const Gap(24),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,

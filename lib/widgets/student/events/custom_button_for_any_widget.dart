@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:smartpath/controller/student_controller/events/all_reactions_controller.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
 
@@ -61,7 +62,8 @@ class CustomButtonForAny extends StatelessWidget {
         ),
         child: Center(
           child: Text(
-            '${controller.allReactions![index - 1].reactionType![0].toUpperCase()}${controller.allReactions![index - 1].reactionType!.substring(1)}',
+            '${controller.allReactions![index - 1].reactionType![0].toUpperCase()}${controller.allReactions![index - 1].reactionType!.substring(1)}'
+                .tr,
             style: AppStyles.styleRegular16().copyWith(
               color:
                   controller.tabIndex == index

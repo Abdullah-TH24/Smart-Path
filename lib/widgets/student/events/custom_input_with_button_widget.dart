@@ -76,11 +76,7 @@ class CustomInputWithButton extends StatelessWidget {
                       events.getAllPublishedEvents(prefs!.getString('token')!);
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text(
-                            'Please check your internet connection and try again',
-                          ),
-                        ),
+                        SnackBar(content: Text('comment_error'.tr)),
                       );
                     }
                   }
@@ -102,11 +98,7 @@ class CustomInputWithButton extends StatelessWidget {
                       events.getAllPublishedEvents(prefs!.getString('token')!);
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text(
-                            'Please check your internet connection and try again',
-                          ),
-                        ),
+                        SnackBar(content: Text('comment_error'.tr)),
                       );
                     }
                   }
@@ -128,11 +120,7 @@ class CustomInputWithButton extends StatelessWidget {
                       events.getAllPublishedEvents(prefs!.getString('token')!);
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text(
-                            'Please check your internet connection and try again',
-                          ),
-                        ),
+                        SnackBar(content: Text('comment_error'.tr)),
                       );
                     }
                   }

@@ -60,7 +60,12 @@ class _AnimatedStudentMarkCircleState extends State<AnimatedStudentMarkCircle>
               child: Text(
                 '$currentMark%',
                 style: AppStyles.styleBold24().copyWith(
-                  color: isLowMark ? Colors.red[900] : Colors.indigo,
+                  color:
+                      (currentMark == 0)
+                          ? Colors.indigo
+                          : isLowMark
+                          ? Colors.red[900]
+                          : Colors.indigo,
                 ),
               ),
             ),

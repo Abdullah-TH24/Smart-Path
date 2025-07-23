@@ -8,8 +8,13 @@ Future navigateToNextPage() async {
   if (hasNavigated) return;
   hasNavigated = true;
   await Future.delayed(const Duration(seconds: 3));
-  if (prefs!.getBool('lock_screen') ?? false) {
-    Get.offAllNamed(AppRoutes.authRoute);
+  if (prefs!.getString('role') != null &&
+      prefs!.getString('role') == 'student') {
+    if (prefs!.getBool('lock_screen') ?? false) {
+      Get.offAllNamed(AppRoutes.authRoute);
+    } else {
+      Get.offAllNamed(AppRoutes.introductionPagesRoute);
+    }
   } else {
     Get.offAllNamed(AppRoutes.introductionPagesRoute);
   }

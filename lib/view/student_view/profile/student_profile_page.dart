@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/controller/localization_controller/localization_controller.dart';
@@ -30,7 +31,6 @@ class StudentProfilePage extends StatelessWidget {
         title: "profile_info_title".tr,
         assetName: AppAssets.iconEditProfile,
         onTap: () {
-          locale.changeLanguage('en');
           Get.toNamed(
             AppRoutes.studentProfileInfo,
             arguments: controller.studentInfo,
@@ -89,9 +89,7 @@ class StudentProfilePage extends StatelessWidget {
       init: HomePageController(),
       builder: (controller) {
         return (controller.isLoading)
-            ? const Center(
-              child: CircularProgressIndicator(color: Colors.indigo),
-            )
+            ? const Center(child: SpinKitSpinningLines(color: Colors.indigo))
             : (controller.errorMessage != null)
             ? Center(child: Image.asset(AppAssets.noInternet))
             : Scaffold(

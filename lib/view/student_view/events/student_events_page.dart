@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
@@ -44,9 +45,7 @@ class StudentEventsPage extends StatelessWidget {
                     ? Container(
                       height: Get.height - 225,
                       alignment: Alignment.center,
-                      child: const CircularProgressIndicator(
-                        color: Colors.indigo,
-                      ),
+                      child: const SpinKitSpinningLines(color: Colors.indigo),
                     )
                     : (controller.errorMessage != null)
                     ? Container(
@@ -153,8 +152,8 @@ class StudentEventsPage extends StatelessWidget {
                                               ),
                                           const Gap(10),
                                           Text(
-                                            reaction.text[0].toUpperCase() +
-                                                reaction.text.substring(1),
+                                            '${reaction.text[0].toUpperCase()}${reaction.text.substring(1)}'
+                                                .tr,
                                             style: TextStyle(
                                               color: reaction.color,
                                             ),
@@ -165,7 +164,7 @@ class StudentEventsPage extends StatelessWidget {
                                   ),
                                   // <Comments> Button
                                   CustomTextButton(
-                                    title: 'Comment',
+                                    title: 'comment_button'.tr,
                                     icon: Icons.mode_comment_outlined,
                                     onPressed: () {
                                       Get.toNamed(
@@ -176,7 +175,7 @@ class StudentEventsPage extends StatelessWidget {
                                   ),
                                   // <Share> Button ::This Only
                                   CustomTextButton(
-                                    title: 'Share',
+                                    title: 'share_button'.tr,
                                     icon: LucideIcons.share2,
                                     onPressed: () {},
                                   ),

@@ -59,7 +59,7 @@ class OptionsOnCommentWidget extends StatelessWidget {
                 borderRadius: BorderRadiusGeometry.circular(12.5),
               ),
             ),
-            child: const Text('Edit Comment'),
+            child: Text('edit_button'.tr),
           ),
           const Gap(10),
           // Repert Comment
@@ -70,7 +70,7 @@ class OptionsOnCommentWidget extends StatelessWidget {
                 borderRadius: BorderRadiusGeometry.circular(12.5),
               ),
             ),
-            child: const Text('Report Comment'),
+            child: Text('report_button'.tr),
           ),
           const Gap(10),
           // Delete Comment ::Done
@@ -98,13 +98,9 @@ class OptionsOnCommentWidget extends StatelessWidget {
                 controller.getEventComments(prefs!.getString('token')!, id);
                 events.getAllPublishedEvents(prefs!.getString('token')!);
               } else {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text(
-                      'Please check your internet connection and try again',
-                    ),
-                  ),
-                );
+                ScaffoldMessenger.of(
+                  context,
+                ).showSnackBar(SnackBar(content: Text('comment_error'.tr)));
               }
             },
             style: ElevatedButton.styleFrom(
@@ -112,7 +108,7 @@ class OptionsOnCommentWidget extends StatelessWidget {
                 borderRadius: BorderRadiusGeometry.circular(12.5),
               ),
             ),
-            child: const Text('Delete Comment'),
+            child: Text('delete_button'.tr),
           ),
         ],
       ),

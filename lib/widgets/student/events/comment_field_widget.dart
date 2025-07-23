@@ -19,7 +19,7 @@ class CommentField extends StatelessWidget {
         focusNode: commentFocus,
         controller: comment,
         decoration: InputDecoration(
-          hint: const Text('Write a comment ...'),
+          hint: Text('field_title'.tr),
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.5)),
           isDense: true,
           contentPadding: const EdgeInsets.symmetric(

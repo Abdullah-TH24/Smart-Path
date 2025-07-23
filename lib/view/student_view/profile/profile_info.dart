@@ -54,7 +54,11 @@ class ProfileInfo extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const CircleAvatar(radius: 50, child: Icon(LucideIcons.camera)),
+                CircleAvatar(
+                  radius: 50,
+                  backgroundColor: Colors.indigo[100],
+                  child: const Icon(LucideIcons.camera),
+                ),
                 const Gap(25),
                 Text(
                   '${studentInfo.fullName!.split(' ')[0][0].toUpperCase()}${studentInfo.fullName!.split(' ')[0].substring(1)} ${studentInfo.fullName!.split(' ')[2][0].toUpperCase()}${studentInfo.fullName!.split(' ')[2].substring(1)}',
