@@ -5,10 +5,10 @@ import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:smartpath/core/utils/app_assets.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:smartpath/models/student_model/bottom_bar_item_model.dart';
-import 'package:smartpath/view/student_view/data/student_data_page.dart';
-import 'package:smartpath/view/student_view/home/student_home_page.dart';
-import 'package:smartpath/view/student_view/events/student_events_page.dart';
-import 'package:smartpath/view/student_view/profile/student_profile_page.dart';
+import 'package:smartpath/view/librarian_view/librarian_add_book_page.dart';
+import 'package:smartpath/view/librarian_view/librarian_borrowed_books_managment_page.dart';
+import 'package:smartpath/view/librarian_view/librarian_complaint_page.dart';
+import 'package:smartpath/view/librarian_view/librarian_home_page.dart';
 
 class LibrarianMainHomePage extends StatefulWidget {
   const LibrarianMainHomePage({super.key});
@@ -23,11 +23,11 @@ class _LibrarianMainHomePageState extends State<LibrarianMainHomePage> {
   @override
   Widget build(BuildContext context) {
     // Initial page at <home>
-    final pages = <StatelessWidget>[
-      const StudentHomePage(),
-      const StudentEventsPage(),
-      const StudentDataPage(),
-      StudentProfilePage(),
+    final pages = [
+      LibrarianHomePage(),
+      const LibrarianBorrowedBooksManagmentPage(),
+      const LibrarianAddBookPage(),
+      const LibrarianComplaintPage(),
     ];
     // Items of bottom bar
     final items = <BottomBarItemModel>[
@@ -37,7 +37,7 @@ class _LibrarianMainHomePageState extends State<LibrarianMainHomePage> {
           colorFilter: ColorFilter.mode(Colors.grey[400]!, BlendMode.srcIn),
         ),
         title: Text('home'.tr),
-        activeIcon: SvgPicture.asset(AppAssets.iconHomeActive),
+        activeIcon: SvgPicture.asset(AppAssets.libHome),
       ),
       BottomBarItemModel(
         icon: SvgPicture.asset(
@@ -45,8 +45,8 @@ class _LibrarianMainHomePageState extends State<LibrarianMainHomePage> {
           colorFilter: ColorFilter.mode(Colors.grey[400]!, BlendMode.srcIn),
           width: 20,
         ),
-        title: Text('grid_item_name_7'.tr),
-        activeIcon: SvgPicture.asset(AppAssets.iconArticle, width: 20),
+        title: Text('borrow_manage'.tr),
+        activeIcon: SvgPicture.asset(AppAssets.borrowManage, width: 30),
       ),
       BottomBarItemModel(
         icon: SvgPicture.asset(
@@ -54,7 +54,7 @@ class _LibrarianMainHomePageState extends State<LibrarianMainHomePage> {
           colorFilter: ColorFilter.mode(Colors.grey[400]!, BlendMode.srcIn),
         ),
         title: Text('input'.tr),
-        activeIcon: SvgPicture.asset(AppAssets.iconInputEnabled),
+        activeIcon: SvgPicture.asset(AppAssets.addBook),
       ),
       BottomBarItemModel(
         icon: SvgPicture.asset(
@@ -68,22 +68,27 @@ class _LibrarianMainHomePageState extends State<LibrarianMainHomePage> {
     return Scaffold(
       extendBody: true,
       body: pages[pageIndex],
-      bottomNavigationBar: SalomonBottomBar(
-        backgroundColor: Colors.indigo[50],
-        curve: Curves.decelerate,
-        selectedColorOpacity: .25,
-        itemShape: RoundedRectangleBorder(
-          borderRadius: BorderRadiusGeometry.circular(18),
-        ),
-        currentIndex: pageIndex,
-        onTap: (page) => setState(() => pageIndex = page),
-        items: List.generate(
-          pages.length,
-          // <Icon, title and activeIcon> * 4
-          (index) => SalomonBottomBarItem(
-            icon: items[index].icon,
-            title: items[index].title,
-            activeIcon: items[index].activeIcon,
+      bottomNavigationBar: FittedBox(
+        fit: BoxFit.scaleDown,
+        child: SalomonBottomBar(
+          itemPadding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+          backgroundColor: Colors.indigo[50],
+          curve: Curves.decelerate,
+          selectedItemColor: Colors.brown,
+          selectedColorOpacity: .25,
+          itemShape: RoundedRectangleBorder(
+            borderRadius: BorderRadiusGeometry.circular(18),
+          ),
+          currentIndex: pageIndex,
+          onTap: (page) => setState(() => pageIndex = page),
+          items: List.generate(
+            pages.length,
+            // <Icon, title and activeIcon> * 4
+            (index) => SalomonBottomBarItem(
+              icon: items[index].icon,
+              title: items[index].title,
+              activeIcon: items[index].activeIcon,
+            ),
           ),
         ),
       ),

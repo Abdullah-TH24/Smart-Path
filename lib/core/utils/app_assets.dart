@@ -59,6 +59,30 @@ class AppAssets {
   static const String iconInputEnabled = "assets/icons/input_enabled.svg";
 
   static const String secondLogo = "assets/icons/second_logo.svg";
+  static const String iconAddBook = "assets/icons/icon_add_book.svg";
+  static const String iconBorrowedBooks =
+      "assets/icons/icon_borrowed_books.svg";
+  static const String iconAvailableBooks =
+      "assets/icons/icon_available_books.svg";
+
+  static const String addBookSvg = "assets/icons/add_book.svg";
+
+  //librarian
+  static const String addBook =
+      "assets/icons/librarian/icon_add_book_enabled.svg";
+  static const String libHome =
+      "assets/icons/librarian/icon_librarian_home.svg";
+  static const String borrowManage =
+      "assets/icons/librarian/icon_borrow_manage.svg";
+  static const String iconAcceptBorrow =
+      "assets/icons/librarian/icon_accept_borrow.svg";
+  static const String iconBorrowRequest =
+      "assets/icons/librarian/icon_borrow_request.svg";
+  static const String iconRejectBorrow =
+      "assets/icons/librarian/icon_reject_borrow.svg";
+  static const String iconBookShelf =
+      "assets/icons/librarian/icon_book_shelf.svg";
+  static const String iconBooks = "assets/icons/librarian/icon_books.svg";
 
   // PNG
   static const String pngLogo = "assets/images/logo.png";

@@ -152,6 +152,8 @@ class ArabicEnglishLocal implements Translations {
       'button_send': 'Send Email',
       'button_visitW': 'Visit Website',
       'button_visitF': 'Visit Facebook',
+      //librarian
+      'borrow_manage': 'Borrow management',
     },
     "ar": {
       'app_name': "المسار الذكي",
@@ -302,6 +304,8 @@ class ArabicEnglishLocal implements Translations {
       'button_send': 'أرسل بريداً إلكترونياً',
       'button_visitW': 'زر الموقع',
       'button_visitF': 'زر فيسبوك',
+      //librarian
+      'borrow_manage': 'ادارة الاستعارة',
     },
   };
 }
