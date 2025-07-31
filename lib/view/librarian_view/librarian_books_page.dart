@@ -3,12 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-
+import 'package:get/get_utils/get_utils.dart';
 import 'package:smartpath/controller/librarian_controller/cubit/books_cubit.dart';
 import 'package:smartpath/core/services/librarian_services/get_books_service.dart';
-import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/view/librarian_view/widgets/librarian_wave_app_bar.dart';
-import 'package:smartpath/widgets/student/profile/upper_waves_component.dart';
 
 class LibrarianBooksPage extends StatelessWidget {
   const LibrarianBooksPage({super.key});
@@ -21,7 +19,7 @@ class LibrarianBooksPage extends StatelessWidget {
         create: (context) => BooksCubit(GetBooksService())..fetchBooks(),
         child: CustomScrollView(
           slivers: [
-            LibrarianWaveAppBar(),
+            LibrarianWaveAppBar(title: 'books'.tr),
             BlocConsumer<BooksCubit, BooksState>(
               listener: (context, state) {},
               builder: (context, state) {

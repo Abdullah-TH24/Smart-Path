@@ -160,6 +160,18 @@ class ArabicEnglishLocal implements Translations {
       'lib_grid_4': 'Accepted request',
       'lib_grid_5': 'Rejected request',
       'books': 'Books',
+      // librarian add a book
+      'add_book': 'Add Book',
+      'title': 'Title',
+      'author': 'Author',
+      'category': 'Category',
+      'publisher': 'Publisher',
+      'serial_number': 'Serial Number',
+      'shelf_location': 'Shelf Location',
+      'description': 'Description',
+      'add_book_success': 'Book added successfully!',
+      'required_field': 'This field is required',
+      'submit': 'Submit',
     },
     "ar": {
       'app_name': "المسار الذكي",
@@ -350,6 +362,18 @@ class ArabicEnglishLocal implements Translations {
       'lib_grid_4': 'الطلبات المقبولة',
       'lib_grid_5': 'الطلبات المرفوضة',
       'books': 'الكتب',
+      // librarian add a book
+      'add_book': 'إضافة كتاب',
+      'title': 'العنوان',
+      'author': 'المؤلف',
+      'category': 'الفئة',
+      'publisher': 'الناشر',
+      'serial_number': 'الرقم التسلسلي',
+      'shelf_location': 'مكان الرف',
+      'description': 'الوصف',
+      'add_book_success': 'تمت إضافة الكتاب بنجاح!',
+      'required_field': 'هذا الحقل مطلوب',
+      'submit': 'إرسال',
     },
   };
 }

@@ -53,4 +53,5 @@ abstract class AppLinks {
 
   //librarian api's
   static final String getBooks = '$_mainLink/showBooks';
+  static final String addBook = '$_mainLink/createBook';
 }
