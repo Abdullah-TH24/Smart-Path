@@ -172,6 +172,13 @@ class ArabicEnglishLocal implements Translations {
       'add_book_success': 'Book added successfully!',
       'required_field': 'This field is required',
       'submit': 'Submit',
+      'edit': 'Edit',
+      'delete': 'Delete',
+      'delete_confirm': 'Are you sure you want to delete this book?',
+      'ok': 'Ok',
+      'yes': 'Yes',
+      'no': 'No',
+      'cancel': 'Cancel',
     },
     "ar": {
       'app_name': "المسار الذكي",
@@ -374,6 +381,12 @@ class ArabicEnglishLocal implements Translations {
       'add_book_success': 'تمت إضافة الكتاب بنجاح!',
       'required_field': 'هذا الحقل مطلوب',
       'submit': 'إرسال',
+      'edit': 'تعديل',
+      'delete': 'حذف',
+      'delete_confirm': 'هل أنت متأكد أنك تريد حذف هذا الكتاب؟',
+      'ok': 'حسنا',
+      'yes': 'نعم',
+      'no': 'لا',
     },
   };
 }

@@ -1,11 +1,13 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:get/get.dart';
 import 'package:get/get_utils/get_utils.dart';
+import 'package:get/utils.dart';
 import 'package:smartpath/controller/librarian_controller/cubit/books_cubit.dart';
 import 'package:smartpath/core/services/librarian_services/get_books_service.dart';
+import 'package:smartpath/view/librarian_view/widgets/book_card.dart';
+import 'package:smartpath/view/librarian_view/widgets/book_details_bottom_sheet.dart';
+import 'package:smartpath/view/librarian_view/widgets/librarian_loading_indicator.dart';
 import 'package:smartpath/view/librarian_view/widgets/librarian_wave_app_bar.dart';
 
 class LibrarianBooksPage extends StatelessWidget {
@@ -24,14 +26,22 @@ class LibrarianBooksPage extends StatelessWidget {
               listener: (context, state) {},
               builder: (context, state) {
                 if (state is BooksLoading) {
-                  return LibrarianLoadingIndicator();
+                  return const LibrarianLoadingIndicator();
                 } else if (state is BooksLoaded) {
                   return SliverList(
                     delegate: SliverChildBuilderDelegate((context, index) {
                       final book = state.books[index];
-                      return ListTile(
-                        title: Text(book.title),
-                        subtitle: Text(book.author),
+                      return GestureDetector(
+                        onTap: () {
+                          //show book details in bottom sheet with ok button and edit button on the bottom
+                          showModalBottomSheet(
+                            context: context,
+                            builder: (context) {
+                              return BookDetailsBottomSheet(book: book);
+                            },
+                          );
+                        },
+                        child: BookCard(book: book),
                       );
                     }, childCount: state.books.length),
                   );
@@ -40,28 +50,13 @@ class LibrarianBooksPage extends StatelessWidget {
                     child: Center(child: Text(state.message)),
                   );
                 }
-
-                return SliverToBoxAdapter(
+                return const SliverToBoxAdapter(
                   child: Center(child: Text('No state yet.')),
                 );
               },
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class LibrarianLoadingIndicator extends StatelessWidget {
-  const LibrarianLoadingIndicator({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.6, // or double.infinity
-        child: Center(child: SpinKitFadingCube(color: Colors.brown[400])),
       ),
     );
   }

@@ -6,7 +6,6 @@ import 'package:smartpath/core/utils/app_assets.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:smartpath/models/student_model/bottom_bar_item_model.dart';
 import 'package:smartpath/view/librarian_view/librarian_add_book_page.dart';
-import 'package:smartpath/view/librarian_view/librarian_borrowed_books_managment_page.dart';
 import 'package:smartpath/view/librarian_view/librarian_complaint_page.dart';
 import 'package:smartpath/view/librarian_view/librarian_home_page.dart';
 
@@ -17,28 +16,19 @@ class LibrarianMainHomePage extends StatefulWidget {
   State<LibrarianMainHomePage> createState() => _LibrarianMainHomePageState();
 }
 
-int pageIndex = 0;
+int pageIndex = 1;
 
 class _LibrarianMainHomePageState extends State<LibrarianMainHomePage> {
   @override
   Widget build(BuildContext context) {
     // Initial page at <home>
     final pages = [
-      const LibrarianHomePage(),
       const LibrarianAddBookPage(),
+      const LibrarianHomePage(),
       const LibrarianComplaintPage(),
     ];
     // Items of bottom bar
     final items = <BottomBarItemModel>[
-      BottomBarItemModel(
-        icon: SvgPicture.asset(
-          AppAssets.iconHomeInactive,
-          colorFilter: ColorFilter.mode(Colors.grey[400]!, BlendMode.srcIn),
-        ),
-        title: Text('home'.tr),
-        activeIcon: SvgPicture.asset(AppAssets.libHome),
-      ),
-
       BottomBarItemModel(
         icon: SvgPicture.asset(
           AppAssets.iconInputInactive,
@@ -46,6 +36,14 @@ class _LibrarianMainHomePageState extends State<LibrarianMainHomePage> {
         ),
         title: Text('input'.tr),
         activeIcon: SvgPicture.asset(AppAssets.addBook),
+      ),
+      BottomBarItemModel(
+        icon: SvgPicture.asset(
+          AppAssets.iconHomeInactive,
+          colorFilter: ColorFilter.mode(Colors.grey[400]!, BlendMode.srcIn),
+        ),
+        title: Text('home'.tr),
+        activeIcon: SvgPicture.asset(AppAssets.libHome),
       ),
       BottomBarItemModel(
         icon: SvgPicture.asset(

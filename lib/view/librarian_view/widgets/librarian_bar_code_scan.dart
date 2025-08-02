@@ -1,11 +1,8 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:lucide_icons/lucide_icons.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:smartpath/controller/librarian_controller/cubit/bar_code_cubit.dart';
 
@@ -23,7 +20,7 @@ class _LibrarianBarCodeScanState extends State<LibrarianBarCodeScan> {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        minimumSize: Size(40, 45),
+        minimumSize: const Size(40, 45),
         backgroundColor: Colors.brown,
         foregroundColor: const Color.fromARGB(198, 241, 231, 220),
         shape: RoundedRectangleBorder(
@@ -42,10 +39,10 @@ class _LibrarianBarCodeScanState extends State<LibrarianBarCodeScan> {
         );
         log(result);
         if (result != null) {
-          context.read<BarcodeCubit>().setBarcode(result);
+          context.read<BarcodeCubitAdd>().setBarcode(result);
         }
       },
-      child: Icon(Icons.qr_code_2_outlined, size: 25),
+      child: const Icon(Icons.qr_code_2_outlined, size: 25),
     );
   }
 }

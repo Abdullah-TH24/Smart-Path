@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:get/get.dart';
 import 'package:smartpath/core/services/login_services/login_services.dart';
+import 'package:smartpath/main.dart';
 import 'package:smartpath/models/login_model/user_model.dart';
 
 class LoginController extends GetxController {
@@ -20,6 +21,7 @@ class LoginController extends GetxController {
 
     if (result != null) {
       log(result.role);
+      log(prefs!.getString('token')!);
       response = result;
     } else {
       errorMessage = 'error_message'.tr;

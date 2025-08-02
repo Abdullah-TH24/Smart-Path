@@ -16,17 +16,35 @@ class LibrarianRoutes {
   static const String mainHome = '/librarian/main_home';
 
   static final List<GetPage> routes = [
-    GetPage(name: addBook, page: () => const LibrarianAddBookPage()),
+    GetPage(
+      name: addBook,
+      transition: Transition.cupertinoDialog,
+      page: () => const LibrarianAddBookPage(),
+    ),
     GetPage(
       name: availableBooks,
+      transition: Transition.cupertinoDialog,
       page: () => const LibrarianAvailableBooksPage(),
     ),
-    GetPage(name: books, page: () => const LibrarianBooksPage()),
+    GetPage(
+      name: books,
+      transition: Transition.cupertinoDialog,
+      page: () => const LibrarianBooksPage(),
+    ),
     GetPage(
       name: borrowedBooksManagement,
+      transition: Transition.cupertinoDialog,
       page: () => const LibrarianBorrowedBooksManagmentPage(),
     ),
-    GetPage(name: home, page: () => const LibrarianHomePage()),
-    GetPage(name: mainHome, page: () => const LibrarianMainHomePage()),
+    GetPage(
+      name: home,
+      transition: Transition.cupertinoDialog,
+      page: () => const LibrarianHomePage(),
+    ),
+    GetPage(
+      name: mainHome,
+      transition: Transition.cupertinoDialog,
+      page: () => const LibrarianMainHomePage(),
+    ),
   ];
 }

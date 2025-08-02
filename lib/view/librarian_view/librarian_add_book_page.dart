@@ -79,12 +79,12 @@ class _AddBookPageState extends State<LibrarianAddBookPage> {
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: BlocProvider(
-                create: (_) => BarcodeCubit(),
+                create: (_) => BarcodeCubitAdd(),
                 child: Form(
                   key: _formKey,
                   child: Column(
                     children: [
-                      BlocListener<BarcodeCubit, String?>(
+                      BlocListener<BarcodeCubitAdd, String?>(
                         listener: (context, barcode) {
                           if (barcode != null) {
                             _serialNumberController.text = barcode;

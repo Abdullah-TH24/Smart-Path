@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class BarcodeCubit extends Cubit<String?> {
-  BarcodeCubit() : super(null);
+class BarcodeCubitAdd extends Cubit<String?> {
+  BarcodeCubitAdd() : super(null);
 
   void setBarcode(String barcode) {
     emit(barcode);
