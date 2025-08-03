@@ -1,10 +1,12 @@
 import 'package:get/get.dart';
+import 'package:smartpath/models/librarian_model/book_model.dart';
 import 'package:smartpath/view/librarian_view/librarian_add_book_page.dart';
 import 'package:smartpath/view/librarian_view/librarian_available_books_page.dart';
 import 'package:smartpath/view/librarian_view/librarian_books_page.dart';
 import 'package:smartpath/view/librarian_view/librarian_borrowed_books_managment_page.dart';
 import 'package:smartpath/view/librarian_view/librarian_home_page.dart';
 import 'package:smartpath/view/librarian_view/librarian_main_home_page.dart';
+import 'package:smartpath/view/librarian_view/librarian_update_book_page.dart';
 
 class LibrarianRoutes {
   static const String addBook = '/librarian/add_book';
@@ -14,6 +16,7 @@ class LibrarianRoutes {
       '/librarian/borrowed_books_management';
   static const String home = '/librarian/home';
   static const String mainHome = '/librarian/main_home';
+  static const String updateBook = '/librarian/update_book';
 
   static final List<GetPage> routes = [
     GetPage(
@@ -45,6 +48,14 @@ class LibrarianRoutes {
       name: mainHome,
       transition: Transition.cupertinoDialog,
       page: () => const LibrarianMainHomePage(),
+    ),
+    GetPage(
+      name: LibrarianRoutes.updateBook,
+      transition: Transition.cupertinoDialog,
+      page: () {
+        final book = Get.arguments as BookModel;
+        return LibrarianUpdateBookPage(book: book);
+      },
     ),
   ];
 }

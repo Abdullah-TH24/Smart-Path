@@ -10,7 +10,7 @@ import 'package:smartpath/models/librarian_model/book_model.dart';
 part 'books_state.dart';
 
 class BooksCubit extends Cubit<BooksState> {
-  final GetBooksService booksService;
+  final BooksService booksService;
 
   BooksCubit(this.booksService) : super(BooksInitial());
 
@@ -20,6 +20,36 @@ class BooksCubit extends Cubit<BooksState> {
       final books = await booksService.fetchBooks();
       log(books[0].title);
       emit(BooksLoaded(books));
+    } catch (e) {
+      emit(BooksError(e.toString()));
+    }
+  }
+
+  Future addBook(Map<String, dynamic> bookdata) async {
+    try {
+      emit(BooksLoading());
+      await booksService.addBook(bookdata);
+      emit(BookAdded());
+    } catch (e) {
+      emit(BooksError(e.toString()));
+    }
+  }
+
+  Future updateBook(Map<String, dynamic> bookdata, num id) async {
+    try {
+      emit(BooksLoading());
+      await booksService.updateBook(bookdata, id);
+      emit(BookUpdated());
+    } catch (e) {
+      emit(BooksError(e.toString()));
+    }
+  }
+
+  Future deleteBook(num id) async {
+    try {
+      emit(BooksLoading());
+      await booksService.deleteBook(id);
+      emit(BookDeleted());
     } catch (e) {
       emit(BooksError(e.toString()));
     }

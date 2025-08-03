@@ -6,8 +6,8 @@ import 'package:smartpath/core/utils/app_assets.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:smartpath/models/student_model/bottom_bar_item_model.dart';
 import 'package:smartpath/view/librarian_view/librarian_add_book_page.dart';
-import 'package:smartpath/view/librarian_view/librarian_complaint_page.dart';
 import 'package:smartpath/view/librarian_view/librarian_home_page.dart';
+import 'package:smartpath/view/librarian_view/librarian_profile_page.dart';
 
 class LibrarianMainHomePage extends StatefulWidget {
   const LibrarianMainHomePage({super.key});
@@ -25,7 +25,7 @@ class _LibrarianMainHomePageState extends State<LibrarianMainHomePage> {
     final pages = [
       const LibrarianAddBookPage(),
       const LibrarianHomePage(),
-      const LibrarianComplaintPage(),
+      const LibrarianProfilePage(),
     ];
     // Items of bottom bar
     final items = <BottomBarItemModel>[

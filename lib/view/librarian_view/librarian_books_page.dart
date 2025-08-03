@@ -18,12 +18,30 @@ class LibrarianBooksPage extends StatelessWidget {
     return Scaffold(
       body: BlocProvider(
         //get the book on the moment the cubit created
-        create: (context) => BooksCubit(GetBooksService())..fetchBooks(),
+        create: (context) => BooksCubit(BooksService())..fetchBooks(),
         child: CustomScrollView(
           slivers: [
             LibrarianWaveAppBar(title: 'books'.tr),
             BlocConsumer<BooksCubit, BooksState>(
-              listener: (context, state) {},
+              listener: (context, state) {
+                if (state is BooksError) {
+                  ScaffoldMessenger.of(
+                    context,
+                  ).showSnackBar(SnackBar(content: Text(state.message)));
+                }
+                if (state is BooksLoaded) {
+                  if (state.books.isEmpty) {
+                    ScaffoldMessenger.of(
+                      context,
+                    ).showSnackBar(const SnackBar(content: Text('no books')));
+                  }
+                }
+                if (state is BookDeleted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Book deleted successfully')),
+                  );
+                }
+              },
               builder: (context, state) {
                 if (state is BooksLoading) {
                   return const LibrarianLoadingIndicator();
@@ -31,17 +49,23 @@ class LibrarianBooksPage extends StatelessWidget {
                   return SliverList(
                     delegate: SliverChildBuilderDelegate((context, index) {
                       final book = state.books[index];
-                      return GestureDetector(
-                        onTap: () {
-                          //show book details in bottom sheet with ok button and edit button on the bottom
-                          showModalBottomSheet(
-                            context: context,
-                            builder: (context) {
-                              return BookDetailsBottomSheet(book: book);
-                            },
-                          );
-                        },
-                        child: BookCard(book: book),
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 12),
+                        child: GestureDetector(
+                          onTap: () {
+                            //show book details in bottom sheet with ok button and edit button on the bottom
+                            showModalBottomSheet(
+                              context: context,
+                              builder: (_) {
+                                return BookDetailsBottomSheet(
+                                  book: book,
+                                  booksCubit: context.read<BooksCubit>(),
+                                );
+                              },
+                            );
+                          },
+                          child: BookCard(book: book),
+                        ),
                       );
                     }, childCount: state.books.length),
                   );

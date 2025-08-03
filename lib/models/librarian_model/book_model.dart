@@ -1,15 +1,18 @@
 class BookModel {
+  final int bookId;
   final String title;
   final String author;
   final String category;
   final String publisher;
   final String serialNumber;
   final String shelfLocation;
-  final String description;
+  final String? description;
   final DateTime createdAt;
   final DateTime updatedAt;
+  final List<String?> bookStatus;
 
   BookModel({
+    required this.bookId,
     required this.title,
     required this.author,
     required this.category,
@@ -19,10 +22,12 @@ class BookModel {
     required this.description,
     required this.createdAt,
     required this.updatedAt,
+    required this.bookStatus,
   });
 
   factory BookModel.fromJson(Map<String, dynamic> json) {
     return BookModel(
+      bookId: json['book_id'],
       title: json['title'],
       author: json['author'],
       category: json['category'],
@@ -32,6 +37,7 @@ class BookModel {
       description: json['description'],
       createdAt: DateTime.parse(json['created_at']),
       updatedAt: DateTime.parse(json['updated_at']),
+      bookStatus: List<String?>.from(json['book_status']),
     );
   }
 }

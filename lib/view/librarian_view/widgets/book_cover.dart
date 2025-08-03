@@ -14,7 +14,10 @@ class BookCover extends StatelessWidget {
         color: Colors.brown,
         borderRadius: BorderRadius.circular(18),
       ),
-      child: Center(child: SvgPicture.asset(AppAssets.borrowManage)),
+      child: FittedBox(
+        fit: BoxFit.contain,
+        child: Center(child: SvgPicture.asset(AppAssets.borrowManage)),
+      ),
     );
   }
 }

@@ -1,35 +1,53 @@
-// ignore_for_file: use_build_context_synchronously
-
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get_utils/get_utils.dart';
+import 'package:get/get.dart';
 import 'package:smartpath/controller/librarian_controller/cubit/bar_code_cubit.dart';
 import 'package:smartpath/controller/librarian_controller/cubit/books_cubit.dart';
 import 'package:smartpath/core/services/librarian_services/get_books_service.dart';
+import 'package:smartpath/models/librarian_model/book_model.dart';
+import 'package:smartpath/view/librarian_view/utils/librarian_routes.dart';
 import 'package:smartpath/view/librarian_view/widgets/add_text_field.dart';
 import 'package:smartpath/view/librarian_view/widgets/librarian_bar_code_scan.dart';
 import 'package:smartpath/view/librarian_view/widgets/librarian_wave_app_bar.dart';
 
-class LibrarianAddBookPage extends StatefulWidget {
-  const LibrarianAddBookPage({super.key});
+class LibrarianUpdateBookPage extends StatefulWidget {
+  const LibrarianUpdateBookPage({super.key, required this.book});
+  final BookModel book;
 
   @override
-  State<LibrarianAddBookPage> createState() => _AddBookPageState();
+  State<LibrarianUpdateBookPage> createState() =>
+      _LibrarianUpdateBookPageState();
 }
 
-class _AddBookPageState extends State<LibrarianAddBookPage> {
+class _LibrarianUpdateBookPageState extends State<LibrarianUpdateBookPage> {
   final _formKey = GlobalKey<FormState>();
 
-  final TextEditingController _titleController = TextEditingController();
-  final TextEditingController _authorController = TextEditingController();
-  final TextEditingController _categoryController = TextEditingController();
-  final TextEditingController _publisherController = TextEditingController();
-  final TextEditingController _serialNumberController = TextEditingController();
-  final TextEditingController _shelfLocationController =
-      TextEditingController();
-  final TextEditingController _descriptionController = TextEditingController();
+  late final TextEditingController _titleController;
+  late final TextEditingController _authorController;
+  late final TextEditingController _categoryController;
+  late final TextEditingController _publisherController;
+  late final TextEditingController _serialNumberController;
+  late final TextEditingController _shelfLocationController;
+  late final TextEditingController _descriptionController;
+
+  @override
+  void initState() {
+    super.initState();
+    _titleController = TextEditingController(text: widget.book.title);
+    _authorController = TextEditingController(text: widget.book.author);
+    _categoryController = TextEditingController(text: widget.book.category);
+    _publisherController = TextEditingController(text: widget.book.publisher);
+    _serialNumberController = TextEditingController(
+      text: widget.book.serialNumber,
+    );
+    _shelfLocationController = TextEditingController(
+      text: widget.book.shelfLocation,
+    );
+    _descriptionController = TextEditingController(
+      text: widget.book.description,
+    );
+  }
+
   @override
   void dispose() {
     _titleController.dispose();
@@ -40,7 +58,6 @@ class _AddBookPageState extends State<LibrarianAddBookPage> {
     _shelfLocationController.dispose();
     _descriptionController.dispose();
     super.dispose();
-    log('controllers disposed');
   }
 
   Future _submitForm() async {
@@ -54,8 +71,6 @@ class _AddBookPageState extends State<LibrarianAddBookPage> {
         "shelf_location": _shelfLocationController.text.trim(),
         "description": _descriptionController.text.trim(),
       };
-
-      // Optionally clear the form
       _formKey.currentState!.reset();
       return bookData;
     }
@@ -66,7 +81,7 @@ class _AddBookPageState extends State<LibrarianAddBookPage> {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          LibrarianWaveAppBar(title: 'add_book'.tr),
+          LibrarianWaveAppBar(title: 'update_book'.tr),
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
@@ -80,11 +95,7 @@ class _AddBookPageState extends State<LibrarianAddBookPage> {
                   child: Column(
                     children: [
                       BlocListener<BarcodeCubitAdd, String?>(
-                        listener: (context, barcode) {
-                          if (barcode != null) {
-                            _serialNumberController.text = barcode;
-                          }
-                        },
+                        listener: barCodeCubitListener,
                         child: addBookTextField(
                           'serial_number'.tr,
                           _serialNumberController,
@@ -106,44 +117,8 @@ class _AddBookPageState extends State<LibrarianAddBookPage> {
                       ),
                       const SizedBox(height: 20),
                       BlocConsumer<BooksCubit, BooksState>(
-                        listener: (context, state) {
-                          if (state is BooksError) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text(state.message)),
-                            );
-                          }
-                          if (state is BookAdded) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text('add_book_success'.tr)),
-                            );
-                          }
-                        },
-                        builder: (context, state) {
-                          return ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              maximumSize: const Size.fromHeight(40),
-                              backgroundColor: Colors.brown,
-                            ),
-                            onPressed: () {
-                              _submitForm().then((bookData) {
-                                if (bookData != null) {
-                                  BlocProvider.of<BooksCubit>(
-                                    context,
-                                  ).addBook(bookData);
-                                }
-                              });
-                            },
-                            child: state is BooksLoading
-                                ? const SizedBox(
-                                    height: 20,
-                                    width: 20,
-                                    child: CircularProgressIndicator(
-                                      color: Color.fromARGB(199, 231, 218, 205),
-                                    ),
-                                  )
-                                : Text('submit Book'.tr),
-                          );
-                        },
+                        listener: updateBookCubitListener,
+                        builder: updateBookCubitButtonBuilder,
                       ),
                     ],
                   ),
@@ -154,5 +129,58 @@ class _AddBookPageState extends State<LibrarianAddBookPage> {
         ],
       ),
     );
+  }
+
+  Widget updateBookCubitButtonBuilder(context, state) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        maximumSize: const Size.fromHeight(40),
+        backgroundColor: Colors.brown,
+      ),
+      onPressed: () {
+        _submitForm().then((bookData) {
+          if (bookData != null && mounted) {
+            BlocProvider.of<BooksCubit>(
+              context,
+            ).updateBook(bookData, widget.book.bookId);
+          }
+        });
+      },
+      child: state is BooksLoading
+          ? const SizedBox(
+              height: 20,
+              width: 20,
+              child: CircularProgressIndicator(
+                color: Color.fromARGB(199, 231, 218, 205),
+              ),
+            )
+          : Text('update_book'.tr),
+    );
+  }
+
+  void updateBookCubitListener(context, state) {
+    if (state is BooksError) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(state.message)));
+    }
+    if (state is BookUpdated) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          duration: Durations.extralong4,
+          content: Text('update_book_success'.tr),
+        ),
+      );
+      Future.delayed(Durations.extralong4, () {
+        Get.back();
+        Get.toNamed(LibrarianRoutes.books);
+      });
+    }
+  }
+
+  void barCodeCubitListener(context, barcode) {
+    if (barcode != null) {
+      _serialNumberController.text = barcode;
+    }
   }
 }

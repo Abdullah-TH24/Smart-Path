@@ -20,10 +20,10 @@ class Api {
         },
       );
       if (response.statusCode == 200 || response.statusCode == 201) {
-        // print(jsonDecode(response.body));
+        print(jsonDecode(response.body));
         return jsonDecode(response.body);
       } else {
-        // print(jsonDecode(response.body));
+        print(jsonDecode(response.body));
         throw Exception('Failed to load data : ${response.statusCode}');
       }
     }
@@ -35,10 +35,10 @@ class Api {
       },
     );
     if (response.statusCode == 200) {
-      // print(jsonDecode(response.body));
+      print(jsonDecode(response.body));
       return jsonDecode(response.body);
     } else {
-      // print(jsonDecode(response.body));
+      print(jsonDecode(response.body));
       throw Exception('Failed to load data : ${response.statusCode}');
     }
   }
@@ -73,17 +73,18 @@ class Api {
     }
   }
 
-  // Future<dynamic> delete({required String url}) async {
-  //   http.Response response = await http.delete(Uri.parse(url), headers: {
-  //     'Authorization': 'Bearer ${await TokenManage().getToken()}',
-  //     'Cookie': '${await SessionManage().getSessionId()}'
-  //   });
-  //   if (response.statusCode == 200) {
-  //     // print(jsonDecode(response.body));
-  //     return jsonDecode(response.body);
-  //   } else {
-  //     print(jsonDecode(response.body));
-  //     throw Exception('Failed to delete: ${response.statusCode}');
-  //   }
-  // }
+  Future<dynamic> delete({required String url}) async {
+    dynamic token = prefs!.getString('token');
+    http.Response response = await http.delete(
+      Uri.parse(url),
+      headers: {'Authorization': 'Bearer $token'},
+    );
+    if (response.statusCode == 200) {
+      print(jsonDecode(response.body));
+      return jsonDecode(response.body);
+    } else {
+      print(jsonDecode(response.body));
+      throw Exception('Failed to delete: ${response.statusCode}');
+    }
+  }
 }

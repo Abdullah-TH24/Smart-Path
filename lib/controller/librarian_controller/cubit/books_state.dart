@@ -13,6 +13,12 @@ class BooksLoaded extends BooksState {
   BooksLoaded(this.books);
 }
 
+class BookAdded extends BooksState {}
+
+class BookUpdated extends BooksState {}
+
+class BookDeleted extends BooksState {}
+
 class BooksError extends BooksState {
   final String message;
 

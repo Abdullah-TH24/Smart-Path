@@ -10,13 +10,15 @@ class LibrarianWaveAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverAppBar(
       pinned: false,
+
       expandedHeight: 80,
       flexibleSpace: FlexibleSpaceBar(
         background: UpperWaves(color: Colors.brown.withValues(alpha: 0.3)),
         titlePadding: const EdgeInsets.only(left: 16, bottom: 8, right: 16),
-
+        centerTitle: true,
         title: Text(
           title,
+          textAlign: TextAlign.center,
           style: AppStyles.styleMedium14().copyWith(
             fontWeight: FontWeight.w600,
           ),
