@@ -1,21 +1,14 @@
-// ignore_for_file: unused_local_variable, unused_import
-
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:smartpath/api/api_service.dart';
-import 'package:smartpath/core/services/librarian_services/get_books_service.dart';
 import 'package:smartpath/core/utils/app_assets.dart';
 import 'package:smartpath/core/utils/app_routes.dart';
 import 'package:smartpath/main.dart';
 import 'package:smartpath/models/student_model/home/grid_item_model.dart';
 import 'package:smartpath/view/librarian_view/utils/librarian_routes.dart';
 import 'package:smartpath/view/librarian_view/widgets/librarian_home_grid_view.dart';
-import 'package:smartpath/widgets/student/home/events_in_home_page.dart';
 import 'package:smartpath/widgets/student/home/my_custom_app_bar_delegate.dart';
-import 'package:smartpath/widgets/student/home/student_grid_view_home.dart';
-import 'package:smartpath/widgets/student/home/welcome_item.dart';
 
 class LibrarianHomePage extends StatelessWidget {
   const LibrarianHomePage({super.key});
@@ -33,13 +26,15 @@ class LibrarianHomePage extends StatelessWidget {
       assetName: AppAssets.iconBookShelf,
       title: 'lib_grid_2'.tr,
       onTap: () {
-        Get.toNamed(AppRoutes.studentCourses);
+        // Get.toNamed(AppRoutes.studentCourses);
       },
     ),
     GridItemModel(
       assetName: AppAssets.iconBorrowRequest,
       title: 'lib_grid_3'.tr,
-      onTap: () {},
+      onTap: () {
+        Get.toNamed(LibrarianRoutes.borrowRequests);
+      },
     ),
     GridItemModel(
       assetName: AppAssets.iconAcceptBorrow,

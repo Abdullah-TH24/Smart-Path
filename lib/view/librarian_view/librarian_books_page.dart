@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:get/utils.dart';
 import 'package:smartpath/controller/librarian_controller/cubit/books_cubit.dart';
-import 'package:smartpath/core/services/librarian_services/get_books_service.dart';
+import 'package:smartpath/core/services/librarian_services/books_service.dart';
 import 'package:smartpath/view/librarian_view/widgets/book_card.dart';
 import 'package:smartpath/view/librarian_view/widgets/book_details_bottom_sheet.dart';
 import 'package:smartpath/view/librarian_view/widgets/librarian_loading_indicator.dart';

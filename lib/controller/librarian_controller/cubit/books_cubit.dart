@@ -4,7 +4,7 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:smartpath/core/services/librarian_services/get_books_service.dart';
+import 'package:smartpath/core/services/librarian_services/books_service.dart';
 import 'package:smartpath/models/librarian_model/book_model.dart';
 
 part 'books_state.dart';

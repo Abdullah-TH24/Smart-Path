@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:smartpath/controller/librarian_controller/cubit/bar_code_cubit.dart';
 import 'package:smartpath/controller/librarian_controller/cubit/books_cubit.dart';
-import 'package:smartpath/core/services/librarian_services/get_books_service.dart';
+import 'package:smartpath/core/services/librarian_services/books_service.dart';
 import 'package:smartpath/view/librarian_view/widgets/add_text_field.dart';
 import 'package:smartpath/view/librarian_view/widgets/librarian_bar_code_scan.dart';
 import 'package:smartpath/view/librarian_view/widgets/librarian_wave_app_bar.dart';
