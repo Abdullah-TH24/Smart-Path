@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:smartpath/controller/librarian_controller/cubit/bar_code_cubit.dart';
+import 'package:smartpath/controller/librarian_controller/books_cubits/bar_code_cubit.dart';
 
 class LibrarianBarCodeScan extends StatefulWidget {
   LibrarianBarCodeScan({super.key});

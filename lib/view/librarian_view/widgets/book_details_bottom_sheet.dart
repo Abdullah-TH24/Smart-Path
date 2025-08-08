@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:smartpath/controller/librarian_controller/cubit/books_cubit.dart';
+import 'package:smartpath/controller/librarian_controller/books_cubits/books_cubit.dart';
 import 'package:smartpath/core/services/librarian_services/books_service.dart';
 import 'package:smartpath/models/librarian_model/book_model.dart';
 import 'package:smartpath/view/librarian_view/utils/librarian_routes.dart';
