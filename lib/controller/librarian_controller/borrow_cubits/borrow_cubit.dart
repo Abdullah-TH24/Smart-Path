@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smartpath/core/services/librarian_services/borrow_services.dart';
 import 'package:smartpath/models/librarian_model/borrow_model.dart';
@@ -16,28 +18,41 @@ class BorrowCubit extends Cubit<BorrowState> {
         final List<BorrowModel> pendingBorrows = allBorrows
             .where((element) => element.borrowStatus == 'pending')
             .toList();
-        emit(BorrowLoaded(pendingBorrows));
+        print(pendingBorrows);
+        pendingBorrows.isNotEmpty
+            ? emit(BorrowLoaded(pendingBorrows))
+            : emit(BorrowInitial());
       }
       if (filter == 'accepted') {
         final List<BorrowModel> approvedBorrows = allBorrows
             .where((element) => element.borrowStatus == 'accepted')
             .toList();
-        emit(BorrowLoaded(approvedBorrows));
+        approvedBorrows.isNotEmpty
+            ? emit(BorrowLoaded(approvedBorrows))
+            : emit(BorrowInitial());
       }
       if (filter == 'rejected') {
         final List<BorrowModel> rejectedBorrows = allBorrows
             .where((element) => element.borrowStatus == 'rejected')
             .toList();
-        emit(BorrowLoaded(rejectedBorrows));
+        print(rejectedBorrows);
+        rejectedBorrows.isNotEmpty
+            ? emit(BorrowLoaded(rejectedBorrows))
+            : emit(BorrowInitial());
       }
       if (filter == 'returned') {
         final List<BorrowModel> returnedBorrows = allBorrows
             .where((element) => element.borrowStatus == 'returned')
             .toList();
-        emit(BorrowLoaded(returnedBorrows));
+        returnedBorrows.isNotEmpty
+            ? emit(BorrowLoaded(returnedBorrows))
+            : emit(BorrowInitial());
       }
-
-      emit(BorrowLoaded(allBorrows));
+      if (filter == 'all') {
+        allBorrows.isNotEmpty
+            ? emit(BorrowLoaded(allBorrows))
+            : emit(BorrowInitial());
+      }
     } catch (e) {
       emit(BorrowError(e.toString()));
     }

@@ -1,8 +1,12 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get_utils/get_utils.dart';
+import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:smartpath/controller/librarian_controller/borrow_cubits/borrow_cubit.dart';
 import 'package:smartpath/core/services/librarian_services/borrow_services.dart';
+import 'package:smartpath/core/utils/app_assets.dart';
 import 'package:smartpath/view/librarian_view/widgets/librarian_loading_indicator.dart';
 import 'package:smartpath/view/librarian_view/widgets/librarian_wave_app_bar.dart';
 
@@ -14,14 +18,25 @@ class LibrarianBorrowRequests extends StatelessWidget {
     return Scaffold(
       body: BlocProvider(
         create: (context) =>
-            BorrowCubit(BorrowServices())..fetchBorrowsOrders(filter: 'all'),
+            BorrowCubit(BorrowServices())
+              ..fetchBorrowsOrders(filter: 'pending'),
         child: CustomScrollView(
           physics: const BouncingScrollPhysics(),
           slivers: [
             LibrarianWaveAppBar(title: 'lib_grid_3'.tr),
             BlocConsumer<BorrowCubit, BorrowState>(
               listener: (context, state) {
-                // TODO: implement listener
+                log(state.toString());
+                if (state is BorrowError) {
+                  Get.snackbar(
+                    'Error',
+                    state.message,
+                    duration: const Duration(seconds: 5),
+                    snackPosition: SnackPosition.BOTTOM,
+                    backgroundColor: const Color.fromARGB(198, 241, 228, 215),
+                    dismissDirection: DismissDirection.horizontal,
+                  );
+                }
               },
               builder: (context, state) {
                 if (state is BorrowLoading) {
@@ -30,19 +45,28 @@ class LibrarianBorrowRequests extends StatelessWidget {
                 if (state is BorrowLoaded) {
                   final borrows = state.borrowModel;
                   return SliverList(
-                    delegate: SliverChildBuilderDelegate((context, index) {
-                      return Card(
-                        child: ListTile(
-                          title: Text(borrows[index].user.name),
-                          subtitle: Text(borrows[index].user.email),
-                          trailing: Text(borrows[index].borrowStatus),
-                        ),
-                      );
-                    }),
+                    delegate: SliverChildBuilderDelegate(
+                      childCount: borrows.length,
+                      (context, index) {
+                        return Card(
+                          child: ListTile(
+                            title: Text(borrows[index].user.name),
+                            subtitle: Text(borrows[index].user.email),
+                            trailing: Text(borrows[index].borrowStatus),
+                          ),
+                        );
+                      },
+                    ),
                   );
                 }
-                return const SliverToBoxAdapter(
-                  child: Center(child: Text('No state yet.')),
+                if (state is BorrowError) {
+                  return const SliverToBoxAdapter(
+                    child: Center(child: Text('No data an error occured')),
+                  );
+                }
+                return SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: Image.asset(AppAssets.noData),
                 );
               },
             ),

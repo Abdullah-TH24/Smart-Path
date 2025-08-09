@@ -8,8 +8,8 @@ class BorrowServices {
       url: AppLinks.getBorrowOrders,
       withToken: true,
     );
-    if (response['status'] == true && response['data'] != null) {
-      return (response['data'] as List)
+    if (response['status'] == true && response['message'] != null) {
+      return (response['message'] as List)
           .map((item) => BorrowModel.fromJson(item))
           .toList();
     } else {
