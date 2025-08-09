@@ -21,7 +21,7 @@ class RejectButton extends StatelessWidget {
         backgroundColor: const Color.fromARGB(207, 247, 51, 37),
         elevation: 0,
       ),
-      child: Text('refuse'.tr),
+      child: Text('reject'.tr),
     );
   }
 }
