@@ -181,6 +181,9 @@ class ArabicEnglishLocal implements Translations {
       'yes': 'Yes',
       'no': 'No',
       'cancel': 'Cancel',
+      //librarian borrow
+      'accept': 'Accept',
+      'reject': 'Reject',
     },
     "ar": {
       'app_name': "المسار الذكي",
@@ -391,6 +394,14 @@ class ArabicEnglishLocal implements Translations {
       'ok': 'حسنا',
       'yes': 'نعم',
       'no': 'لا',
+      //librarian borrow
+      'accept': 'قبول',
+      'reject': 'رفض',
+      'book_name': 'اسم الكتاب',
+      'student_name': 'اسم الطالب',
+      'student_id': 'رقم الطالب',
+      'borrow_date': 'تاريخ الاستعارة',
+      'return_date': 'تاريخ العودة',
     },
   };
 }
