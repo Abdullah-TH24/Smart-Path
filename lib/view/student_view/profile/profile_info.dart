@@ -35,11 +35,6 @@ class ProfileInfo extends StatelessWidget {
         icon: LucideIcons.school2,
       ),
       ProfileInfoModel(
-        title: 'school'.tr,
-        content: '${studentInfo.profileData!.shoolGraduatedFrom}',
-        icon: LucideIcons.school,
-      ),
-      ProfileInfoModel(
         title: 'rate'.tr,
         content: '${studentInfo.profileData!.gpa} %',
         icon: LucideIcons.lineChart,
@@ -65,6 +60,18 @@ class ProfileInfo extends StatelessWidget {
                   style: AppStyles.styleBold24(),
                 ),
                 Cards(info: info),
+                const Gap(100),
+                ElevatedButton(
+                  onPressed: () {
+                    // studentInfo.profileData!.shoolGraduatedFrom
+                  },
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadiusGeometry.circular(12.5),
+                    ),
+                  ),
+                  child: const Text('Download Certificate'),
+                ),
               ],
             ),
           ),

@@ -22,6 +22,14 @@ class ApiMessageTranslator {
       'ar': 'تم استخدام كلمة المرور هذه بالفعل',
       'en': 'this password is already used',
     },
+    'the comment has been reported !!': {
+      'ar': 'لقد تم الإبلاغ عن التعليق بالفعل!',
+      'en': 'The comment has already been reported!',
+    },
+    'the comment has been reported successfully !!': {
+      'ar': 'تم الإبلاغ عن التعليق بنجاح',
+      'en': 'Comment reported successfully',
+    },
   };
 
   static String translate(String message) {

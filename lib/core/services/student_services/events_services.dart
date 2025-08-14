@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
+import 'package:smartpath/core/localization/api_translate.dart';
 import 'package:smartpath/core/utils/app_links.dart';
 import 'package:smartpath/models/student_model/all_reactions_model.dart';
 import 'package:smartpath/models/student_model/comment_model.dart';
@@ -165,6 +166,30 @@ class EventsServices {
         return allReactions;
       } else {
         return [];
+      }
+    } catch (e) {
+      return null;
+    }
+  }
+
+  Future<String?> reportComment(
+    String token,
+    String commentId,
+    String reason,
+  ) async {
+    try {
+      final http.Response response = await http.post(
+        Uri.parse(AppLinks.reportComment),
+        body: {"comment_id": commentId.toString(), "reason": reason},
+        headers: {'Authorization': 'Bearer $token'},
+      );
+      final translatedMessage = ApiMessageTranslator.translate(
+        json.decode(response.body)['message'],
+      );
+      if (response.statusCode == 200) {
+        return translatedMessage;
+      } else {
+        return translatedMessage;
       }
     } catch (e) {
       return null;

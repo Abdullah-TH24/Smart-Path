@@ -33,6 +33,7 @@ class LoginServices {
         });
       }
     } catch (e) {
+      log('error $e');
       return null;
     }
   }

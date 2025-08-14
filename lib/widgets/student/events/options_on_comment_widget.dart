@@ -7,9 +7,11 @@ import 'package:smartpath/controller/student_controller/events/comments_controll
 import 'package:smartpath/controller/student_controller/events/delete_all_related_comment_controller.dart';
 import 'package:smartpath/controller/student_controller/events/delete_comments_controller.dart';
 import 'package:smartpath/controller/student_controller/events/events_controller.dart';
+import 'package:smartpath/controller/student_controller/events/report_comment_controller.dart';
 import 'package:smartpath/controller/student_controller/events/type_operation_controller.dart';
 import 'package:smartpath/main.dart';
 import 'package:smartpath/models/student_model/replies_model.dart';
+import 'package:smartpath/widgets/student/events/report_send_button_widget.dart';
 
 class OptionsOnCommentWidget extends StatelessWidget {
   final FocusNode commentFocus;
@@ -23,7 +25,7 @@ class OptionsOnCommentWidget extends StatelessWidget {
   final int commentId;
   final Replies? reply;
   final CommentsController controller;
-  const OptionsOnCommentWidget({
+  OptionsOnCommentWidget({
     super.key,
     required this.commentFocus,
     required this.typeOperation,
@@ -37,6 +39,10 @@ class OptionsOnCommentWidget extends StatelessWidget {
     required this.controller,
     this.reply,
   });
+
+  ReportCommentController report = Get.put(ReportCommentController());
+  GlobalKey<FormState> form = GlobalKey<FormState>();
+  TextEditingController reportMsg = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +70,101 @@ class OptionsOnCommentWidget extends StatelessWidget {
           const Gap(10),
           // Repert Comment
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () async {
+              bool clicked = false;
+              final List<String> msg = [
+                'report_msg_1'.tr,
+                'report_msg_2'.tr,
+                'report_msg_3'.tr,
+                'report_msg_4'.tr,
+                'report_msg_5'.tr,
+                'report_msg_6'.tr,
+              ];
+              Get.close(1);
+              await showModalBottomSheet(
+                context: context,
+                isScrollControlled: true,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12.5),
+                ),
+                builder: (context) {
+                  return Padding(
+                    padding: EdgeInsets.only(
+                      bottom: MediaQuery.of(context).viewInsets.bottom,
+                    ),
+                    child: SingleChildScrollView(
+                      child: Container(
+                        padding: const EdgeInsets.all(20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            ...List.generate(
+                              6,
+                              (index) => ElevatedButton(
+                                onPressed: () async {
+                                  if (!clicked) {
+                                    clicked = true;
+                                    await report.reportComment(
+                                      prefs!.getString('token')!,
+                                      commentId.toString(),
+                                      msg[index],
+                                    );
+                                    Get.close(1);
+                                    if (report.result != null) {
+                                      ScaffoldMessenger.of(
+                                        context,
+                                      ).showSnackBar(
+                                        SnackBar(content: Text(report.result!)),
+                                      );
+                                    } else if (report.errorMessage != null) {
+                                      ScaffoldMessenger.of(
+                                        context,
+                                      ).showSnackBar(
+                                        SnackBar(
+                                          content: Text(report.errorMessage!),
+                                        ),
+                                      );
+                                    }
+                                    clicked = false;
+                                  }
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12.5),
+                                  ),
+                                ),
+                                child: Text(msg[index]),
+                              ),
+                            ),
+                            Form(
+                              key: form,
+                              child: TextFormField(
+                                decoration: InputDecoration(
+                                  hintText: 'report_hint'.tr,
+                                ),
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'report_msg_error'.tr;
+                                  }
+                                  return null;
+                                },
+                              ),
+                            ),
+                            ReportSendButton(
+                              form: form,
+                              report: report,
+                              commentId: commentId,
+                              reportMsg: reportMsg,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadiusGeometry.circular(12.5),

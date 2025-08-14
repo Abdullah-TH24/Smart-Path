@@ -52,4 +52,8 @@ class AppRoutes {
   static const String studentExams = '/exams';
 
   static const String studentCourses = '/courses';
+
+  static const String studentQuiz = '/quiz';
+
+  static const String studentAbsences = '/absences';
 }

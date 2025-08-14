@@ -63,7 +63,7 @@ class ArabicEnglishLocal implements Translations {
       'grid_item_name_2': 'Homeworks',
       'grid_item_name_3': 'Weekly\nSchedule',
       'grid_item_name_4': 'Quiz',
-      'grid_item_name_5': 'Subscribe',
+      'grid_item_name_5': 'Attendance',
       'grid_item_name_6': 'Grades',
       'grid_item_name_7': 'Events',
       'grid_item_name_8': 'Exam\nSchedule',
@@ -154,6 +154,7 @@ class ArabicEnglishLocal implements Translations {
       'button_visitF': 'Visit Facebook',
       //librarian
       'borrow_manage': 'Borrow management',
+<<<<<<< HEAD
       'lib_grid_1': 'Books',
       'lib_grid_2': 'available books',
       'lib_grid_3': 'Borrow requests',
@@ -184,6 +185,47 @@ class ArabicEnglishLocal implements Translations {
       //librarian borrow
       'accept': 'Accept',
       'reject': 'Reject',
+=======
+      // For Events
+      'one_comment': 'Comment',
+      'two_comment': 'Comments',
+      'many_comment': 'Comments',
+      'one_share': 'Share',
+      'two_share': 'Shares',
+      'many_share': 'Shares',
+      'comment_button': 'Comment',
+      'share_button': 'Share',
+      'Like': 'Like',
+      'Love': 'Love',
+      'Wow': 'Wow',
+      'Angry': 'Angry',
+      'Haha': 'Haha',
+      'Sad': 'Sad',
+      // For ReactionInfo
+      'all_button': 'All',
+      // For Comment Page
+      'comment_title_page': 'Comments',
+      'edit_button': 'Edit comment',
+      'report_button': 'Report Comment',
+      'delete_button': 'Delete Comment',
+      'comment_error':
+          'Please check your internet connection and try again later',
+      'like_button': 'Like',
+      'reply_button': 'Reply',
+      'read_button': 'Read more',
+      'one_replies': 'reply',
+      'two_replies': 'replies',
+      'many_replies': 'replies',
+      'field_title': 'Write a comment...',
+      'report_msg_1': 'Illegal content',
+      'report_msg_2': 'Hate speech',
+      'report_msg_3': 'Threats/harassment',
+      'report_msg_4': 'Pornographic content',
+      'report_msg_5': 'Misinformation',
+      'report_msg_6': 'Violence/blood',
+      'report_hint': 'Write a report...',
+      'report_msg_error': 'The report message must not be empty.',
+>>>>>>> 98c0b17 (Finish linking the feedback reporting features within events and finalize the design of the quiz and attendance pages.)
     },
     "ar": {
       'app_name': "المسار الذكي",
@@ -245,7 +287,7 @@ class ArabicEnglishLocal implements Translations {
       'grid_item_name_2': 'الوظائف',
       'grid_item_name_3': 'برنامج\nالإسبوع',
       'grid_item_name_4': 'إختبار',
-      'grid_item_name_5': 'الإشتراكات',
+      'grid_item_name_5': 'الحضور',
       'grid_item_name_6': 'الدرجات',
       'grid_item_name_7': 'الأحداث',
       'grid_item_name_8': 'برنامج\nالإمتحان',
@@ -365,6 +407,7 @@ class ArabicEnglishLocal implements Translations {
       'two_replies': 'ردان',
       'many_replies': 'ردود',
       'field_title': 'أكتب تعليق...',
+<<<<<<< HEAD
 
       //librarian
       'borrow_manage': 'ادارة الاستعارة',
@@ -402,6 +445,16 @@ class ArabicEnglishLocal implements Translations {
       'student_id': 'رقم الطالب',
       'borrow_date': 'تاريخ الاستعارة',
       'return_date': 'تاريخ العودة',
+=======
+      'report_msg_1': 'محتوى غير قانوني',
+      'report_msg_2': 'خطاب كراهية',
+      'report_msg_3': 'تهديد أو تحرش',
+      'report_msg_4': 'محتوى إباحي',
+      'report_msg_5': 'معلومات مضللة',
+      'report_msg_6': 'عنف أو دماء',
+      'report_hint': 'أكتب إبلاغ...',
+      'report_msg_error': 'لا يجب أن تكون رسالة التقرير فارغة',
+>>>>>>> 98c0b17 (Finish linking the feedback reporting features within events and finalize the design of the quiz and attendance pages.)
     },
   };
 }

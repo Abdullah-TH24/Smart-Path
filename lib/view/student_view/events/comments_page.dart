@@ -204,8 +204,7 @@ class _CommentsPageState extends State<CommentsPage> {
                                                   },
                                                 );
                                                 if (typeOperation.editComment ||
-                                                    typeOperation.editReply ||
-                                                    typeOperation.addReply) {
+                                                    typeOperation.editReply) {
                                                   FocusScope.of(
                                                     context,
                                                   ).requestFocus(commentFocus);
@@ -265,7 +264,7 @@ class _CommentsPageState extends State<CommentsPage> {
                                                       : controller.comments![index].replies!.length == 2
                                                       ? 'two_replies'.tr
                                                       : controller.comments![index].replies!.length > 2
-                                                      ? '${controller.comments![index].replies!.length} ' + 'many_replies'.tr
+                                                      ? '${controller.comments![index].replies!.length} ${'many_replies'.tr}'
                                                       : ''})',
                                               style: const TextStyle(
                                                 color: Colors.indigo,

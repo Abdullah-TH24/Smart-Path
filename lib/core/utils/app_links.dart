@@ -1,6 +1,10 @@
 abstract class AppLinks {
   // Should be edit
+<<<<<<< HEAD
   static final String _ip = '192.168.0.117';
+=======
+  static final String _ip = '192.168.141.169';
+>>>>>>> 98c0b17 (Finish linking the feedback reporting features within events and finalize the design of the quiz and attendance pages.)
 
   static final String _mainLink = 'http://$_ip:8000/api';
 
@@ -41,6 +45,8 @@ abstract class AppLinks {
   static final String addReaction = '$_mainLink/react';
 
   static final String getReactions = '$_mainLink/getReactions';
+
+  static final String reportComment = '$_mainLink/reportComment';
 
   // Home Components Links
   static final String weeklySchedule = '$_mainLink/getStudentWeeklySchedule';
