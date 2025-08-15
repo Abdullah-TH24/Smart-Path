@@ -140,7 +140,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: AppRoutes.studentExams, page: () => const Exams()),
         GetPage(name: AppRoutes.studentCourses, page: () => const Courses()),
         GetPage(name: AppRoutes.studentQuiz, page: () => const Quiz()),
-        GetPage(name: AppRoutes.studentAbsences, page: () => Absences()),
+        GetPage(name: AppRoutes.studentAbsences, page: () => const Absences()),
         ...TeacherRoutes.routes,
         ...LibrarianRoutes.routes,
       ],

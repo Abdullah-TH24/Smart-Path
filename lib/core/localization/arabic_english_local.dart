@@ -154,7 +154,6 @@ class ArabicEnglishLocal implements Translations {
       'button_visitF': 'Visit Facebook',
       //librarian
       'borrow_manage': 'Borrow management',
-<<<<<<< HEAD
       'lib_grid_1': 'Books',
       'lib_grid_2': 'available books',
       'lib_grid_3': 'Borrow requests',
@@ -185,7 +184,6 @@ class ArabicEnglishLocal implements Translations {
       //librarian borrow
       'accept': 'Accept',
       'reject': 'Reject',
-=======
       // For Events
       'one_comment': 'Comment',
       'two_comment': 'Comments',
@@ -225,7 +223,6 @@ class ArabicEnglishLocal implements Translations {
       'report_msg_6': 'Violence/blood',
       'report_hint': 'Write a report...',
       'report_msg_error': 'The report message must not be empty.',
->>>>>>> 98c0b17 (Finish linking the feedback reporting features within events and finalize the design of the quiz and attendance pages.)
     },
     "ar": {
       'app_name': "المسار الذكي",
@@ -407,7 +404,6 @@ class ArabicEnglishLocal implements Translations {
       'two_replies': 'ردان',
       'many_replies': 'ردود',
       'field_title': 'أكتب تعليق...',
-<<<<<<< HEAD
 
       //librarian
       'borrow_manage': 'ادارة الاستعارة',
@@ -445,7 +441,6 @@ class ArabicEnglishLocal implements Translations {
       'student_id': 'رقم الطالب',
       'borrow_date': 'تاريخ الاستعارة',
       'return_date': 'تاريخ العودة',
-=======
       'report_msg_1': 'محتوى غير قانوني',
       'report_msg_2': 'خطاب كراهية',
       'report_msg_3': 'تهديد أو تحرش',
@@ -454,7 +449,6 @@ class ArabicEnglishLocal implements Translations {
       'report_msg_6': 'عنف أو دماء',
       'report_hint': 'أكتب إبلاغ...',
       'report_msg_error': 'لا يجب أن تكون رسالة التقرير فارغة',
->>>>>>> 98c0b17 (Finish linking the feedback reporting features within events and finalize the design of the quiz and attendance pages.)
     },
   };
 }

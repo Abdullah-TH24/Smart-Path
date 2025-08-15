@@ -40,7 +40,7 @@ class LibrarianHomePage extends StatelessWidget {
       assetName: AppAssets.iconAcceptBorrow,
       title: 'lib_grid_4'.tr,
       onTap: () {
-        Get.toNamed(AppRoutes.studentCalendar);
+        Get.toNamed(LibrarianRoutes.borrowAcceptedRequests);
       },
     ),
     GridItemModel(

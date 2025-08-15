@@ -16,7 +16,6 @@ class LoginMiddleware extends GetMiddleware {
     if (prefs!.getString('token') != null) {
       log(prefs!.getString('role')!);
       if (prefs!.getString('role') == 'student') {
-<<<<<<< HEAD
         // return const RouteSettings(name: LibrarianRoutes.mainHome);
         return const RouteSettings(name: AppRoutes.studentMainPageRoute);
       } else if (prefs!.getString('role') == 'teacher') {
@@ -24,12 +23,10 @@ class LoginMiddleware extends GetMiddleware {
         // return const RouteSettings(name: AppRoutes.parentMainPageRoute);
         // TODO add parent main page to routes then uncomment the previous line
       } else if (prefs!.getString('role') == 'supervisor') {
-=======
-        return const RouteSettings(name: AppRoutes.studentMainPageRoute);
+        return const RouteSettings(name: LibrarianRoutes.mainHome);
       } else if (prefs!.getString('role') == 'teacher') {
         return const RouteSettings(name: TeacherRoutes.students);
       } else if (prefs!.getString('role') == 'librarian') {
->>>>>>> 98c0b17 (Finish linking the feedback reporting features within events and finalize the design of the quiz and attendance pages.)
         return const RouteSettings(name: LibrarianRoutes.mainHome);
       }
     }
