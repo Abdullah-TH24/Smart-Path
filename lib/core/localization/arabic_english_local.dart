@@ -184,6 +184,7 @@ class ArabicEnglishLocal implements Translations {
       //librarian borrow
       'accept': 'Accept',
       'reject': 'Reject',
+      'expired': 'Expire',
       // For Events
       'one_comment': 'Comment',
       'two_comment': 'Comments',
@@ -449,6 +450,7 @@ class ArabicEnglishLocal implements Translations {
       'report_msg_6': 'عنف أو دماء',
       'report_hint': 'أكتب إبلاغ...',
       'report_msg_error': 'لا يجب أن تكون رسالة التقرير فارغة',
+      'expired': 'منتهي ',
     },
   };
 }

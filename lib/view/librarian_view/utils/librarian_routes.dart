@@ -5,6 +5,7 @@ import 'package:smartpath/view/librarian_view/librarian_available_books_page.dar
 import 'package:smartpath/view/librarian_view/librarian_books_page.dart';
 import 'package:smartpath/view/librarian_view/librarian_borrow_accepted_requests.dart';
 import 'package:smartpath/view/librarian_view/librarian_borrow_pending_requests.dart';
+import 'package:smartpath/view/librarian_view/librarian_borrow_rejected_requests.dart';
 import 'package:smartpath/view/librarian_view/librarian_borrowed_books_managment_page.dart';
 import 'package:smartpath/view/librarian_view/librarian_home_page.dart';
 import 'package:smartpath/view/librarian_view/librarian_main_home_page.dart';
@@ -17,6 +18,8 @@ class LibrarianRoutes {
   static const String borrowRequests = '/librarian/borrow_requests';
   static const String borrowAcceptedRequests =
       '/librarian/borrow_accepted_requests';
+  static const String borrowRejectedRequests =
+      '/librarian/borrow_rejected_requests';
   static const String borrowedBooksManagement =
       '/librarian/borrowed_books_management';
   static const String home = '/librarian/home';
@@ -48,6 +51,11 @@ class LibrarianRoutes {
       name: borrowAcceptedRequests,
       transition: Transition.cupertinoDialog,
       page: () => const LibrarianBorrowAcceptedRequests(),
+    ),
+    GetPage(
+      name: borrowRejectedRequests,
+      transition: Transition.cupertinoDialog,
+      page: () => const LibrarianBorrowRejectedRequests(),
     ),
     GetPage(
       name: borrowedBooksManagement,

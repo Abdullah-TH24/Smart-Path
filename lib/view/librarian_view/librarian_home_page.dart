@@ -47,7 +47,7 @@ class LibrarianHomePage extends StatelessWidget {
       assetName: AppAssets.iconRejectBorrow,
       title: 'lib_grid_5'.tr,
       onTap: () {
-        Get.toNamed(AppRoutes.studentExams);
+        Get.toNamed(LibrarianRoutes.borrowRejectedRequests);
       },
     ),
     GridItemModel(
