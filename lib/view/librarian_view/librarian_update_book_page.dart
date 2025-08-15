@@ -6,6 +6,7 @@ import 'package:smartpath/controller/librarian_controller/books_cubits/books_cub
 import 'package:smartpath/core/services/librarian_services/books_service.dart';
 import 'package:smartpath/models/librarian_model/book_model.dart';
 import 'package:smartpath/view/librarian_view/utils/librarian_routes.dart';
+import 'package:smartpath/view/librarian_view/utils/show_snackbar.dart';
 import 'package:smartpath/view/librarian_view/widgets/add_text_field.dart';
 import 'package:smartpath/view/librarian_view/widgets/librarian_bar_code_scan.dart';
 import 'package:smartpath/view/librarian_view/widgets/librarian_wave_app_bar.dart';
@@ -160,17 +161,10 @@ class _LibrarianUpdateBookPageState extends State<LibrarianUpdateBookPage> {
 
   void updateBookCubitListener(context, state) {
     if (state is BooksError) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(state.message)));
+      showSnackbar('Error', state.message);
     }
     if (state is BookUpdated) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          duration: Durations.extralong4,
-          content: Text('update_book_success'.tr),
-        ),
-      );
+      showSnackbar('success', 'update_book_success'.tr);
       Future.delayed(Durations.extralong4, () {
         Get.back();
         Get.toNamed(LibrarianRoutes.books);

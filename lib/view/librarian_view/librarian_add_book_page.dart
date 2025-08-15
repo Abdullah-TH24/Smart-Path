@@ -8,6 +8,7 @@ import 'package:get/get_utils/get_utils.dart';
 import 'package:smartpath/controller/librarian_controller/books_cubits/bar_code_cubit.dart';
 import 'package:smartpath/controller/librarian_controller/books_cubits/books_cubit.dart';
 import 'package:smartpath/core/services/librarian_services/books_service.dart';
+import 'package:smartpath/view/librarian_view/utils/show_snackbar.dart';
 import 'package:smartpath/view/librarian_view/widgets/add_text_field.dart';
 import 'package:smartpath/view/librarian_view/widgets/librarian_bar_code_scan.dart';
 import 'package:smartpath/view/librarian_view/widgets/librarian_wave_app_bar.dart';
@@ -108,14 +109,10 @@ class _AddBookPageState extends State<LibrarianAddBookPage> {
                       BlocConsumer<BooksCubit, BooksState>(
                         listener: (context, state) {
                           if (state is BooksError) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text(state.message)),
-                            );
+                            showSnackbar('error', state.message);
                           }
                           if (state is BookAdded) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text('add_book_success'.tr)),
-                            );
+                            showSnackbar('success', 'add_book_success'.tr);
                           }
                         },
                         builder: (context, state) {

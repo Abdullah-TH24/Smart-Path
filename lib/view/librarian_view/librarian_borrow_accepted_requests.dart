@@ -55,7 +55,7 @@ class LibrarianBorrowAcceptedRequests extends StatelessWidget {
                                   bottomLeft: Radius.circular(12),
                                   bottomRight: Radius.circular(12),
                                 ),
-                                color: Color.fromARGB(198, 241, 228, 215),
+                                color: Color.fromARGB(143, 65, 216, 78),
                               ),
                             ),
                             const Gap(12),
