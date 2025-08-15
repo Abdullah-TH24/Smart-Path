@@ -15,29 +15,28 @@ class LibrarianHomeGridView extends StatelessWidget {
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
         ),
-        itemBuilder:
-            (context, index) => GestureDetector(
-              onTap: gridItems[index].onTap,
-              child: Card(
-                color: const Color.fromARGB(199, 231, 218, 205),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    SvgPicture.asset(gridItems[index].assetName, width: 28),
-                    Container(
-                      alignment: Alignment.bottomCenter,
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Text(
-                        gridItems[index].title,
-                        style: AppStyles.styleRegular12(),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ],
+        itemBuilder: (context, index) => GestureDetector(
+          onTap: gridItems[index].onTap,
+          child: Card(
+            color: const Color.fromARGB(199, 231, 218, 205),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                SvgPicture.asset(gridItems[index].assetName, width: 32),
+                Container(
+                  alignment: Alignment.bottomCenter,
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Text(
+                    gridItems[index].title,
+                    style: AppStyles.styleRegular12(),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-              ),
+              ],
             ),
-        itemCount: gridItems.length - 4,
+          ),
+        ),
+        itemCount: gridItems.length,
       ),
     );
   }

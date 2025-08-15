@@ -76,6 +76,8 @@ class AppAssets {
   static const String iconBookShelf =
       "assets/icons/librarian/icon_book_shelf.svg";
   static const String iconBooks = "assets/icons/librarian/icon_books.svg";
+  static const String libComplaint =
+      "assets/icons/librarian/icon_complaint_lib.svg";
 
   // PNG
   static const String pngLogo = "assets/images/logo.png";

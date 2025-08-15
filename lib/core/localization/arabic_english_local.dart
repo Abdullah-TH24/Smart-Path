@@ -159,6 +159,7 @@ class ArabicEnglishLocal implements Translations {
       'lib_grid_3': 'Borrow requests',
       'lib_grid_4': 'Accepted request',
       'lib_grid_5': 'Rejected request',
+      'lib_grid_6': 'Complaint',
       'books': 'Books',
       // librarian add a book
       'add_book': 'Add Book',
@@ -413,6 +414,7 @@ class ArabicEnglishLocal implements Translations {
       'lib_grid_3': 'طلبات الاستعارة',
       'lib_grid_4': 'الطلبات المقبولة',
       'lib_grid_5': 'الطلبات المرفوضة',
+      'lib_grid_6': 'شكوى',
       'books': 'الكتب',
       // librarian add a book
       'add_book': 'إضافة كتاب',

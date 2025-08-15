@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/core/utils/app_assets.dart';
-import 'package:smartpath/core/utils/app_routes.dart';
 import 'package:smartpath/main.dart';
 import 'package:smartpath/models/student_model/home/grid_item_model.dart';
 import 'package:smartpath/view/librarian_view/utils/librarian_routes.dart';
@@ -51,26 +50,11 @@ class LibrarianHomePage extends StatelessWidget {
       },
     ),
     GridItemModel(
-      assetName: AppAssets.iconQuiz,
-      title: 'grid_item_name_4'.tr,
-      onTap: () {},
-    ),
-    GridItemModel(
-      assetName: AppAssets.iconTeacher,
-      title: 'grid_item_name_5'.tr,
-      onTap: () {},
-    ),
-    GridItemModel(
-      assetName: AppAssets.iconStats,
-      title: 'grid_item_name_6'.tr,
+      assetName: AppAssets.libComplaint,
+      title: 'lib_grid_6'.tr,
       onTap: () {
-        // Get.toNamed(AppRoutes.studentGrades);
+        Get.toNamed(LibrarianRoutes.borrowRejectedRequests);
       },
-    ),
-    GridItemModel(
-      assetName: AppAssets.iconAchievment,
-      title: 'grid_item_name_7'.tr,
-      onTap: () {},
     ),
   ];
 
