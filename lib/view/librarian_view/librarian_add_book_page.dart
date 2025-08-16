@@ -144,7 +144,7 @@ class _AddBookPageState extends State<LibrarianAddBookPage> {
                                       color: Color.fromARGB(199, 231, 218, 205),
                                     ),
                                   )
-                                : Text('submit Book'.tr),
+                                : Text('submit'.tr),
                           );
                         },
                       ),

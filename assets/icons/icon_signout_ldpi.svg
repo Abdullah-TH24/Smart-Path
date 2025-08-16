@@ -1,1 +1,10 @@
-<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 5c0-1.1.9-2 2-2h8v2H5v14h8v2H5a2 2 0 0 1-2-2zm14.18 6-2.54-2.54 1.41-1.41L21 12l-4.95 4.95-1.41-1.41L17.18 13h-6.59v-2z" fill="url(#a)"/><defs><linearGradient id="a" x1="3" y1="3" x2="21" y2="21"><stop offset="0%" stop-color="#4F46E5"/><stop offset="100%" stop-color="#818CF8"/></linearGradient></defs></svg>
+<svg fill="none"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M3 5c0-1.1.9-2 2-2h8v2H5v14h8v2H5a2 2 0 0 1-2-2zm14.18 6-2.54-2.54 1.41-1.41L21 12l-4.95 4.95-1.41-1.41L17.18 13h-6.59v-2z" fill="url(#a)"/>
+    <defs>
+        <linearGradient id="a" x1="3" y1="3" x2="21" y2="21">
+            <stop offset="0%" stop-color="#4F46E5"/>
+            <stop offset="100%" stop-color="#818CF8"/>
+        </linearGradient>
+    </defs>
+</svg>

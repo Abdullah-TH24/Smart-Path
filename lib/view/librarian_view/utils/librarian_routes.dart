@@ -10,6 +10,7 @@ import 'package:smartpath/view/librarian_view/librarian_borrowed_books_managment
 import 'package:smartpath/view/librarian_view/librarian_complaint_page.dart';
 import 'package:smartpath/view/librarian_view/librarian_home_page.dart';
 import 'package:smartpath/view/librarian_view/librarian_main_home_page.dart';
+import 'package:smartpath/view/librarian_view/librarian_setting_page.dart';
 import 'package:smartpath/view/librarian_view/librarian_update_book_page.dart';
 
 class LibrarianRoutes {
@@ -30,6 +31,7 @@ class LibrarianRoutes {
       '/librarian/borrowed_books_management';
   //
   static const String complaints = '/librarian/complaints';
+  static const String settings = '/librarian/settings';
 
   static final List<GetPage> routes = [
     GetPage(
@@ -88,9 +90,12 @@ class LibrarianRoutes {
     GetPage(
       name: LibrarianRoutes.complaints,
       transition: Transition.cupertinoDialog,
-      page: () {
-        return const LibrarianComplaintPage();
-      },
+      page: () => const LibrarianComplaintPage(),
+    ),
+    GetPage(
+      name: LibrarianRoutes.settings,
+      transition: Transition.cupertinoDialog,
+      page: () => const LibrarianSettingPage(),
     ),
   ];
 }

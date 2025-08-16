@@ -72,6 +72,7 @@ class LibrarianHomePage extends StatelessWidget {
             collapsedHeight: 110,
             studentName: "librarian",
             imagePath: AppAssets.gredientBrownBackground,
+
             searchButton: const Color(0xff5e472c),
           ),
         ),

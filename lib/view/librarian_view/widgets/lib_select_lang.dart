@@ -7,8 +7,8 @@ import 'package:smartpath/controller/student_controller/profile/settings/select_
 import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/widgets/student/profile/settings/radio_component.dart';
 
-class SelectLanguage extends StatelessWidget {
-  const SelectLanguage({super.key});
+class LibSelectLang extends StatelessWidget {
+  const LibSelectLang({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class SelectLanguage extends StatelessWidget {
                   controller.changeLanguageToArabic();
                   controller.groupLangauge = value;
                 },
-                activeColor: Colors.indigo,
+                activeColor: Colors.brown,
               ),
               RadioComponent(
                 groupLangauge: controller.groupLangauge!,
@@ -40,7 +40,7 @@ class SelectLanguage extends StatelessWidget {
                   controller.changeLanguageToEnglish();
                   controller.groupLangauge = value;
                 },
-                activeColor: Colors.indigo,
+                activeColor: Colors.brown,
               ),
             ],
           ),

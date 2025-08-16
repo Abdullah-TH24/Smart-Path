@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
 class LibrarianBorrowedBooksManagmentPage extends StatelessWidget {
@@ -7,6 +5,6 @@ class LibrarianBorrowedBooksManagmentPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('borrowed books managment library'));
+    return const Center(child: Text('borrowed books managment library'));
   }
 }

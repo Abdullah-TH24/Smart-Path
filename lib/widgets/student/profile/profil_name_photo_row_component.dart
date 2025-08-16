@@ -9,7 +9,8 @@ import 'package:smartpath/core/utils/app_styles.dart';
 
 class ProfileNamePhotoRow extends StatelessWidget {
   final String studentName;
-  ProfileNamePhotoRow({super.key, required this.studentName});
+  Color? color;
+  ProfileNamePhotoRow({super.key, required this.studentName, this.color});
 
   LocalizationController locale = Get.find();
 
@@ -20,7 +21,7 @@ class ProfileNamePhotoRow extends StatelessWidget {
         const Gap(16),
         CircleAvatar(
           radius: 40,
-          backgroundColor: Colors.indigo[100],
+          backgroundColor: color ?? Colors.indigo[100],
           child: const Icon(LucideIcons.camera),
         ),
         const Gap(24),
