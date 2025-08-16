@@ -48,8 +48,10 @@ class BookDetailsBottomSheet extends StatelessWidget {
                   onPressed: () {
                     //remove the bottom sheet and the book page so i get back to it if the book updated
                     Get.back();
-                    Get.back();
-                    Get.toNamed(LibrarianRoutes.updateBook, arguments: book);
+                    Get.offAndToNamed(
+                      LibrarianRoutes.updateBook,
+                      arguments: book,
+                    );
                   },
                   child: Text('edit'.tr),
                 ),

@@ -173,7 +173,7 @@ class _LibrarianUpdateBookPageState extends State<LibrarianUpdateBookPage> {
       showSnackbar('success', 'update_book_success'.tr);
       Future.delayed(Durations.extralong4, () {
         Get.back();
-        Get.toNamed(LibrarianRoutes.books);
+        Get.offAndToNamed(LibrarianRoutes.books);
       });
     }
   }

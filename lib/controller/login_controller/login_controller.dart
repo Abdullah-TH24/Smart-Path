@@ -21,7 +21,7 @@ class LoginController extends GetxController {
 
     if (result != null) {
       log(result.role);
-      log(prefs!.getString('token')!);
+      // log(prefs!.getString('token')!);
       response = result;
     } else {
       errorMessage = 'error_message'.tr;
