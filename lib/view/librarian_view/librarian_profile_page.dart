@@ -1,7 +1,6 @@
 // ignore_for_file: must_be_immutable, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/controller/localization_controller/localization_controller.dart';
@@ -9,7 +8,6 @@ import 'package:smartpath/controller/login_controller/logout_controller.dart';
 import 'package:smartpath/controller/student_controller/home/home_page_controller.dart';
 import 'package:smartpath/core/utils/app_assets.dart';
 import 'package:smartpath/core/utils/app_routes.dart';
-import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/main.dart';
 import 'package:smartpath/models/student_model/profile/list_tile_item_model.dart';
 import 'package:smartpath/view/librarian_view/utils/librarian_routes.dart';
