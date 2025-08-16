@@ -34,7 +34,18 @@ class LibrarianBorrowPendingRequests extends StatelessWidget {
           slivers: [
             LibrarianWaveAppBar(title: 'lib_grid_3'.tr),
             BlocConsumer<BorrowCubit, BorrowState>(
-              listener: pendingBorrowsListener,
+              listener: (context, state) {
+                log(state.toString());
+                if (state is BorrowError) {
+                  showSnackbar('Error', state.message);
+                }
+                if (state is BorrowModifySuccess) {
+                  showSnackbar('Info', 'Borrow modified successfully');
+                  context.read<BorrowCubit>().fetchBorrowsOrders(
+                    filter: filter,
+                  );
+                }
+              },
               builder: (context, state) {
                 if (state is BorrowLoading) {
                   return const LibrarianLoadingIndicator();
@@ -105,16 +116,5 @@ class LibrarianBorrowPendingRequests extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void pendingBorrowsListener(context, state) {
-    log(state.toString());
-    if (state is BorrowError) {
-      showSnackbar('Error', state.message);
-    }
-    if (state is BorrowModifySuccess) {
-      showSnackbar('Info', 'Borrow modified successfully');
-      context.read<BorrowCubit>().fetchBorrowsOrders(filter: filter);
-    }
   }
 }
