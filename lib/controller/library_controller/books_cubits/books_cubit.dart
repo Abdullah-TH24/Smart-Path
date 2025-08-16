@@ -25,6 +25,21 @@ class BooksCubit extends Cubit<BooksState> {
     }
   }
 
+  Future<void> fetchAvailableBooks() async {
+    try {
+      emit(BooksLoading());
+      final books = await booksService.fetchBooks();
+      final availableBooks = books.where((book) {
+        return !(book.bookStatus.contains("borrowed"));
+      }).toList();
+
+      log("Available books count: ${availableBooks.length}");
+      emit(BooksLoaded(availableBooks));
+    } catch (e) {
+      emit(BooksError(e.toString()));
+    }
+  }
+
   Future addBook(Map<String, dynamic> bookdata) async {
     try {
       emit(BooksLoading());

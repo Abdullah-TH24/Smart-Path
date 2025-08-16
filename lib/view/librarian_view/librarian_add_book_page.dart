@@ -5,12 +5,12 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_utils/get_utils.dart';
-import 'package:smartpath/controller/librarian_controller/books_cubits/bar_code_cubit.dart';
-import 'package:smartpath/controller/librarian_controller/books_cubits/books_cubit.dart';
+import 'package:smartpath/controller/library_controller/books_cubits/bar_code_cubit.dart';
+import 'package:smartpath/controller/library_controller/books_cubits/books_cubit.dart';
 import 'package:smartpath/core/services/librarian_services/books_service.dart';
 import 'package:smartpath/view/librarian_view/utils/show_snackbar.dart';
 import 'package:smartpath/view/librarian_view/widgets/add_text_field.dart';
-import 'package:smartpath/view/librarian_view/widgets/librarian_bar_code_scan.dart';
+import 'package:smartpath/view/librarian_view/widgets/book_bar_code_scan.dart';
 import 'package:smartpath/view/librarian_view/widgets/librarian_wave_app_bar.dart';
 
 class LibrarianAddBookPage extends StatefulWidget {
@@ -73,14 +73,14 @@ class _AddBookPageState extends State<LibrarianAddBookPage> {
               padding: const EdgeInsets.all(16.0),
               child: MultiBlocProvider(
                 providers: [
-                  BlocProvider(create: (_) => BarcodeCubitAdd()),
+                  BlocProvider(create: (_) => BarcodeCubit()),
                   BlocProvider(create: (_) => BooksCubit(BooksService())),
                 ],
                 child: Form(
                   key: _formKey,
                   child: Column(
                     children: [
-                      BlocListener<BarcodeCubitAdd, String?>(
+                      BlocListener<BarcodeCubit, String?>(
                         listener: (context, barcode) {
                           if (barcode != null) {
                             _serialNumberController.text = barcode;
@@ -89,7 +89,7 @@ class _AddBookPageState extends State<LibrarianAddBookPage> {
                         child: librarianCustomTextField(
                           'serial_number'.tr,
                           _serialNumberController,
-                          scan: LibrarianBarCodeScan(),
+                          scan: const BookBarCodeScan(),
                         ),
                       ),
                       librarianCustomTextField('title'.tr, _titleController),

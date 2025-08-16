@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smartpath/core/services/librarian_services/borrow_services.dart';
 import 'package:smartpath/models/librarian_model/borrow_model.dart';
@@ -38,10 +40,12 @@ class BorrowCubit extends Cubit<BorrowState> {
   Future borrowBook(String serialnum) async {
     try {
       emit(BorrowLoading());
+      log('borrow book process started');
       await borrowServices.borrowBook(serialnum);
       emit(BorrowRequestSuccess());
     } catch (e) {
       emit(BorrowError(e.toString()));
+      log(e.toString());
     }
   }
 

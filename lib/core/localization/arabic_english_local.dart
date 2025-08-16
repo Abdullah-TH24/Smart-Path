@@ -153,6 +153,7 @@ class ArabicEnglishLocal implements Translations {
       'button_visitW': 'Visit Website',
       'button_visitF': 'Visit Facebook',
       //librarian
+      'library': 'Library',
       'borrow_manage': 'Borrow management',
       'lib_grid_1': 'Books',
       'lib_grid_2': 'available books',
@@ -161,6 +162,8 @@ class ArabicEnglishLocal implements Translations {
       'lib_grid_5': 'Rejected request',
       'lib_grid_6': 'Complaint',
       'books': 'Books',
+      'scan_to_borrow': 'Scan to send borrow requst',
+
       // librarian add a book
       'add_book': 'Add Book',
       'title': 'Title',
@@ -414,6 +417,7 @@ class ArabicEnglishLocal implements Translations {
       'field_title': 'أكتب تعليق...',
 
       //librarian
+      'library': 'المكتبة',
       'borrow_manage': 'ادارة الاستعارة',
       'lib_grid_1': 'الكتب',
       'lib_grid_2': 'الكتب المتاحة',
@@ -422,6 +426,8 @@ class ArabicEnglishLocal implements Translations {
       'lib_grid_5': 'الطلبات المرفوضة',
       'lib_grid_6': 'شكوى',
       'books': 'الكتب',
+      'scan_to_borrow': 'مسح الباركود لارسال طلب استعارة',
+
       // librarian add a book
       'add_book': 'إضافة كتاب',
       'title': 'العنوان',

@@ -112,26 +112,26 @@ class StudentHomePage extends StatelessWidget {
             : (homePageController.errorMessage != null)
             ? Center(child: Image.asset(AppAssets.noInternet))
             : CustomScrollView(
-              slivers: [
-                // <AppBar>
-                SliverPersistentHeader(
-                  pinned: true,
-                  floating: true,
-                  delegate: MyCustomAppBarDelegate(
-                    expandedHeight: 180,
-                    collapsedHeight: 110,
-                    studentName:
-                        "${controller.studentInfo!.fullName?.split(' ')[0][0].toUpperCase()}${controller.studentInfo!.fullName!.split(' ')[0].substring(1)} ${controller.studentInfo!.fullName!.split(' ')[1][0].toUpperCase()}${controller.studentInfo!.fullName!.split(' ')[2][0].toUpperCase()}",
+                slivers: [
+                  // <AppBar>
+                  SliverPersistentHeader(
+                    pinned: true,
+                    floating: true,
+                    delegate: MyCustomAppBarDelegate(
+                      expandedHeight: 180,
+                      collapsedHeight: 110,
+                      studentName:
+                          "${controller.studentInfo!.fullName?.split(' ')[0][0].toUpperCase()}${controller.studentInfo!.fullName!.split(' ')[0].substring(1)} ${controller.studentInfo!.fullName!.split(' ')[1][0].toUpperCase()}${controller.studentInfo!.fullName!.split(' ')[2][0].toUpperCase()}",
+                    ),
                   ),
-                ),
-                // Content
-                StudentGridViewHome(gridItems: gridItems),
-                // welcome image
-                WelcomeItem(),
-                // Events
-                const EventsInHomePage(),
-              ],
-            );
+                  // Content
+                  StudentGridViewHome(gridItems: gridItems),
+                  // welcome image
+                  WelcomeItem(),
+                  // Events
+                  const EventsInHomePage(),
+                ],
+              );
       },
     );
   }

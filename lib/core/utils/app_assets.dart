@@ -17,7 +17,7 @@ class AppAssets {
   static const String iconCase = "assets/icons/icon_case.svg";
 
   static const String iconChangePassword =
-      "assets/icons/icon_change_password_ldpi.svg";
+      "assets/icons/icon_change_password.svg";
 
   static const String iconClass = "assets/icons/icon_class_ldpi.svg";
 
@@ -57,6 +57,12 @@ class AppAssets {
   static const String iconTeacher = "assets/icons/icon_teacher.svg";
 
   static const String iconInputEnabled = "assets/icons/input_enabled.svg";
+  static const String studentLibActive =
+      "assets/icons/icon_book_shelf_student.svg";
+
+  static const String studentBook = "assets/icons/student_book.svg";
+  static const String studentLibInactive =
+      "assets/icons/icon_book_shelf_student_inactive.svg";
 
   static const String secondLogo = "assets/icons/second_logo.svg";
 

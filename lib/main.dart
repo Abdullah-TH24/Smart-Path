@@ -30,6 +30,7 @@ import 'package:smartpath/view/student_view/home/courses/courses.dart';
 import 'package:smartpath/view/student_view/home/exams/exams.dart';
 import 'package:smartpath/view/student_view/home/grades/filter_page.dart';
 import 'package:smartpath/view/student_view/home/grades/grades.dart';
+import 'package:smartpath/view/student_view/library/student_library_page.dart';
 import 'package:smartpath/view/student_view/profile/about.dart';
 import 'package:smartpath/view/student_view/profile/contact.dart';
 import 'package:smartpath/view/student_view/profile/profile_info.dart';
@@ -141,6 +142,10 @@ class MyApp extends StatelessWidget {
         GetPage(name: AppRoutes.studentCourses, page: () => const Courses()),
         GetPage(name: AppRoutes.studentQuiz, page: () => const Quiz()),
         GetPage(name: AppRoutes.studentAbsences, page: () => const Absences()),
+        GetPage(
+          name: AppRoutes.studentLibrary,
+          page: () => const StudentLibraryPage(),
+        ),
         ...TeacherRoutes.routes,
         ...LibrarianRoutes.routes,
       ],
