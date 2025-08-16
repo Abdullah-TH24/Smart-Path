@@ -86,21 +86,27 @@ class _AddBookPageState extends State<LibrarianAddBookPage> {
                             _serialNumberController.text = barcode;
                           }
                         },
-                        child: addBookTextField(
+                        child: librarianCustomTextField(
                           'serial_number'.tr,
                           _serialNumberController,
                           scan: LibrarianBarCodeScan(),
                         ),
                       ),
-                      addBookTextField('title'.tr, _titleController),
-                      addBookTextField('author'.tr, _authorController),
-                      addBookTextField('category'.tr, _categoryController),
-                      addBookTextField('publisher'.tr, _publisherController),
-                      addBookTextField(
+                      librarianCustomTextField('title'.tr, _titleController),
+                      librarianCustomTextField('author'.tr, _authorController),
+                      librarianCustomTextField(
+                        'category'.tr,
+                        _categoryController,
+                      ),
+                      librarianCustomTextField(
+                        'publisher'.tr,
+                        _publisherController,
+                      ),
+                      librarianCustomTextField(
                         'shelf_location'.tr,
                         _shelfLocationController,
                       ),
-                      addBookTextField(
+                      librarianCustomTextField(
                         'description'.tr,
                         _descriptionController,
                         maxLines: 3,

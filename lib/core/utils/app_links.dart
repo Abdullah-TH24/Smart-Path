@@ -61,4 +61,7 @@ abstract class AppLinks {
   static final String getBorrowOrders = '$_mainLink/getBorrowOrder/';
   static final String borrowBook = '$_mainLink/borrow/';
   static final String modifyBorrow = '$_mainLink/modifyBorrow/';
+
+  //global api's
+  static final String sendComplaint = '$_mainLink/addComplaint';
 }

@@ -53,7 +53,7 @@ class LibrarianHomePage extends StatelessWidget {
       assetName: AppAssets.libComplaint,
       title: 'lib_grid_6'.tr,
       onTap: () {
-        Get.toNamed(LibrarianRoutes.borrowRejectedRequests);
+        Get.toNamed(LibrarianRoutes.complaints);
       },
     ),
   ];

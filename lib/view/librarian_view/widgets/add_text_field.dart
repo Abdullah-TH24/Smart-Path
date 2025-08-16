@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
-Widget addBookTextField(
+Widget librarianCustomTextField(
   String label,
   TextEditingController controller, {
   int maxLines = 1,

@@ -225,6 +225,12 @@ class ArabicEnglishLocal implements Translations {
       'report_msg_6': 'Violence/blood',
       'report_hint': 'Write a report...',
       'report_msg_error': 'The report message must not be empty.',
+      //complaints
+      "add_complaint": "Add Complaint",
+      "complaint": "Complaint",
+      "submit_complaint": "Submit Complaint",
+      "complaint_added_success": "Complaint submitted successfully",
+      "success": "Success",
     },
     "ar": {
       'app_name': "المسار الذكي",
@@ -453,6 +459,13 @@ class ArabicEnglishLocal implements Translations {
       'report_hint': 'أكتب إبلاغ...',
       'report_msg_error': 'لا يجب أن تكون رسالة التقرير فارغة',
       'expired': 'منتهي ',
+
+      //complaints
+      "add_complaint": "إضافة شكوى",
+      "complaint": "الشكوى",
+      "submit_complaint": "إرسال الشكوى",
+      "complaint_added_success": "تم إرسال الشكوى بنجاح",
+      "success": "نجاح",
     },
   };
 }
