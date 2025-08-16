@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -72,7 +70,7 @@ class _LibrarianComplaintPageState extends State<LibrarianComplaintPage> {
                         _complaintController,
                         maxLines: 8,
                       ),
-                      Gap(20),
+                      const Gap(20),
                       BlocConsumer<ComplaintsCubit, ComplaintsState>(
                         listener: (context, state) {
                           if (state is ComplaintsError) {
