@@ -10,14 +10,14 @@ import 'package:smartpath/models/librarian_model/book_model.dart';
 part 'books_state.dart';
 
 class BooksCubit extends Cubit<BooksState> {
-  final BooksService booksService;
+  final BooksService _booksService;
 
-  BooksCubit(this.booksService) : super(BooksInitial());
+  BooksCubit(this._booksService) : super(BooksInitial());
 
   Future<void> fetchBooks() async {
     try {
       emit(BooksLoading());
-      final books = await booksService.fetchBooks();
+      final books = await _booksService.fetchBooks();
       log(books[0].title);
       emit(BooksLoaded(books));
     } catch (e) {
@@ -28,7 +28,7 @@ class BooksCubit extends Cubit<BooksState> {
   Future<void> fetchAvailableBooks() async {
     try {
       emit(BooksLoading());
-      final books = await booksService.fetchBooks();
+      final books = await _booksService.fetchBooks();
       final availableBooks = books.where((book) {
         return !(book.bookStatus.contains("borrowed"));
       }).toList();
@@ -40,30 +40,30 @@ class BooksCubit extends Cubit<BooksState> {
     }
   }
 
-  Future addBook(Map<String, dynamic> bookdata) async {
+  Future<void> addBook(Map<String, dynamic> bookdata) async {
     try {
       emit(BooksLoading());
-      await booksService.addBook(bookdata);
+      await _booksService.addBook(bookdata);
       emit(BookAdded());
     } catch (e) {
       emit(BooksError(e.toString()));
     }
   }
 
-  Future updateBook(Map<String, dynamic> bookdata, num id) async {
+  Future<void> updateBook(Map<String, dynamic> bookdata, num id) async {
     try {
       emit(BooksLoading());
-      await booksService.updateBook(bookdata, id);
+      await _booksService.updateBook(bookdata, id);
       emit(BookUpdated());
     } catch (e) {
       emit(BooksError(e.toString()));
     }
   }
 
-  Future deleteBook(num id) async {
+  Future<void> deleteBook(num id) async {
     try {
       emit(BooksLoading());
-      await booksService.deleteBook(id);
+      await _booksService.deleteBook(id);
       emit(BookDeleted());
     } catch (e) {
       emit(BooksError(e.toString()));

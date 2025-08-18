@@ -54,6 +54,7 @@ dependencies:
     url_launcher: ^6.3.2
 
 dev_dependencies:
+    bloc_lint: ^0.2.1
     flutter_lints: ^5.0.0
     flutter_test:
         sdk: flutter

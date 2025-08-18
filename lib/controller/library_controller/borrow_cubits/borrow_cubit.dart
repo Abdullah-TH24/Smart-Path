@@ -7,13 +7,13 @@ import 'package:smartpath/models/librarian_model/borrow_model.dart';
 part 'borrow_state.dart';
 
 class BorrowCubit extends Cubit<BorrowState> {
-  final BorrowServices borrowServices;
-  BorrowCubit(this.borrowServices) : super(BorrowInitial());
+  final BorrowServices _borrowServices;
+  BorrowCubit(this._borrowServices) : super(BorrowInitial());
 
-  Future fetchBorrowsOrders({required String filter}) async {
+  Future<void> fetchBorrowsOrders({required String filter}) async {
     try {
       emit(BorrowLoading());
-      final allBorrows = await borrowServices.fetchBorrowsOrders();
+      final allBorrows = await _borrowServices.fetchBorrowsOrders();
 
       if (filter == 'all') {
         emitFilteredBorrows(allBorrows);
@@ -27,21 +27,21 @@ class BorrowCubit extends Cubit<BorrowState> {
     }
   }
 
-  Future modifyBorrow(Map<String, dynamic> modifyInfo) async {
+  Future<void> modifyBorrow(Map<String, dynamic> modifyInfo) async {
     try {
       emit(BorrowLoading());
-      await borrowServices.modifyBorrow(modifyInfo);
+      await _borrowServices.modifyBorrow(modifyInfo);
       emit(BorrowModifySuccess());
     } catch (e) {
       emit(BorrowError(e.toString()));
     }
   }
 
-  Future borrowBook(String serialnum) async {
+  Future<void> borrowBook(String serialnum) async {
     try {
       emit(BorrowLoading());
       log('borrow book process started');
-      await borrowServices.borrowBook(serialnum);
+      await _borrowServices.borrowBook(serialnum);
       emit(BorrowRequestSuccess());
     } catch (e) {
       emit(BorrowError(e.toString()));
