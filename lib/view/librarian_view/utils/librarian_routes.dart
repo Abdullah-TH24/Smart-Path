@@ -7,11 +7,12 @@ import 'package:smartpath/view/librarian_view/librarian_borrow_accepted_requests
 import 'package:smartpath/view/librarian_view/librarian_borrow_pending_requests.dart';
 import 'package:smartpath/view/librarian_view/librarian_borrow_rejected_requests.dart';
 import 'package:smartpath/view/librarian_view/librarian_borrowed_books_managment_page.dart';
-import 'package:smartpath/view/librarian_view/librarian_complaint_page.dart';
+import 'package:smartpath/view/complaint_global_view/send_complaint_page.dart';
 import 'package:smartpath/view/librarian_view/librarian_home_page.dart';
 import 'package:smartpath/view/librarian_view/librarian_main_home_page.dart';
 import 'package:smartpath/view/librarian_view/librarian_setting_page.dart';
 import 'package:smartpath/view/librarian_view/librarian_update_book_page.dart';
+import 'package:smartpath/view/complaint_global_view/user_complaints_page.dart';
 
 class LibrarianRoutes {
   static const String home = '/librarian/home';
@@ -31,6 +32,7 @@ class LibrarianRoutes {
       '/librarian/borrowed_books_management';
   //
   static const String complaints = '/librarian/complaints';
+  static const String userComplaints = '/librarian/user_complaints';
   static const String settings = '/librarian/settings';
 
   static final List<GetPage> routes = [
@@ -90,7 +92,12 @@ class LibrarianRoutes {
     GetPage(
       name: LibrarianRoutes.complaints,
       transition: Transition.cupertinoDialog,
-      page: () => const LibrarianComplaintPage(),
+      page: () => const SendComplaintPage(),
+    ),
+    GetPage(
+      name: LibrarianRoutes.userComplaints,
+      transition: Transition.cupertinoDialog,
+      page: () => const UserComplaintsPage(),
     ),
     GetPage(
       name: LibrarianRoutes.settings,

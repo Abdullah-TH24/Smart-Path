@@ -57,6 +57,8 @@ class AppAssets {
   static const String iconTeacher = "assets/icons/icon_teacher.svg";
 
   static const String iconInputEnabled = "assets/icons/input_enabled.svg";
+  static const String iconHistoryStudent =
+      "assets/icons/icon_history_student.svg";
   static const String studentLibActive =
       "assets/icons/icon_book_shelf_student.svg";
 
@@ -92,6 +94,9 @@ class AppAssets {
 
   static const String libSignout =
       "assets/icons/librarian/icon_lib_signout.svg";
+
+  static const String iconHistoryLib =
+      "assets/icons/librarian/icon_history_lib.svg";
 
   // PNG
   static const String pngLogo = "assets/images/logo.png";

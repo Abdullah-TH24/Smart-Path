@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print, prefer_final_locals
 
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 import 'package:smartpath/main.dart';
@@ -53,14 +54,14 @@ class Api {
     if (withToken == true) {
       print(token);
       headers.addAll({
-        // 'Content-Type': 'application/json',
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer $token',
       });
     }
 
     http.Response response = await http.post(
       Uri.parse(url),
-      body: body,
+      body: jsonEncode(body),
       headers: headers,
     );
 
@@ -80,10 +81,8 @@ class Api {
       headers: {'Authorization': 'Bearer $token'},
     );
     if (response.statusCode == 200) {
-      print(jsonDecode(response.body));
       return jsonDecode(response.body);
     } else {
-      print(jsonDecode(response.body));
       throw Exception('Failed to delete: ${response.statusCode}');
     }
   }

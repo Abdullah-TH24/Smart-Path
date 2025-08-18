@@ -48,7 +48,7 @@ class LibrarianBorrowPendingRequests extends StatelessWidget {
               },
               builder: (context, state) {
                 if (state is BorrowLoading) {
-                  return const LibrarianLoadingIndicator();
+                  return const SliverLibrarianLoadingIndicator();
                 }
                 if (state is BorrowLoaded) {
                   final borrows = state.borrowModel;

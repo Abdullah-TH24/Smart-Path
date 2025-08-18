@@ -161,6 +161,7 @@ class ArabicEnglishLocal implements Translations {
       'lib_grid_4': 'Accepted request',
       'lib_grid_5': 'Rejected request',
       'lib_grid_6': 'Complaint',
+      'lib_grid_7': 'previous complaints',
       'books': 'Books',
       'scan_to_borrow': 'Scan to send borrow requst',
 
@@ -233,7 +234,10 @@ class ArabicEnglishLocal implements Translations {
       "complaint": "Complaint",
       "submit_complaint": "Submit Complaint",
       "complaint_added_success": "Complaint submitted successfully",
-      "success": "Success",
+      'success': 'Success',
+      'delete_complaint_success': 'Complaint deleted successfully',
+      'edit_complaint_success': 'Complaint updated successfully',
+      'edit_complaint': 'edit complaint',
     },
     "ar": {
       'app_name': "المسار الذكي",
@@ -425,6 +429,7 @@ class ArabicEnglishLocal implements Translations {
       'lib_grid_4': 'الطلبات المقبولة',
       'lib_grid_5': 'الطلبات المرفوضة',
       'lib_grid_6': 'شكوى',
+      'lib_grid_7': 'الشكاوي السابقة',
       'books': 'الكتب',
       'scan_to_borrow': 'مسح الباركود لارسال طلب استعارة',
 
@@ -472,6 +477,10 @@ class ArabicEnglishLocal implements Translations {
       "submit_complaint": "إرسال الشكوى",
       "complaint_added_success": "تم إرسال الشكوى بنجاح",
       "success": "نجاح",
+      "complaint_sent": "تمت ارسال الشكوى بنجاح",
+      "delete_complaint_success": "تم حذف الشكوى",
+      'edit_complaint_success': 'تم تعديل الشكوى بنجاح',
+      'edit_complaint': 'تعديل الشكوى',
     },
   };
 }

@@ -10,14 +10,14 @@ import 'package:smartpath/view/librarian_view/utils/show_snackbar.dart';
 import 'package:smartpath/view/librarian_view/widgets/add_text_field.dart';
 import 'package:smartpath/view/librarian_view/widgets/librarian_wave_app_bar.dart';
 
-class LibrarianComplaintPage extends StatefulWidget {
-  const LibrarianComplaintPage({super.key});
+class SendComplaintPage extends StatefulWidget {
+  const SendComplaintPage({super.key});
 
   @override
-  State<LibrarianComplaintPage> createState() => _LibrarianComplaintPageState();
+  State<SendComplaintPage> createState() => _SendComplaintPageState();
 }
 
-class _LibrarianComplaintPageState extends State<LibrarianComplaintPage> {
+class _SendComplaintPageState extends State<SendComplaintPage> {
   final _formKey = GlobalKey<FormState>();
 
   final TextEditingController _complaintController = TextEditingController();
@@ -94,7 +94,7 @@ class _LibrarianComplaintPageState extends State<LibrarianComplaintPage> {
                                 if (complaintData != null) {
                                   BlocProvider.of<ComplaintsCubit>(
                                     context,
-                                  ).addComplaint(complaintData);
+                                  ).sendComplaint(complaintData);
                                 }
                               });
                             },

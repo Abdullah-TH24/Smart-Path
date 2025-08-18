@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-class LibrarianLoadingIndicator extends StatelessWidget {
-  const LibrarianLoadingIndicator({super.key, this.color});
+class SliverLibrarianLoadingIndicator extends StatelessWidget {
+  const SliverLibrarianLoadingIndicator({super.key, this.color});
 
   final Color? color;
   @override

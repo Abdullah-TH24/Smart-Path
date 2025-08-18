@@ -41,7 +41,7 @@ class BooksService {
     }
   }
 
-  Future<void> deleteBook(num id) async {
+  Future deleteBook(num id) async {
     final response = await Api().delete(url: '${AppLinks.deleteBook}$id');
     if (response['status'] == true) {
       return;

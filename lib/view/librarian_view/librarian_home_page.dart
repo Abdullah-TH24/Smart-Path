@@ -56,6 +56,13 @@ class LibrarianHomePage extends StatelessWidget {
         Get.toNamed(LibrarianRoutes.complaints);
       },
     ),
+    GridItemModel(
+      assetName: AppAssets.iconHistoryLib,
+      title: 'lib_grid_7'.tr,
+      onTap: () {
+        Get.toNamed(LibrarianRoutes.userComplaints);
+      },
+    ),
   ];
 
   @override

@@ -64,4 +64,7 @@ abstract class AppLinks {
 
   //global api's
   static final String sendComplaint = '$_mainLink/addComplaint';
+  static final String getUserComplaints = '$_mainLink/getMyComplaints';
+  static final String deleteComplaint = '$_mainLink/deleteComplaint/';
+  static final String editComplaint = '$_mainLink/updateComplaint';
 }
