@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:smartpath/main.dart';
+import 'package:smartpath/core/utils/app_colors.dart';
 
-Widget librarianCustomTextField(
+Widget customTextField(
   String label,
   TextEditingController controller, {
   int maxLines = 1,
@@ -19,10 +19,10 @@ Widget librarianCustomTextField(
             maxLines: maxLines,
             decoration: InputDecoration(
               labelText: label,
-              labelStyle: const TextStyle(color: Colors.brown),
+              labelStyle: TextStyle(color: getColor().buttonText),
               floatingLabelBehavior: FloatingLabelBehavior.always,
               filled: true,
-              fillColor: getColor(),
+              fillColor: getColor().textField,
               border: UnderlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
               ),
@@ -37,19 +37,4 @@ Widget librarianCustomTextField(
       ?scan,
     ],
   );
-}
-
-Color getColor() {
-  switch (prefs!.getString('role')) {
-    case 'student':
-      return const Color.fromARGB(255, 159, 168, 218);
-    case 'teacher':
-      return Colors.indigo;
-    case 'supervisor':
-      return const Color.fromARGB(199, 231, 218, 205);
-    case 'librarian':
-      return Colors.indigo;
-    default:
-      return Colors.transparent;
-  }
 }

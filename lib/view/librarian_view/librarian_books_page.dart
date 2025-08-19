@@ -39,7 +39,7 @@ class LibrarianBooksPage extends StatelessWidget {
               },
               builder: (context, state) {
                 if (state is BooksLoading) {
-                  return const SliverLibrarianLoadingIndicator();
+                  return const SliverLoadingIndicator();
                 } else if (state is BooksLoaded) {
                   return SliverList(
                     delegate: SliverChildBuilderDelegate((context, index) {

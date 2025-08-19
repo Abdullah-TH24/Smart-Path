@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
+import 'package:smartpath/core/utils/app_colors.dart';
 import 'package:smartpath/widgets/student/profile/upper_waves_component.dart';
 
 class LibrarianWaveAppBar extends StatelessWidget {
@@ -13,7 +14,7 @@ class LibrarianWaveAppBar extends StatelessWidget {
 
       expandedHeight: 80,
       flexibleSpace: FlexibleSpaceBar(
-        background: UpperWaves(color: Colors.brown.withValues(alpha: 0.3)),
+        background: UpperWaves(color: getColor().appBarColor),
         titlePadding: const EdgeInsets.only(left: 16, bottom: 8, right: 16),
         centerTitle: true,
         title: Text(

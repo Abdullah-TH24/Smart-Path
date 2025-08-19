@@ -6,6 +6,7 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/controller/global/complaints_controller/complaints_cubit.dart';
 import 'package:smartpath/core/services/global/complaint_service.dart';
+import 'package:smartpath/core/utils/app_colors.dart';
 import 'package:smartpath/view/librarian_view/utils/show_snackbar.dart';
 import 'package:smartpath/view/librarian_view/widgets/add_text_field.dart';
 import 'package:smartpath/view/librarian_view/widgets/librarian_wave_app_bar.dart';
@@ -22,6 +23,7 @@ class _SendComplaintPageState extends State<SendComplaintPage> {
 
   final TextEditingController _complaintController = TextEditingController();
   final TextEditingController _categoryController = TextEditingController();
+  dynamic colors = getColor();
 
   @override
   void dispose() {
@@ -60,12 +62,12 @@ class _SendComplaintPageState extends State<SendComplaintPage> {
                   key: _formKey,
                   child: Column(
                     children: [
-                      librarianCustomTextField(
+                      customTextField(
                         'title'.tr,
                         _categoryController,
                         maxLines: 2,
                       ),
-                      librarianCustomTextField(
+                      customTextField(
                         'complaint'.tr,
                         _complaintController,
                         maxLines: 8,
@@ -87,7 +89,7 @@ class _SendComplaintPageState extends State<SendComplaintPage> {
                           return ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               maximumSize: const Size.fromHeight(40),
-                              backgroundColor: Colors.brown,
+                              backgroundColor: getColor().buttonText,
                             ),
                             onPressed: () {
                               _submitForm().then((complaintData) {
@@ -103,7 +105,7 @@ class _SendComplaintPageState extends State<SendComplaintPage> {
                                     height: 20,
                                     width: 20,
                                     child: CircularProgressIndicator(
-                                      color: Color.fromARGB(199, 231, 218, 205),
+                                      color: Colors.white,
                                     ),
                                   )
                                 : Text('submit_complaint'.tr),

@@ -97,27 +97,21 @@ class _LibrarianUpdateBookPageState extends State<LibrarianUpdateBookPage> {
                     children: [
                       BlocListener<BarcodeCubit, String?>(
                         listener: barCodeCubitListener,
-                        child: librarianCustomTextField(
+                        child: customTextField(
                           'serial_number'.tr,
                           _serialNumberController,
                           scan: BookBarCodeScan(),
                         ),
                       ),
-                      librarianCustomTextField('title'.tr, _titleController),
-                      librarianCustomTextField('author'.tr, _authorController),
-                      librarianCustomTextField(
-                        'category'.tr,
-                        _categoryController,
-                      ),
-                      librarianCustomTextField(
-                        'publisher'.tr,
-                        _publisherController,
-                      ),
-                      librarianCustomTextField(
+                      customTextField('title'.tr, _titleController),
+                      customTextField('author'.tr, _authorController),
+                      customTextField('category'.tr, _categoryController),
+                      customTextField('publisher'.tr, _publisherController),
+                      customTextField(
                         'shelf_location'.tr,
                         _shelfLocationController,
                       ),
-                      librarianCustomTextField(
+                      customTextField(
                         'description'.tr,
                         _descriptionController,
                         maxLines: 3,

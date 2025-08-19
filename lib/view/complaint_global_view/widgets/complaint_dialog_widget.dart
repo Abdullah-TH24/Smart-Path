@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/controller/global/complaints_controller/complaints_cubit.dart';
+import 'package:smartpath/core/utils/app_colors.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/models/global/complaint_model.dart';
 
@@ -51,11 +52,11 @@ class _ComplaintDialogState extends State<ComplaintDialog> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: const Color(0xFFF1E4D7),
+          color: getColor().textField,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
@@ -65,10 +66,10 @@ class _ComplaintDialogState extends State<ComplaintDialog> {
               widget.complaint.category,
               style: AppStyles.styleBold24().copyWith(
                 fontSize: 18,
-                color: Colors.brown,
+                color: getColor().buttonText,
               ),
             ),
-            const Divider(indent: 32, endIndent: 32, color: Colors.brown),
+            Divider(indent: 32, endIndent: 32, color: getColor().buttonText),
             const Gap(12),
             isEditing
                 ? TextField(

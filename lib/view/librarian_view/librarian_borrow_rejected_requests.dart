@@ -28,7 +28,7 @@ class LibrarianBorrowRejectedRequests extends StatelessWidget {
             BlocBuilder<BorrowCubit, BorrowState>(
               builder: (context, state) {
                 if (state is BorrowLoading) {
-                  return const SliverLibrarianLoadingIndicator();
+                  return const SliverLoadingIndicator();
                 }
                 if (state is BorrowLoaded) {
                   final borrows = state.borrowModel;

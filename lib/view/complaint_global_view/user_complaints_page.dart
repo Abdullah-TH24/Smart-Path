@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:lucide_icons/lucide_icons.dart';
 import 'package:smartpath/controller/global/complaints_controller/complaints_cubit.dart';
 import 'package:smartpath/core/services/global/complaint_service.dart';
 import 'package:smartpath/core/utils/app_assets.dart';
-import 'package:smartpath/core/utils/app_styles.dart';
-import 'package:smartpath/models/global/complaint_model.dart';
+import 'package:smartpath/core/utils/app_colors.dart';
 import 'package:smartpath/view/complaint_global_view/widgets/complaint_card_widget.dart';
 import 'package:smartpath/view/complaint_global_view/widgets/complaint_dialog_widget.dart';
 import 'package:smartpath/view/librarian_view/utils/show_snackbar.dart';
@@ -42,7 +39,7 @@ class UserComplaintsPage extends StatelessWidget {
               },
               builder: (context, state) {
                 if (state is ComplaintsLoading || state is ComplaintDeleted) {
-                  return const SliverLibrarianLoadingIndicator();
+                  return const SliverLoadingIndicator();
                 }
                 if (state is ComplaintsLoaded) {
                   return SliverList.builder(

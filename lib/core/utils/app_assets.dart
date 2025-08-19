@@ -63,6 +63,8 @@ class AppAssets {
       "assets/icons/icon_book_shelf_student.svg";
 
   static const String studentBook = "assets/icons/student_book.svg";
+  static const String studentComplaint =
+      "assets/icons/icon_complaint_student.svg";
   static const String studentLibInactive =
       "assets/icons/icon_book_shelf_student_inactive.svg";
 
