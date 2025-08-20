@@ -20,7 +20,7 @@ class LoginMiddleware extends GetMiddleware {
         // return const RouteSettings(name: AppRoutes.parentMainPageRoute);
         // TODO add parent main page to routes then uncomment the previous line
       } else if (prefs!.getString('role') == 'supervisor') {
-        return const RouteSettings(name: AppRoutes.studentMainPageRoute);
+        return const RouteSettings(name: LibrarianRoutes.mainHome);
       } else if (prefs!.getString('role') == 'teacher') {
         return const RouteSettings(name: TeacherRoutes.students);
       } else if (prefs!.getString('role') == 'librarian') {

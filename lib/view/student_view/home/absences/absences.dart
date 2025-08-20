@@ -47,46 +47,46 @@ class _AbsencesState extends State<Absences> {
                 ),
                 calendarType: CalendarDatePicker2Type.single, // يوم واحد فقط
                 selectedDayHighlightColor: Colors.indigo, // لون اليوم المحدد
-                dayBuilder: ({
-                  required date,
-                  decoration,
-                  isDisabled,
-                  isSelected,
-                  isToday,
-                  textStyle,
-                }) {
-                  bool isAbsent = absentDays.any(
-                    (absentDay) =>
-                        absentDay.year == date.year &&
-                        absentDay.month == date.month &&
-                        absentDay.day == date.day,
-                  );
-                  return Container(
-                    decoration: BoxDecoration(
-                      color:
-                          isSelected!
+                dayBuilder:
+                    ({
+                      required date,
+                      decoration,
+                      isDisabled,
+                      isSelected,
+                      isToday,
+                      textStyle,
+                    }) {
+                      bool isAbsent = absentDays.any(
+                        (absentDay) =>
+                            absentDay.year == date.year &&
+                            absentDay.month == date.month &&
+                            absentDay.day == date.day,
+                      );
+                      return Container(
+                        decoration: BoxDecoration(
+                          color: isSelected!
                               ? Colors.indigo
                               : isToday!
                               ? Colors.indigo[100]
                               : isAbsent
                               ? Colors.red
                               : Colors.transparent,
-                      shape: BoxShape.circle,
-                    ),
-                    alignment: Alignment.center,
-                    child: Text(
-                      '${date.day}',
-                      style: TextStyle(
-                        color:
-                            (isSelected || isAbsent)
+                          shape: BoxShape.circle,
+                        ),
+                        alignment: Alignment.center,
+                        child: Text(
+                          '${date.day}',
+                          style: TextStyle(
+                            color: (isSelected || isAbsent)
                                 ? Colors.white
                                 : Colors.black,
-                        fontWeight:
-                            isAbsent ? FontWeight.bold : FontWeight.normal,
-                      ),
-                    ),
-                  );
-                },
+                            fontWeight: isAbsent
+                                ? FontWeight.bold
+                                : FontWeight.normal,
+                          ),
+                        ),
+                      );
+                    },
               ),
               value: _selectedDate,
               onValueChanged: (dates) {

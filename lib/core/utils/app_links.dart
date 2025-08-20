@@ -1,6 +1,8 @@
 abstract class AppLinks {
   // Should be edit
+
   static final String _ip = '192.168.117.169';
+
 
   static final String _mainLink = 'http://$_ip:8000/api';
 
@@ -61,4 +63,10 @@ abstract class AppLinks {
   static final String getBorrowOrders = '$_mainLink/getBorrowOrder/';
   static final String borrowBook = '$_mainLink/borrow/';
   static final String modifyBorrow = '$_mainLink/modifyBorrow/';
+
+  //global api's
+  static final String sendComplaint = '$_mainLink/addComplaint';
+  static final String getUserComplaints = '$_mainLink/getMyComplaints';
+  static final String deleteComplaint = '$_mainLink/deleteComplaint/';
+  static final String editComplaint = '$_mainLink/updateComplaint';
 }

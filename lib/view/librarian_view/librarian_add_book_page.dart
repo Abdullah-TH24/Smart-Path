@@ -5,11 +5,12 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_utils/get_utils.dart';
-import 'package:smartpath/controller/librarian_controller/books_cubits/bar_code_cubit.dart';
-import 'package:smartpath/controller/librarian_controller/books_cubits/books_cubit.dart';
+import 'package:smartpath/controller/library_controller/books_cubits/bar_code_cubit.dart';
+import 'package:smartpath/controller/library_controller/books_cubits/books_cubit.dart';
 import 'package:smartpath/core/services/librarian_services/books_service.dart';
+import 'package:smartpath/view/librarian_view/utils/show_snackbar.dart';
 import 'package:smartpath/view/librarian_view/widgets/add_text_field.dart';
-import 'package:smartpath/view/librarian_view/widgets/librarian_bar_code_scan.dart';
+import 'package:smartpath/view/librarian_view/widgets/book_bar_code_scan.dart';
 import 'package:smartpath/view/librarian_view/widgets/librarian_wave_app_bar.dart';
 
 class LibrarianAddBookPage extends StatefulWidget {
@@ -72,34 +73,34 @@ class _AddBookPageState extends State<LibrarianAddBookPage> {
               padding: const EdgeInsets.all(16.0),
               child: MultiBlocProvider(
                 providers: [
-                  BlocProvider(create: (_) => BarcodeCubitAdd()),
+                  BlocProvider(create: (_) => BarcodeCubit()),
                   BlocProvider(create: (_) => BooksCubit(BooksService())),
                 ],
                 child: Form(
                   key: _formKey,
                   child: Column(
                     children: [
-                      BlocListener<BarcodeCubitAdd, String?>(
+                      BlocListener<BarcodeCubit, String?>(
                         listener: (context, barcode) {
                           if (barcode != null) {
                             _serialNumberController.text = barcode;
                           }
                         },
-                        child: addBookTextField(
+                        child: customTextField(
                           'serial_number'.tr,
                           _serialNumberController,
-                          scan: LibrarianBarCodeScan(),
+                          scan: const BookBarCodeScan(),
                         ),
                       ),
-                      addBookTextField('title'.tr, _titleController),
-                      addBookTextField('author'.tr, _authorController),
-                      addBookTextField('category'.tr, _categoryController),
-                      addBookTextField('publisher'.tr, _publisherController),
-                      addBookTextField(
+                      customTextField('title'.tr, _titleController),
+                      customTextField('author'.tr, _authorController),
+                      customTextField('category'.tr, _categoryController),
+                      customTextField('publisher'.tr, _publisherController),
+                      customTextField(
                         'shelf_location'.tr,
                         _shelfLocationController,
                       ),
-                      addBookTextField(
+                      customTextField(
                         'description'.tr,
                         _descriptionController,
                         maxLines: 3,
@@ -108,14 +109,10 @@ class _AddBookPageState extends State<LibrarianAddBookPage> {
                       BlocConsumer<BooksCubit, BooksState>(
                         listener: (context, state) {
                           if (state is BooksError) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text(state.message)),
-                            );
+                            showSnackbar('error', state.message);
                           }
                           if (state is BookAdded) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text('add_book_success'.tr)),
-                            );
+                            showSnackbar('success', 'add_book_success'.tr);
                           }
                         },
                         builder: (context, state) {
@@ -141,7 +138,7 @@ class _AddBookPageState extends State<LibrarianAddBookPage> {
                                       color: Color.fromARGB(199, 231, 218, 205),
                                     ),
                                   )
-                                : Text('submit Book'.tr),
+                                : Text('submit'.tr),
                           );
                         },
                       ),

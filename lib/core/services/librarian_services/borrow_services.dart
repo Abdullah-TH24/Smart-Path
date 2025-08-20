@@ -25,9 +25,11 @@ class BorrowServices {
     );
     if (response['status'] == true) {
       return;
-    } else {
-      throw Exception('Error happened when borrow the book..!');
     }
+    if (response['status'] == false) {
+      throw Exception(response['message']);
+    }
+    {}
   }
 
   //modify borrow here :

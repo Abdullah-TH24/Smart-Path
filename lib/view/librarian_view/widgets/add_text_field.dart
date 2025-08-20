@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:smartpath/core/utils/app_colors.dart';
 
-Widget addBookTextField(
+Widget customTextField(
   String label,
   TextEditingController controller, {
   int maxLines = 1,
@@ -18,10 +19,10 @@ Widget addBookTextField(
             maxLines: maxLines,
             decoration: InputDecoration(
               labelText: label,
-              labelStyle: const TextStyle(color: Colors.brown),
+              labelStyle: TextStyle(color: getColor().buttonText),
               floatingLabelBehavior: FloatingLabelBehavior.always,
               filled: true,
-              fillColor: const Color.fromARGB(199, 231, 218, 205),
+              fillColor: getColor().textField,
               border: UnderlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
               ),

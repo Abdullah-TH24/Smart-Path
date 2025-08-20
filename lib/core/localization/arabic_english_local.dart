@@ -153,13 +153,18 @@ class ArabicEnglishLocal implements Translations {
       'button_visitW': 'Visit Website',
       'button_visitF': 'Visit Facebook',
       //librarian
+      'library': 'Library',
       'borrow_manage': 'Borrow management',
       'lib_grid_1': 'Books',
       'lib_grid_2': 'available books',
       'lib_grid_3': 'Borrow requests',
       'lib_grid_4': 'Accepted request',
       'lib_grid_5': 'Rejected request',
+      'lib_grid_6': 'Complaint',
+      'lib_grid_7': 'previous complaints',
       'books': 'Books',
+      'scan_to_borrow': 'Scan to send borrow requst',
+
       // librarian add a book
       'add_book': 'Add Book',
       'title': 'Title',
@@ -184,6 +189,7 @@ class ArabicEnglishLocal implements Translations {
       //librarian borrow
       'accept': 'Accept',
       'reject': 'Reject',
+=======
       // For Events
       'one_comment': 'Comment',
       'two_comment': 'Comments',
@@ -223,16 +229,7 @@ class ArabicEnglishLocal implements Translations {
       'report_msg_6': 'Violence/blood',
       'report_hint': 'Write a report...',
       'report_msg_error': 'The report message must not be empty.',
-      //
-      'AM': 'AM',
-      'PM': 'PM',
-      //
-      'Teachers': 'Teachers',
-      'Students': 'Students',
-      //
-      'Exam Schedule': 'Exam Schedule',
-      'Choose the schedule type': 'Choose the schedule type',
-      'Download PDF': 'Download PDF',
+>>>>>>> 98c0b17 (Finish linking the feedback reporting features within events and finalize the design of the quiz and attendance pages.)
     },
     "ar": {
       'app_name': "المسار الذكي",
@@ -413,14 +410,21 @@ class ArabicEnglishLocal implements Translations {
       'two_replies': 'ردان',
       'many_replies': 'ردود',
       'field_title': 'أكتب تعليق...',
+<<<<<<< HEAD
+
       //librarian
+      'library': 'المكتبة',
       'borrow_manage': 'ادارة الاستعارة',
       'lib_grid_1': 'الكتب',
       'lib_grid_2': 'الكتب المتاحة',
       'lib_grid_3': 'طلبات الاستعارة',
       'lib_grid_4': 'الطلبات المقبولة',
       'lib_grid_5': 'الطلبات المرفوضة',
+      'lib_grid_6': 'شكوى',
+      'lib_grid_7': 'الشكاوي السابقة',
       'books': 'الكتب',
+      'scan_to_borrow': 'مسح الباركود لارسال طلب استعارة',
+
       // librarian add a book
       'add_book': 'إضافة كتاب',
       'title': 'العنوان',
@@ -457,16 +461,7 @@ class ArabicEnglishLocal implements Translations {
       'report_msg_6': 'عنف أو دماء',
       'report_hint': 'أكتب إبلاغ...',
       'report_msg_error': 'لا يجب أن تكون رسالة التقرير فارغة',
-      //
-      'AM': 'ص',
-      'PM': 'م',
-      //
-      'Teachers': 'الأساتذة',
-      'Students': 'الطلاب',
-      //
-      'Exam Schedule': 'برنامج الإمتحان',
-      'Choose the schedule type': 'اختر نوع الجدول الزمني',
-      'Download PDF': 'تحميل PDF',
+>>>>>>> 98c0b17 (Finish linking the feedback reporting features within events and finalize the design of the quiz and attendance pages.)
     },
   };
 }

@@ -17,35 +17,27 @@ class StudentGridViewHome extends StatelessWidget {
           crossAxisCount: 3,
           childAspectRatio: 2.77 / 2.5,
         ),
-        itemBuilder: (context, index) => (index == 4)
-            ? Image.asset(
-                AppAssets.pngLogo,
-                colorBlendMode: BlendMode.srcIn,
-                color: Colors.indigo,
-                height: 20,
-                width: 20,
-              )
-            : GestureDetector(
-                onTap: gridItems[index].onTap,
-                child: Card(
-                  color: const Color.fromARGB(200, 200, 204, 233),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      SvgPicture.asset(gridItems[index].assetName, width: 28),
-                      Container(
-                        alignment: Alignment.bottomCenter,
-                        child: Text(
-                          gridItems[index].title,
-                          style: AppStyles.styleRegular12(),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ],
+        itemBuilder: (context, index) => GestureDetector(
+          onTap: gridItems[index].onTap,
+          child: Card(
+            color: const Color.fromARGB(200, 200, 204, 233),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                SvgPicture.asset(gridItems[index].assetName, width: 28),
+                Container(
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    gridItems[index].title,
+                    style: AppStyles.styleRegular12(),
+                    textAlign: TextAlign.center,
                   ),
                 ),
-              ),
-        itemCount: gridItems.length - 3,
+              ],
+            ),
+          ),
+        ),
+        itemCount: gridItems.length,
       ),
     );
   }

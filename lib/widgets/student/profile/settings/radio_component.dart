@@ -4,6 +4,7 @@ class RadioComponent extends StatelessWidget {
   final String title;
   final int value;
   final int groupLangauge;
+  final Color activeColor;
   final ValueChanged<int?>? onChanged;
   const RadioComponent({
     super.key,
@@ -11,6 +12,7 @@ class RadioComponent extends StatelessWidget {
     this.onChanged,
     required this.title,
     required this.value,
+    required this.activeColor,
   });
 
   @override
@@ -25,7 +27,7 @@ class RadioComponent extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadiusGeometry.circular(12.5),
       ),
-      activeColor: Colors.indigo,
+      activeColor: activeColor,
     );
   }
 }

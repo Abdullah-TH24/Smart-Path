@@ -8,6 +8,7 @@ import 'package:smartpath/controller/student_controller/home/home_page_controlle
 import 'package:smartpath/core/utils/app_assets.dart';
 import 'package:smartpath/core/utils/app_routes.dart';
 import 'package:smartpath/models/student_model/home/grid_item_model.dart';
+import 'package:smartpath/view/librarian_view/utils/librarian_routes.dart';
 import 'package:smartpath/widgets/student/home/events_in_home_page.dart';
 import 'package:smartpath/widgets/student/home/my_custom_app_bar_delegate.dart';
 import 'package:smartpath/widgets/student/home/student_grid_view_home.dart';
@@ -92,20 +93,39 @@ class StudentHomePage extends StatelessWidget {
         },
       ),
       GridItemModel(
-        assetName: AppAssets.iconCase,
-        title: 'grid_item_name_9'.tr,
-        onTap: () {},
+        assetName: AppAssets.studentComplaint,
+        title: 'lib_grid_6'.tr,
+        onTap: () {
+          Get.toNamed(LibrarianRoutes.complaints);
+        },
       ),
       GridItemModel(
-        assetName: AppAssets.iconLamp,
-        title: 'grid_item_name_10'.tr,
-        onTap: () {},
+        assetName: AppAssets.iconHistoryStudent,
+        title: 'lib_grid_7'.tr,
+        onTap: () {
+          Get.toNamed(LibrarianRoutes.userComplaints);
+        },
       ),
-      GridItemModel(
-        assetName: AppAssets.iconBook,
-        title: 'grid_item_name_11'.tr,
-        onTap: () {},
-      ),
+      // GridItemModel(
+      //   assetName: AppAssets.iconAchievment,
+      //   title: 'grid_item_name_7'.tr,
+      //   onTap: () {},
+      // ),
+      // GridItemModel(
+      //   assetName: AppAssets.iconCase,
+      //   title: 'grid_item_name_9'.tr,
+      //   onTap: () {},
+      // ),
+      // GridItemModel(
+      //   assetName: AppAssets.iconLamp,
+      //   title: 'grid_item_name_10'.tr,
+      //   onTap: () {},
+      // ),
+      // GridItemModel(
+      //   assetName: AppAssets.iconBook,
+      //   title: 'grid_item_name_11'.tr,
+      //   onTap: () {},
+      // ),
     ];
     return GetBuilder<HomePageController>(
       builder: (homePageController) {

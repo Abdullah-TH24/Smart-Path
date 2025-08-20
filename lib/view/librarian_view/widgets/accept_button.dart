@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:smartpath/controller/librarian_controller/borrow_cubits/borrow_cubit.dart';
+import 'package:smartpath/controller/library_controller/borrow_cubits/borrow_cubit.dart';
 
 class AcceptButton extends StatelessWidget {
   const AcceptButton({

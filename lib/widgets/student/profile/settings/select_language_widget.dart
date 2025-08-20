@@ -30,6 +30,7 @@ class SelectLanguage extends StatelessWidget {
                   controller.changeLanguageToArabic();
                   controller.groupLangauge = value;
                 },
+                activeColor: Colors.indigo,
               ),
               RadioComponent(
                 groupLangauge: controller.groupLangauge!,
@@ -39,6 +40,7 @@ class SelectLanguage extends StatelessWidget {
                   controller.changeLanguageToEnglish();
                   controller.groupLangauge = value;
                 },
+                activeColor: Colors.indigo,
               ),
             ],
           ),

@@ -25,7 +25,7 @@ class _LibrarianMainHomePageState extends State<LibrarianMainHomePage> {
     final pages = [
       const LibrarianAddBookPage(),
       const LibrarianHomePage(),
-      const LibrarianProfilePage(),
+      LibrarianProfilePage(),
     ];
     // Items of bottom bar
     final items = <BottomBarItemModel>[
@@ -51,7 +51,7 @@ class _LibrarianMainHomePageState extends State<LibrarianMainHomePage> {
           colorFilter: ColorFilter.mode(Colors.grey[400]!, BlendMode.srcIn),
         ),
         title: Text('profile'.tr),
-        activeIcon: SvgPicture.asset(AppAssets.iconProfileActive),
+        activeIcon: SvgPicture.asset(AppAssets.libProfile),
       ),
     ];
     return Scaffold(

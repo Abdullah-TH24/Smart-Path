@@ -1,30 +1,22 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:smartpath/controller/librarian_controller/borrow_cubits/borrow_cubit.dart';
+import 'package:smartpath/controller/library_controller/borrow_cubits/borrow_cubit.dart';
 import 'package:smartpath/core/services/librarian_services/borrow_services.dart';
 import 'package:smartpath/core/utils/app_assets.dart';
-import 'package:smartpath/view/librarian_view/utils/show_snackbar.dart';
-import 'package:smartpath/view/librarian_view/widgets/accept_button.dart';
 import 'package:smartpath/view/librarian_view/widgets/librarian_loading_indicator.dart';
 import 'package:smartpath/view/librarian_view/widgets/librarian_wave_app_bar.dart';
-import 'package:smartpath/view/librarian_view/widgets/reject_button.dart';
+import 'package:smartpath/view/librarian_view/widgets/rejected_request_list_tile.dart';
 
-class LibrarianBorrowRequests extends StatelessWidget {
-  const LibrarianBorrowRequests({super.key});
-  static const filter = 'pending';
+class LibrarianBorrowRejectedRequests extends StatelessWidget {
+  const LibrarianBorrowRejectedRequests({super.key});
+  static const filter = 'rejected';
 
   @override
   Widget build(BuildContext context) {
-    final DateTime now = DateTime.now();
-    final DateTime dueDate = now.add(const Duration(days: 5));
-    final String dueDateFormat =
-        "${dueDate.year}-${dueDate.month}-${dueDate.day}";
     return Scaffold(
       body: BlocProvider(
         create: (context) =>
@@ -32,12 +24,11 @@ class LibrarianBorrowRequests extends StatelessWidget {
         child: CustomScrollView(
           physics: const BouncingScrollPhysics(),
           slivers: [
-            LibrarianWaveAppBar(title: 'lib_grid_3'.tr),
-            BlocConsumer<BorrowCubit, BorrowState>(
-              listener: pendingBorrowsListener,
+            LibrarianWaveAppBar(title: 'lib_grid_5'.tr),
+            BlocBuilder<BorrowCubit, BorrowState>(
               builder: (context, state) {
                 if (state is BorrowLoading) {
-                  return const LibrarianLoadingIndicator();
+                  return const SliverLoadingIndicator();
                 }
                 if (state is BorrowLoaded) {
                   final borrows = state.borrowModel;
@@ -50,35 +41,21 @@ class LibrarianBorrowRequests extends StatelessWidget {
                             Card(
                               margin: const EdgeInsets.symmetric(horizontal: 6),
                               elevation: 0,
-                              child: ListTile(
-                                leading: const Icon(Icons.person),
-                                title: Text(borrows[index].user.name),
-                                subtitle: Text(borrows[index].user.email),
-                                trailing: Text(borrows[index].borrowStatus),
+                              child: RejectedRequestListTile(
+                                borrows: borrows[index],
                               ),
                             ),
                             Container(
                               margin: const EdgeInsets.symmetric(
                                 horizontal: 18,
                               ),
-                              height: 60,
+                              height: 5,
                               decoration: const BoxDecoration(
                                 borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(12),
                                   bottomRight: Radius.circular(12),
                                 ),
-                                color: Color.fromARGB(198, 241, 228, 215),
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  AcceptButton(
-                                    id: borrows[index].id,
-                                    dueDateFormat: dueDateFormat,
-                                  ),
-                                  RejectButton(id: borrows[index].id),
-                                ],
+                                color: Color.fromARGB(157, 228, 61, 58),
                               ),
                             ),
                             const Gap(12),
@@ -103,16 +80,5 @@ class LibrarianBorrowRequests extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void pendingBorrowsListener(context, state) {
-    log(state.toString());
-    if (state is BorrowError) {
-      showSnackbar('Error', state.message);
-    }
-    if (state is BorrowModifySuccess) {
-      showSnackbar('Info', 'Borrow modified successfully');
-      context.read<BorrowCubit>().fetchBorrowsOrders(filter: filter);
-    }
   }
 }
