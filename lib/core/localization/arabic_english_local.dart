@@ -189,7 +189,7 @@ class ArabicEnglishLocal implements Translations {
       //librarian borrow
       'accept': 'Accept',
       'reject': 'Reject',
-=======
+      'expired': 'Expire',
       // For Events
       'one_comment': 'Comment',
       'two_comment': 'Comments',
@@ -229,7 +229,25 @@ class ArabicEnglishLocal implements Translations {
       'report_msg_6': 'Violence/blood',
       'report_hint': 'Write a report...',
       'report_msg_error': 'The report message must not be empty.',
->>>>>>> 98c0b17 (Finish linking the feedback reporting features within events and finalize the design of the quiz and attendance pages.)
+      //
+      'AM': 'AM',
+      'PM': 'PM',
+      //
+      'Teachers': 'Teachers',
+      'Students': 'Students',
+      //
+      'Exam Schedule': 'Exam Schedule',
+      'Choose the schedule type': 'Choose the schedule type',
+      'Download PDF': 'Download PDF',
+      //complaints
+      "add_complaint": "Add Complaint",
+      "complaint": "Complaint",
+      "submit_complaint": "Submit Complaint",
+      "complaint_added_success": "Complaint submitted successfully",
+      'success': 'Success',
+      'delete_complaint_success': 'Complaint deleted successfully',
+      'edit_complaint_success': 'Complaint updated successfully',
+      'edit_complaint': 'edit complaint',
     },
     "ar": {
       'app_name': "المسار الذكي",
@@ -410,7 +428,6 @@ class ArabicEnglishLocal implements Translations {
       'two_replies': 'ردان',
       'many_replies': 'ردود',
       'field_title': 'أكتب تعليق...',
-<<<<<<< HEAD
 
       //librarian
       'library': 'المكتبة',
@@ -461,7 +478,28 @@ class ArabicEnglishLocal implements Translations {
       'report_msg_6': 'عنف أو دماء',
       'report_hint': 'أكتب إبلاغ...',
       'report_msg_error': 'لا يجب أن تكون رسالة التقرير فارغة',
->>>>>>> 98c0b17 (Finish linking the feedback reporting features within events and finalize the design of the quiz and attendance pages.)
+      //
+      'AM': 'ص',
+      'PM': 'م',
+      //
+      'Teachers': 'الأساتذة',
+      'Students': 'الطلاب',
+      //
+      'Exam Schedule': 'برنامج الإمتحان',
+      'Choose the schedule type': 'اختر نوع الجدول الزمني',
+      'Download PDF': 'تحميل PDF',
+      'expired': 'منتهي ',
+
+      //complaints
+      "add_complaint": "إضافة شكوى",
+      "complaint": "الشكوى",
+      "submit_complaint": "إرسال الشكوى",
+      "complaint_added_success": "تم إرسال الشكوى بنجاح",
+      "success": "نجاح",
+      "complaint_sent": "تمت ارسال الشكوى بنجاح",
+      "delete_complaint_success": "تم حذف الشكوى",
+      'edit_complaint_success': 'تم تعديل الشكوى بنجاح',
+      'edit_complaint': 'تعديل الشكوى',
     },
   };
 }

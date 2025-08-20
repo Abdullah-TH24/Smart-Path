@@ -56,4 +56,7 @@ class AppRoutes {
   static const String studentQuiz = '/quiz';
 
   static const String studentAbsences = '/absences';
+
+  static const String studentHomeworks = '/homeworks';
+  static const String studentLibrary = '/library';
 }
