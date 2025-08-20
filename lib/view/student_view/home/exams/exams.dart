@@ -1,85 +1,77 @@
+// ignore_for_file: must_be_immutable
+
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:lucide_icons/lucide_icons.dart';
-import 'package:smartpath/widgets/student/home/exams/time_line_exam_item_widget.dart';
+import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 import 'package:smartpath/widgets/student/home/calendar/app_bar_component.dart';
+import 'package:smartpath/widgets/student/home/grades/drop_field_component.dart';
 
 class Exams extends StatelessWidget {
-  const Exams({super.key});
+  Exams({super.key});
+
+  GlobalKey<FormState> examKey = GlobalKey<FormState>();
+  TextEditingController exam = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    const monthNames = [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec',
-    ];
-    final List<Map<String, dynamic>> exams = [
-      {
-        'day': '${DateTime.now().day}',
-        'month': monthNames[DateTime.now().month - 1],
-        'title': 'Mathmatic',
-        'icon': LucideIcons.calculator,
-      },
-      {
-        'day': '${DateTime.now().day}',
-        'month': monthNames[DateTime.now().month - 1],
-        'title': 'Physics',
-        'icon': LucideIcons.atom,
-      },
-      {
-        'day': '${DateTime.now().day}',
-        'month': monthNames[DateTime.now().month - 1],
-        'title': 'Computer',
-        'icon': LucideIcons.laptop,
-      },
-      {
-        'day': '${DateTime.now().day}',
-        'month': monthNames[DateTime.now().month - 2],
-        'title': 'English',
-        'icon': LucideIcons.languages,
-      },
-      {
-        'day': '${DateTime.now().day}',
-        'month': monthNames[DateTime.now().month - 1],
-        'title': 'Chemistry',
-        'icon': LucideIcons.testTube2,
-      },
-      {
-        'day': '${DateTime.now().day}',
-        'month': monthNames[DateTime.now().month - 1],
-        'title': 'Sciences',
-        'icon': LucideIcons.microscope,
-      },
-    ];
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          const AppBarComponent(data: 'Exams Schedule'),
+          AppBarComponent(data: 'Exam Schedule'.tr),
           SliverToBoxAdapter(
-            child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: exams.length,
-              physics: const NeverScrollableScrollPhysics(),
-              padding: const EdgeInsets.all(16),
-              itemBuilder: (context, index) {
-                final exam = exams[index];
-                return TimelineExamItem(
-                  day: exam['day'],
-                  month: exam['month'],
-                  title: exam['title'],
-                  icon: exam['icon'],
-                  isLast: index == exams.length - 1,
-                );
-              },
+            child: Column(
+              children: [
+                const Gap(150),
+                Form(
+                  key: examKey,
+                  child: DropFieldComponent(
+                    title: 'Choose the schedule type'.tr,
+                    menuHeight: 175,
+                    controller: exam,
+                    dropdownMenuEntries: List.generate(
+                      3,
+                      (index) => DropdownMenuEntry(
+                        value: 'type_$index'.tr,
+                        label: 'type_$index'.tr,
+                      ),
+                    ),
+                  ),
+                ),
+                const Gap(125),
+                ElevatedButton(
+                  onPressed: () {
+                    if (examKey.currentState!.validate()) {
+                      String examType = '';
+                      if ((Get.locale?.languageCode ?? 'en') == 'ar') {
+                        switch (exam.text) {
+                          case 'إختبار':
+                            examType = 'quiz';
+                            break;
+                          case 'الإمتحان النصفي':
+                            examType = 'mid-term';
+                            break;
+                          case 'الإمتحان النهائي':
+                            examType = 'final';
+                            break;
+                          default:
+                        }
+                      } else {
+                        examType = exam.text;
+                      }
+                      log(examType);
+                      // TODO here for link API
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadiusGeometry.circular(12.5),
+                    ),
+                  ),
+                  child: Text('Download PDF'.tr),
+                ),
+              ],
             ),
           ),
         ],

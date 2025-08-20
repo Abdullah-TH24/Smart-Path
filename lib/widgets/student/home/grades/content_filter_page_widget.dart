@@ -45,7 +45,7 @@ class ContentFilterPage extends StatelessWidget {
               // First filter field <title & field>
               DropFieldComponent(
                 title: 'title_field_1'.tr,
-                menuHeight: 168,
+                menuHeight: 175,
                 controller: year,
                 dropdownMenuEntries: List.generate(
                   years * 2,
@@ -61,10 +61,10 @@ class ContentFilterPage extends StatelessWidget {
               // Second filter field <title & field>
               DropFieldComponent(
                 title: 'title_field_2'.tr,
-                menuHeight: 112,
+                menuHeight: 175,
                 controller: type,
                 dropdownMenuEntries: List.generate(
-                  2,
+                  3,
                   (index) => DropdownMenuEntry(
                     value: 'type_$index',
                     label: 'type_$index'.tr,

@@ -49,6 +49,9 @@ class FilterPageButtonWidget extends StatelessWidget {
                           case 'الإمتحان النهائي':
                             typeStr = 'Final';
                             break;
+                          case 'الإمتحان النصفي':
+                            typeStr = 'mid-term';
+                            break;
                           case 'إختبار':
                             typeStr = 'quizz';
                           default:

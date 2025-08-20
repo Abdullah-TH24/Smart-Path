@@ -28,8 +28,6 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-<<<<<<< HEAD
-  carousel_slider: ^5.1.1
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
@@ -53,32 +51,8 @@ dependencies:
   timeago: ^3.7.1
   translator: ^1.0.3+1
   url_launcher: ^6.3.2
-=======
-    calendar_date_picker2: ^2.0.1
-    carousel_slider: ^5.1.1
-    cupertino_icons: ^1.0.8
-    flutter:
-        sdk: flutter
-    flutter_bloc: ^9.1.1
-    flutter_otp_text_field: ^1.5.1+1
-    flutter_spinkit: ^5.2.1
-    flutter_svg: ^2.1.0
-    gap: ^3.0.1
-    get: ^4.7.2
-    google_fonts: ^6.2.1
-    http: ^1.4.0
-    local_auth: ^2.3.0
-    lucide_icons: ^0.257.0
-    mobile_scanner: ^7.0.1
-    pinput: ^5.0.1
-    salomon_bottom_bar: ^3.3.2
-    shared_preferences: ^2.5.3
-    smooth_page_indicator: ^1.2.1
-    step_progress_indicator: ^1.0.2
-    timeago: ^3.7.1
-    translator: ^1.0.3+1
-    url_launcher: ^6.3.2
->>>>>>> 98c0b17 (Finish linking the feedback reporting features within events and finalize the design of the quiz and attendance pages.)
+  calendar_date_picker2: ^2.0.1
+  carousel_slider: ^5.1.1
 
 dev_dependencies:
   flutter_lints: ^5.0.0

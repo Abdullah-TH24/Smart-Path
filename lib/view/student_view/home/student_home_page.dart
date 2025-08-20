@@ -28,17 +28,19 @@ class StudentHomePage extends StatelessWidget {
           Get.toNamed(AppRoutes.studentClass);
         },
       ),
-      GridItemModel(
-        assetName: AppAssets.iconBook,
-        title: 'grid_item_name_1'.tr,
-        onTap: () {
-          Get.toNamed(AppRoutes.studentCourses);
-        },
-      ),
+      // GridItemModel(
+      //   assetName: AppAssets.iconBook,
+      //   title: 'grid_item_name_1'.tr,
+      //   onTap: () {
+      //     Get.toNamed(AppRoutes.studentCourses);
+      //   },
+      // ),
       GridItemModel(
         assetName: AppAssets.iconCase,
         title: 'grid_item_name_2'.tr,
-        onTap: () {},
+        onTap: () {
+          Get.toNamed(AppRoutes.studentHomeworks);
+        },
       ),
       GridItemModel(
         assetName: AppAssets.iconTeacher,
@@ -54,6 +56,11 @@ class StudentHomePage extends StatelessWidget {
           Get.toNamed(AppRoutes.studentExams);
         },
       ),
+      GridItemModel(
+        assetName: AppAssets.iconAchievment,
+        title: 'grid_item_name_7'.tr,
+        onTap: () {},
+      ), // Will not appear because it's index = 5
       GridItemModel(
         assetName: AppAssets.iconQuiz,
         title: 'grid_item_name_4'.tr,
@@ -85,11 +92,6 @@ class StudentHomePage extends StatelessWidget {
         },
       ),
       GridItemModel(
-        assetName: AppAssets.iconAchievment,
-        title: 'grid_item_name_7'.tr,
-        onTap: () {},
-      ),
-      GridItemModel(
         assetName: AppAssets.iconCase,
         title: 'grid_item_name_9'.tr,
         onTap: () {},
@@ -112,26 +114,26 @@ class StudentHomePage extends StatelessWidget {
             : (homePageController.errorMessage != null)
             ? Center(child: Image.asset(AppAssets.noInternet))
             : CustomScrollView(
-              slivers: [
-                // <AppBar>
-                SliverPersistentHeader(
-                  pinned: true,
-                  floating: true,
-                  delegate: MyCustomAppBarDelegate(
-                    expandedHeight: 180,
-                    collapsedHeight: 110,
-                    studentName:
-                        "${controller.studentInfo!.fullName?.split(' ')[0][0].toUpperCase()}${controller.studentInfo!.fullName!.split(' ')[0].substring(1)} ${controller.studentInfo!.fullName!.split(' ')[1][0].toUpperCase()}${controller.studentInfo!.fullName!.split(' ')[2][0].toUpperCase()}",
+                slivers: [
+                  // <AppBar>
+                  SliverPersistentHeader(
+                    pinned: true,
+                    floating: true,
+                    delegate: MyCustomAppBarDelegate(
+                      expandedHeight: 180,
+                      collapsedHeight: 110,
+                      studentName:
+                          "${controller.studentInfo!.fullName?.split(' ')[0][0].toUpperCase()}${controller.studentInfo!.fullName!.split(' ')[0].substring(1)} ${controller.studentInfo!.fullName!.split(' ')[1][0].toUpperCase()}${controller.studentInfo!.fullName!.split(' ')[2][0].toUpperCase()}",
+                    ),
                   ),
-                ),
-                // Content
-                StudentGridViewHome(gridItems: gridItems),
-                // welcome image
-                WelcomeItem(),
-                // Events
-                const EventsInHomePage(),
-              ],
-            );
+                  // Content
+                  StudentGridViewHome(gridItems: gridItems),
+                  // welcome image
+                  WelcomeItem(),
+                  // Events
+                  const EventsInHomePage(),
+                ],
+              );
       },
     );
   }

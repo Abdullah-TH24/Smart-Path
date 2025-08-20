@@ -84,9 +84,9 @@ class ArabicEnglishLocal implements Translations {
       'title_field_2': 'Select the type',
       'First': 'First',
       'Second': 'Second',
-      'type_0': 'Final',
-      // 'type_1': 'Mid-Term',
-      'type_1': 'Quiz', // TODO
+      'type_2': 'Final',
+      'type_1': 'Mid-Term',
+      'type_0': 'Quiz', // TODO
       'button_text': 'Next',
       'field_validation_text': 'This field cannot be empty',
       'No results at the moment': 'No results at the moment',
@@ -154,7 +154,6 @@ class ArabicEnglishLocal implements Translations {
       'button_visitF': 'Visit Facebook',
       //librarian
       'borrow_manage': 'Borrow management',
-<<<<<<< HEAD
       'lib_grid_1': 'Books',
       'lib_grid_2': 'available books',
       'lib_grid_3': 'Borrow requests',
@@ -185,7 +184,6 @@ class ArabicEnglishLocal implements Translations {
       //librarian borrow
       'accept': 'Accept',
       'reject': 'Reject',
-=======
       // For Events
       'one_comment': 'Comment',
       'two_comment': 'Comments',
@@ -225,7 +223,16 @@ class ArabicEnglishLocal implements Translations {
       'report_msg_6': 'Violence/blood',
       'report_hint': 'Write a report...',
       'report_msg_error': 'The report message must not be empty.',
->>>>>>> 98c0b17 (Finish linking the feedback reporting features within events and finalize the design of the quiz and attendance pages.)
+      //
+      'AM': 'AM',
+      'PM': 'PM',
+      //
+      'Teachers': 'Teachers',
+      'Students': 'Students',
+      //
+      'Exam Schedule': 'Exam Schedule',
+      'Choose the schedule type': 'Choose the schedule type',
+      'Download PDF': 'Download PDF',
     },
     "ar": {
       'app_name': "المسار الذكي",
@@ -308,9 +315,9 @@ class ArabicEnglishLocal implements Translations {
       'title_field_2': 'حدد النوع',
       'First': 'الفصل الأول',
       'Second': 'الفصل الثاني',
-      'type_0': 'الإمتحان النهائي',
-      // 'type_1': 'الإمتحان النصفي',
-      'type_1': 'إختبار', // TODO
+      'type_2': 'الإمتحان النهائي',
+      'type_1': 'الإمتحان النصفي',
+      'type_0': 'إختبار', // TODO
       'button_text': 'التالي',
       'field_validation_text': 'لا يمكن أن يكون هذا الحقل فارغًا',
       'No results at the moment': 'لا توجد نتائج في الوقت الحالي',
@@ -376,7 +383,6 @@ class ArabicEnglishLocal implements Translations {
       'button_send': 'أرسل بريداً إلكترونياً',
       'button_visitW': 'زر الموقع',
       'button_visitF': 'زر فيسبوك',
-
       // For Events
       'one_comment': 'تعليق واحد',
       'two_comment': 'تعليقان',
@@ -407,8 +413,6 @@ class ArabicEnglishLocal implements Translations {
       'two_replies': 'ردان',
       'many_replies': 'ردود',
       'field_title': 'أكتب تعليق...',
-<<<<<<< HEAD
-
       //librarian
       'borrow_manage': 'ادارة الاستعارة',
       'lib_grid_1': 'الكتب',
@@ -445,7 +449,6 @@ class ArabicEnglishLocal implements Translations {
       'student_id': 'رقم الطالب',
       'borrow_date': 'تاريخ الاستعارة',
       'return_date': 'تاريخ العودة',
-=======
       'report_msg_1': 'محتوى غير قانوني',
       'report_msg_2': 'خطاب كراهية',
       'report_msg_3': 'تهديد أو تحرش',
@@ -454,7 +457,16 @@ class ArabicEnglishLocal implements Translations {
       'report_msg_6': 'عنف أو دماء',
       'report_hint': 'أكتب إبلاغ...',
       'report_msg_error': 'لا يجب أن تكون رسالة التقرير فارغة',
->>>>>>> 98c0b17 (Finish linking the feedback reporting features within events and finalize the design of the quiz and attendance pages.)
+      //
+      'AM': 'ص',
+      'PM': 'م',
+      //
+      'Teachers': 'الأساتذة',
+      'Students': 'الطلاب',
+      //
+      'Exam Schedule': 'برنامج الإمتحان',
+      'Choose the schedule type': 'اختر نوع الجدول الزمني',
+      'Download PDF': 'تحميل PDF',
     },
   };
 }

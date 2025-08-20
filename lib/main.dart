@@ -23,6 +23,7 @@ import 'package:smartpath/view/splash_view/splash_screen.dart';
 import 'package:smartpath/view/student_view/events/comments_page.dart';
 import 'package:smartpath/view/student_view/events/reactions_info_page.dart';
 import 'package:smartpath/view/student_view/home/absences/absences.dart';
+import 'package:smartpath/view/student_view/home/homeworks/homeworks.dart';
 import 'package:smartpath/view/student_view/home/quiz/quiz.dart';
 import 'package:smartpath/view/student_view/home/schedule/schedule.dart';
 import 'package:smartpath/view/student_view/home/class/class_view.dart';
@@ -137,10 +138,11 @@ class MyApp extends StatelessWidget {
         GetPage(name: AppRoutes.studentCalendar, page: () => Schedule()),
         GetPage(name: AppRoutes.studentFilterPage, page: () => FilterPage()),
         GetPage(name: AppRoutes.studentGrades, page: () => Grades()),
-        GetPage(name: AppRoutes.studentExams, page: () => const Exams()),
+        GetPage(name: AppRoutes.studentExams, page: () => Exams()),
         GetPage(name: AppRoutes.studentCourses, page: () => const Courses()),
         GetPage(name: AppRoutes.studentQuiz, page: () => const Quiz()),
-        GetPage(name: AppRoutes.studentAbsences, page: () => Absences()),
+        GetPage(name: AppRoutes.studentAbsences, page: () => const Absences()),
+        GetPage(name: AppRoutes.studentHomeworks, page: () => Homeworks()),
         ...TeacherRoutes.routes,
         ...LibrarianRoutes.routes,
       ],

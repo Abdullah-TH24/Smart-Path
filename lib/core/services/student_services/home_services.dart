@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:http/http.dart' as http;
 import 'package:smartpath/core/utils/app_links.dart';
 import 'package:smartpath/models/student_model/student_info_model.dart';
@@ -15,11 +16,14 @@ class HomeServices {
         },
       );
       if (response.statusCode == 200) {
+        log('TRUE');
         return StudentModel.fromJson(json.decode(response.body)['data']);
       } else {
+        log('else');
         return null;
       }
     } catch (e) {
+      log('catch $e');
       return null;
     }
   }

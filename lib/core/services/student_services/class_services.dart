@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'dart:developer';
 import 'package:http/http.dart' as http;
 import 'package:smartpath/core/utils/app_links.dart';
 import 'package:smartpath/models/student_model/home/student_model.dart';
@@ -13,6 +13,7 @@ class ClassServices {
         headers: {'Authorization': 'Bearer $token'},
       );
       if (response.statusCode == 200) {
+        log('${response.body}');
         final List teachersData = json.decode(response.body)['teachers'];
         final List<TeacherModel> teachers = [];
         for (var i = 0; i < teachersData.length; i++) {
@@ -22,7 +23,7 @@ class ClassServices {
         final List<StudentModel> students = [];
         for (var i = 0; i < studentsData.length; i++) {
           students.add(StudentModel.fromJson(studentsData[i]));
-        }
+        }        
         return {'teachers': teachers, 'students': students};
       } else {
         return null;

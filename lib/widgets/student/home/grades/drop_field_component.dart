@@ -47,7 +47,7 @@ class DropFieldComponent extends StatelessWidget {
                       ),
                       shape: WidgetStatePropertyAll(
                         RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius: BorderRadius.circular(12.5),
                         ),
                       ),
                       fixedSize: WidgetStatePropertyAll(

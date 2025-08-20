@@ -39,7 +39,7 @@ class StudentModel {
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     user =
-        json['user'] != null ? StudentUserModel.fromJson(json['user']) : null;
+        json['users'] != null ? StudentUserModel.fromJson(json['users']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -55,7 +55,7 @@ class StudentModel {
     data['created_at'] = createdAt;
     data['updated_at'] = updatedAt;
     if (user != null) {
-      data['user'] = user!.toJson();
+      data['users'] = user!.toJson();
     }
     return data;
   }

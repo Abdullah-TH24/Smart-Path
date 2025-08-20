@@ -34,7 +34,16 @@ class LoginButton extends StatelessWidget {
         return ButtonComponent(
           onPressed: (controller.isLoading)
               ? null
-              : () async {
+              :
+                // () {
+                //     prefs!.setString(
+                //       'token',
+                //       '8|NtJvm7UAsmZJ8iX5S1yQEXEeV6FW9PDFBCUl955P0c0f0bb1',
+                //     );
+                //     prefs!.setString('role', 'student');
+                //     log('done');
+                //   }, // TODO for VIP
+                () async {
                   FocusScope.of(context).unfocus();
                   if (login.currentState!.validate()) {
                     await loginController.login(

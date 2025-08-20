@@ -7,7 +7,7 @@ import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:smartpath/controller/librarian_controller/books_cubits/bar_code_cubit.dart';
 
 class LibrarianBarCodeScan extends StatefulWidget {
-  LibrarianBarCodeScan({super.key});
+  const LibrarianBarCodeScan({super.key});
 
   @override
   State<LibrarianBarCodeScan> createState() => _LibrarianBarCodeScanState();

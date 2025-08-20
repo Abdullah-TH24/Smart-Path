@@ -47,7 +47,7 @@ class Schedule extends StatelessWidget {
                   ),
                 );
               }
-              return const Lessons();
+              return  const Lessons();
             },
           ),
         ],

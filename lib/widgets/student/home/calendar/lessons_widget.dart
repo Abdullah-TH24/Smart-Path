@@ -16,13 +16,13 @@ class Lessons extends StatelessWidget {
   Widget build(BuildContext context) {
     Map indexes = {};
     final Map<int, String> times = {
-      1: '08:30AM - 09:15AM',
-      2: '09:15AM - 10:00AM',
-      3: '10:15AM - 11:00AM',
-      4: '11:00AM - 11:45AM',
-      5: '12:00PM - 12:45PM',
-      6: '12:45PM - 13:30PM',
-      7: '13:30PM - 14:15PM',
+      1: '08:30${'AM'.tr} - 09:15${'AM'.tr}',
+      2: '09:15${'AM'.tr} - 10:00${'AM'.tr}',
+      3: '10:15${'AM'.tr} - 11:00${'AM'.tr}',
+      4: '11:00${'AM'.tr} - 11:45${'AM'.tr}',
+      5: '12:00${'PM'.tr} - 12:45${'PM'.tr}',
+      6: '12:45${'PM'.tr} - 13:30${'PM'.tr}',
+      7: '13:30${'PM'.tr} - 14:15${'PM'.tr}',
     };
     return SliverToBoxAdapter(
       child: ListView(
@@ -131,8 +131,8 @@ class Lessons extends StatelessWidget {
                         const Gap(10),
                         Text(
                           times[index + 1]!,
-                          style: AppStyles.styleBold24().copyWith(
-                            color: Colors.indigo[50],
+                          style: AppStyles.styleBold16().copyWith(
+                            color: Colors.black54
                           ),
                         ),
                       ],

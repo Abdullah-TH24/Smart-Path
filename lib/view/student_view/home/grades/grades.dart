@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -18,10 +19,10 @@ class Grades extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    avg = 0;
     for (var i = 0; i < grades.length; i++) {
       avg += double.parse(grades[i].result!);
     }
-    avg /= 6;
     final List subjects = [
       'math',
       'chemistry',
@@ -38,7 +39,7 @@ class Grades extends StatelessWidget {
           // Progress
           SliverToBoxAdapter(
             child: AnimatedStudentMarkCircle(
-              mark: (message != null) ? 0 : avg.round(),
+              mark: (message != null) ? 0 : (avg.round() / 6).toInt(),
             ),
           ),
           // Title

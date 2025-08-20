@@ -158,6 +158,7 @@ class EventsServices {
         headers: {'Authorization': 'Bearer $token'},
       );
       if (response.statusCode == 200) {
+        log(response.body);
         final List data = json.decode(response.body)['message'];
         final List<AllReactionsModel> allReactions = [];
         for (var i = 0; i < data.length; i++) {
@@ -165,9 +166,11 @@ class EventsServices {
         }
         return allReactions;
       } else {
+        log('else');
         return [];
       }
     } catch (e) {
+      log('null $e');
       return null;
     }
   }
