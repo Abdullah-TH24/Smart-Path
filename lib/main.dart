@@ -1,8 +1,7 @@
 // ignore_for_file: must_be_immutable, use_build_context_synchronously
 // TODO just remove the comments
-// import 'package:firebase_core/firebase_core.dart';
-// import 'package:firebase_messaging/firebase_messaging.dart';
-// import 'package:smartpath/firebase_options.dart'
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -13,6 +12,7 @@ import 'package:smartpath/core/middleware/introduction_middleware.dart';
 import 'package:smartpath/core/middleware/login_middleware.dart';
 import 'package:smartpath/core/utils/app_routes.dart';
 import 'package:smartpath/core/utils/themes.dart';
+import 'package:smartpath/firebase_options.dart';
 import 'package:smartpath/view/auth_view/auth_view.dart';
 import 'package:smartpath/view/introduction_view/introduction_pages.dart';
 import 'package:smartpath/view/login_view/enter_verification_code.dart';
@@ -51,9 +51,9 @@ void main() async {
   prefs = await SharedPreferences.getInstance();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   // TODO just remove the comments and inside android/app/build.gradle from line 4
-  // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  // String? messaging = await FirebaseMessaging.instance.getToken();
-  // print("token $messaging");
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  String? messaging = await FirebaseMessaging.instance.getToken();
+  print("token $messaging");
   runApp(MyApp());
 }
 

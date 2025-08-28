@@ -49,7 +49,7 @@ class BorrowCubit extends Cubit<BorrowState> {
     }
   }
 
-  //helper function for filtering the borrows
+  //helper filtering the borrows
   List<BorrowModel> filterBorrows(List<BorrowModel> allBorrows, String filter) {
     return allBorrows
         .where((element) => element.borrowStatus == filter)
