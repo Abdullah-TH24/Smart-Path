@@ -10,7 +10,7 @@ class AuthServices {
     try {
       final http.Response response = await http.post(
         Uri.parse(AppLinks.createOrUpdatePinCode),
-        body: {"pinCode": pinCode, "confirmedPinCode": confirmedPinCode},
+        body: {'pinCode': pinCode, 'confirmedPinCode': confirmedPinCode},
         headers: {'Authorization': 'Bearer $token'},
       );
       if (response.statusCode == 200) {
@@ -27,7 +27,7 @@ class AuthServices {
     try {
       final http.Response response = await http.post(
         Uri.parse(AppLinks.checkPinCode),
-        body: {"pinCode": pinCode},
+        body: {'pinCode': pinCode},
         headers: {'Authorization': 'Bearer $token'},
       );
       if (response.statusCode == 200) {

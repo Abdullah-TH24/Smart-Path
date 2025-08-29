@@ -5,6 +5,7 @@ class ComplaintModel {
   final String category;
   final String status;
   final String priority;
+  final String? seenAt;
   final String? notes;
   final String? deletedAt;
   final DateTime createdAt;
@@ -17,6 +18,7 @@ class ComplaintModel {
     required this.category,
     required this.status,
     required this.priority,
+    this.seenAt,
     this.notes,
     this.deletedAt,
     required this.createdAt,
@@ -31,6 +33,7 @@ class ComplaintModel {
       category: json['category'],
       status: json['status'],
       priority: json['priority'],
+      seenAt: json['seen_at'],
       notes: json['notes'],
       deletedAt: json['deleted_at'],
       createdAt: DateTime.parse(json['created_at']),

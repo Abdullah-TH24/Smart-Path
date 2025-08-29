@@ -36,18 +36,16 @@ class ReactionsWidget extends StatelessWidget {
               );
             },
             child: SizedBox(
-              width:
-                  controller.events![index].reactions!.reactionNumber == 0
-                      ? 50
-                      : null,
+              width: controller.events![index].reactions!.reactionNumber == 0
+                  ? 50
+                  : null,
               child: Row(
                 children: [
                   Builder(
                     builder: (context) {
                       final types = controller.events![index].reactions!.types;
-                      final sortedReactions =
-                          types.entries.toList()
-                            ..sort((a, b) => b.value.compareTo(a.value));
+                      final sortedReactions = types.entries.toList()
+                        ..sort((a, b) => b.value.compareTo(a.value));
                       return SizedBox(
                         height: 25,
                         width: (sortedReactions.length - 1) * 15 + 30,
@@ -56,9 +54,9 @@ class ReactionsWidget extends StatelessWidget {
                           children: List.generate(sortedReactions.length, (
                             reactionIndex,
                           ) {
-                            final reactionType =
-                                sortedReactions[reactionIndex].key
-                                    .toLowerCase();
+                            final reactionType = sortedReactions[reactionIndex]
+                                .key
+                                .toLowerCase();
                             return Positioned(
                               left: reactionIndex * 15,
                               top: 2,
@@ -69,7 +67,7 @@ class ReactionsWidget extends StatelessWidget {
                                 child: ClipOval(
                                   child: Image.asset(
                                     reactionImages[reactionType] ??
-                                        reactionImages["like"]!,
+                                        reactionImages['like']!,
                                     width: 20,
                                     height: 20,
                                     fit: BoxFit.cover,
@@ -89,7 +87,7 @@ class ReactionsWidget extends StatelessWidget {
                       (controller.events![index].reactions!.reactionNumber == 0)
                           ? ''
                           : controller.events![index].reactions!.reactionNumber
-                              .toString(),
+                                .toString(),
                       style: AppStyles.styleRegular12(),
                     ),
                   ),

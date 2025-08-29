@@ -28,7 +28,7 @@ class StudentProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final items = <ListTileItemModel>[
       ListTileItemModel(
-        title: "profile_info_title".tr,
+        title: 'profile_info_title'.tr,
         assetName: AppAssets.iconEditProfile,
         onTap: () {
           Get.toNamed(
@@ -38,7 +38,7 @@ class StudentProfilePage extends StatelessWidget {
         },
       ),
       ListTileItemModel(
-        title: "Settings".tr,
+        title: 'Settings'.tr,
         assetName: AppAssets.iconChangePassword,
         onTap: () {
           Get.toNamed(AppRoutes.studentProfileSettings);
@@ -46,26 +46,26 @@ class StudentProfilePage extends StatelessWidget {
         icon: Icons.settings,
       ),
       ListTileItemModel(
-        title: "about".tr,
+        title: 'about'.tr,
         assetName: AppAssets.iconAbout,
         onTap: () {
           Get.toNamed(AppRoutes.studentProfileAbout);
         },
       ),
       ListTileItemModel(
-        title: "help".tr,
+        title: 'help'.tr,
         assetName: AppAssets.iconHelp,
         onTap: () {},
       ),
       ListTileItemModel(
-        title: "contact".tr,
+        title: 'contact'.tr,
         assetName: AppAssets.iconContact,
         onTap: () {
           Get.toNamed(AppRoutes.studentProfileContact);
         },
       ),
       ListTileItemModel(
-        title: "sign_out".tr,
+        title: 'sign_out'.tr,
         assetName: AppAssets.iconSignout,
         onTap: () async {
           await authController.logout();

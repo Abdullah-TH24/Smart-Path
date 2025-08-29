@@ -20,7 +20,7 @@ class BorrowServices {
   Future<void> borrowBook(String serialnum) async {
     final response = await Api().post(
       url: AppLinks.borrowBook,
-      body: {"serrial_number": serialnum},
+      body: {'serrial_number': serialnum},
       withToken: true,
     );
     if (response['status'] == true) {

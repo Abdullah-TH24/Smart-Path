@@ -34,10 +34,10 @@ class BooksCubit extends Cubit<BooksState> {
       emit(BooksLoading());
       final books = await _booksService.fetchBooks();
       final availableBooks = books.where((book) {
-        return !(book.bookStatus.contains("borrowed"));
+        return !(book.bookStatus.contains('borrowed'));
       }).toList();
 
-      log("Available books count: ${availableBooks.length}");
+      log('Available books count: ${availableBooks.length}');
       emit(BooksLoaded(availableBooks));
     } catch (e) {
       emit(BooksError(e.toString()));

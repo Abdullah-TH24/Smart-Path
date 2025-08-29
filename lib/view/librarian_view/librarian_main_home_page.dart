@@ -5,7 +5,7 @@ import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:smartpath/core/utils/app_assets.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:smartpath/models/student_model/bottom_bar_item_model.dart';
-import 'package:smartpath/view/librarian_view/librarian_add_book_page.dart';
+import 'package:smartpath/view/librarian_view/librarian_add_book_page_view.dart';
 import 'package:smartpath/view/librarian_view/librarian_home_page.dart';
 import 'package:smartpath/view/librarian_view/librarian_profile_page.dart';
 

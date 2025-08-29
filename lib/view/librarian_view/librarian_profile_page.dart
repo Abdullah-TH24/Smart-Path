@@ -28,14 +28,14 @@ class LibrarianProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final items = <ListTileItemModel>[
       ListTileItemModel(
-        title: "Settings".tr,
+        title: 'Settings'.tr,
         assetName: AppAssets.libSettings,
         onTap: () {
           Get.toNamed(LibrarianRoutes.settings);
         },
       ),
       ListTileItemModel(
-        title: "sign_out".tr,
+        title: 'sign_out'.tr,
         assetName: AppAssets.libSignout,
         onTap: () async {
           await authController.logout();

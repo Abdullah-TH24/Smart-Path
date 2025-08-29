@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
+import 'package:smartpath/core/utils/app_colors.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/widgets/student_widget/profile_widget/upper_waves_component.dart';
 
@@ -18,20 +19,19 @@ class AppBarComponent extends StatelessWidget {
     return SliverAppBar(
       pinned: true,
       expandedHeight: 80,
-      leading:
-          (enableLeading!)
-              ? IconButton(
-                onPressed: () {
-                  Get.back();
-                },
-                icon: Icon(
-                  (Get.locale?.languageCode ?? 'en') == 'en'
-                      ? LucideIcons.chevronLeft
-                      : LucideIcons.chevronRight,
-                  color: Colors.indigo,
-                ),
-              )
-              : null,
+      leading: (enableLeading!)
+          ? IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: Icon(
+                (Get.locale?.languageCode ?? 'en') == 'en'
+                    ? LucideIcons.chevronLeft
+                    : LucideIcons.chevronRight,
+                color: getColor().buttonText,
+              ),
+            )
+          : null,
       flexibleSpace: FlexibleSpaceBar(
         background: UpperWaves(),
         centerTitle: true,

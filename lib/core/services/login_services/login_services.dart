@@ -31,8 +31,8 @@ class LoginServices {
         prefs!.setString('token', data['token']);
         String optainRole(dynamic logINData) {
           if (logINData['role'] == 'other' &&
-              logINData["user_permission"].isNotEmpty) {
-            return logINData["user_permission"][0]["permission"]["permission"];
+              logINData['user_permission'].isNotEmpty) {
+            return logINData['user_permission'][0]['permission']['permission'];
           }
           return logINData['role'];
         }

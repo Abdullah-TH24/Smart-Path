@@ -78,13 +78,21 @@ class UserComplaintsPage extends StatelessWidget {
                                     MainAxisAlignment.spaceAround,
                                 children: [
                                   Text(
-                                    'Priority: ${state.complaints[index].priority}',
+                                    'Status: ${state.complaints[index].status}',
                                     style: AppStyles.styleRegular12(),
                                   ),
-                                  Text(
-                                    'Seen at: ${state.complaints[index].createdAt.toString().replaceRange(10, 24, '')}',
-                                    style: AppStyles.styleRegular12(),
-                                  ),
+                                  state.complaints[index].seenAt
+                                              .toString()
+                                              .split(' ')[0] !=
+                                          'null'
+                                      ? Text(
+                                          'Seen at: ${state.complaints[index].seenAt.toString().split(' ')[0]}',
+                                          style: AppStyles.styleRegular12(),
+                                        )
+                                      : Text(
+                                          'Not seen yet',
+                                          style: AppStyles.styleRegular12(),
+                                        ),
                                 ],
                               ),
                             ),

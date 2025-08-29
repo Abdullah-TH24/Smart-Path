@@ -23,7 +23,7 @@ class LibrarianHomePage extends StatelessWidget {
           delegate: MyCustomAppBarDelegate(
             expandedHeight: 180,
             collapsedHeight: 110,
-            studentName: "librarian",
+            studentName: 'librarian',
             imagePath: AppAssets.gredientBrownBackground,
             searchButton: const Color(0xff5e472c),
           ),

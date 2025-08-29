@@ -13,7 +13,7 @@ class GradesServices {
     try {
       final http.Response response = await http.post(
         Uri.parse(AppLinks.grades),
-        body: json.encode({"semester": semester, "type": type, "year": year}),
+        body: json.encode({'semester': semester, 'type': type, 'year': year}),
         headers: {
           'Authorization': 'Bearer $token',
           'Content-Type': 'application/json',

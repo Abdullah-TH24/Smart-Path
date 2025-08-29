@@ -40,9 +40,9 @@ class _ComplaintDialogState extends State<ComplaintDialog> {
     final newText = controller.text.trim();
     if (newText.isNotEmpty && newText != widget.complaint.complaint) {
       widget.cubit.editComplaint({
-        "complaint_id": widget.complaint.id,
-        "complaint": newText,
-        "category": widget.complaint.category,
+        'complaint_id': widget.complaint.id,
+        'complaint': newText,
+        'category': widget.complaint.category,
       });
       Get.back();
     }

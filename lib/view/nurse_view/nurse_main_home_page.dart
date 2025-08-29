@@ -21,7 +21,6 @@ int pageIndex = 1;
 class _NurseMainHomePageState extends State<NurseMainHomePage> {
   @override
   Widget build(BuildContext context) {
-    // Initial page at <home>
     final pages = [
       const NurseAllMedicalFilesPage(),
       const NurseAddMedicalFilePage(),
@@ -39,7 +38,7 @@ class _NurseMainHomePageState extends State<NurseMainHomePage> {
       ),
       BottomBarItemModel(
         icon: SvgPicture.asset(
-          AppAssets.iconHomeInactive,
+          AppAssets.nurseHome,
           colorFilter: ColorFilter.mode(Colors.grey[400]!, BlendMode.srcIn),
         ),
         title: Text('home'.tr),
@@ -61,7 +60,7 @@ class _NurseMainHomePageState extends State<NurseMainHomePage> {
         itemPadding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
         backgroundColor: Colors.indigo[50],
         curve: Curves.decelerate,
-        selectedItemColor: Colors.brown,
+        selectedItemColor: Colors.cyan,
         selectedColorOpacity: .25,
         itemShape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.circular(18),
@@ -70,7 +69,7 @@ class _NurseMainHomePageState extends State<NurseMainHomePage> {
         onTap: (page) => setState(() => pageIndex = page),
         items: List.generate(
           pages.length,
-          // <Icon, title and activeIcon> * 4
+
           (index) => SalomonBottomBarItem(
             icon: items[index].icon,
             title: items[index].title,

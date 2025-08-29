@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:smartpath/models/librarian_model/book_model.dart';
-import 'package:smartpath/view/librarian_view/librarian_add_book_page.dart';
-import 'package:smartpath/view/librarian_view/librarian_available_books_page.dart';
+import 'package:smartpath/view/librarian_view/librarian_add_book_page_view.dart';
+import 'package:smartpath/view/librarian_view/librarian_available_books_view.dart';
 import 'package:smartpath/view/librarian_view/librarian_books_page.dart';
 import 'package:smartpath/view/librarian_view/librarian_borrow_accepted_requests.dart';
 import 'package:smartpath/view/librarian_view/librarian_borrow_pending_requests.dart';

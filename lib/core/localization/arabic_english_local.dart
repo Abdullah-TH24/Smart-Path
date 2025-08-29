@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 class ArabicEnglishLocal implements Translations {
   @override
   Map<String, Map<String, String>> get keys => {
-    "en": {
-      'app_name': "Smart Path",
+    'en': {
+      'app_name': 'Smart Path',
       // For Auth
       'title_pin': 'Enter PIN',
       'desc_pin': 'Please enter your 4-digit PIN to\ncontinue.',
@@ -99,7 +99,7 @@ class ArabicEnglishLocal implements Translations {
       'contact': 'Contact',
       'sign_out': 'Sign Out',
       'title_page': 'Your Profile',
-      'profile_info_title': "Profile Info",
+      'profile_info_title': 'Profile Info',
       'class': 'Class',
       'status': 'Status',
       'school': 'School',
@@ -240,10 +240,10 @@ class ArabicEnglishLocal implements Translations {
       'Choose the schedule type': 'Choose the schedule type',
       'Download PDF': 'Download PDF',
       //complaints
-      "add_complaint": "Add Complaint",
-      "complaint": "Complaint",
-      "submit_complaint": "Submit Complaint",
-      "complaint_added_success": "Complaint submitted successfully",
+      'add_complaint': 'Add Complaint',
+      'complaint': 'Complaint',
+      'submit_complaint': 'Submit Complaint',
+      'complaint_added_success': 'Complaint submitted successfully',
       'success': 'Success',
       'delete_complaint_success': 'Complaint deleted successfully',
       'edit_complaint_success': 'Complaint updated successfully',
@@ -256,8 +256,8 @@ class ArabicEnglishLocal implements Translations {
       'absence': 'Absence',
       'Raise justification': 'Raise justification',
     },
-    "ar": {
-      'app_name': "المسار الذكي",
+    'ar': {
+      'app_name': 'المسار الذكي',
       // For Auth
       'title_pin': 'أدخل رقم التعريف\nالشخصي',
       'desc_pin': 'الرجاء إدخال رقم التعريف الشخصي\nالمكون من 4 أرقام للمتابعة',
@@ -352,7 +352,7 @@ class ArabicEnglishLocal implements Translations {
       'contact': 'اتصل بنا',
       'sign_out': 'تسجيل الخروج',
       'title_page': 'ملفك الشخصي',
-      'profile_info_title': "معلومات الملف الشخصي",
+      'profile_info_title': 'معلومات الملف الشخصي',
       'class': 'الصف',
       'status': 'الحالة',
       'school': 'المدرسة',
@@ -498,13 +498,13 @@ class ArabicEnglishLocal implements Translations {
       'expired': 'منتهي ',
 
       //complaints
-      "add_complaint": "إضافة شكوى",
-      "complaint": "الشكوى",
-      "submit_complaint": "إرسال الشكوى",
-      "complaint_added_success": "تم إرسال الشكوى بنجاح",
-      "success": "نجاح",
-      "complaint_sent": "تمت ارسال الشكوى بنجاح",
-      "delete_complaint_success": "تم حذف الشكوى",
+      'add_complaint': 'إضافة شكوى',
+      'complaint': 'الشكوى',
+      'submit_complaint': 'إرسال الشكوى',
+      'complaint_added_success': 'تم إرسال الشكوى بنجاح',
+      'success': 'نجاح',
+      'complaint_sent': 'تمت ارسال الشكوى بنجاح',
+      'delete_complaint_success': 'تم حذف الشكوى',
       'edit_complaint_success': 'تم تعديل الشكوى بنجاح',
       'edit_complaint': 'تعديل الشكوى',
       //

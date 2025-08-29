@@ -24,7 +24,7 @@ class LibrarianBorrowPendingRequests extends StatelessWidget {
     final DateTime now = DateTime.now();
     final DateTime dueDate = now.add(const Duration(days: 5));
     final String dueDateFormat =
-        "${dueDate.year}-${dueDate.month}-${dueDate.day}";
+        '${dueDate.year}-${dueDate.month}-${dueDate.day}';
     return Scaffold(
       body: BlocProvider(
         create: (context) =>

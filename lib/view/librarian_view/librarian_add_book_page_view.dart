@@ -48,13 +48,13 @@ class _AddBookPageState extends State<LibrarianAddBookPage> {
   Future _submitForm() async {
     if (_formKey.currentState!.validate()) {
       final bookData = {
-        "title": _titleController.text.trim(),
-        "author": _authorController.text.trim(),
-        "category": _categoryController.text.trim(),
-        "publisher": _publisherController.text.trim(),
-        "serrial_number": _serialNumberController.text.trim(),
-        "shelf_location": _shelfLocationController.text.trim(),
-        "description": _descriptionController.text.trim(),
+        'title': _titleController.text.trim(),
+        'author': _authorController.text.trim(),
+        'category': _categoryController.text.trim(),
+        'publisher': _publisherController.text.trim(),
+        'serrial_number': _serialNumberController.text.trim(),
+        'shelf_location': _shelfLocationController.text.trim(),
+        'description': _descriptionController.text.trim(),
       };
 
       // Optionally clear the form
