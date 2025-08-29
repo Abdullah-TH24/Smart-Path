@@ -12,8 +12,7 @@ import 'package:smartpath/core/utils/app_routes.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/main.dart';
 import 'package:smartpath/models/student_model/profile_model/list_tile_item_model.dart';
-import 'package:smartpath/view/librarian_view/utils/show_snackbar.dart';
-import 'package:smartpath/view/student_view/student_main_view.dart';
+import 'package:smartpath/view/librarian_view/librarian_main_home_page.dart';
 import 'package:smartpath/widgets/student_widget/profile_widget/profil_name_photo_row_component.dart';
 import 'package:smartpath/widgets/student_widget/profile_widget/profile_list_tile_item_component.dart';
 import 'package:smartpath/widgets/student_widget/profile_widget/upper_waves_component.dart';
@@ -71,7 +70,9 @@ class StudentProfilePage extends StatelessWidget {
         onTap: () async {
           await authController.logout();
           if (authController.errorMessage != null) {
-            showSnackbar('Error'.tr, authController.errorMessage!);
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(authController.errorMessage!)),
+            );
             return;
           }
           if (authController.response != null) {
