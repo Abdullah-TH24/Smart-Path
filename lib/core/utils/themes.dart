@@ -11,7 +11,7 @@ class Themes {
       ),
     ),
     appBarTheme: AppBarTheme(backgroundColor: Colors.indigo[50], elevation: 0),
-    filledButtonTheme: FilledButtonThemeData(
+    filledButtonTheme: FilledButtonThemeData( 
       style: FilledButton.styleFrom(backgroundColor: Colors.indigo[300]),
     ),
     // textTheme: GoogleFonts.montserratTextTheme(),

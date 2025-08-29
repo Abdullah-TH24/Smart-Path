@@ -3,9 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:smartpath/controller/student_controller/profile/settings/select_language_controller.dart';
+import 'package:smartpath/controller/student_controller/profile_controller/settings_controller/select_language_controller.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
-import 'package:smartpath/widgets/student/profile/settings/radio_component.dart';
+import 'package:smartpath/widgets/student_widget/profile_widget/settings/radio_component.dart';
 
 class LibSelectLang extends StatelessWidget {
   const LibSelectLang({super.key});

@@ -248,6 +248,13 @@ class ArabicEnglishLocal implements Translations {
       'delete_complaint_success': 'Complaint deleted successfully',
       'edit_complaint_success': 'Complaint updated successfully',
       'edit_complaint': 'edit complaint',
+      //
+      'Error': 'Error',
+      'Success': 'Success',
+      'Done': 'Done',
+      //
+      'absence': 'Absence',
+      'Raise justification': 'Raise justification',
     },
     "ar": {
       'app_name': "المسار الذكي",
@@ -500,6 +507,13 @@ class ArabicEnglishLocal implements Translations {
       "delete_complaint_success": "تم حذف الشكوى",
       'edit_complaint_success': 'تم تعديل الشكوى بنجاح',
       'edit_complaint': 'تعديل الشكوى',
+      //
+      'Error': 'خطأ',
+      'Success': 'نجاح',
+      'Done': 'تم',
+      //
+      'absence': 'غياب',
+      'Raise justification': 'ارفع تبرير',
     },
   };
 }

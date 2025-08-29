@@ -4,9 +4,9 @@ import 'package:get/get.dart';
 import 'package:smartpath/controller/auth_controller/auth_controller.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/main.dart';
-import 'package:smartpath/widgets/auth/fingerprint_auth_widget.dart';
-import 'package:smartpath/widgets/auth/pinput_widget.dart';
-import 'package:smartpath/widgets/login/logo_with_title_component.dart';
+import 'package:smartpath/widgets/auth_widget/fingerprint_auth_widget.dart';
+import 'package:smartpath/widgets/auth_widget/pinput_widget.dart';
+import 'package:smartpath/widgets/login_widget/logo_with_title_component.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});

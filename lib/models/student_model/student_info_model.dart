@@ -7,6 +7,7 @@ class StudentModel {
   String? phone;
   String? role;
   int? userId;
+  int? numAttendanceYears;
   ProfileData? profileData;
 
   StudentModel({
@@ -15,6 +16,7 @@ class StudentModel {
     this.phone,
     this.role,
     this.profileData,
+    this.numAttendanceYears
   });
 
   StudentModel.fromJson(Map<String, dynamic> json) {
@@ -24,6 +26,7 @@ class StudentModel {
     email = json['email'];
     phone = json['phone'];
     role = json['role'];
+    numAttendanceYears = json['profile_data']['number of attendance years'];
     profileData =
         json['profile_data'] != null
             ? ProfileData.fromJson(json['profile_data'])
