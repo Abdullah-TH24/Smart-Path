@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:get/utils.dart';
 import 'package:smartpath/controller/library_controller/books_cubits/books_cubit.dart';
 import 'package:smartpath/core/services/librarian_services/books_service.dart';
+import 'package:smartpath/core/utils/app_assets.dart';
+import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/view/librarian_view/utils/show_snackbar.dart';
 import 'package:smartpath/view/librarian_view/widgets/book_card.dart';
 import 'package:smartpath/view/librarian_view/widgets/book_details_bottom_sheet.dart';
@@ -28,10 +31,8 @@ class LibrarianBooksPage extends StatelessWidget {
                 if (state is BooksError) {
                   showSnackbar('error', state.message);
                 }
-                if (state is BooksLoaded) {
-                  if (state.books.isEmpty) {
-                    showSnackbar('info', 'no books');
-                  }
+                if (state is BooksEmpty) {
+                  showSnackbar('info', 'no books for this moment');
                 }
                 if (state is BookDeleted) {
                   showSnackbar('success', 'Book deleted successfully');
@@ -40,6 +41,17 @@ class LibrarianBooksPage extends StatelessWidget {
               builder: (context, state) {
                 if (state is BooksLoading) {
                   return const SliverLoadingIndicator();
+                } else if (state is BooksEmpty) {
+                  return SliverToBoxAdapter(
+                    child: Column(
+                      children: [
+                        Gap(MediaQuery.sizeOf(context).height * 0.2),
+                        Image.asset(AppAssets.noData2),
+                        const Gap(10),
+                        Text('no books', style: AppStyles.styleMedium20()),
+                      ],
+                    ),
+                  );
                 } else if (state is BooksLoaded) {
                   return SliverList(
                     delegate: SliverChildBuilderDelegate((context, index) {

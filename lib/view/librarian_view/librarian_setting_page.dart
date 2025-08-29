@@ -20,9 +20,9 @@ class _SettingsPageState extends State<LibrarianSettingPage> {
       body: CustomScrollView(
         slivers: [
           LibrarianWaveAppBar(title: 'Settings'.tr),
-          // Select Language
+
           const SliverToBoxAdapter(child: LibSelectLang()),
-          // Divider
+
           SliverToBoxAdapter(
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),

@@ -33,7 +33,6 @@ class LibrarianProfilePage extends StatelessWidget {
         onTap: () {
           Get.toNamed(LibrarianRoutes.settings);
         },
-        icon: Icons.settings,
       ),
       ListTileItemModel(
         title: "sign_out".tr,

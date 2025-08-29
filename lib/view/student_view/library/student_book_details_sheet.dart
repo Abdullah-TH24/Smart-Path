@@ -98,7 +98,7 @@ class StudentBookDetailsSheet extends StatelessWidget {
                         borrowCubit.borrowBook(result);
                       }
                     },
-                    icon: const Icon(LucideIcons.scan), // Lucide scanQR icon
+                    icon: const Icon(LucideIcons.scan),
                     label: Text('scan_to_borrow'.tr),
                   );
                 },

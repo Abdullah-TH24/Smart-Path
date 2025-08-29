@@ -11,7 +11,7 @@ class ComplaintCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 2,
-      margin: const EdgeInsets.all(8.0),
+      margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
       color: getColor().textField,
       shadowColor: getColor().buttonText.withValues(alpha: 0.2),
       child: ListTile(

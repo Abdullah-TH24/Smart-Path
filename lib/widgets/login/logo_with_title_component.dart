@@ -14,8 +14,8 @@ class LogoWithTitle extends StatelessWidget {
         // <Logo>
         Image.asset(
           AppAssets.pngLogo,
-          height: 62.06,
-          width: 52.01,
+          // height: 62.06,
+          // width: 52.01,
           color: Colors.indigo,
           colorBlendMode: BlendMode.srcIn,
         ),

@@ -12,7 +12,7 @@ class SliverLoadingIndicator extends StatelessWidget {
       child: SizedBox(
         height: MediaQuery.of(context).size.height * 0.6,
         child: Center(
-          child: SpinKitFadingCube(
+          child: SpinKitSpinningLines(
             color: color ?? getColor().buttonText.withValues(alpha: 0.7),
           ),
         ),

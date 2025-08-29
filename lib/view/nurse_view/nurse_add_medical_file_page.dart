@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+import 'package:smartpath/controller/login_controller/logout_controller.dart';
 import 'package:smartpath/controller/nurse_controller/cubit/medical_file_cubit.dart';
 import 'package:smartpath/core/services/nurse_services/medical_files_services.dart';
 import 'package:smartpath/core/utils/app_colors.dart';
@@ -63,11 +64,19 @@ class _NurseAddMedicalFilePageState extends State<NurseAddMedicalFilePage> {
                     customTextField("Nurse ID", nurseIdController),
                     customTextField("Record Date", recordDateController),
                     customTextField("Record Type", recordTypeController),
-                    customTextField("Description", descriptionController),
-                    customTextField("Treatment", treatmentController),
-                    customTextField("Notes", notesController),
                     customTextField("Follow Up", followUpController),
                     customTextField("Follow Up Date", followUpDateController),
+                    customTextField(
+                      "Description",
+                      descriptionController,
+                      maxLines: 2,
+                    ),
+                    customTextField(
+                      "Treatment",
+                      treatmentController,
+                      maxLines: 2,
+                    ),
+                    customTextField("Notes", notesController, maxLines: 2),
 
                     Text(
                       "Severity".tr,

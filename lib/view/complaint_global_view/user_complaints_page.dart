@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/controller/global/complaints_controller/complaints_cubit.dart';
 import 'package:smartpath/core/services/global/complaint_service.dart';
 import 'package:smartpath/core/utils/app_assets.dart';
 import 'package:smartpath/core/utils/app_colors.dart';
+import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/view/complaint_global_view/widgets/complaint_card_widget.dart';
 import 'package:smartpath/view/complaint_global_view/widgets/complaint_dialog_widget.dart';
 import 'package:smartpath/view/librarian_view/utils/show_snackbar.dart';
@@ -54,8 +56,40 @@ class UserComplaintsPage extends StatelessWidget {
                             ),
                           );
                         },
-                        child: ComplaintCardWidget(
-                          title: state.complaints[index].category,
+                        child: Column(
+                          children: [
+                            ComplaintCardWidget(
+                              title: state.complaints[index].category,
+                            ),
+                            Container(
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 18,
+                              ),
+                              height: 60,
+                              decoration: BoxDecoration(
+                                borderRadius: const BorderRadius.only(
+                                  bottomLeft: Radius.circular(12),
+                                  bottomRight: Radius.circular(12),
+                                ),
+                                color: getColor().snackBarColor,
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Text(
+                                    'Priority: ${state.complaints[index].priority}',
+                                    style: AppStyles.styleRegular12(),
+                                  ),
+                                  Text(
+                                    'Seen at: ${state.complaints[index].createdAt.toString().replaceRange(10, 24, '')}',
+                                    style: AppStyles.styleRegular12(),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const Gap(12),
+                          ],
                         ),
                       );
                     },

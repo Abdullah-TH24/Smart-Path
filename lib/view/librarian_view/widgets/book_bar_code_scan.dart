@@ -37,7 +37,7 @@ class _BookBarCodeScanState extends State<BookBarCodeScan> {
             },
           ),
         );
-        log(result);
+        // log(result);
         if (result != null) {
           context.read<BarcodeCubit>().setBarcode(result);
         }

@@ -17,6 +17,7 @@ void navigateAfterLogin() {
       Get.offAllNamed(NurseRoutes.mainHome);
       break;
     case 'library':
+    case 'supervisor':
       Get.offAllNamed(LibrarianRoutes.mainHome);
       break;
     default:

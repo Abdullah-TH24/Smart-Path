@@ -93,44 +93,45 @@ class StudentProfilePage extends StatelessWidget {
             : (controller.errorMessage != null)
             ? Center(child: Image.asset(AppAssets.noInternet))
             : Scaffold(
-              body: CustomScrollView(
-                slivers: [
-                  // Curve appbar with title of the page
-                  SliverAppBar(
-                    pinned: true,
-                    expandedHeight: 80,
-                    flexibleSpace: FlexibleSpaceBar(
-                      background: UpperWaves(),
-                      titlePadding: const EdgeInsets.only(
-                        left: 16,
-                        bottom: 8,
-                        right: 16,
-                      ),
-                      title: Text(
-                        'title_page'.tr,
-                        style: AppStyles.styleMedium14().copyWith(
-                          fontWeight: FontWeight.w600,
+                body: CustomScrollView(
+                  slivers: [
+                    // Curve appbar with title of the page
+                    SliverAppBar(
+                      pinned: true,
+                      expandedHeight: 80,
+                      flexibleSpace: FlexibleSpaceBar(
+                        background: UpperWaves(),
+                        titlePadding: const EdgeInsets.only(
+                          left: 16,
+                          bottom: 8,
+                          right: 16,
+                        ),
+                        title: Text(
+                          'title_page'.tr,
+                          style: AppStyles.styleMedium14().copyWith(
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  // Student Info<image, <hi> word, name>
-                  SliverToBoxAdapter(
-                    child: Column(
-                      children: [
-                        const Gap(12),
-                        ProfileNamePhotoRow(
-                          studentName:
-                              '${controller.studentInfo!.fullName!.split(' ')[0][0].toUpperCase()}${controller.studentInfo!.fullName!.split(' ')[0].substring(1)} ${controller.studentInfo!.fullName!.split(' ')[2][0].toUpperCase()}${controller.studentInfo!.fullName!.split(' ')[2].substring(1)}',
-                        ),
-                        const Gap(32),
-                        ...items.map((e) => ProfileListTileItem(item: e)),
-                      ],
+                    // Student Info<image, <hi> word, name>
+                    SliverToBoxAdapter(
+                      child: Column(
+                        children: [
+                          const Gap(12),
+                          ProfileNamePhotoRow(
+                            studentName:
+                                '${controller.studentInfo!.fullName!.split(' ')[0][0].toUpperCase()}${controller.studentInfo!.fullName!.split(' ')[0].substring(1)} ${controller.studentInfo!.fullName!.split(' ')[2][0].toUpperCase()}${controller.studentInfo!.fullName!.split(' ')[2].substring(1)}',
+                          ),
+                          const Gap(32),
+                          ...items.map((e) => ProfileListTileItem(item: e)),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            );
+                    SliverToBoxAdapter(child: const Gap(100)),
+                  ],
+                ),
+              );
       },
     );
   }

@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:smartpath/controller/localization_controller/localization_controller.dart';
 import 'package:smartpath/core/utils/app_assets.dart';
+import 'package:smartpath/core/utils/app_colors.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
 
 class AppBarAfterScroll extends StatelessWidget {
@@ -22,12 +23,11 @@ class AppBarAfterScroll extends StatelessWidget {
         children: [
           Image(
             image: const AssetImage(AppAssets.pngLogo),
-            width: 30,
+            width: 70,
             colorBlendMode: BlendMode.srcIn,
-            color:
-                (Get.locale?.languageCode ?? 'en') == 'en'
-                    ? Colors.indigo
-                    : Colors.indigo[100],
+            color: (Get.locale?.languageCode ?? 'en') == 'en'
+                ? getColor().buttonText
+                : getColor().buttonText.withValues(alpha: 0.7),
           ),
           const Gap(12),
           Text(
@@ -51,16 +51,15 @@ class AppBarAfterScroll extends StatelessWidget {
           icon: Icon(
             LucideIcons.bell,
             size: 20,
-            shadows:
-                (Get.locale?.languageCode ?? 'en') == 'en'
-                    ? null
-                    : [
-                      const BoxShadow(
-                        color: Colors.black,
-                        blurRadius: 7.5,
-                        offset: Offset(1, 1),
-                      ),
-                    ],
+            shadows: (Get.locale?.languageCode ?? 'en') == 'en'
+                ? null
+                : [
+                    const BoxShadow(
+                      color: Colors.black,
+                      blurRadius: 7.5,
+                      offset: Offset(1, 1),
+                    ),
+                  ],
           ),
         ),
       ],

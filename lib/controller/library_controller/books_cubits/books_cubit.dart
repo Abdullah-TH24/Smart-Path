@@ -18,9 +18,13 @@ class BooksCubit extends Cubit<BooksState> {
     try {
       emit(BooksLoading());
       final books = await _booksService.fetchBooks();
-      log(books[0].title);
+      if (books.isEmpty) {
+        emit(BooksEmpty());
+        return;
+      }
       emit(BooksLoaded(books));
     } catch (e) {
+      log(e.toString());
       emit(BooksError(e.toString()));
     }
   }
@@ -46,6 +50,7 @@ class BooksCubit extends Cubit<BooksState> {
       await _booksService.addBook(bookdata);
       emit(BookAdded());
     } catch (e) {
+      log(e.toString());
       emit(BooksError(e.toString()));
     }
   }

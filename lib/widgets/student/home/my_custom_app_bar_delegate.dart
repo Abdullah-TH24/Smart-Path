@@ -48,10 +48,9 @@ class MyCustomAppBarDelegate extends SliverPersistentHeaderDelegate {
             ),
           ),
         ),
-        // Logo with tille and actions
+        // Logo with tille
         AppBarAfterScroll(),
-        // --- Layer 2: The Content That Fades Away ---
-        // This is the content from your old `flexibleSpace.child`
+
         Positioned(
           bottom: 35,
           width: width,
@@ -62,7 +61,7 @@ class MyCustomAppBarDelegate extends SliverPersistentHeaderDelegate {
             ),
           ),
         ),
-        // --- Layer 1: Search bar widget ---
+        //search ba
         Positioned(
           bottom: -22.5,
           right: 24,

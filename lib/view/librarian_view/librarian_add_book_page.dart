@@ -4,6 +4,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gap/gap.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:smartpath/controller/library_controller/books_cubits/bar_code_cubit.dart';
 import 'package:smartpath/controller/library_controller/books_cubits/books_cubit.dart';
@@ -142,6 +143,7 @@ class _AddBookPageState extends State<LibrarianAddBookPage> {
                           );
                         },
                       ),
+                      Gap(MediaQuery.sizeOf(context).height * 0.1),
                     ],
                   ),
                 ),

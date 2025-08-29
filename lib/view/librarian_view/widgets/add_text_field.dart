@@ -27,16 +27,14 @@ Widget customTextField(
                 borderRadius: BorderRadius.circular(12),
               ),
             ),
-            validator:
-                (value) =>
-                    value == null || value.isEmpty
-                        ? '${'required_field'.tr} : $label'
-                        : null,
+            validator: (value) => value == null || value.isEmpty
+                ? '${'required_field'.tr} : $label'
+                : null,
           ),
         ),
       ),
       scan == null ? const Gap(0) : const Gap(16),
-      // ?scan,
+      ?scan,
     ],
   );
 }

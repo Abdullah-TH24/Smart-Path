@@ -22,6 +22,7 @@ class LoginMiddleware extends GetMiddleware {
         case 'nurse':
           return const RouteSettings(name: NurseRoutes.mainHome);
         case 'library':
+        case 'supervisor':
           return const RouteSettings(name: LibrarianRoutes.mainHome);
         default:
           return null;

@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print, prefer_final_locals
 
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 import 'package:smartpath/main.dart';
@@ -63,7 +64,7 @@ class Api {
       body: jsonEncode(body),
       headers: headers,
     );
-
+    log(response.body);
     if (response.statusCode == 200 || response.statusCode == 201) {
       print(jsonDecode(response.body));
       print(response.statusCode);

@@ -15,6 +15,8 @@ class BooksLoaded extends BooksState {
 
 class BookAdded extends BooksState {}
 
+class BooksEmpty extends BooksState {}
+
 class BookUpdated extends BooksState {}
 
 class BookDeleted extends BooksState {}
