@@ -90,17 +90,17 @@ class LibrarianRoutes {
       page: () => const LibrarianBorrowedBooksManagmentPage(),
     ),
     GetPage(
-      name: LibrarianRoutes.complaints,
+      name: complaints,
       transition: Transition.cupertinoDialog,
       page: () => const SendComplaintPage(),
     ),
     GetPage(
-      name: LibrarianRoutes.userComplaints,
+      name: userComplaints,
       transition: Transition.cupertinoDialog,
       page: () => const UserComplaintsPage(),
     ),
     GetPage(
-      name: LibrarianRoutes.settings,
+      name: settings,
       transition: Transition.cupertinoDialog,
       page: () => const LibrarianSettingPage(),
     ),

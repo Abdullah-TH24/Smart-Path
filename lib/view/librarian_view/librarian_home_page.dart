@@ -16,8 +16,6 @@ class LibrarianHomePage extends StatelessWidget {
       assetName: AppAssets.iconBooks,
       title: 'lib_grid_1'.tr,
       onTap: () {
-        // dynamic data = await GetBooksService().fetchBooks();
-        // log(data[1].serialNumber + " " + data[0].serialNumber);
         Get.toNamed(LibrarianRoutes.books);
       },
     ),

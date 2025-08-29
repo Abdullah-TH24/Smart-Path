@@ -29,11 +29,19 @@ class LoginServices {
       final translatedMessage = ApiMessageTranslator.translate(data['message']);
       if (response.statusCode == 200) {
         prefs!.setString('token', data['token']);
-        prefs!.setString('role', data['data']['user']['role']);
+        String optainRole(dynamic logINData) {
+          if (logINData['role'] == 'other' &&
+              logINData["user_permission"].isNotEmpty) {
+            return logINData["user_permission"][0]["permission"]["permission"];
+          }
+          return logINData['role'];
+        }
+
+        prefs!.setString('role', optainRole(data['data']['user']));
         return UserModel.fromJson({
           'status': data['status'],
           'message': translatedMessage,
-          'role': data['data']['user']['role'],
+          'role': optainRole(data['data']['user']),
         });
       } else {
         return UserModel.fromJson({
