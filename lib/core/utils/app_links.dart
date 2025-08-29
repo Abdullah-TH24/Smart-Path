@@ -68,6 +68,16 @@ abstract class AppLinks {
   static final String borrowBook = '$_mainLink/borrow/';
   static final String modifyBorrow = '$_mainLink/modifyBorrow/';
 
+  //nurse api's
+  static final String getMedicalFiles = '$_mainLink/getMedicalFiles';
+  static final String addMedicalFile = '$_mainLink/addMedicalFile';
+  static final String updateMedicalFile = '$_mainLink/updateMedicalFile';
+  static final String deleteMedicalFile = '$_mainLink/deleteMedicalFile';
+  //for searching
+  static final String getAllStudents = '$_mainLink/showAllStudents';
+  //this for student
+  static final String getMyMedicalFiles = '$_mainLink/getMyMedicalFiles';
+
   //global api's
   static final String sendComplaint = '$_mainLink/addComplaint';
   static final String getUserComplaints = '$_mainLink/getMyComplaints';

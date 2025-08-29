@@ -48,7 +48,7 @@ class LibrarianBooksPage extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 12),
                         child: GestureDetector(
                           onTap: () {
-                            //show book details in bottom sheet with ok button and edit button on the bottom
+                            //show book details in bottom sheet
                             showModalBottomSheet(
                               context: context,
                               builder: (_) {

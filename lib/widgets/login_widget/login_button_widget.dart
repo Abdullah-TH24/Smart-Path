@@ -5,11 +5,12 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/controller/localization_controller/localization_controller.dart';
 import 'package:smartpath/controller/login_controller/login_controller.dart';
-import 'package:smartpath/core/utils/app_routes.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/view/librarian_view/utils/librarian_routes.dart';
 import 'package:smartpath/view/librarian_view/utils/show_snackbar.dart';
 import 'package:smartpath/view/teacher_view/teacher_routes.dart';
+import 'package:smartpath/widgets/login_widget/button_component.dart';
+import 'package:smartpath/core/utils/navigation_helper.dart';
 import 'package:smartpath/widgets/login_widget/button_component.dart';
 
 class LoginButton extends StatelessWidget {
@@ -48,14 +49,7 @@ class LoginButton extends StatelessWidget {
                     }
                     if (controller.response != null) {
                       if (controller.response?.status == true) {
-                        if (controller.response?.role == 'student') {
-                          Get.offAllNamed(AppRoutes.studentMainPageRoute);
-                        } else if (controller.response?.role == 'teacher') {
-                          // TODO put your navigator here
-                          Get.offAllNamed(TeacherRoutes.profile);
-                        } else if (controller.response?.role == 'supervisor') {
-                          Get.offAllNamed(LibrarianRoutes.mainHome);
-                        }
+                        navigateAfterLogin();
                       } else {
                         showSnackbar('Error'.tr, controller.response!.message);
                       }

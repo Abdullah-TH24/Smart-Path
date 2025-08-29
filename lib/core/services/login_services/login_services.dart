@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:http/http.dart' as http;
 import 'package:smartpath/core/localization/api_translate.dart';
 import 'package:smartpath/core/utils/app_links.dart';
@@ -9,21 +10,38 @@ import 'package:smartpath/models/login_model/send_forget_password_model.dart';
 import 'package:smartpath/models/login_model/user_model.dart';
 
 class LoginServices {
+  String? messaging;
+
   Future<UserModel?> login(String email, String password) async {
+    messaging = await FirebaseMessaging.instance.getToken();
+    log(messaging!);
     try {
       final response = await http.post(
         Uri.parse(AppLinks.login),
-        body: {'email': email, 'password': password, 'deviceType': 'mobile'},
+        body: {
+          'email': email,
+          'password': password,
+          'deviceType': 'mobile',
+          'fcmToken': messaging,
+        },
       );
       final data = json.decode(response.body);
       final translatedMessage = ApiMessageTranslator.translate(data['message']);
       if (response.statusCode == 200) {
         prefs!.setString('token', data['token']);
-        prefs!.setString('role', data['data']['user']['role']);
+        String optainRole(dynamic logINData) {
+          if (logINData['role'] == 'other' &&
+              logINData["user_permission"].isNotEmpty) {
+            return logINData["user_permission"][0]["permission"]["permission"];
+          }
+          return logINData['role'];
+        }
+
+        prefs!.setString('role', optainRole(data['data']['user']));
         return UserModel.fromJson({
           'status': data['status'],
           'message': translatedMessage,
-          'role': data['data']['user']['role'],
+          'role': optainRole(data['data']['user']),
         });
       } else {
         return UserModel.fromJson({

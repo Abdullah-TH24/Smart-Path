@@ -61,7 +61,7 @@ class LoginForm extends StatelessWidget {
                     controller.hidePassword();
                   }
                 },
-                validator: (value) => verifyPassword(value, value!.length),
+                // validator: (value) => verifyPassword(value, value!.length),
                 icon: Icon(controller.icon, color: Colors.indigo[400]),
                 obscureText: controller.obscureText,
               );
