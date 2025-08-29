@@ -100,7 +100,7 @@ class _LibrarianUpdateBookPageState extends State<LibrarianUpdateBookPage> {
                         child: customTextField(
                           'serial_number'.tr,
                           _serialNumberController,
-                          scan: BookBarCodeScan(),
+                          scan: const BookBarCodeScan(),
                         ),
                       ),
                       customTextField('title'.tr, _titleController),

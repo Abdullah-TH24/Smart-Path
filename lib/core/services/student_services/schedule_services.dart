@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:smartpath/core/utils/app_links.dart';
-import 'package:smartpath/models/student_model/home/weekly_schedule_model.dart';
+import 'package:smartpath/models/student_model/home_model/weekly_schedule_model.dart';
 
 class ScheduleServices {
   Future<List<WeeklyScheduleModel>?> getStudentWeeklySchedule(

@@ -5,17 +5,17 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:smartpath/controller/localization_controller/localization_controller.dart';
 import 'package:smartpath/controller/login_controller/logout_controller.dart';
-import 'package:smartpath/controller/student_controller/home/home_page_controller.dart';
+import 'package:smartpath/controller/student_controller/home_controller/home_page_controller.dart';
 import 'package:smartpath/core/utils/app_assets.dart';
 import 'package:smartpath/core/utils/app_routes.dart';
 import 'package:smartpath/main.dart';
-import 'package:smartpath/models/student_model/profile/list_tile_item_model.dart';
+import 'package:smartpath/models/student_model/profile_model/list_tile_item_model.dart';
 import 'package:smartpath/view/librarian_view/utils/librarian_routes.dart';
 import 'package:smartpath/view/librarian_view/utils/show_snackbar.dart';
 import 'package:smartpath/view/librarian_view/widgets/librarian_wave_app_bar.dart';
-import 'package:smartpath/view/student_view/student_main_page.dart';
-import 'package:smartpath/widgets/student/profile/profil_name_photo_row_component.dart';
-import 'package:smartpath/widgets/student/profile/profile_list_tile_item_component.dart';
+import 'package:smartpath/view/student_view/student_main_view.dart';
+import 'package:smartpath/widgets/student_widget/profile_widget/profil_name_photo_row_component.dart';
+import 'package:smartpath/widgets/student_widget/profile_widget/profile_list_tile_item_component.dart';
 
 class LibrarianProfilePage extends StatelessWidget {
   LibrarianProfilePage({super.key});

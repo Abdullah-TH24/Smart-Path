@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:smartpath/core/utils/app_links.dart';
-import 'package:smartpath/models/student_model/home/grades_model.dart';
+import 'package:smartpath/models/student_model/home_model/grades_model.dart';
 
 class GradesServices {
   Future<List<GradesModel>?> getGrades(

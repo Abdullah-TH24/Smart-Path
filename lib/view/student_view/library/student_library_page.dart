@@ -12,7 +12,7 @@ import 'package:smartpath/main.dart';
 import 'package:smartpath/view/librarian_view/utils/show_snackbar.dart';
 import 'package:smartpath/view/student_view/library/student_book_card.dart';
 import 'package:smartpath/view/student_view/library/student_book_details_sheet.dart';
-import 'package:smartpath/widgets/student/home/calendar/app_bar_component.dart';
+import 'package:smartpath/widgets/student_widget/home_widget/calendar_widget/app_bar_component.dart';
 
 class StudentLibraryPage extends StatelessWidget {
   const StudentLibraryPage({super.key});

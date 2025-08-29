@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
 import 'package:smartpath/core/utils/app_links.dart';
-import 'package:smartpath/models/student_model/home/student_model.dart';
-import 'package:smartpath/models/student_model/home/teacher_model.dart';
+import 'package:smartpath/models/student_model/home_model/student_model.dart';
+import 'package:smartpath/models/student_model/home_model/teacher_model.dart';
 
 class ClassServices {
   Future<Map<String, List>?> getStudentTeachersAndMates(String token) async {
@@ -13,7 +13,7 @@ class ClassServices {
         headers: {'Authorization': 'Bearer $token'},
       );
       if (response.statusCode == 200) {
-        log('${response.body}');
+        log(response.body);
         final List teachersData = json.decode(response.body)['teachers'];
         final List<TeacherModel> teachers = [];
         for (var i = 0; i < teachersData.length; i++) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
 import 'package:smartpath/core/utils/app_colors.dart';
-import 'package:smartpath/widgets/student/profile/upper_waves_component.dart';
+import 'package:smartpath/widgets/student_widget/profile_widget/upper_waves_component.dart';
 
 class LibrarianWaveAppBar extends StatelessWidget {
   final dynamic title;

@@ -64,9 +64,9 @@ class EventsServices {
       final http.Response response = await http.post(
         Uri.parse(AppLinks.addComments),
         body: {
-          "event_id": id.toString(),
-          "content": content,
-          if (parentId != null) "parent_id": parentId.toString(),
+          'event_id': id.toString(),
+          'content': content,
+          if (parentId != null) 'parent_id': parentId.toString(),
         },
         headers: {'Authorization': 'Bearer $token'},
       );
@@ -103,7 +103,7 @@ class EventsServices {
     try {
       final http.Response response = await http.post(
         Uri.parse('${AppLinks.editComments}/$commentId'),
-        body: {"content": content},
+        body: {'content': content},
         headers: {'Authorization': 'Bearer $token'},
       );
       if (response.statusCode == 200) {
@@ -126,9 +126,9 @@ class EventsServices {
       final http.Response response = await http.post(
         Uri.parse(AppLinks.addReaction),
         body: {
-          "reaction": reaction,
-          "reactable_id": reactableId.toString(),
-          "reactable_type": reactableType,
+          'reaction': reaction,
+          'reactable_id': reactableId.toString(),
+          'reactable_type': reactableType,
         },
         headers: {'Authorization': 'Bearer $token'},
       );
@@ -152,13 +152,12 @@ class EventsServices {
       final http.Response response = await http.post(
         Uri.parse(AppLinks.getReactions),
         body: {
-          "reactable_id": reactableId.toString(),
-          "reactable_type": reactableType,
+          'reactable_id': reactableId.toString(),
+          'reactable_type': reactableType,
         },
         headers: {'Authorization': 'Bearer $token'},
       );
       if (response.statusCode == 200) {
-        log(response.body);
         final List data = json.decode(response.body)['message'];
         final List<AllReactionsModel> allReactions = [];
         for (var i = 0; i < data.length; i++) {
@@ -166,11 +165,9 @@ class EventsServices {
         }
         return allReactions;
       } else {
-        log('else');
         return [];
       }
     } catch (e) {
-      log('null $e');
       return null;
     }
   }
@@ -183,7 +180,7 @@ class EventsServices {
     try {
       final http.Response response = await http.post(
         Uri.parse(AppLinks.reportComment),
-        body: {"comment_id": commentId.toString(), "reason": reason},
+        body: {'comment_id': commentId.toString(), 'reason': reason},
         headers: {'Authorization': 'Bearer $token'},
       );
       final translatedMessage = ApiMessageTranslator.translate(

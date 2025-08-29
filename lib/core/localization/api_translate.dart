@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 class ApiMessageTranslator {
   static final Map<String, Map<String, String>> messages = {
-    'email or password is incorrect !! ': {
+    'Email & Password does not match with our record.': {
       'ar': 'كلمة المرور غير صحيحة !',
       'en': 'password is incorrect !',
     },

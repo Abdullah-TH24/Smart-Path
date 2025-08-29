@@ -1,5 +1,6 @@
 abstract class AppLinks {
   // Should be edit
+
   static final String _ip = '10.40.166.203';
 
   static final String _mainLink = 'http://$_ip:8000/api';
@@ -52,6 +53,10 @@ abstract class AppLinks {
   static final String classes = '$_mainLink/getStudentTeachersAndMates';
 
   // static final String examSchedule = '$_mainLink/... TODO';
+
+  static final String attendance = '$_mainLink/getStudentAbsenceDates';
+
+  static final String uploadJustification = '$_mainLink/uploadJustification';
 
   //librarian api's
   static final String getBooks = '$_mainLink/showBooks';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:smartpath/models/student_model/home/grid_item_model.dart';
+import 'package:smartpath/models/student_model/home_model/grid_item_model.dart';
 import 'package:smartpath/core/utils/app_styles.dart';
 
 class LibrarianHomeGridView extends StatelessWidget {
